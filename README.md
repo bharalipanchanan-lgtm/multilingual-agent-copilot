@@ -24,7 +24,6 @@ To run without the LLM (quotes the best matching clauses verbatim, useful as a f
 Fetch the models (resumable curl, about 8 GB in total) into models/:
 
     ./fetch_models.sh BAAI/bge-m3 mlx-community/Qwen2.5-7B-Instruct-4bit mlx-community/Qwen2.5-3B-Instruct-4bit
-    touch models/bge-m3/.fetched models/Qwen2.5-7B-Instruct-4bit/.fetched models/Qwen2.5-3B-Instruct-4bit/.fetched
 
 The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in testing (it said pre-existing diabetes is covered without a waiting period), so do not demo with it.
 

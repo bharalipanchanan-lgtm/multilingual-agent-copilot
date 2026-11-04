@@ -18,5 +18,5 @@ for s in json.load(sys.stdin)['siblings']:
       echo "retry $f ($try)"; sleep 2
     done
   done
-  echo "FETCHED $repo"
+  touch "$dest/.fetched"; echo "FETCHED $repo"
 done
