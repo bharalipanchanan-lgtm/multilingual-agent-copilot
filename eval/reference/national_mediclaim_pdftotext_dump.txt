@@ -1,0 +1,399 @@
+--- chunk 0 | physical page 4 | printed page 1 | text | section: 
+National Insurance Company Limited Regd. Office 3, Middleton Street, Post Box 9229, Kolkata 700 071 CIN - U10200WB1906GOI001713 IRDA Regn. No. - 58 Issuing Office National Mediclaim Policy
+
+--- chunk 1 | physical page 4 | printed page 1 | text | section: 1 Recital clause
+Whereas the insured person designated in the schedule hereto has by a proposal and declaration, dated as stated in the schedule, which shall be the basis of this contract and is deemed to be incorporated herein, has applied to National Insurance Company Ltd., (herein after called the company) for the insurance herein after set forth in respect of person(s) named in the schedule hereto (herein after called the insured person) and has paid premium as consideration for such insurance.
+
+--- chunk 2 | physical page 4 | printed page 1 | text | section: 2 Operative clause
+Now the policy witnesses that, subject to the terms, definition, exclusions and conditions contained herein or endorsed or otherwise expressed hereon, the company undertakes that if during the policy period stated in the schedule or during the continuance of the policy by renewal, any insured person shall contract any disease or suffer any illness (herein after called disease) or sustain any bodily injury due to an accident (herein after called injury) and if such disease or injury shall require any such insured person, upon the advice of a duly qualified medical practitioner to be hospitalised for treatment at any hospital/nursing home (herein after called hospital) in India as an inpatient, the company will pay to the hospital or reimburse the insured person, the amount of such expenses described below, reasonably, customarily and necessarily incurred in respect thereof by or on behalf of such insured person but not exceeding the sum insured for the insured person in respect of all such claims, during the policy period. Coverage
+
+--- chunk 3 | physical page 4 | printed page 1 | text | section: 2.1 Room charges
+Room, boarding including nursing care, RMO charges, administration charges for IV fluids/blood transfusion/injection. Room charges Limit: 1% of sum insured per day subject to maximum of ₹5,000. If admitted in intensive care unit (ICU) - 2% of sum insured per day subject to maximum of ₹10,000. Maximum limit under Section 2.1 for any one illness - 25% of sum insured
+
+--- chunk 4 | physical page 4 | printed page 1 | text | section: 2.2 Medical practitioner’s fees
+Surgeon, anaesthetist, medical practitioner, consultants, specialist’s fees. Maximum limit under Section 2.2 for any one illness -25% of sum insured
+
+--- chunk 5 | physical page 4 | printed page 1 | text | section: 2.3 Others
+i. Anaesthesia, blood, oxygen, operation theatre charges ii. Surgical appliances iii. Medicines, drugs iv. Diagnostic test v. Pacemaker, artificial limbs, stent and implant vi. Dialysis vii. Chemotherapy viii. Radiotherapy ix. Hospitalisation expense for organ donor’s treatment during the course of organ transplant provided that a. The donation conforms to The Transplantation of Human Organs Act 1994 and the organ is for the use of the insured person b. The insured person has been medically advised to undergo an organ transplant x. Reimbursement of ambulance charges - 1% of sum insured subject to a maximum of ₹2,000/- in a policy period Maximum limit under Section 2.3 for any one illness- 50% of sum insured Ayurveda and Homeopathy Expenses incurred for Ayurveda and Homeopathy treatment are admissible up to 20% of the sum insured for any one illness. Sub limit (as mentioned in 2.1, 2.2, and 2.3) will not apply in case of i. Hospitalisation in a preferred provider network (PPN) ii. Ayurveda and Homeopathy treatment
+
+--- chunk 6 | physical page 5 | printed page 2 | text | section: 2.4.1 Cumulative bonus(CB)
+Sum insured (excluding CB) will be increased by 5% in respect of each claim free policy period (no claims are reported), provided the policy is continuously renewed with the company without a break subject to maximum of 50% of the sum insured (excluding CB) under the current policy period. In case of claim under the policy in respect of insured person who has earned the CB, the increased percentage (CB) will be reduced by 5% of sum insured (excluding CB) on the next renewal. However sum insured (excluding CB) will be maintained and not be reduced.
+
+--- chunk 7 | physical page 5 | printed page 2 | text | section: 2.4.2 Health checkup
+Expenses of health checkup will be reimbursed once at the end of a block of four continuous policy periods provided no claims are reported during the block and the policy has been continuously renewed with the company without a break. Expenses payable is a maximum of 1% of the average sum insured (excluding CB) of the block. Claim for health checkup benefits may be lodged at least 45 days before the expiry of the fifth policy period.
+
+--- chunk 8 | physical page 5 | printed page 2 | text | section: 3 Definition
+3.1 Accident means a sudden, unforeseen and involuntary event caused by external, visible and violent means. 3.2 Alternative treatment means forms of treatments other than "Allopathy" or "modem medicine" and includes Ayurveda, Unani, Sidha and Homeopathy in the Indian context. 3.3 Any one illness means continuous period of illness and it includes relapse within 45 days from the date of last consultation with the hospital/nursing home where treatment has been taken. 3.4 Break in policy occurs at the end of the existing policy period when the premium due on a given policy is not paid on or before the renewal date or within 30 days of grace period. 3.5 Cashless facility means a facility extended by the company to the insured person where the payment of the cost of treatment undergone by the insured person in accordance with the policy terms and conditions, is directly made to the network provider by the company to the extent of pre-authorization approval
+
+--- chunk 9 | physical page 5 | printed page 2 | text | section: 3 Definition
+3.6 Contract means the prospectus, proposal, policy, policy schedule, and declaration given by the insured person. Any alteration in the contract can be made with the mutual consent of the insured person and the company only by a duly signed and sealed endorsement. 3.7 Congenital anomaly means a condition which is present since birth, and which is abnormal with reference to form, structure or position. i. Internal congenital anomaly means congenital anomaly which is not in the visible and accessible parts of the body ii. External congenital anomaly means congenital anomaly which is in the visible and accessible parts of the body
+
+--- chunk 10 | physical page 5 | printed page 2 | text | section: 3 Definition
+3.8 Day Care Centre means any institution established for day care treatment of illness and / or injuries or a medical setup within a hospital and which has been registered with the local authorities, wherever applicable, and is under the supervision of a registered and qualified medical practitioner AND must comply with all minimum criteria as under: i. has qualified nursing staff under its employment; ii. has qualified medical practitioner (s) in charge; iii. has a fully equipped operation theatre of its own where surgical procedures are carried out iv. maintains daily records of patients and will make these accessible to the Insurance Company’s authorized personnel. 3.9 Day Care Treatment means medical treatment, and/or surgical procedure which is: i. undertaken under General or Local Anesthesia in a hospital/day care centre in less than 24 hrs because o f technological advancement, and ii. which would have otherwise required a hospitalization o f more than 24 hours. Treatment normally taken on an out-patient basis is not included in the scope o f this definition.
+
+--- chunk 11 | physical page 5 | printed page 2 | text | section: 3 Definition
+3.10 Grace period means 30 days immediately following the premium due date during which a payment can be made to renew or continue the policy in force without loss of continuity benefits such as waiting period and coverage of pre-existing disease. Coverage is not available for the period for which no premium is received. 3.11 Hospital means any institution established for in-patient care and day care treatment of illness and/ or injuries and which has been registered as a hospital with the local authorities under the Clinical Establishments (Registration and Regulation) Act, 2010 or under the enactments specified under Schedule of Section 56(1) of the said Act, OR complies with all minimum criteria as under: i. has qualified nursing staff under its employment round the clock; ii. has at least 10 inpatient beds, in those towns having a population of less than 10,00,000 and 15 inpatient beds in all other places; iii. has qualified medical practitioner (s) in charge round the clock;
+
+--- chunk 12 | physical page 6 | printed page 3 | text | section: 3 Definition
+iv. has a fully equipped operation theatre of its own where surgical procedures are carried out v. maintains daily records of patients and will make these accessible to the Insurance Company’s authorized personnel. Hospital shall not include an establishment which is a rest home or convalescent home for the addicted, detoxification centre, sanatorium, home for the aged, mentally disturbed, remodeling clinic or similar institution.
+
+--- chunk 13 | physical page 6 | printed page 3 | text | section: 3 Definition
+3.12 Hospitalisation means admission in a hospital as an inpatient for a minimum period of 24 consecutive hours except for specified procedure/ treatment, where such admission could be for a period of less than 24 consecutive hours. Relaxation to 24 hours minimum duration for hospitalisation is allowed in i. Day care procedures/surgeries (as listed in Appendix -I) where such treatment is taken by an insured person in a hospital/day care centre (but not the outpatient department of a hospital). ii. Any other surgeries/procedures (not listed in Appendix -I) which due to advancement of medical science require hospitalisation for less than 24 hours and for which prior approval from company/TPA is mandatory. 3.13 I D card means the card issued to the insured person by the TPA for availing cashless facility in the network provider. 3.14 In-patient means an insured person who is admitted in hospital upon the written advice of a duly qualified medical practitioner for more than 24 continuous hours, for the treatment of covered disease/ injury during the policy period.
+
+--- chunk 14 | physical page 6 | printed page 3 | text | section: 3 Definition
+3.15 Insured person means person(s) named in the schedule of the policy. 3.16 Intensive Care Unit means an identified section, ward or wing of a hospital which is under the constant supervision of a dedicated medical practitioner(s), and which is specially equipped for the continuous monitoring and treatment of patients who are in a critical condition, or require life support facilities and where the level of care and supervision is considerably more sophisticated and intensive than in the ordinary and other wards. 3.17 Medically necessary means any treatment, tests, medication, or stay in hospital or part of a stay in hospital which i. is required for the medical management of the illness or injury suffered by the insured person; ii. must not exceed the level of care necessary to provide safe, adequate and appropriate medical care in scope, duration, or intensity; iii. must have been prescribed by a medical practitioner; iv. must conform to the professional standards widely accepted in international medical practice or by the medical community in India.
+
+--- chunk 15 | physical page 6 | printed page 3 | text | section: 3 Definition
+3.18 Medical Expenses means those expenses that an Insured Person has necessarily and actually incurred for medical treatment on account of disease/ injury on the advice o f a Medical Practitioner, as long as these are no more than would have been payable if the Insured Person had not been insured and no more than other hospitals or doctors in the same locality would have charged for the same medical treatment 3.19 Medical practitioner means a person who holds a valid registration from the medical council of any state or Medical Council of India or Council for Indian Medicine or for Homeopathy set up by the Government of India or a State Government and is thereby entitled to practice medicine within its jurisdiction; and is acting within the scope and jurisdiction of the licence. 3.20 Network provider means hospitals or health care providers enlisted by the company or by a TPA and the company together to provide medical services to an insured person on payment by a cashless facility.
+
+--- chunk 16 | physical page 6 | printed page 3 | text | section: 3 Definition
+3.21 Out Patient Department (OPD) treatment means treatment in which the insured person visits a clinic / hospital or associated facility like a consultation room for diagnosis and treatment based on the advice of a medical practitioner and the insured person is not admitted as a day care patient or in-patient. 3.22 Policy period means period of one year as mentioned in the schedule for which the policy is issued. 3.23 Preferred provider network (PPN) means a network of hospitals which have agreed to a cashless packaged pricing for certain procedures for the insured person. The list is available with the company/TPA and subject to amendment from time to time. Reimbursement of expenses incurred in PPN for the procedures (as listed under PPN package) shall be subject to the rates applicable to PPN package pricing.
+
+--- chunk 17 | physical page 6 | printed page 3 | text | section: 3 Definition
+3.24 Pre hospitalisation means medical expenses incurred 30 days immediately before the insured person is hospitalised, provided that: i. such medical expenses are incurred for the same condition for which the insured person’s hospitalisation was required, and ii. the in-patient hospitalisation claim for such hospitalisation is admissible by the insurance company Pre hospitalisation will be considered as part of hospitalisation claim. 3.25 Post hospitalisation means medical expenses incurred 60 days immediately after the insured person is discharged from hospital, provided that: i. such medical expenses are incurred for the same condition for which the insured person’s hospitalisation was required, and ii. the in-patient hospitalisation claim for such hospitalisation is admissible by the insurance company
+
+--- chunk 18 | physical page 7 | printed page 4 | text | section: 3 Definition
+Post hospitalisation will be considered as part of hospitalisation claim. 3.26 Pre-existing disease means any condition, ailment or injury or related condition(s) for which the insured person had signs or symptoms and/or was diagnosed and/or received medical advice/ treatment within 48 months prior to the first policy issued by the company. 3.27 Portability means transfer by an individual health insurance policy holder (including family cover) of the credit gained for pre-existing conditions and time bound exclusions if the policy holder chooses to switch from one insurer to another. 3.28 Qualified nurse means a person who holds a valid registration from the Nursing Council of India or the Nursing Council of any state in India. 3.29 Reasonable and Customary charges means the charges for services or supplies, which are the standard charges for the specific provider and consistent with the prevailing charges in the geographical area for identical or similar services, taking into account the nature of the illness / injury involved.
+
+--- chunk 19 | physical page 7 | printed page 4 | text | section: 3 Definition
+3.30 Sum insured means the sum insured and the cumulative bonus accrued in respect of each insured person as mentioned in the schedule. The sum insured represents maximum liability for each insured person for any and all benefits claimed during the policy period. Health checkup expenses are payable over and above the sum insured, wherever applicable. 3.31 Surgery means manual and / or operative procedure (s) required for treatment of an illness or injury, correction of deformities and defects, diagnosis and cure of diseases, relief of suffering or prolongation of life, performed in a hospital or day care centre by a medical practitioner. 3.32 Third Party Administrator (TPA) means any entity, licenced under the IRDA (Third Party Administrators - Health Services) Regulations, 2001 by the Authority, and is engaged, for a fee by the company for the purpose of providing health services. 3.33 Unproven/ Experimental treatment means treatment, including drug experimental therapy, which is not based on established medical practice in India, is experimental or unproven.
+
+--- chunk 20 | physical page 7 | printed page 4 | text | section: 3 Definition
+3.34 Waiting period means a period from the inception of the first policy during which specified diseases/treatment is not covered. On completion of the period, diseases/treatment will be covered provided the policy has been continuously renewed without any break.
+
+--- chunk 21 | physical page 7 | printed page 4 | text | section: 4 Exclusions
+The company shall not be liable to make any payment under the policy in respect of any expenses incurred in connection with or in respect of:
+
+--- chunk 22 | physical page 7 | printed page 4 | text | section: 4.1 Pre-existing diseases
+All pre-existing diseases when the cover incepts for the first time until 48 months of continuous coverage has elapsed. Any complication arising from pre-existing ailment/disease/injuries will be considered as a part of the pre existing health condition or disease. To illustrate if a person is suffering from either hypertension or diabetes or both at the time of taking the policy, then policy shall be subject to following exclusions. Diabetes Hypertension Diabetes and Hypertension Diabetic Retinopathy Coronary Artery Disease Diabetic Retinopathy Diabetic Nephropathy Cerebro Vascular Accident Diabetic Nephropathy Diabetic Foot/wound Hypertensive Nephropathy Diabetic Foot/wound Diabetic Angiopathy Internal Bleeding/ Haemorrhage Diabetic Angiopathy Diabetic Neuropathy Diabetic Neuropathy Hyper/Hypoglycemic shock Hyper/Hypoglycemic shock Coronary Artery Disease Coronary Artery Disease Cerebro Vascular Accident Hypertensive Nephropathy Internal Bleeding/ Haemorrhage
+
+--- chunk 23 | physical page 7 | printed page 4 | text | section: 4.2 First 30 days waiting period
+Any disease contracted by the insured person during the first 30 days from the inception of the first policy. This shall not apply in case the insured person is hospitalised for injuries, suffered in an accident which occurred after inception of the first policy.
+
+--- chunk 24 | physical page 7 | printed page 4 | text | section: 4.3 Specific waiting period
+Following diseases/treatment are subject to a waiting period mentioned below.
+
+--- chunk 25 | physical page 8 | printed page 5 | text | section: 4.3 Specific waiting period
+i. One year waiting period a. Benign ENT disorders b. Tonsillectomy/Adenoidectomy/Mastoidectomy/Tympanoplasty ii. Two years waiting period a. Cataract k. Pilonidal sinus b. Benign prostatic hypertrophy l. Gout and Rheumatism c. Hernia m. Hypertension and related complications d. Hydrocele n. Diabetes and related complications e. Congenital internal disease o. Calculus diseases f. Fissure/Fistula in anus p. Surgery of gall bladder and bile duct excluding malignancy g. Piles (Haemorrhoids) q. Surgery of genito-urinary system excluding malignancy h. Sinusitis and related disorders r. Surgery for prolapsed intervertebral disc unless arising from accident i. Polycystic ovarian disease s. Surgery of varicose vein j. Non-infective arthritis t. Hysterectomy iii. Four years waiting period a. Treatment for joint replacement due to degenerative conditions b. Age related osteoarthritis and osteoporosis
+
+--- chunk 26 | physical page 8 | printed page 5 | text | section: 4.4 HIV, AIDS, STD
+Any condition directly or indirectly caused to or associated with Human Immunodeficiency Virus (HIV), Acquired Immunodeficiency Syndrome (AIDS), complications of AIDS and other Sexually Transmitted Diseases (STD).
+
+--- chunk 27 | physical page 8 | printed page 5 | text | section: 4.5 General debility, congenital external anomaly
+General debility, run down condition or rest cure, congenital external disease or defects or anomaly.
+
+--- chunk 28 | physical page 8 | printed page 5 | text | section: 4.6 Sterility, infertility, assisted conception
+Sterility, infertility/sub fertility, assisted conception procedures.
+
+--- chunk 29 | physical page 8 | printed page 5 | text | section: 4.7 Pregnancy
+Treatment arising from or traceable to pregnancy/childbirth including caesarean section, miscarriage, surrogate or vicarious pregnancy, abortion or complications thereof including changes in chronic conditions arising out of pregnancy other than ectopic pregnancy which may be established by medical reports.
+
+--- chunk 30 | physical page 8 | printed page 5 | text | section: 4.8 Refractive error
+Surgery for correction of eye sight due to refractive error.
+
+--- chunk 31 | physical page 8 | printed page 5 | text | section: 4.9 Obesity
+Treatment for obesity or condition arising there from (including morbid obesity) and any other weight control and management program/services/supplies or treatment.
+
+--- chunk 32 | physical page 8 | printed page 5 | text | section: 4.10 Psychiatric disorder, intentional self inflicted injury
+Treatment for all psychiatric and psychosomatic disorders/diseases, intentional self-inflicted injury, attempted suicide.
+
+--- chunk 33 | physical page 8 | printed page 5 | text | section: 4.11 Genetic disorders, stem cell surgery
+4.12 Circumcision unless necessary for treatment of a disease (if not excluded otherwise) or necessitated due to an accident. 4.13 Vaccination or inoculation unless forming part of treatment and requires hospitalisation.
+
+--- chunk 34 | physical page 8 | printed page 5 | text | section: 4.14 Cosmetic, plastic surgery, sex change, hormone replacement
+Cosmetic or aesthetic treatment of any description, change of life or sex change operation, hormone replacement therapy. Expenses for plastic surgery other than as may be necessitated due to illness/ disease/ injury.
+
+--- chunk 35 | physical page 8 | printed page 5 | text | section: 4.15 Massages, spa, steam bath, naturopathy, experimental treatment
+Massages, spa, steam bath, shirodhara, udhwarthanam, abhyangam, kayasekham and similar treatment. Expenses for naturopathy, experimental medicine/treatment, unproven procedure/treatment, alternative treatments (other than ayurveda and homeopathy), acupuncture, acupressure, magneto-therapy and similar treatment.
+
+--- chunk 36 | physical page 8 | printed page 5 | text | section: 4.16 Dental treatment
+Dental treatment unless arising due to an accident.
+
+--- chunk 37 | physical page 9 | printed page 6 | text | section: 4.17 Vitamins, tonics
+Vitamins and tonics unless forming part of treatment for illness/disease/injury as certified by the attending medical practitioner.
+
+--- chunk 38 | physical page 9 | printed page 6 | text | section: 4.18 Out Patient Department treatment (OPD treatment)
+4.19 Diagnostic and evaluation purpose where such diagnosis and evaluation can be carried out as outpatient procedure and the condition of the patient does not require hospitalisation.
+
+--- chunk 39 | physical page 9 | printed page 6 | text | section: 4.20 Treatment in convalescent home, nature clinic
+Treatment in convalescent home/hospital, health hydro/nature care clinic and similar establishments.
+
+--- chunk 40 | physical page 9 | printed page 6 | text | section: 4.21 Drug/alcohol abuse
+Treatment arising out of illness/disease/injury due to misuse or abuse of drugs/alcohol or use of intoxicating substances. 4.22 Stay in hospital which is not medically necessary. 4.23 Spectacles, contact lens, hearing aid, cochlear implants.
+
+--- chunk 41 | physical page 9 | printed page 6 | text | section: 4.24 Equipments
+External/durable medical/non-medical equipments/instruments of any kind used for diagnosis/ treatment including CPAP, CAPD, infusion pump, ambulatory devices like walker, crutches, belts, collars, caps, splints, slings, braces, stockings, diabetic foot-wear, glucometer, thermometer, similar related items (as listed in Appendix II) and any medical equipment which could be used at home subsequently. 4.25 Irrelevant investigations/treatment, drugs/treatment not supported by a prescription, private nursing charges, referral fee to family physician, outstation doctor/surgeon/consultants’ fees and similar expenses (as listed in Appendix II).
+
+--- chunk 42 | physical page 9 | printed page 6 | text | section: 4.26 Items of personal comfort
+Items of personal comfort and convenience (as listed in Appendix II) including telephone, television, aya, barber, beauty services, diet charges, baby food, cosmetics, napkins, toiletries, guest services.
+
+--- chunk 43 | physical page 9 | printed page 6 | text | section: 4.27 Service charge/ registration fee
+Any kind of service charges including surcharges, admission fees, registration charges and similar charges (as listed in Appendix II) levied by the hospital.
+
+--- chunk 44 | physical page 9 | printed page 6 | text | section: 4.28 Home visit charges
+Home visit charges during pre and post hospitalisation period of doctor, attendant and nurse.
+
+--- chunk 45 | physical page 9 | printed page 6 | text | section: 4.29 Treatment not related to illness
+Treatment which the insured person was on before hospitalisation for the illness/disease/injury, different from the one for which hospitalisation claim has been made.
+
+--- chunk 46 | physical page 9 | printed page 6 | text | section: 4.30 Risky avocations
+Treatment for any illness/disease/injury arising from scuba diving, motor racing, parachuting, hang gliding, rock or mountain climbing and similar activities.
+
+--- chunk 47 | physical page 9 | printed page 6 | text | section: 4.31 War group perils
+Injury or disease directly or indirectly caused by or arising from or attributable to war invasion act of foreign enemy, warlike operations (whether war be declared or not) and injury or disease directly or indirectly caused by or contributed to by nuclear weapons/materials.
+
+--- chunk 48 | physical page 9 | printed page 6 | text | section: 5.1 Disclosure to information norm
+The policy shall be void and all premium paid hereon shall be forfeited to the company, in the event of misrepresentation, mis- description or non-disclosure of any material fact.
+
+--- chunk 49 | physical page 9 | printed page 6 | text | section: 5.2 Condition precedent to admission of liability
+The due observance and fulfillment of the terms and conditions of the policy, by the insured person, shall be a condition precedent to any liability of the company to make any payment under the policy.
+
+--- chunk 50 | physical page 9 | printed page 6 | text | section: 5.3 Communication
+i. All communication should be in writing. ii. For claim serviced by TPA, ID card, PPN/network provider related issues to be communicated to the TPA at the address mentioned in the schedule. For claim serviced by the company, the policy related issues, change in address to be communicated to the policy issuing office at the address mentioned in the schedule. iii. The company or TPA will communicate to the insured person at the address mentioned in the schedule.
+
+--- chunk 51 | physical page 10 | printed page 7 | text | section: 5.4 Physical examination
+Any medical practitioner authorised by the company shall be allowed to examine the insured person in case of any alleged injury or disease requiring hospitalisation when and as often as the same may reasonably be required on behalf of the company.
+
+--- chunk 52 | physical page 10 | printed page 7 | text | section: 5.5.1 Claim intimation
+In case of a claim, the insured person/insured person’s representative shall intimate the TPA (if claim is processed by TPA)/company (if claim is processed by the company) in writing by letter, e-mail, fax providing all relevant information relating to claim including plan of treatment, policy number etc. within the prescribed time limit. Claim intimation in case of Cashless facility TPA must be informed: In case of planned hospitalisation At least 72 hours prior to the insured person’s admission to network provider/PPN In case of emergency hospitalisation Within 24 hours of the insured person’s admission to network provider/PPN Claim intimation in case of Reimbursement Company/TPA must be informed: In case of planned hospitalisation At least 72 hours prior to the insured person’s admission to hospital In case of emergency hospitalisation Within 72 hours of the insured person’s admission to hospital
+
+--- chunk 53 | physical page 10 | printed page 7 | text | section: 5.5.2 Procedure for Cashless claims
+i. Treatment may be taken in a network provider/PPN and is subject to pre authorization by the TPA. ii. Cashless request form available with the network provider/PPN and TPA shall be completed and sent to the TPA for authorization. iii. The TPA upon getting cashless request form and related medical information from the insured person/ network provider/PPN will issue pre-authorization letter to the hospital after verification. iv. At the time of discharge, the insured person has to verify and sign the discharge papers, pay for non-medical and inadmissible expenses. v. The TPA reserves the right to deny pre-authorization in case the insured person is unable to provide the relevant medical details. vi. In case of denial of cashless access, the insured person may obtain the treatment as per treating doctor’s advice and submit the claim documents to the TPA for reimbursement.
+
+--- chunk 54 | physical page 10 | printed page 7 | text | section: 5.5.3 Procedure for reimbursement of claims
+For reimbursement of claims the insured person may submit the necessary documents to TPA/company within the prescribed time limit.
+
+--- chunk 55 | physical page 10 | printed page 7 | text | section: 5.5.4 Documents
+The claim is to be supported with the following documents and submitted within the prescribed time limit. i. Completed claim form ii. Original bills, payment receipts, medical history of the patient recorded, discharge certificate/ summary from the hospital etc. iii. Original cash-memo from the hospital (s)/chemist (s) supported by proper prescription iv. Original payment receipt, investigation test reports etc. supported by the prescription from attending medical practitioner v. Attending medical practitioner’s certificate regarding diagnosis and bill receipts etc. vi. Surgeon’s original certificate stating diagnosis and nature of operation performed along with bills/receipts etc. vii. Any other document required by company/TPA Note In the event of a claim lodged as per clause 5.9 of the policy and the original documents having been submitted to the other insurer, the company may accept the documents listed under clause 5.5.4 of the policy and claim settlement advice duly certified by the other insurer subject to satisfaction of the company. Type of claim Time limit for submission of documents to company/TPA Reimbursement of hospitalisation and pre hospitalisation expenses Within 15 days of date of discharge from hospital Reimbursement of post hospitalisation expenses Within 15 days from completion of post hospitalisation treatment Reimbursement of health checkup expenses (as per Good health incentives 2.4.2. of the policy) At least 45 days before the expiry of the fifth policy period.
+
+--- chunk 56 | physical page 11 | printed page 8 | text | section: 5.5.5 Claim Settlement
+i. On receipt of the final document(s) or investigation report (if any), as the case may be, the company shall within a period of 30 days offer a settlement of the claim to the insured person. ii. If the company, for any reasons, decides to reject a claim under the policy, shall communicate to the insured person in writing and within a period of 30 days from the receipt of the final document(s) or investigation report (if any), as the case may be. iii. Upon acceptance of an offer of settlement as stated above by the insured person, the payment of the amount due shall be made within 7 days from the date of acceptance of the offer by the company. iv. In the cases of delay in the payment, the company shall pay interest at a rate which is 2% above the bank rate prevalent at the beginning of the financial year in which the claim is reviewed.
+
+--- chunk 57 | physical page 11 | printed page 8 | text | section: 5.5.6 Services offered by a TPA
+The services offered by a TPA shall not include i. Claim settlement and rejection with respect to the policy; However, TPA may handle claims admission and recommend to the company for the payment of the claim settlement ii. Any services directly to the insured person or to any other person unless such service is in accordance with the terms and conditions of the Agreement entered into with the company. Waiver Time limit for claim intimation and submission of documents may be waived in cases where it is proved to the satisfaction of the company, that the circumstances under which insured person was placed, it was not possible to intimate the claim/submit the documents within the prescribed time limit.
+
+--- chunk 58 | physical page 11 | printed page 8 | text | section: 5.6 Payment of claim
+All claims under the policy shall be payable in Indian currency only.
+
+--- chunk 59 | physical page 11 | printed page 8 | text | section: 5.7 Territorial Limit
+All medical treatment for the purpose of this insurance will have to be taken in India only.
+
+--- chunk 60 | physical page 11 | printed page 8 | text | section: 5.8 Medical expenses incurred under two policy periods
+If the claim falls within two policy periods, the claims shall be paid taking into consideration the available sum insured in the two policy periods, including the deductibles for each policy period. Such eligible claim amount to be payable to the insured person shall be reduced to the extent of premium to be received for the renewal/due date of premium of health insurance policy, if not received earlier.
+
+--- chunk 61 | physical page 11 | printed page 8 | text | section: 5.9 Contribution
+In the event of a claim arising under the policy, there is in existence any other policy (other than cancer insurance policy in collaboration with Indian Cancer Society) effected by the insured person or on behalf of insured person which covers any claim in whole or in part made under the policy then the company will pay or contribute not more than its rateable proportion of the claim.
+
+--- chunk 62 | physical page 11 | printed page 8 | text | section: 5.10 Subrogation
+In the event of a claim paid under the policy, it is the right of the company to assume the rights of the insured person to recover expenses paid that may be recovered from any other source.
+
+--- chunk 63 | physical page 11 | printed page 8 | text | section: 5.11 Fraud
+The company shall not be liable to make any payment under the policy in respect of any claim if such claim be in any manner fraudulent or supported by any fraudulent means or device whether by the insured person or by any other person acting on his behalf.
+
+--- chunk 64 | physical page 11 | printed page 8 | text | section: 5.12 Cancellation
+The company may at any time cancel the policy (on grounds of fraud, moral hazard or misrepresentation or noncooperation) by sending the insured person 30 (thirty) days notice by registered letter at insured person's last known address and in such event the company will not allow any refund. The insured person may at any time cancel the policy and in such an event the company shall allow refund of premium at company’s short period rate mentioned below provided no claim occurred up to the date of cancellation. Period of risk Rate of premium to be charged Up to 1month 1/4 of the annual rate Up to 3 months 1/2 of the annual rate Up to 6 months 3/4 of the annual rate Exceeding 6 months Full annual rate
+
+--- chunk 65 | physical page 11 | printed page 8 | text | section: 5.13 Territorial jurisdiction
+All disputes or differences under or in relation to the policy shall be determined by the Indian court and according to Indian law.
+
+--- chunk 66 | physical page 12 | printed page 9 | text | section: 5.14 Arbitration
+i. If any dispute or difference shall arise as to the quantum to be paid under the policy, (liability being otherwise admitted) such difference shall independently of all other questions, be referred to the decision of a sole arbitrator to be appointed in writing by the parties here to or if they cannot agree upon a single arbitrator within 30 days of any party invoking arbitration, the same shall be referred to a panel of three arbitrators, comprising of two arbitrators, one to be appointed by each of the parties to the dispute/difference and the third arbitrator to be appointed by such two arbitrators and arbitration shall be conducted under and in accordance with the provisions of the Arbitration and Conciliation Act, 1996. ii. It is clearly agreed and understood that no difference or dispute shall be referable to arbitration as herein before provided, if the company has disputed or not accepted liability under or in respect of the policy. iii. It is hereby expressly stipulated and declared that it shall be a condition precedent to any right of action or suit upon the policy that award by such arbitrator/arbitrators of the amount of expenses shall be first obtained.
+
+--- chunk 67 | physical page 12 | printed page 9 | text | section: 5.15 Disclaimer
+If the company shall disclaim liability to the insured person for any claim hereunder and if the insured person shall not within 12 calendar months from the date of receipt of the notice of such disclaimer notify the company in writing that he does not accept such disclaimer and intends to recover his claim from the company, then the claim shall for all purposes be deemed to have been abandoned and shall not thereafter be recoverable hereunder.
+
+--- chunk 68 | physical page 12 | printed page 9 | text | section: 5.16 Renewal of policy
+The policy may be renewed by mutual consent. The company is not bound to give notice that it is due for renewal. Renewal of the policy cannot be denied other than on grounds of fraud, moral hazard or misrepresentation or noncooperation. In the event of break in the policy a grace period of 30 days is allowed.
+
+--- chunk 69 | physical page 12 | printed page 9 | text | section: 5.17 Enhancement of sum insured
+Sum insured under the policy can be enhanced only at the time of renewal. Sum insured can be enhanced up to ₹5,00,000, subject to discretion of the company. The waiting period and conditions as mentioned under exclusions 4.1, 4.2 and 4.3 will apply to incremental portion of the sum insured.
+
+--- chunk 70 | physical page 12 | printed page 9 | text | section: 5.18 Adjustment of premium for Overseas Mediclaim Policy (OMP)
+If during the policy period the insured person is also covered under an Overseas Mediclaim Policy (OMP) of any non life insurance company, the policy will be inoperative in respect of the insured persons for the number of days the OMP is in force and proportionate premium for the number of days the OMP was in force shall be adjusted in the renewal premium. The insured person must inform the company in writing before leaving India and may submit an application, stating the details of visit(s) abroad, along with copies of the OMP, within 7 days of return from abroad or expiry of the policy, whichever is earlier.
+
+--- chunk 71 | physical page 12 | printed page 9 | text | section: 5.19 Portability
+In the event of the insured person porting to any other insurer, insured person must apply with details of the policy and claims to the insurer where the insured person wants to port, at least 45 days before the date of expiry of the policy. Portability shall be allowed in the following cases: i. All individual health insurance policies issued by non-life insurance companies including family floater policies. ii. Individual members, including the family members covered under any group health insurance policy of a non-life insurance company shall have the right to migrate from such a group policy to an individual health insurance policy or a family floater policy with the same insurer. One year thereafter, the insured person shall be accorded the right to port to another non-life insurance company.
+
+--- chunk 72 | physical page 12 | printed page 9 | text | section: 5.20 Withdrawal of Product
+In case the policy is withdrawn in future, the company will provide the option to the insured person to switch over to a similar policy at terms and premium applicable to the new policy. 5.21 Revision of terms of the policy including the premium rates The company, in future, may revise the terms of the policy including the premium rates.
+
+--- chunk 73 | physical page 12 | printed page 9 | text | section: 5.22 Free look period
+The insured person will be allowed a period of 15 days from date of receipt of policy to review the terms and conditions of the policy, and to return the same if not acceptable. If the insured person has not made any claim during the free look period, the insured person shall be entitled to- i. A refund of the premium paid less any expenses incurred by the company on medical examination of the insured person and the stamp duty charges; or ii. where the risk has already commenced and the option of return of the policy is exercised by the insured person, a deduction towards the proportionate risk premium for period on cover
+
+--- chunk 74 | physical page 12 | printed page 9 | text | section: 5.23 IRDA Regulation
+This policy is subject to IRDA (Health Insurance) Regulation 2013 and Guidelines on Standardization in Health Insurance amended from time to time.
+
+--- chunk 75 | physical page 13 | printed page 10 | text | section: 6 Redressal of grievance
+In case of any grievance relating to servicing the policy, the insured person may submit in writing to the policy issuing office or regional office for redressal. If the grievance remains unaddressed, insured person may contact Customer Relationship Management Dept., National Insurance Company Limited, Chhabildas towers, 6A, Middleton Street, Kolkata - 700071. If the insured person is not satisfied, the grievance may be referred to “Health Insurance Management Dept.”, National Insurance Company Limited, 3 Middleton Street, Kolkata - 700071. The insured person can also approach the office of Insurance Ombudsman of the respective area/region for redressal of grievance. The contact details of the Insurance Ombudsman offices are as below- Areas of Jurisdiction Insurance Ombudsman, Office of the Insurance Ombudsman Gujarat , UT of Dadra and Nagar Haveli, Daman and Diu 2nd Floor, Ambica House, Nr. C.U. Shah College, Ashram Road, Ahmedabad-380 014. Tel.:- 079-27546840 Fax : 079-27546142 Email: ins.omb@rediffmail.com Madhya Pradesh and Chhattisgarh Janak Vihar Complex, 2nd Floor, 6, Malviya Nagar, Opp. Airtel, Near New Market, Bhopal (M.P.)-462 023. Tel.:- 0755-2569201 Fax : 0755-2769203 Email:bimalokpalbhopal@airtelmail.in Orissa 62, Forest Park, Bhubaneshwar-751 009. Tel.:- 0674-2596455 Fax : 0674-2596429 Email:ioobbsr@dataone.in Punjab , Haryana, Himachal Pradesh, Jammu and Kashmir , UT of Chandigarh S.C.O. No.101-103, 2nd Floor, Batra Building.Sector 17-D, Chandigarh-160 017. Tel.:- 0172-2706468 Fax :
+
+--- chunk 76 | physical page 13 | printed page 10 | text | section: 6 Redressal of grievance
+0172-2708274 Email:ombchd@yahoo.co.in Tamil Nadu, UT–Pondicherry Town and Karaikal (which are part of UT of Pondicherry) Fathima Akhtar Court, 4th Floor, 453 (old 312), Anna Salai, Teynampet, Chennai - 600 018. Tel.:- 044-24333668 /5284 Fax : 044-24333664 Email:insombud@md4.vsnl.net.in Delhi and Rajashthan 2/2A,Universal Insurance Bldg. Asaf Ali Road, New Delhi- 110 002. Tel.:- 011-23239633 Fax : 011-23230858 Email:iobdelraj@rediffmail.com Assam , Meghalaya, Manipur, Mizoram, Arunachal Pradesh, Nagaland and Tripura “Jeevan Nivesh”, 5th Floor, Near Panbazar Overbridge, S.S.Road, Guwahati - 781001 (ASSAM). Tel.:- 0361-2132204/5 Fax : 0361-273293 Email:ombudsmanghy@rediffmail.com Andhra Pradesh, Karnataka and UT of Yanam – a part of the UT of Pondicherry 6-2-46,1st Floor, Moin Court, A.C.Guards, Lakdi-Ka-Pool, Hyderabad-500 004. Tel : 040-65504123 Fax: 040-23376599 Email: insombudhyd@gmail.com Kerala , UT of (a) Lakshadweep, (b) Mahe – a part of UT of Pondicherry 2nd Floor, CC 27/2603, Pulinat Bldg., Opp. Cochin Shipyard,M.G. Road, Ernakulam -682015. Tel : 0484-2358759 Fax : 0484-2359336 Email:iokochi@asianetindia.com West Bengal, Bihar, Jharkhand and UT of Andaman and Nicobar Islands, Sikkim 4th Floor, Hindusthan Bldg. Annexe, 4, C.R.Avenue, Kolkata – 700 072. Tel: 033 22124346/(40) Fax: 033 22124341 Email:iombsbpa@bsnl.in Uttar Pradesh and Uttaranchal Jeevan Bhawan, Phase-2, 6th Floor, Nawal Kishore Road, Hazaratganj, Lucknow-226 001. Tel : 0522 -2231331 Fax :
+
+--- chunk 77 | physical page 13 | printed page 10 | text | section: 6 Redressal of grievance
+0522-2231310 Email:insombudsman@rediffmail.com Maharashtra , Goa 3rd Floor, Jeevan Seva Annexe, S.V.Road, Santacruz(W), Mumbai- 400 054. Tel : 022-26106928 Fax : 022-26106052 Email:ombudsmanmumbai@gmail.com Insurance is the subject matter of solicitation Please preserve the policy for all future reference.
+
+--- chunk 78 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+Appendix I Day care procedure Day care procedures will include following day care surgeries and day care treatment. Microsurgical operations on the middle ear 1. Stapedotomy 2. Stapedectomy 3. Revision of a stapedectomy 4. Other operations on the auditory ossicles 5. Myringoplasty (Type -I Tympanoplasty) 6. Tympanoplasty (closure of an eardrum perforation/reconstruction of the auditory ossicles) 7. Revision of a tympanoplasty 8. Other microsurgical operations on the middle ear Other operations on the middle and internal ear 9. Myringotomy 10. Removal of a tympanic drain 11. Incision of the mastoid process and middle ear 12. Mastoidectomy 13. Reconstruction of the middle ear 14. Other excisions of the middle and inner ear 15. Fenestration of the inner ear 16. Revision of a fenestration of the inner ear 17. Incision (opening) and destruction (elimination) of the inner ear 18. Other operations on the middle and inner ear Operations on the nose and the nasal sinuses 19. Excision and destruction of diseased tissue of the nose 20. Operations on the turbinates (nasal concha) 21. Other operations on the nose
+
+--- chunk 79 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+22. Nasal sinus aspiration Operations on the eyes 23. Incision of tear glands 24. Other operations on the tear ducts 25. Incision of diseased eyelids 26. Excision and destruction of diseased tissue of the eyelid 27. Operations on the canthus and epicanthus 28. Corrective surgery for entropion and ectropion 29. Corrective surgery for blepharoptosis 30. Removal of a foreign body from the conjunctiva 31. Removal of a foreign body from the cornea 32. Incision of the cornea 33. Operations for pterygium 34. Other operations on the cornea 35. Removal of a foreign body from the lens of the eye 36. Removal of a foreign body from the posterior chamber of the eye 37. Removal of a foreign body from the orbit and eyeball 38. Operation of cataract Operations on the skin and subcutaneous tissues 39. Incision of a pilonidal sinus 40. Other incisions of the skin and subcutaneous tissues 41. Surgical wound toilet (wound debridement) and removal of diseased tissue of the skin and subcutaneous tissues 42. Local excision of diseased tissue of the skin and subcutaneous tissues
+
+--- chunk 80 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+43. Other excisions of the skin and subcutaneous tissues 44. Simple restoration of surface continuity of the skin and subcutaneous tissues 45. Free skin transplantation, donor site 46. Free skin transplantation, recipient site 47. Revision of skin plasty 48. Other restoration and reconstruction of the skin and subcutaneous tissues 49. Chemosurgery to the skin 50. Destruction of diseased tissue in the skin and subcutaneous tissues Operations on the tongue 51. Incision, excision and destruction of diseased tissue of the tongue 52. Partial glossectomy 53. Glossectomy 54. Reconstruction of the tongue 55. Other operations on the tongue Operations on the salivary glands and salivary ducts 56. Incision and lancing of a salivary gland and a salivary duct 57. Excision of diseased tissue of a salivary gland and a salivary duct 58. Resection of a salivary gland 59. Reconstruction of a salivary gland and a salivary duct 60. Other operations on the salivary glands and salivary ducts Other operations on the mouth and face 61. External incision and drainage in the region of the mouth, jaw and face
+
+--- chunk 81 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+62. Incision of the hard and soft palate 63. Excision and destruction of diseased hard and soft palate 64. Incision, excision and destruction in the mouth 65. Plastic surgery to the floor of the mouth 66. Palatoplasty 67. Other operations in the mouth Operations on the tonsils and adenoids 68. Transoral incision and drainage of a pharyngeal abscess 69. Tonsillectomy without adenoidectomy 70. Tonsillectomy with adenoidectomy 71. Excision and destruction of a lingual tonsil 72. Other operations on the tonsils and adenoids Trauma surgery and orthopaedics 73. Incision on bone, septic and aseptic 74. Closed reduction on fracture, luxation or epiphyseolysis with osteosynthesis 75. Suture and other operations on tendons and tendon sheath 76. Reduction of dislocation under GA 77. Arthroscopic knee aspiration Operations on the breast 78. Incision of the breast 79. Operations on the nipple Operations on the digestive tract 80. Incision and excision of tissue in the perianal region 81. Surgical treatment of anal fistulas 82. Surgical treatment of haemorrhoids 83. Division of the anal sphincter (sphincterotomy)
+
+--- chunk 82 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+84. Other operations on the anus 85. Ultrasound guided aspirations 86. Sclerotherapy etc. Operations on the female sexual organs 87. Incision of the ovary 88. Insufflation of the Fallopian tubes 89. Other operations on the Fallopian tube 90. Dilatation of the cervical canal 91. Conisation of the uterine cervix 92. Other operations on the uterine cervix 93. Incision of the uterus (hysterotomy) 94. Therapeutic curettage 95. Culdotomy 96. Incision of the vagina 97. Local excision and destruction of diseased tissue of the vagina and the pouch of Douglas 98. Incision of the vulva 99. Operations on Bartholin’s glands (cyst) Operations on the prostate and seminal vesicles 100. Incision of the prostate 101. Transurethral excision and destruction of prostate tissue 102. Transurethral and percutaneous destruction of prostate tissue 103. Open surgical excision and destruction of prostate tissue 104. Radical prostatovesiculectomy 105. Other excision and destruction of prostate tissue 106. Operations on the seminal vesicles 107. Incision and excision of periprostatic tissue
+
+--- chunk 83 | physical page 14 | printed page 11 | text | section: 6 Redressal of grievance
+108. Other operations on the prostate Operations on the scrotum and tunica vaginalis testis 109. Incision of the scrotum and tunica vaginalis testis 110. Operation on a testicular hydrocele 111. Excision and destruction of diseased scrotal tissue 112. Plastic reconstruction of the scrotum and tunica vaginalis testis 113. Other operations on the scrotum and tunica vaginalis testis Operations on the testes 114. Incision of the testes 115. Excision and destruction of diseased tissue of the testes
+
+--- chunk 84 | physical page 15 | printed page 12 | text | section: 6 Redressal of grievance
+116. Unilateral orchidectomy 117. Bilateral orchidectomy 118. Orchidopexy 119. Abdominal exploration in cryptorchidism 120. Surgical repositioning of an abdominal testis 121. Reconstruction of the testis 122. Implantation, exchange and removal of a testicular prosthesis 123. Other operations on the testis Operations on the spermatic cord, epididymis and ductus deferens 124. Surgical treatment of a varicocele and a hydrocele of the spermatic cord 125. Excision in the area of the epididymis 126. Epididymectomy 127. Reconstruction of the spermatic cord 128. Reconstruction of the ductus deferens and epididymis 129. Other operations on the spermatic cord, epididymis and ductus deferens Operations on the penis 130. Operations on the foreskin 131. Local excision and destruction of diseased tissue of the penis 132. Amputation of the penis 133. Plastic reconstruction of the penis 134. Other operations on the penis Operations on the urinary system 135. Cystoscopical removal of stones Other Operations 136. Lithotripsy 137. Coronary angiography 138. Hemodialysis 139. Radiotherapy for Cancer
+
+--- chunk 85 | physical page 15 | printed page 12 | text | section: 6 Redressal of grievance
+140. Cancer Chemotherapy Note: i. Day care treatment will include above day care procedures ii. Any surgery/procedure (not listed above) which due to advancement of medical science requires hospitalisation for less than 24 hours will require prior approval from company/TPA. iii. The standard exclusions and waiting periods are applicable to all of the above day care procedures / surgeries depending on the medical condition / disease under treatment. Only 24 hours hospitalisation is not mandatory.
+
+--- chunk 86 | physical page 16 | printed page 13 | text | section: 6 Redressal of grievance
+Appendix II List of Expenses Generally Excluded List of Expenses Generally Excluded ("Non-Medical") in Hospital Indemnity Policy -
+
+--- chunk 87 | physical page 16 | printed page 13 | text | section: SPECIFIED/INDICATED)
+Not Payable BABY FOOD Not Payable BABY UTILITES CHARGES Not Payable BABY SET Not Payable BABY BOTTLES Not Payable BRUSH Not Payable COSY TOWEL Not Payable HAND WASH Not Payable MOISTURISER PASTE BRUSH Not Payable POWDER Not Payable RAZOR Payable SHOE COVER Not Payable BEAUTY SERVICES Not Payable BELTS/ BRACES Essential and should be paid at least specifically for cases who have undergone surgery of thoracic or lumbar spine BUDS Not Payable BARBER CHARGES Not Payable CAPS Not Payable COLD PACK/HOT PACK Not Payable CARRY BAGS Not Payable CRADLE CHARGES Not Payable COMB Not Payable
+
+--- chunk 88 | physical page 16 | printed page 13 | text | section: FRESHNERS
+Not Payable EYE PAD Not Payable EYE SHEILD Not Payable EMAIL / INTERNET CHARGES Not Payable
+
+--- chunk 89 | physical page 16 | printed page 13 | text | section: HOSPITAL)
+Not Payable FOOT COVER Not Payable GOWN Not Payable LEGGINGS Essential in bariatric and varicose vein surgery and may be considered for at least these conditions where surgery itself is payable. LAUNDRY CHARGES Not Payable MINERAL WATER Not Payable OIL CHARGES Not Payable SANITARY PAD Not Payable SLIPPERS Not Payable TELEPHONE CHARGES Not Payable TISSUE PAPER Not Payable TOOTH PASTE Not Payable TOOTH BRUSH Not Payable GUEST SERVICES Not Payable BED PAN Not Payable BED UNDER PAD CHARGES Not Payable CAMERA COVER Not Payable CLINIPLAST Not Payable CREPE BANDAGE Not Payable/ Payable by the patient CURAPORE Not Payable DIAPER OF ANY TYPE Not Payable DVD, CD CHARGES Not Payable ( However if CD is specifically sought by Insurer/TPA then payable) EYELET COLLAR Not Payable FACE MASK Not Payable FLEXI MASK Not Payable GAUSE SOFT Not Payable GAUZE Not Payable HAND HOLDER Not Payable
+
+--- chunk 90 | physical page 16 | printed page 13 | text | section: BANDAGES
+Not Payable INFANT FOOD Not Payable SLINGS Reasonable costs for one sling in case of upper arm fractures may be considered
+
+--- chunk 91 | physical page 16 | printed page 13 | text | section: SUPPLIES/ SERVICES
+Exclusion in policy unless otherwise specified
+
+--- chunk 92 | physical page 16 | printed page 13 | text | section: COST OF SPECTACLES/ CONTACT
+LENSES/ HEARING AIDS ETC., Exclusion in policy unless otherwise specified
+
+--- chunk 93 | physical page 16 | printed page 13 | text | section: HOSPITALISATION
+Exclusion in policy unless otherwise specified
+
+--- chunk 94 | physical page 16 | printed page 13 | text | section: THERAPY
+Exclusion in policy unless otherwise specified HOME VISIT CHARGES Exclusion in policy unless otherwise specified
+
+--- chunk 95 | physical page 16 | printed page 13 | text | section: PROCEDURE
+Exclusion in policy unless otherwise specified
+
+--- chunk 96 | physical page 16 | printed page 13 | text | section: EXCLUDED IN POLICY
+Exclusion in policy unless otherwise specified
+
+--- chunk 97 | physical page 16 | printed page 13 | text | section: DISORDERS
+Exclusion in policy unless otherwise specified
+
+--- chunk 98 | physical page 16 | printed page 13 | text | section: REFRACTIVE ERROR
+Exclusion in policy unlessotherwise specified
+
+--- chunk 99 | physical page 16 | printed page 13 | text | section: TRANSMITTED DISEASES
+Exclusion in policy unless otherwise specified DONOR SCREENING CHARGES Exclusion in policy unless otherwise specified
+
+--- chunk 100 | physical page 16 | printed page 13 | text | section: CHARGES
+Exclusion in policy unless otherwise specified
+
+--- chunk 101 | physical page 16 | printed page 13 | text | section: PURPOSE
+Exclusion in policy unless otherwise specified
+
+--- chunk 102 | physical page 16 | printed page 13 | text | section: DIAGNOSED
+Not Payable - Exclusion in policy unless otherwise specified
+
+--- chunk 103 | physical page 16 | printed page 13 | text | section: SURGERY AND STORAGE
+Not Payable except Bone Marrow Transplantation where covered by policy
+
+--- chunk 104 | physical page 16 | printed page 13 | text | section: CHARGES
+Payable under OT Charges, not payable separately
+
+--- chunk 105 | physical page 16 | printed page 13 | text | section: INSTRUMENTS
+Rental charged by the hospital payable. Purchase of
+
+--- chunk 106 | physical page 17 | printed page 14 | text | section: INSTRUMENTS
+Instruments not payable. MICROSCOPE COVER Payable under OT Charges, not payable separately
+
+--- chunk 107 | physical page 17 | printed page 14 | text | section: SCALPEL,SHAVER
+Payable under OT Charges, not payable separately SURGICAL DRILL Payable under OT Charges, not payable separately EYE KIT Payable under OT Charges, not payable separately EYE DRAPE Payable under OT Charges, not payable separately X-RAY FILM Payable under Radiology Charges, not as consumable SPUTUM CUP Payable under Investigation Charges, not as consumable BOYLES APPARATUS CHARGES Part of OT Charges, not seperately
+
+--- chunk 108 | physical page 17 | printed page 14 | text | section: INJECTIONS, NEEDLES, SYRINGES
+Not Payable - Part of Dressing charges COTTON Not Payable-Part of Dressing Charges COTTON BANDAGE Not Payable- Part of Dressing Charges MICROPORE/ SURGICAL TAPE Not Payable-Payable by the patient when prescribed, otherwise included as Dressing Charges BLADE Not Payable APRON Not Payable -Part of Hospital Services/ Disposable linen to be part of OT/ICU chatges TORNIQUET Not Payable (service is charged by hospitals, consumables cannot be separately charged) ORTHOBUNDLE, GYNAEC BUNDLE Part of Dressing Charges URINE CONTAINER Not Payable
+
+--- chunk 109 | physical page 17 | printed page 14 | text | section: ELEMENTS OF ROOM CHARGE
+LUXURY TAX Actual tax levied by government is payable. Part of room charge for sub limits HVAC Part of room charge not payable separately HOUSE KEEPING CHARGES Part of room charge not payable separately
+
+--- chunk 110 | physical page 17 | printed page 14 | text | section: NURSING CHARGE ALSO CHARGED
+Part of room charge not payable separately
+
+--- chunk 111 | physical page 17 | printed page 14 | text | section: CHARGES
+Payable under room charges not if separately levied SURCHARGES Part of Room Charge, Not payable separately ATTENDANT CHARGES Not Payable - Part of Room Charges IM IV INJECTION CHARGES Part of nursing charges, not payable CLEAN SHEET Part of Laundry/Housekeeping not payable separately
+
+--- chunk 112 | physical page 17 | printed page 14 | text | section: BED CHARGE)
+Patient Diet provided by hospital is payable BLANKET/WARMER BLANKET Not Payable- part of room charges
+
+--- chunk 113 | physical page 17 | printed page 14 | text | section: ADMINISTRATIVE OR NON-MEDICAL CHARGES
+ADMISSION KIT Not Payable BIRTH CERTIFICATE Not Payable
+
+--- chunk 114 | physical page 17 | printed page 14 | text | section: CHARGES
+Not Payable CERTIFICATE CHARGES Not Payable COURIER CHARGES Not Payable CONVENYANCE CHARGES Not Payable DIABETIC CHART CHARGES Not Payable
+
+--- chunk 115 | physical page 17 | printed page 14 | text | section: CHARGES
+Not Payable DAILY CHART CHARGES Not Payable Not Payable
+
+--- chunk 116 | physical page 17 | printed page 14 | text | section: PRESCRIPTION ON DISCHARGE
+To be claimed by patient under Post Hosp where admissible FILE OPENING CHARGES Not Payable INCIDENTAL EXPENSES / MISC.
+
+--- chunk 117 | physical page 17 | printed page 14 | text | section: CHARGES (NOT EXPLAINED)
+Not Payable MEDICAL CERTIFICATE Not Payable MAINTAINANCE CHARGES Not Payable MEDICAL RECORDS Not Payable PREPARATION CHARGES Not Payable PHOTOCOPIES CHARGES Not Payable
+
+--- chunk 118 | physical page 17 | printed page 14 | text | section: NAME TAG
+Not Payable WASHING CHARGES Not Payable MEDICINE BOX Not Payable MORTUARY CHARGES Payable upto 24 hrs, shifting charges not payable
+
+--- chunk 119 | physical page 17 | printed page 14 | text | section: EXTERNAL DURABLE DEVICES
+WALKING AIDS CHARGES Not Payable BIPAP MACHINE Not Payable COMMODE Not Payable CPAP/ CAPD EQUIPMENTS Device not payable INFUSION PUMP - COST Device not payable
+
+--- chunk 120 | physical page 17 | printed page 14 | text | section: OUTSIDE THE HOSPITAL)
+Not Payable PULSEOXYMETER CHARGES Device not payable SPACER Not Payable SPIROMETRE Device not payable SPO2 PROBE Not Payable NEBULIZER KIT Not Payable STEAM INHALER Not Payable ARMSLING Not Payable THERMOMETER Not Payable (paid by patient) CERVICAL COLLAR Not Payable SPLINT Not Payable DIABETIC FOOT WEAR Not Payable
+
+--- chunk 121 | physical page 17 | printed page 14 | text | section: IMMOBILIZER
+Not Payable LUMBO SACRAL BELT Essential and should be paid at least specifically for cases who have undergone surgery of lumbar spine.
+
+--- chunk 122 | physical page 17 | printed page 14 | text | section: BED CHARGES
+Payable for any ICU patient requiring more than 3 days in ICU, all patients with paraplegia/quadriplegia for any reason and at reasonable cost of approximately Rs 200/ day
+
+--- chunk 123 | physical page 18 | printed page 15 | text | section: BED CHARGES
+AMBULANCE COLLAR Not Payable AMBULANCE EQUIPMENT Not Payable MICROSHEILD Not Payable ABDOMINAL BINDER Essential and should be paid at least specifically for cases who have undergone surgery of lumbar spine.
+
+--- chunk 124 | physical page 18 | printed page 15 | text | section: DISINFECTANTS ETC
+May be payable when prescribed for patient, not payable for hospital use in OT or ward or for dressings in hospital
+
+--- chunk 125 | physical page 18 | printed page 15 | text | section: SPECIAL NURSING CHARGES
+Post hospitalization nursing charges not Payable
+
+--- chunk 126 | physical page 18 | printed page 15 | text | section: CHARGES
+Patient Diet provided by hospital is payable SUGAR FREE TABLETS Payable -Sugar free variants of admissible medicines are not excluded
+
+--- chunk 127 | physical page 18 | printed page 15 | text | section: CREAMS POWDERS LOTIONS
+(Toiletries are not payable, only prescribed medical pharmaceuticals payable) Payable when prescribed DIGESTION GELS Payable when prescribed ECG ELECTRODES Upto 5 electrodes are required for every case visiting OT or ICU. For longer stay in ICU, may require a change and at least one set every second day must be payable. GLOVES Sterilized Gloves payable / unsterilized gloves not payable HIV KIT Payable - payable Pre operative screening
+
+--- chunk 128 | physical page 18 | printed page 15 | text | section: MOUTHWASH
+Payable when prescribed LOZENGES Payable when prescribed MOUTH PAINT Payable when prescribed NEBULISATION KIT If used during hospitalization is payable reasonably NOVARAPID Payable when prescribed VOLINI GEL/ ANALGESIC GEL Payable when prescribed ZYTEE GEL Payable when prescribed VACCINATION CHARGES Routine Vaccination not Payable / Post Bite Vaccination Payable
+
+--- chunk 129 | physical page 18 | printed page 15 | text | section: PART OF HOSPITAL'S OWN COSTS AND NOT PAYABLE
+AHD Not Payable - Part of Hospital's internal Cost ALCOHOL SWABES Not Payable - Part of Hospital's internal Cost SCRUB SOLUTION/STERILLIUM Not Payable - Part of Hospital's internal Cost
+
+--- chunk 130 | physical page 18 | printed page 15 | text | section: OTHERS
+VACCINE CHARGES FOR BABY Not Payable AESTHETIC TREATMENT / SURGERY Not Payable TPA CHARGES Not Payable VISCO BELT CHARGES Not Payable
+
+--- chunk 131 | physical page 18 | printed page 15 | text | section: ORTHOKIT, RECOVERY KIT, ETC]
+Not Payable EXAMINATION GLOVES Not payable KIDNEY TRAY Not Payable MASK Not Payable OUNCE GLASS Not Payable
+
+--- chunk 132 | physical page 18 | printed page 15 | text | section: SURGEON'S FEES
+Not payable, except for telemedicine consultations where covered by policy OXYGEN MASK Not Payable PAPER GLOVES Not Payable PELVIC TRACTION BELT Should be payable in case of PIVD requiring traction as this is generally not reused REFERAL DOCTOR'S FEES Not Payable ACCU CHECK ( Glucometery/ Strips) Not payable pre hospitilasation or post hospitalisation / Reports and Charts required/ Device not payable PAN CAN Not Payable SOFNET Not Payable TROLLY COVER Not Payable UROMETER, URINE JUG Not Payable AMBULANCE Payable-Ambulance from home to hospital or interhospital shifts is payable/ RTA as specific requirement is payable TEGADERM / VASOFIX SAFETY Payable - maximum of 3 in 48 hrs and then 1 in 24 hrs URINE BAG Payable where medicaly necessary till a reasonable cost - maximum 1 per 24 hrs SOFTOVAC Not Payable STOCKINGS Essential for case like CABG etc. where it should be paid. The list is dynamic and as per the standard list of excluded expenses stipulated by IRDA.
+

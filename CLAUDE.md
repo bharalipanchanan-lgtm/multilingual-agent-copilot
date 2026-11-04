@@ -31,6 +31,9 @@ Phase 0 code is written but has never been run on the real stack. It was only te
 | eval/questions.yaml | 20 questions: English, Hinglish, Hindi, plus 2 trap questions |
 | eval/gold/national_mediclaim.csv | Pre-filled gold labels, need human verification |
 | data/policies/manifest.csv | One row per policy, with skip_pages, page_offset, strip_regex |
+| eval/reference/national_mediclaim_pdftotext_dump.txt | Chunker output from the earlier sandbox run (pdftotext text), kept to diff against the real PyMuPDF run |
+
+Generated and not committed: data/dumps/, data/chroma/, eval/reports/.
 
 ## Commands
 

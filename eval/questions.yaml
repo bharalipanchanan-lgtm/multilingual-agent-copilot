@@ -1,0 +1,22 @@
+# 20 questions, run against every policy. "kind: trap" questions are likely not answerable
+# from a policy wording. The human labeller decides per policy in the gold file.
+- {id: q01, category: waiting_period, lang: en,      kind: normal, text: "What is the waiting period for pre-existing diseases?"}
+- {id: q02, category: waiting_period, lang: hinglish, kind: normal, text: "Diabetes ke liye waiting period kitna hai?"}
+- {id: q03, category: waiting_period, lang: en,      kind: normal, text: "Is there a specific waiting period for cataract, knee replacement or hernia?"}
+- {id: q04, category: waiting_period, lang: en,      kind: normal, text: "Is the initial 30 day waiting period applicable to accidents?"}
+- {id: q05, category: limits,         lang: en,      kind: normal, text: "What is the room rent limit?"}
+- {id: q06, category: limits,         lang: hinglish, kind: normal, text: "Kya ICU charges par bhi room rent ka cap lagta hai?"}
+- {id: q07, category: limits,         lang: en,      kind: normal, text: "Is there any co-payment, and does it depend on age?"}
+- {id: q08, category: limits,         lang: en,      kind: normal, text: "Are there disease wise sub-limits on any treatments?"}
+- {id: q09, category: coverage,       lang: en,      kind: normal, text: "Is maternity covered, and after how long?"}
+- {id: q10, category: coverage,       lang: en,      kind: normal, text: "Are AYUSH treatments covered?"}
+- {id: q11, category: coverage,       lang: en,      kind: normal, text: "Are daycare procedures covered?"}
+- {id: q12, category: coverage,       lang: en,      kind: normal, text: "Is treatment for mental illness covered?"}
+- {id: q13, category: exclusions,     lang: en,      kind: normal, text: "What are the permanent exclusions under this policy?"}
+- {id: q14, category: claims,         lang: hinglish, kind: normal, text: "Kya cashless treatment kisi bhi hospital mein mil jata hai?"}
+- {id: q15, category: claims,         lang: en,      kind: normal, text: "How many days of pre and post hospitalisation expenses are covered?"}
+- {id: q16, category: renewal,        lang: en,      kind: normal, text: "Is there a no claim bonus, and what happens to it after a claim?"}
+- {id: q17, category: renewal,        lang: hinglish, kind: normal, text: "Kya yeh policy lifetime renewable hai?"}
+- {id: q18, category: waiting_period, lang: hindi,   kind: normal, text: "क्या इस पॉलिसी में पहले से मौजूद बीमारियों के लिए वेटिंग पीरियड है?"}
+- {id: q19, category: trap,           lang: en,      kind: trap,   text: "What is the premium for a 45 year old for a 10 lakh sum insured?"}
+- {id: q20, category: trap,           lang: en,      kind: trap,   text: "Which hospitals in Bengaluru are in the cashless network?"}

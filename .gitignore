@@ -22,3 +22,5 @@ build/
 
 # Generated artefacts
 data/dumps/
+data/chroma/
+eval/reports/
