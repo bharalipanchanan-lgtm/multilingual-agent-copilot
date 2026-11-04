@@ -1,0 +1,129 @@
+"""FastAPI service for the Agent Copilot prototype.
+
+Run:  python server.py          then open http://localhost:8000
+Env:  COPILOT_BACKEND=mlx|ollama|claude|extractive   (default from config.GEN_BACKEND)
+
+Endpoints
+  GET  /api/policies          loaded policies
+  GET  /api/status            backend and warm-up state
+  POST /api/ask               {"question", "policy_id"} -> server-sent events (meta, token, final)
+  GET  /api/compare?q=...     comparison from the fact table
+  GET  /pdf/{policy_id}       the policy PDF (cards link to #page=N)
+"""
+import csv
+import json
+import queue
+import threading
+from concurrent.futures import ThreadPoolExecutor
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
+
+from config import MANIFEST, POLICY_DIR, ROOT
+from generate import get_generator
+
+app = FastAPI(title="Claviq Agent Copilot (prototype)")
+
+# One worker thread owns the embedding model and the LLM (MLX is not thread safe across threads).
+WORKER = ThreadPoolExecutor(max_workers=1)
+STATE = {"ready": False, "backend": None, "error": None}
+GEN = {"gen": None}
+
+
+def _policies() -> list[dict]:
+    rows = list(csv.DictReader(open(MANIFEST, encoding="utf-8")))
+    return [{"policy_id": r["policy_id"], "insurer": r["insurer"], "product": r["product"]}
+            for r in rows if (POLICY_DIR / r["file"]).exists()]
+
+
+def _warm():
+    try:
+        gen = get_generator()
+        GEN["gen"] = gen
+        STATE["backend"] = gen.name
+        from retrieve import search
+        pols = _policies()
+        if pols:
+            search("room rent limit", pols[0]["policy_id"], 1)  # loads bge-m3 and Chroma
+        if hasattr(gen, "_load"):
+            gen._load()
+            for _ in gen.stream("Reply with OK.", "OK?"):
+                break
+        STATE["ready"] = True
+    except Exception as e:  # surface in /api/status rather than crash
+        STATE["error"] = repr(e)
+        print("[warm] failed:", e)
+
+
+@app.on_event("startup")
+def startup():
+    WORKER.submit(_warm)
+
+
+class Ask(BaseModel):
+    question: str
+    policy_id: str
+
+
+@app.get("/api/policies")
+def policies():
+    return _policies()
+
+
+@app.get("/api/status")
+def status():
+    return STATE
+
+
+@app.post("/api/ask")
+def ask(req: Ask):
+    if not req.question.strip():
+        raise HTTPException(400, "empty question")
+    q: queue.Queue = queue.Queue()
+    done = object()
+
+    def job():
+        from answer import ask_stream
+        try:
+            for ev in ask_stream(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
+                q.put(ev)
+        except Exception as e:
+            q.put({"type": "final", "status": "error", "answer": f"Something went wrong: {e}", "citations": []})
+        finally:
+            q.put(done)
+
+    WORKER.submit(job)
+
+    def events():
+        while True:
+            ev = q.get()
+            if ev is done:
+                break
+            yield f"data: {json.dumps(ev, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(events(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+@app.get("/api/compare")
+def compare(q: str):
+    from answer import detect_lang
+    from compare import compare_answer
+    return compare_answer(q, detect_lang(q))
+
+
+@app.get("/pdf/{policy_id}")
+def pdf(policy_id: str):
+    for r in csv.DictReader(open(MANIFEST, encoding="utf-8")):
+        if r["policy_id"] == policy_id:
+            return FileResponse(POLICY_DIR / r["file"], media_type="application/pdf")
+    raise HTTPException(404)
+
+
+app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)

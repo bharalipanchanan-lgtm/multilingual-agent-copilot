@@ -1,0 +1,23 @@
+{
+  "policy_id": "national_mediclaim",
+  "insurer": "National Insurance",
+  "product": "National Mediclaim Policy",
+  "version": "07/2014",
+  "verified": false,
+  "verified_by": null,
+  "note": "Pre-filled from the policy text by the build. A human must check every value against the PDF before it is shown as verified.",
+  "attributes": {
+    "ped_waiting": {"value": "48 months of continuous coverage", "clause": "4.1", "page": 7, "printed_page": 4},
+    "specific_waiting": {"value": "1 year (benign ENT, tonsillectomy etc.), 2 years (cataract, hernia, diabetes, hypertension and others), 4 years (joint replacement, osteoarthritis)", "clause": "4.3", "page": 8, "printed_page": 5},
+    "initial_waiting": {"value": "30 days, does not apply to accidents", "clause": "4.2", "page": 7, "printed_page": 4},
+    "room_rent": {"value": "1% of sum insured per day, max ₹5,000; ICU 2% per day, max ₹10,000; 25% of sum insured per illness", "clause": "2.1", "page": 4, "printed_page": 1},
+    "copay": {"value": null, "clause": null, "page": null, "printed_page": null},
+    "maternity": {"value": "Not covered (excluded, except ectopic pregnancy)", "clause": "4.7", "page": 8, "printed_page": 5},
+    "ayush": {"value": "Ayurveda and Homeopathy up to 20% of sum insured per illness; other alternative treatments excluded", "clause": "2.3 note, 4.15", "page": 4, "printed_page": 1},
+    "daycare": {"value": "Covered, 140 listed procedures (Appendix I)", "clause": "3.9, Appendix I", "page": 14, "printed_page": 11},
+    "pre_post": {"value": "30 days before, 60 days after", "clause": "3.24, 3.25", "page": 6, "printed_page": 3},
+    "ncb": {"value": "Cumulative bonus 5% per claim free year, max 50%; reduced by 5% after a claim", "clause": "2.4.1", "page": 5, "printed_page": 2},
+    "renewal": {"value": "By mutual consent; cannot be denied except for fraud, moral hazard, misrepresentation or non cooperation; 30 day grace period", "clause": "5.16", "page": 12, "printed_page": 9},
+    "sublimits": {"value": "Yes: room 25%, doctor fees 25%, others 50% of sum insured per illness; ambulance 1% max ₹2,000", "clause": "2.1 to 2.3", "page": 4, "printed_page": 1}
+  }
+}
