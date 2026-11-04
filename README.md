@@ -18,11 +18,15 @@ To run without the LLM (quotes the best matching clauses verbatim, useful as a f
 
     python3 -m venv .venv && source .venv/bin/activate
     pip install -r requirements.txt
-    python ingest.py          # first run downloads bge-m3 (about 2.3 GB)
+    # fetch the models first (next block), then:
+    python ingest.py
 
-The first answer with the default backend downloads Qwen2.5 7B Instruct 4 bit for MLX (about 4.3 GB). To fetch it in advance:
+Fetch the models (resumable curl, about 8 GB in total) into models/:
 
-    python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Qwen2.5-7B-Instruct-4bit')"
+    ./fetch_models.sh BAAI/bge-m3 mlx-community/Qwen2.5-7B-Instruct-4bit mlx-community/Qwen2.5-3B-Instruct-4bit
+    touch models/bge-m3/.fetched models/Qwen2.5-7B-Instruct-4bit/.fetched models/Qwen2.5-3B-Instruct-4bit/.fetched
+
+The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in testing (it said pre-existing diabetes is covered without a waiting period), so do not demo with it.
 
 ## How it works
 
@@ -31,7 +35,7 @@ The first answer with the default backend downloads Qwen2.5 7B Instruct 4 bit fo
     question -> answer.py
         route: out of scope (premium, hospital list, claim status) -> refuse
                comparison -> compare.py, from the fact table in facts/*.json
-               single policy -> retrieve.py (top 6 + rest of each clause)
+               single policy -> retrieve.py (top 5 semantic + keyword matches + rest of each clause, max 6)
         generate.py: mlx (local) | ollama | claude (optional, paid) | extractive
         number check: every figure in the answer must appear in a cited clause, else the draft is blocked
     server.py (FastAPI, streaming) -> web/index.html (WhatsApp style chat, clause cards linking to the PDF page)
@@ -52,5 +56,6 @@ The first answer with the default backend downloads Qwen2.5 7B Instruct 4 bit fo
     python eval_retrieval.py              # retrieval recall at 3 and 6 by language, refusal threshold hint
     python eval_answers.py                # end to end answers, refusals, blocked drafts, latency
     python eval_answers.py --backend extractive
+    python demo_check.py 3                # runs the demo script 3 times against the running server
 
 Gold files use physical PDF page numbers. Reports go to eval/reports/.

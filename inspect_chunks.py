@@ -20,7 +20,7 @@ path = out / f"{pid}.txt"
 with open(path, "w", encoding="utf-8") as f:
     for i, c in enumerate(parsed["chunks"]):
         f.write(f"--- chunk {i} | physical page {c['page']} | printed page {c['page'] - offset} | "
-                f"{c['type']} | section: {c['section']}\n{c['text']}\n\n")
+                f"{c['type']} | part: {c.get('part', '')} | section: {c['section']}\n{c['text']}\n\n")
 
 sizes = [len(c["text"]) for c in parsed["chunks"]]
 garbled = sum(bool(re.search(r"(?:\b\w{1,2}\b\s+){10,}", c["text"])) for c in parsed["chunks"])

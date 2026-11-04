@@ -44,7 +44,8 @@ def main():
                          "gold_pages": g["gold_pages"], "ms": res.get("ms"),
                          "first_token_ms": res.get("first_token_ms"),
                          "answer": res.get("answer", "").replace("\n", " "),
-                         "draft_if_blocked": (res.get("draft") or "").replace("\n", " ")})
+                         "draft_if_blocked": (res.get("draft") or "").replace("\n", " "),
+                         "unsupported_numbers": " ".join(res.get("unsupported_numbers") or [])})
             print(f"{g['qid']} [{status:10}] {res.get('ms')}ms  {res.get('answer', '')[:110]!r}")
     if not rows:
         print("No labelled gold rows.")

@@ -67,6 +67,9 @@ def paragraphs(lines: list[str], section: str, state: dict | None = None) -> tup
 
     def new_section(label: str):
         nonlocal section
+        if re.match(r"^\d+\s+[A-Z]", label) or APPENDIX_RE.match(label):
+            state["part"] = label  # top level part, e.g. "4 Exclusions", "5 Conditions", "Appendix II"
+        state.setdefault("part_of", {})[label] = state.get("part", "")
         # A numbered heading with no body is itself the clause (e.g. "4.18 OPD treatment"),
         # so keep it as text instead of losing it.
         if not state["has_body"] and SUBCLAUSE_RE.match(section or ""):
@@ -229,12 +232,14 @@ def build_chunks(pages_lines: list[list[str]], page_tables=None, skip_pages=froz
         paras, section = paragraphs(lines, section, state)
         for sec, text in pack(paras):
             if len(text) >= 30:
-                chunks.append({"page": i + 1, "section": sec or "", "type": "text", "text": text})
+                chunks.append({"page": i + 1, "section": sec or "", "type": "text", "text": text,
+                               "part": state.get("part_of", {}).get(sec, state.get("part", ""))})
         if page_tables is not None:
             for k, (label, t) in enumerate(page_tables[i]):
                 tsec = state["table_sections"].get(f"{TABLE_MARK}{k}", section)
                 sec = label or tsec or "Table"
-                chunks.append({"page": i + 1, "section": sec, "type": "table", "text": t})
+                chunks.append({"page": i + 1, "section": sec, "type": "table", "text": t,
+                               "part": state.get("part_of", {}).get(tsec, state.get("part", ""))})
     return chunks
 
 

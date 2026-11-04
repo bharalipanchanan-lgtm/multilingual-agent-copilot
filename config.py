@@ -13,7 +13,15 @@ REPORT_DIR = ROOT / "eval" / "reports"
 QUESTIONS = ROOT / "eval" / "questions.yaml"
 
 COLLECTION = "policies"
-EMBED_MODEL = "BAAI/bge-m3"  # multilingual, handles Hinglish queries against English text
+MODELS_DIR = ROOT / "models"   # local copies fetched with fetch_models.sh (preferred over the HF cache)
+
+
+def local_or_hub(repo: str) -> str:
+    p = MODELS_DIR / repo.split("/")[-1]
+    return str(p) if (p / ".fetched").exists() else repo
+
+
+EMBED_MODEL = local_or_hub("BAAI/bge-m3")  # multilingual, handles Hinglish queries against English text
 
 CHUNK_TARGET = 1100       # characters, soft target per chunk
 CHUNK_MAX = 1600          # characters, hard cap before splitting by sentence
@@ -39,6 +47,8 @@ OLLAMA_MODEL = "qwen2.5:7b"
 OLLAMA_URL = "http://localhost:11434"
 CLAUDE_MODEL = "claude-opus-5-5"
 
-RETRIEVE_K = 6            # clauses retrieved per question
+RETRIEVE_K = 5            # clauses retrieved per question
+MAX_CLAUSES = 6           # cap on clauses sent to the model (prefill time dominates latency)
+CLAUSE_CHARS = 900        # per clause text sent to the model
 NEIGHBOURS = 1            # also pull this many chunks either side of each hit (page spanning clauses)
 FACTS_DIR = ROOT / "facts"

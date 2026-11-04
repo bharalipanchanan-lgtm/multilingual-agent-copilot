@@ -23,7 +23,7 @@ def main():
     model = SentenceTransformer(EMBED_MODEL, device=device())
     model.max_seq_length = 512
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
-    col = client.get_or_create_collection(COLLECTION, metadata={"hnsw:space": "cosine"})
+    col = client.get_or_create_collection(COLLECTION, metadata={"hnsw:space": "cosine"}, embedding_function=None)
 
     summary = []
     for r in rows:
@@ -43,13 +43,13 @@ def main():
             continue
 
         col.delete(where={"policy_id": r["policy_id"]})
-        embed_in = [f"{r['product']} | {c['section']}\n{c['text']}" for c in chunks]
+        embed_in = [f"{r['product']} | {c.get('part', '')} | {c['section']}\n{c['text']}" for c in chunks]
         vecs = model.encode(embed_in, batch_size=16, normalize_embeddings=True,
                             show_progress_bar=False).tolist()
         ids = [f"{r['policy_id']}-p{c['page']}-{i}" for i, c in enumerate(chunks)]
         metas = [{"policy_id": r["policy_id"], "insurer": r["insurer"], "product": r["product"],
                   "page": c["page"], "printed_page": c["page"] - offset, "section": c["section"],
-                  "type": c["type"], "chunk_idx": i}
+                  "type": c["type"], "chunk_idx": i, "part": c.get("part", "")}
                  for i, c in enumerate(chunks)]
         for s in tqdm(range(0, len(ids), 256), desc=r["policy_id"], leave=False):
             e = s + 256

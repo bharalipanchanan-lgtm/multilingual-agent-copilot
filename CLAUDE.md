@@ -16,13 +16,20 @@ Everything runs locally on a MacBook Pro 16 inch 2021 (M1 Pro, 16 GB, macOS Sequ
 
 ## Current status
 
-Phase 0 code is written but has never been run on the real stack. It was only tested in a sandbox without PyMuPDF, Chroma or sentence-transformers. The chunker was tested on the real National Mediclaim text extracted with pdftotext, which can differ from PyMuPDF output. Expect first run bugs and fix them.
+As of 2026-11-05 the prototype runs end to end on the laptop: parse, ingest, retrieval, grounded generation with Qwen2.5 7B on MLX, number check, refusals, fact table comparison, FastAPI with streaming, WhatsApp style web chat. See eval/RESULTS.md for measured results and DEMO.md for the demo script. Only one policy (National Mediclaim 07/2014) is loaded; gold labels and the fact table are still unverified by a human.
+
+Models live in models/ (gitignored), fetched with fetch_models.sh because the Hugging Face Python downloader stalls on this network. HF_HUB_DISABLE_XET is set in config.py.
 
 ## Layout
 
 | Path | Purpose |
 |---|---|
-| config.py | Paths, model name, chunk sizes |
+| config.py | Paths, model names, chunk sizes, generation settings |
+| answer.py | Router, retrieval, grounded generation, number check, citations |
+| generate.py | Backends: mlx (default), ollama, claude (optional), extractive |
+| compare.py, facts/ | Comparison from the fact table |
+| server.py, web/index.html | FastAPI service and chat UI |
+| eval_answers.py, demo_check.py | End to end answer eval, demo script check against the running server |
 | parse.py | PDF to page aware chunks, boilerplate removal, tables |
 | ingest.py | Reads manifest, embeds with bge-m3, stores in Chroma |
 | retrieve.py | Semantic search with optional policy filter |

@@ -26,19 +26,28 @@ class Generator:
         return True, ""
 
 
-def _fully_cached(repo: str) -> bool:
-    """True when every weight file of a Hugging Face repo is in the local cache."""
-    try:
-        from huggingface_hub import snapshot_download
-        path = snapshot_download(repo, local_files_only=True)
-    except Exception:
-        return False
+def _fully_cached(repo: str) -> str | None:
+    """Local path when every weight file of the model is on disk (models/ first, then the HF cache)."""
     from pathlib import Path
-    p = Path(path)
+    from config import MODELS_DIR
+    p = MODELS_DIR / repo.split("/")[-1]
+    if (p / "config.json").exists() and not (p / ".fetched").exists():
+        return None  # fetch_models.sh still downloading
+    if not (p / "config.json").exists():
+        try:
+            from huggingface_hub import snapshot_download
+            p = Path(snapshot_download(repo, local_files_only=True))
+        except Exception:
+            return None
+    ok = _weights_complete(p)
+    return str(p) if ok else None
+
+
+def _weights_complete(p) -> bool:
     idx = p / "model.safetensors.index.json"
     if idx.exists():
         shards = set(json.load(open(idx))["weight_map"].values())
-        return all((p / s).exists() for s in shards)
+        return all((p / s).exists() for s in shards) and not any(p.glob("*.part"))
     return (p / "model.safetensors").exists() and (p / "tokenizer.json").exists()
 
 
@@ -46,7 +55,7 @@ class MLXGenerator(Generator):
     name = "mlx"
 
     def __init__(self, model: str | None = MLX_MODEL):
-        self.model_id = model or next((m for m in MLX_MODELS if _fully_cached(m)), None)
+        self.model_id = model or next((path for m in MLX_MODELS if (path := _fully_cached(m))), None)
         self._model = self._tok = None
         if self.model_id:
             self.name = "mlx:" + self.model_id.split("/")[-1]
@@ -64,17 +73,41 @@ class MLXGenerator(Generator):
         if self._model is None:
             from mlx_lm import load
             self._model, self._tok = load(self.model_id)
+            self._cache, self._prefix, self._prefix_len = None, None, 0
         return self._model, self._tok
+
+    def _prefill(self, prefix: str):
+        """Keep the fixed system prompt pre-computed in the KV cache, so each question only
+        pays for its own clauses. Rebuilt only if the system prompt changes."""
+        import mlx.core as mx
+        from mlx_lm.models.cache import make_prompt_cache
+        if prefix == self._prefix and self._cache is not None:
+            return
+        ids = self._tok.encode(prefix, add_special_tokens=False)
+        self._cache = make_prompt_cache(self._model)
+        self._model(mx.array(ids)[None], cache=self._cache)
+        mx.eval([c.state for c in self._cache])
+        self._prefix, self._prefix_len = prefix, len(ids)
 
     def stream(self, system, user):
         from mlx_lm import stream_generate
+        from mlx_lm.models.cache import trim_prompt_cache
         from mlx_lm.sample_utils import make_sampler
         model, tok = self._load()
-        prompt = tok.apply_chat_template(
+        full = tok.apply_chat_template(
             [{"role": "system", "content": system}, {"role": "user", "content": user}],
             add_generation_prompt=True, tokenize=False)
-        for r in stream_generate(model, tok, prompt, max_tokens=500, sampler=make_sampler(temp=0.0)):
-            yield r.text
+        cut = full.index(user)
+        self._prefill(full[:cut])
+        rest = tok.encode(full[cut:], add_special_tokens=False)
+        try:
+            for r in stream_generate(model, tok, rest, max_tokens=500, sampler=make_sampler(temp=0.0),
+                                     prompt_cache=self._cache):
+                yield r.text
+        finally:
+            extra = self._cache[0].offset - self._prefix_len
+            if extra > 0:
+                trim_prompt_cache(self._cache, extra)
 
 
 class OllamaGenerator(Generator):
