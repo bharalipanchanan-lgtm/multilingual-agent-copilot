@@ -39,6 +39,7 @@ def main():
         page = browser.new_page(viewport={"width": 480, "height": 900})
         page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
         page.on("pageerror", lambda e: errors.append(str(e)))
+        page.on("response", lambda r: errors.append(f"HTTP {r.status} {r.url}") if r.status >= 400 else None)
 
         def shot(name):
             page.screenshot(path=str(shots / f"{len(results):02d}_{name}.png"), full_page=False)

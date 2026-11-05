@@ -29,6 +29,8 @@ flowchart LR
         G -.-> CL[Claude API<br/>optional, paid]
         G -.-> EX[Extractive<br/>no LLM fallback]
         S --> PDFV[/pdf/id#page=N/]
+        UI -. audio clip .-> S
+        S -. stt.py, key on server .-> SV[Sarvam Saaras<br/>cloud, demo only]
     end
 ```
 
@@ -46,7 +48,8 @@ Documents are prepared offline and searched online. Nothing in the online path p
 | Orchestration | answer.py | Language detection, routing, prompt building, grounding checks, citations, streaming events |
 | Generation | generate.py | One `Generator` interface with four backends: mlx, ollama, claude, extractive |
 | Comparison | compare.py, facts/ | Answers comparison questions from a structured fact table, not from free text |
-| API | server.py | FastAPI app, streaming answers, model warm up, PDF serving |
+| API | server.py | FastAPI app, streaming answers, model warm up, PDF serving, voice upload |
+| Voice | stt.py, web/index.html | Records up to 25 s in the browser, server sends it to Sarvam Saaras with a key from the environment, transcript goes into the box for the agent to check. Off without a key |
 | Front end | web/index.html | Chat UI, citation chips, clause cards, page links, "How this was checked" panel |
 | Evaluation | eval_retrieval.py, eval_answers.py, demo_check.py | Retrieval recall, end to end answer checks, demo script regression |
 
@@ -164,9 +167,11 @@ The 3B model is kept only as a fallback. In testing it said pre-existing diabete
 | POST /api/ask | `{question, policy_id or null}`. Streams `policy` (the policy in use changed), `meta`, `token` and `final` events. Final statuses include `selected` and `choose_policy` |
 | GET /api/compare | Comparison table from the fact table |
 | GET /pdf/{policy_id} | Serves the source PDF; the UI links to `#page=N` |
+| GET /api/voice | Whether voice is on (SARVAM_API_KEY set), model and mode |
+| POST /api/transcribe | Multipart `audio` to `{text, language_code, ms, provider}`; plain error messages for a bad key, no credit or an outage |
 | GET / | Static chat UI from web/ |
 
-The server binds to 127.0.0.1:8000 only. On startup it loads the embedding model and the generator, runs one search and pre fills the prompt cache, so the first real question is fast.
+The server binds to 127.0.0.1:8000 only. The one outbound call is voice transcription, which sends only the recorded clip, and only when a key is configured. On startup it loads the embedding model and the generator, runs one search and pre fills the prompt cache, so the first real question is fast.
 
 ## 8. Data stores
 

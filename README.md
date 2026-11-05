@@ -15,6 +15,13 @@ agent names another policy. A comparison question needs no choice; it uses every
 
 The first start takes about 30 to 60 seconds while the embedding model and the local LLM load. The header shows "online" when it is ready.
 
+Voice questions (optional, the one cloud service, demo only): copy .env.example to .env and set
+SARVAM_API_KEY (from https://dashboard.sarvam.ai). run_demo.sh loads it. The mic button then records
+up to 25 seconds, the server sends the audio to Sarvam Saaras (saaras:v3, mode translit, so Hindi and
+Hinglish come back in Roman script), and the transcript lands in the box for the agent to check before
+sending. The key stays on the server and out of git. Without a key the mic is off and typing works.
+`python voice_check.py` checks the real service with the recorded clips in tests/voice/clips.
+
 To run without the LLM (quotes the best matching clauses verbatim, useful as a fallback):
 
     COPILOT_BACKEND=extractive ./run_demo.sh
@@ -67,5 +74,7 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
     python demo_check.py 3                # runs the demo conversation 3 times against the running server
     pytest tests/                         # fact quotes, policy choice, polarity check (no model needed)
     python tests/e2e_ui.py                # the chat page in Google Chrome, whole demo flow, screenshots in eval/reports/ui_shots
+    python tests/e2e_voice.py             # voice in a browser with a recorded clip and a mock Sarvam (no key, no cost)
+    python voice_check.py                 # voice against the real Sarvam service (needs SARVAM_API_KEY)
 
 Gold files use physical PDF page numbers. Reports go to eval/reports/.

@@ -56,6 +56,15 @@
   textarea { flex: 1; resize: none; border: 0; border-radius: 20px; padding: 10px 14px; font: inherit; font-size: 15px; height: 42px; }
   button.send { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--header); color: #fff; font-size: 18px; cursor: pointer; }
   button.send:disabled { opacity: .5; }
+  button.mic { width: 44px; height: 44px; border-radius: 50%; border: 0; background: #ffffff; color: var(--header);
+               font-size: 19px; cursor: pointer; flex: none; }
+  button.mic.off { opacity: .45; }
+  button.mic.rec { background: var(--stop); color: #fff; animation: pulse 1s infinite; }
+  button.mic.busy { opacity: .6; cursor: wait; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(179,38,30,.25); } }
+  .voicenote { font-size: 12px; color: var(--muted); padding: 0 16px; min-height: 0; }
+  .voicenote:empty { display: none; }
+  .spoken { font-size: 11px; color: var(--muted); text-align: right; margin-top: 2px; }
   .typing { color: var(--muted); font-style: italic; }
   .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: #e1ece9;
          color: var(--header); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
@@ -81,8 +90,10 @@
     <div class="sys">Answers come only from the policy document you choose, with the clause and page. If the document does not say, the copilot says so.</div>
   </div>
   <div class="chips" id="chips"></div>
+  <div class="voicenote" id="vnote"></div>
   <form id="f">
     <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
+    <button class="mic off" id="mic" type="button" aria-label="Speak your question" title="Speak your question">&#127908;</button>
     <button class="send" id="send" type="submit" aria-label="Send">&#10148;</button>
   </form>
 </div>
@@ -92,6 +103,10 @@ const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send");
 // The policy is chosen in the conversation ("SBI dekhna hai"), not from a list. The server says
 // which policy is in use; the page only remembers it and sends it back with each question.
 let currentPolicy = null, pendingQuestion = null, lastLang = null;
+// Voice: the page records, our server sends the audio to the speech service with a key the
+// browser never sees, and the transcript lands in the box for the agent to check before sending.
+let VOICE = {enabled: false}, recorder = null, recTimer = null, voiceText = null, voiceInfo = null;
+const MAX_REC_MS = 25000;
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
@@ -126,6 +141,7 @@ function howPanel(ev, meta) {
   if (ev.block_reason === "polarity") items.push("Blocked: the draft said covered, but every cited clause is an exclusion");
   else if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
   if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
+  if (ev._voice) items.push(`Question was spoken: transcribed by ${ev._voice.provider} in ${ev._voice.ms} ms (cloud), then ${ev._voice.edited ? "edited" : "sent as heard"}`);
   items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
   return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
 }
@@ -155,7 +171,61 @@ function setPolicy(ev) {
   chat.appendChild(s); scroll();
   $("#chips").style.display = "";
 }
+const micBtn = $("#mic"), vnote = $("#vnote");
+function note(t) { vnote.textContent = t || ""; }
+async function setupVoice() {
+  try { VOICE = await (await fetch("/api/voice")).json(); } catch (e) { VOICE = {enabled: false, reason: "Voice status unavailable."}; }
+  micBtn.classList.toggle("off", !VOICE.enabled);
+  micBtn.title = VOICE.enabled ? "Speak your question (tap again to stop)" : (VOICE.reason || "Voice is off");
+}
+async function startRec() {
+  let stream;
+  micBtn.classList.add("busy");
+  note("Asking for microphone permission...");
+  // Chrome on a Mac waits silently if macOS has not allowed it the microphone, so do not hang
+  const slow = setTimeout(() => note("Still waiting for the microphone. On a Mac: System Settings > Privacy & Security > Microphone > allow your browser, then reload. You can type meanwhile."), 10000);
+  try { stream = await navigator.mediaDevices.getUserMedia({audio: true}); }
+  catch (e) { note("Microphone permission was not given. You can type the question."); return; }
+  finally { clearTimeout(slow); micBtn.classList.remove("busy"); }
+  const type = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"].find(t => window.MediaRecorder && MediaRecorder.isTypeSupported(t)) || "";
+  const chunks = [];
+  recorder = new MediaRecorder(stream, type ? {mimeType: type} : undefined);
+  recorder.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+  recorder.onstop = async () => {
+    stream.getTracks().forEach(t => t.stop());
+    clearTimeout(recTimer); micBtn.classList.remove("rec");
+    const blob = new Blob(chunks, {type: recorder.mimeType || type || "audio/webm"});
+    recorder = null;
+    await sendAudio(blob);
+  };
+  recorder.start();
+  micBtn.classList.add("rec");
+  note("Listening... tap the mic again when you finish (up to 25 seconds).");
+  recTimer = setTimeout(() => recorder && recorder.state === "recording" && recorder.stop(), MAX_REC_MS);
+}
+async function sendAudio(blob) {
+  if (!blob.size) { note("Nothing was recorded. Try again or type the question."); return; }
+  micBtn.classList.add("busy"); note("Transcribing...");
+  const ext = blob.type.includes("mp4") ? "m4a" : "webm";
+  const fd = new FormData(); fd.append("audio", blob, `question.${ext}`);
+  try {
+    const r = await fetch("/api/transcribe", {method: "POST", body: fd});
+    const j = await r.json();
+    if (!r.ok) { note(j.detail || "Could not transcribe. Please type the question."); return; }
+    qEl.value = j.text; qEl.focus();
+    voiceText = j.text; voiceInfo = {provider: j.provider, ms: j.ms};
+    note("Heard this. Check it, edit if needed, then press send.");
+  } catch (e) { note("Could not reach the server for transcription. Please type the question."); }
+  finally { micBtn.classList.remove("busy"); }
+}
+micBtn.onclick = () => {
+  if (!VOICE.enabled) { note(VOICE.reason || "Voice is off. Please type the question."); return; }
+  if (micBtn.classList.contains("busy")) return;
+  if (recorder && recorder.state === "recording") recorder.stop(); else startRec();
+};
+
 async function init() {
+  setupVoice();
   $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
   document.querySelectorAll(".chip").forEach(c => c.onclick = () => ask(c.textContent));
   $("#chips").style.display = "none";  // suggestions appear once a policy is chosen
@@ -194,10 +264,15 @@ async function ask(text, held = false) {
   if (!question || sendBtn.disabled) return;
   if (text === undefined) qEl.value = "";
   sendBtn.disabled = true;
+  let voiced = null;
+  if (voiceText !== null && text === undefined) {  // this question came from the mic
+    voiced = {...voiceInfo, edited: question !== voiceText};
+    voiceText = null; voiceInfo = null; note("");
+  }
   if (held) {  // the agent already asked this; say it is being answered now rather than repeat it
     const s = document.createElement("div"); s.className = "sys"; s.textContent = `Answering your earlier question: ${question}`;
     chat.appendChild(s);
-  } else add("me", esc(question));
+  } else add("me", esc(question) + (voiced ? `<div class="spoken">spoken${voiced.edited ? ", edited" : ""}</div>` : ""));
   const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
   let policyId = currentPolicy, after = null;
   const t0 = performance.now();
@@ -219,6 +294,7 @@ async function ask(text, held = false) {
         if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
         if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
         if (ev.type === "final") {
+          if (voiced) ev._voice = voiced;
           const [cls, label] = ev.block_reason === "polarity" ? ["b-stop", "Draft blocked: it called an exclusion covered"]
                                                               : (BADGE[ev.status] || BADGE.error);
           const secs = ((performance.now() - t0) / 1000).toFixed(1);

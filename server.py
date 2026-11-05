@@ -9,6 +9,8 @@ Endpoints
   POST /api/ask               {"question", "policy_id" or null} -> server-sent events (policy, meta, token, final)
                               The policy is chosen in the conversation (chat.py), not from a list.
   GET  /api/compare?q=...     comparison from the fact table
+  GET  /api/voice             whether voice input is available (SARVAM_API_KEY set)
+  POST /api/transcribe        multipart "audio" -> {"text"}; the key stays on the server (stt.py)
   GET  /pdf/{policy_id}       the policy PDF (cards link to #page=N)
 """
 import csv
@@ -16,7 +18,7 @@ import json
 import queue
 from concurrent.futures import ThreadPoolExecutor
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -111,6 +113,21 @@ def ask(req: Ask):
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
+@app.get("/api/voice")
+def voice():
+    import stt
+    return stt.status()
+
+
+@app.post("/api/transcribe")
+def transcribe(audio: UploadFile = File(...)):
+    import stt
+    try:
+        return stt.transcribe(audio.file.read(), audio.filename or "question.webm", audio.content_type or "")
+    except stt.STTError as e:
+        raise HTTPException(400, str(e))
+
+
 @app.get("/api/compare")
 def compare(q: str):
     from answer import detect_lang
@@ -139,4 +156,5 @@ app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    import os
+    uvicorn.run(app, host="127.0.0.1", port=int(os.environ.get("COPILOT_PORT", "8000")))

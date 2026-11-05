@@ -16,7 +16,7 @@ Everything runs locally on a MacBook Pro 16 inch 2021 (M1 Pro, 16 GB, macOS Sequ
 
 ## Current status
 
-As of 2026-11-05 the prototype runs end to end on the laptop: parse, ingest, retrieval, grounded generation with Qwen2.5 7B on MLX, number check, polarity check, refusals, fact table comparison, FastAPI with streaming, WhatsApp style web chat. Five policies are loaded (handoff/ tasks 1 to 3 done). The policy is chosen in conversation, not from a dropdown (chat.py, policy_select.py). Fact table is format 2 in facts/ (fact_table.py), checked by tests/test_fact_quotes.py; values are still unverified by a human. See eval/RESULTS.md for measured results and DEMO.md for the demo script.
+As of 2026-11-05 the prototype runs end to end on the laptop: parse, ingest, retrieval, grounded generation with Qwen2.5 7B on MLX, number check, polarity check, refusals, fact table comparison, FastAPI with streaming, WhatsApp style web chat. Five policies are loaded (handoff/ tasks 1 to 3 done). The policy is chosen in conversation, not from a dropdown (chat.py, policy_select.py). Fact table is format 2 in facts/ (fact_table.py), checked by tests/test_fact_quotes.py; values are still unverified by a human. Voice input (handoff task 11) uses Sarvam Saaras through stt.py with SARVAM_API_KEY from the environment or a gitignored .env; it is tested with a mock (tests/e2e_voice.py) and needs a real key for voice_check.py. See eval/RESULTS.md for measured results and DEMO.md for the demo script.
 
 Models live in models/ (gitignored), fetched with fetch_models.sh because the Hugging Face Python downloader stalls on this network. HF_HUB_DISABLE_XET is set in config.py.
 
