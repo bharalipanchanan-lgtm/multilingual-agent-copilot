@@ -26,7 +26,8 @@ OTHER_INSURERS = {"hdfc ergo": "HDFC ERGO", "hdfc": "HDFC ERGO", "star health": 
                   "magma": "Magma HDI", "universal sompo": "Universal Sompo", "galaxy health": "Galaxy Health",
                   "narayana": "Narayana Health", "lic": "LIC"}
 
-# Words that carry no content in "I would like to review the SBI policy" style requests.
+# Words that carry no content in "I would like to review the SBI policy" style requests. The last
+# Roman line holds the spellings Sarvam's transliteration uses ("Mujhe SBI vali policy dekhni hai").
 FILLER = set("""
 i i'd id me my we us let lets let's would like want wanna to the a an of about for on in with and please pls kindly
 review inspect check see look open use select choose show switch change go start load read study discuss
@@ -35,6 +36,7 @@ now ok okay yes sure thanks thank you this that one
 mujhe mujhko humein hume hum main mai mein ko ka ki ke se par pe wala wali wale ab abhi chalo theek thik haan han
 dekhna dekhni dekhne dekho dikhao dikhaiye kholo kholiye karna karni karo kariye chahta chahti chahte chahiye hai hain
 hoon hu hun ho jao jaaye baat batao bataiye policy polisi document dastavez bima
+vali vala vale chahie chaahie chahiye chaahiye dekhani dekhana mujhko iss is us uss vo woh ye yeh
 """.split()) | {"मुझे", "मैं", "हमें", "को", "का", "की", "के", "से", "पर", "वाली", "वाला", "अब", "ठीक", "है", "हैं",
                 "हूँ", "हूं", "देखना", "देखनी", "देखिए", "दिखाओ", "दिखाइए", "खोलो", "चाहता", "चाहती", "चाहिए",
                 "पॉलिसी", "पालिसी", "दस्तावेज़", "दस्तावेज", "बीमा", "हेल्थ", "इंश्योरेंस", "कंपनी", "प्लान"}

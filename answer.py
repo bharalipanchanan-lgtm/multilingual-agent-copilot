@@ -275,8 +275,37 @@ def card(c: dict, n: int, answer: str, question: str) -> dict:
 
 # ---------- pipeline ----------
 
+# Romanised Hindi terms -> the English words policy wordings use. Spoken questions come back from
+# Sarvam in Roman script ("pehle se maujud bimariyon"), and agents type that way too; the embedding
+# model does not connect those words with "pre-existing diseases". Used for the search only: the
+# model still sees the agent's own words.
+HINGLISH_TERMS = [
+    (r"pehle se (?:maujud|mojud|majood|wali|hone wali|chali aa rahi)?\s*bimar\w*|purani bimar\w*", "pre-existing disease"),
+    (r"bimar\w*|rog\b", "disease illness"),
+    (r"intez?aa?r|wait karna", "waiting period"),
+    (r"ilaa?j", "treatment"),
+    (r"kharch\w*", "expenses"),
+    (r"kamr[ae]\b|kamra kiraya|kiraya", "room rent"),
+    (r"bhart[ia]\b|daakhil|dakhil", "hospitalisation"),
+    (r"garbh\w*|prasav|delivery|bachch?a hone", "maternity childbirth"),
+    (r"aankh\w*|motiyabind", "eye cataract"),
+    (r"daa?nt\b|daanton", "dental"),
+    (r"dawa\w*|dawai\w*", "medicines"),
+    (r"chhoo?t\w*|bahar rakh\w*", "exclusion"),
+    (r"naveeni?karan|renew\w* karna", "renewal"),
+    (r"budh(?:e|ape)|vridh", "senior citizen"),
+]
+
+
+def search_query(question: str) -> str:
+    q = question.lower()
+    extra = [en for rx, en in HINGLISH_TERMS if re.search(rf"\b(?:{rx})", q)]
+    return question + (" (" + "; ".join(dict.fromkeys(extra)) + ")" if extra else "")
+
+
 def _retrieve(question: str, policy_id: str) -> list[dict]:
     from retrieve import expand_sections, keyword_hits, search
+    question = search_query(question)
     hits = search(question, policy_id, RETRIEVE_K)
     kw = keyword_hits(question, policy_id, {h["id"] for h in hits})
     for k in kw:

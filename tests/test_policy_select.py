@@ -153,3 +153,13 @@ def test_bare_name_keeps_the_conversation_language():
 def test_strip_names(text, clean):
     from policy_select import strip_names
     assert strip_names(text) == clean
+
+
+@pytest.mark.parametrize("text,pid", [
+    # exact transcripts returned by Sarvam saaras:v3 (mode translit) for the test clips
+    ("Mujhe SBI vali policy dekhni hai.", "sbi_retail_health"),
+    ("Mujhe oriental vala policy chahie.", "oriental_sampoorna"),
+])
+def test_sarvam_transliteration_spellings_select(text, pid):
+    pol, fin = turn(text)
+    assert pol == pid and fin["status"] == "selected" and fin["lang"] == "hinglish"

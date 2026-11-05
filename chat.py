@@ -28,7 +28,7 @@ CHOOSE_WORDS = {"which", "what", "konsa", "kaunsa", "konsi", "kaunsi", "kaun", "
                 "कौन", "सा", "सी", "उपलब्ध", "बदलो", "बदलनी", "बदलना", "दूसरी", "सकते"}
 
 HINGLISH_SELECT = {"mujhe", "dekhna", "dekhni", "dikhao", "kholo", "chahiye", "chahta", "chahti", "wali", "wala",
-                   "kaunsa", "konsa", "karo", "karna", "abhi", "chalo"}
+                   "kaunsa", "konsa", "karo", "karna", "abhi", "chalo", "vali", "vala", "chahie", "mujhko"}
 
 
 def chat_lang(text: str) -> str:

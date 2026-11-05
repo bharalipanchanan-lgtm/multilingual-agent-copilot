@@ -45,6 +45,18 @@ def test_request_carries_key_model_mode_and_audio(monkeypatch, key):
     assert seen["files"]["file"][0] == "q.webm" and seen["files"]["file"][2] == "audio/webm"
 
 
+@pytest.mark.parametrize("ct,name,want", [
+    ("audio/webm;codecs=opus", "question.webm", "audio/webm"),   # Chrome; Sarvam rejects the codec parameter
+    ("audio/mp4", "question.m4a", "audio/mp4"),                  # Safari
+    ("audio/mp4;codecs=mp4a.40.2", "question.m4a", "audio/mp4"),
+    ("", "question.webm", "audio/webm"),
+    ("audio/x-unknown", "clip.wav", "audio/wav"),
+    ("", "noext", "application/octet-stream"),
+])
+def test_media_type_sent_is_one_sarvam_accepts(ct, name, want):
+    assert stt.media_type(ct, name) == want
+
+
 def test_mode_is_not_sent_to_models_without_modes(monkeypatch, key):
     monkeypatch.setenv("SARVAM_STT_MODEL", "saaras:v4")
     seen = {}

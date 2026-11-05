@@ -27,3 +27,19 @@ def test_affirmative(text):
 ])
 def test_not_affirmative(text):
     assert not affirms_cover(text)
+
+
+@pytest.mark.parametrize("q,term", [
+    ("Kya iss policy mein pehle se maujud bimariyon ke liye waiting period hai?", "pre-existing disease"),
+    ("Delivery ka kharcha cover hota hai?", "maternity"),
+    ("Motiyabind ke ilaj ka waiting period?", "cataract"),
+])
+def test_hinglish_terms_expand_the_search_only(q, term):
+    from answer import search_query
+    out = search_query(q)
+    assert out.startswith(q) and term in out
+
+
+def test_english_question_is_unchanged():
+    from answer import search_query
+    assert search_query("What is the room rent limit?") == "What is the room rent limit?"

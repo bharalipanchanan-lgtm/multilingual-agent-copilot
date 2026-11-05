@@ -30,6 +30,11 @@ def stt(file: UploadFile = File(...), model: str = Form(None), mode: str = Form(
         return JSONResponse({"error": "bad key"}, status_code=403)
     if not data:
         return JSONResponse({"error": "empty"}, status_code=400)
+    # same rule as the real service: a codec parameter makes the type invalid
+    allowed = {"audio/webm", "video/webm", "audio/mp4", "audio/x-m4a", "audio/wav", "audio/x-wav", "audio/mpeg",
+               "audio/ogg", "audio/opus", "application/octet-stream"}
+    if file.content_type not in allowed:
+        return JSONResponse({"error": {"message": f"Invalid file type: {file.content_type}"}}, status_code=400)
     path = os.environ.get("MOCK_TRANSCRIPT_FILE")
     text = open(path, encoding="utf-8").read().strip() if path and os.path.exists(path) else "room rent kitna hai"
     return {"request_id": "mock", "transcript": text,

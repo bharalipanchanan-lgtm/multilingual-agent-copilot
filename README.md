@@ -76,5 +76,6 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
     python tests/e2e_ui.py                # the chat page in Google Chrome, whole demo flow, screenshots in eval/reports/ui_shots
     python tests/e2e_voice.py             # voice in a browser with a recorded clip and a mock Sarvam (no key, no cost)
     python voice_check.py                 # voice against the real Sarvam service (needs SARVAM_API_KEY)
+    python tests/e2e_voice_real.py        # spoken clips through the page, real Sarvam and the running copilot
 
 Gold files use physical PDF page numbers. Reports go to eval/reports/.
