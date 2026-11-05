@@ -126,3 +126,30 @@ def test_which_policy_questions_still_compare(text):
 def test_content_after_which_policy_is_not_a_list_request(text):
     _, fin = turn(text)
     assert fin["status"] == "compared"
+
+
+def test_held_question_naming_two_policies_uses_the_chosen_one():
+    evs = list(converse("SBI ya United India, room rent kitna hai?", "united_india", gen=None, held=True))
+    # goes on to retrieval for United India instead of asking again
+    assert not any(e.get("status") == "choose_policy" for e in evs)
+    assert evs[-1]["policy_id"] == "united_india"
+
+
+def test_bare_name_keeps_the_conversation_language():
+    fin = list(converse("United India", None, gen=None, prev_lang="hinglish"))[-1]
+    assert fin["status"] == "selected" and fin["lang"] == "hinglish" and fin["answer"].startswith("Theek hai")
+    fin = list(converse("2", None, gen=None, prev_lang="hi"))[-1]
+    assert fin["lang"] == "hi"
+
+
+@pytest.mark.parametrize("text,clean", [
+    ("SBI ya United India, room rent kitna hai?", "room rent kitna hai?"),
+    ("United India mein room rent kitna hai?", "room rent kitna hai?"),
+    ("What does the SBI policy say about maternity?", "What does the policy say about maternity?"),
+    ("एसबीआई में मैटरनिटी कवर है क्या?", "मैटरनिटी कवर है क्या?"),
+    ("Room rent kitna hai?", "Room rent kitna hai?"),
+    ("Royal plan mein ICU ka limit kya hai?", "Royal plan mein ICU ka limit kya hai?"),
+])
+def test_strip_names(text, clean):
+    from policy_select import strip_names
+    assert strip_names(text) == clean

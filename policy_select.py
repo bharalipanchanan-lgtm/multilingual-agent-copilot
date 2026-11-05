@@ -129,6 +129,23 @@ def mentioned(text: str) -> tuple[list[str], str]:
     return found, cut
 
 
+def strip_names(text: str) -> str:
+    """The question without policy names, for retrieval and the answer prompt.
+
+    "SBI ya United India, room rent kitna hai?" -> "room rent kitna hai?". The names chose the
+    policy already; left in, they pull premium and discount pages into the search.
+    """
+    out = text
+    for a in sorted({a for p in policies() for a in p["aliases"]}, key=len, reverse=True):
+        out = re.sub(rf"(?<![\wऀ-ॿ]){re.escape(a)}(?![\wऀ-ॿ])", " ", out, flags=re.I)
+    out = re.sub(r"\b(?:policy|policies|insurance|health)\b(?=\s+(?:mein|me|ki|ka|ke|में|की|का|के)\b)", " ", out, flags=re.I)
+    # leading connectors left behind ("ya", "mein", "में"); \b does not work after Devanagari vowel signs
+    out = re.sub(r"^[\s,;:/-]*(?:(?:ya|or|aur|and|vs|या|और|mein|me|में|ki|ka|ke|की|का|के|wali|wala|वाली|वाला)"
+                 r"(?=[\s,;:/-]|$)[\s,;:/-]*)*", "", out, flags=re.I)
+    out = re.sub(r"\s+", " ", out).strip(" ,;:-")
+    return out if len(re.findall(r"[\wऀ-ॿ]+", out)) >= 2 else text
+
+
 def other_insurer(text: str) -> str | None:
     t = _norm(text)
     for key, name in OTHER_INSURERS.items():

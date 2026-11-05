@@ -9,3 +9,4 @@ fastapi>=0.110
 uvicorn[standard]>=0.29
 # optional: pip install anthropic   (Claude backend, paid per token)
 pytest
+playwright  # tests/e2e_ui.py only, drives the installed Google Chrome

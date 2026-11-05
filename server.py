@@ -65,6 +65,8 @@ def startup():
 class Ask(BaseModel):
     question: str
     policy_id: str | None = None
+    held: bool = False              # re-sent question that was held while the agent chose a policy
+    prev_lang: str | None = None    # language of the conversation so far
 
 
 @app.get("/api/policies")
@@ -88,7 +90,8 @@ def ask(req: Ask):
     def job():
         from chat import converse
         try:
-            for ev in converse(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
+            for ev in converse(req.question.strip(), req.policy_id, GEN["gen"] or get_generator(),
+                               held=req.held, prev_lang=req.prev_lang):
                 q.put(ev)
         except Exception as e:
             q.put({"type": "final", "status": "error", "answer": f"Something went wrong: {e}", "citations": []})
@@ -121,6 +124,15 @@ def pdf(policy_id: str):
         if r["policy_id"] == policy_id:
             return FileResponse(POLICY_DIR / r["file"], media_type="application/pdf")
     raise HTTPException(404)
+
+
+@app.middleware("http")
+async def no_cache_page(request, call_next):
+    # The chat page changes as the prototype changes; a cached copy showed the old dropdown page.
+    resp = await call_next(request)
+    if not request.url.path.startswith(("/api/", "/pdf/")):
+        resp.headers["Cache-Control"] = "no-store"
+    return resp
 
 
 app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claviq Agent Copilot</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2325d366'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' font-family='sans-serif' font-weight='700' fill='%23073b33'%3EC%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --header: #075e54; --header-text: #ffffff; --accent: #25d366; --bg: #ece5dd;
@@ -90,7 +91,7 @@ const $ = s => document.querySelector(s);
 const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send");
 // The policy is chosen in the conversation ("SBI dekhna hai"), not from a list. The server says
 // which policy is in use; the page only remembers it and sends it back with each question.
-let currentPolicy = null, pendingQuestion = null;
+let currentPolicy = null, pendingQuestion = null, lastLang = null;
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
@@ -188,12 +189,15 @@ function renderTable(t) {
   return `<table class="cmp">${head}${rows}</table>`;
 }
 
-async function ask(text) {
+async function ask(text, held = false) {
   const question = (text ?? qEl.value).trim();
   if (!question || sendBtn.disabled) return;
   if (text === undefined) qEl.value = "";
   sendBtn.disabled = true;
-  add("me", esc(question));
+  if (held) {  // the agent already asked this; say it is being answered now rather than repeat it
+    const s = document.createElement("div"); s.className = "sys"; s.textContent = `Answering your earlier question: ${question}`;
+    chat.appendChild(s);
+  } else add("me", esc(question));
   const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
   let policyId = currentPolicy, after = null;
   const t0 = performance.now();
@@ -201,7 +205,7 @@ async function ask(text) {
   let streamed = "", meta = null;
   try {
     const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
-                                         body: JSON.stringify({question, policy_id: currentPolicy}) });
+                                         body: JSON.stringify({question, policy_id: currentPolicy, held, prev_lang: lastLang}) });
     const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
@@ -223,6 +227,7 @@ async function ask(text) {
             (["selected", "choose_policy"].includes(ev.status) ? "" : howPanel(ev, meta)) +
             `<div class="meta">${secs}s</div>`;
           wireOptions(bubble);
+          if (ev.lang) lastLang = ev.lang;
           // a question asked before any policy was chosen is answered once the agent picks one
           if (ev.status === "choose_policy" && ev.pending) pendingQuestion = question;
           if (ev.status === "selected" && pendingQuestion) { after = pendingQuestion; pendingQuestion = null; }
@@ -238,7 +243,7 @@ async function ask(text) {
     bubble.innerHTML = `<span class="badge b-stop">Error</span><br>${esc(e.message)}`;
   }
   sendBtn.disabled = false; qEl.focus();
-  if (after) ask(after);
+  if (after) ask(after, true);
 }
 $("#f").onsubmit = e => { e.preventDefault(); ask(); };
 qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });

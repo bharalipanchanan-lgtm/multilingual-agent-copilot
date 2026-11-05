@@ -66,5 +66,6 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
     python eval_answers.py --backend extractive
     python demo_check.py 3                # runs the demo conversation 3 times against the running server
     pytest tests/                         # fact quotes, policy choice, polarity check (no model needed)
+    python tests/e2e_ui.py                # the chat page in Google Chrome, whole demo flow, screenshots in eval/reports/ui_shots
 
 Gold files use physical PDF page numbers. Reports go to eval/reports/.

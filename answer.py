@@ -98,7 +98,8 @@ You are given numbered clauses from the policy wording. Rules:
    An appendix "List of Expenses Generally Excluded" is a list of non-medical items such as consumables, not the policy's main exclusions.
    A clause marked with an exclusion code such as "Code - Excl18" or "(Excl 18)" describes something the policy does NOT pay for, unless that clause says the exclusion does not apply.
 7. Never use words like "lifetime", "guaranteed", "always", "all hospitals" or "no limit" unless that exact idea is written in a clause.
-8. Write in the language you are told to use. Keep terms like "waiting period", "sum insured" and "pre-existing disease" in English.
+9. Do not add examples, calculations or amounts worked out from a percentage. State only what the clauses say.
+10. Write in the language you are told to use. Keep terms like "waiting period", "sum insured" and "pre-existing disease" in English.
 
 Example
 Clauses:
@@ -158,6 +159,9 @@ def build_prompt(question: str, clauses: list[dict], product: str, lang: str = "
         parts.append(f"[{i}] (page {c['printed_page']}, {tag})\n{text}" + ("\n" + "\n".join(notes) if notes else ""))
     parts += ["", f"Question: {question}", f"Language: {LANG_LINE[lang]}", "Answer:"]
     return "\n".join(parts)
+
+
+EXAMPLE_RE = re.compile(r"\b(?:for example|for instance|e\.g\.|example:|udaharan|misaal)|उदाहरण|\bmaan lijiye\b|\bsuppose\b", re.I)
 
 
 # ---------- polarity check ----------
@@ -230,20 +234,35 @@ def best_sentence(chunk_text: str, answer: str, question: str) -> str:
     windows = [w for w in windows if 40 <= len(w) <= 500] or [chunk_text]
     target = _tokens(answer) | _tokens(question)
     target_nums = _numbers(answer)
+    # Words of the question that pick out a clause ("diabetes", "cataract") outweigh common words
+    # such as "years waiting period", which every waiting period list shares.
+    from retrieve import STOP
+    key = {w.lower() for w in re.findall(r"[A-Za-z]{4,}", question) if w.lower() not in STOP}
+
+    def hits(s):
+        low = s.lower()
+        return sum(k in low for k in key)
+
     def score(s):
         return (len(_tokens(s) & target) + 3 * len(_numbers(s) & target_nums), -len(s))
-    best = max(windows, key=score)
+    # first the windows that name the most of the question's own words, then the best overlap
+    top_hits = max((hits(w) for w in windows), default=0)
+    pool = [w for w in windows if hits(w) == top_hits] if top_hits else windows
+    best = max(pool, key=score)
+    if not top_hits and any(k in chunk_text.lower() for k in key):
+        best = chunk_text  # the word sits in a long list with no sentence breaks: centre on it below
     if best is chunk_text or len(best) > 400:
         # long list with no sentence breaks: centre a window on the most specific matching term
         low = chunk_text.lower()
-        terms = sorted(target_nums, key=len, reverse=True) + sorted(target, key=len, reverse=True)
+        terms = sorted(key, key=len, reverse=True) + sorted(target_nums, key=len, reverse=True) + \
+            sorted(target, key=len, reverse=True)
         pos = next((low.find(t) for t in terms if len(t) > 3 and low.find(t) >= 0), -1)
         if pos >= 0:
             a = max(0, pos - 150)
             a = chunk_text.rfind(" ", 0, a) + 1 if a else 0
             snippet = chunk_text[a:a + 320].rsplit(" ", 1)[0]
             return ("... " if a else "") + snippet + " ..."
-    if score(best)[0] == 0:  # nothing overlaps (e.g. Hindi question, no answer): show the clause opening
+    if score(best)[0] == 0 and not top_hits:  # nothing overlaps (e.g. Hindi question, no answer): show the clause opening
         return _clip(chunk_text, 350)
     return best if len(best) <= 400 else best[:400].rsplit(" ", 1)[0] + " ..."
 
@@ -334,6 +353,12 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
         yield {"type": "final", "status": "not_stated", "answer": NOT_STATED[lang], "citations": [], **common}
         return
 
+    # Worked examples are the model's own arithmetic ("if the sum insured is 5 lakh, room rent is 5,000
+    # per day"); the prompt forbids them but the 7B still writes them, so drop them unless a clause
+    # gives an example itself.
+    if EXAMPLE_RE.search(answer) and not any("example" in c["text"].lower() for c in clauses):
+        kept = [x for x in re.split(r"(?<=[.!?।])\s+", answer) if not EXAMPLE_RE.search(x)]
+        answer = " ".join(kept).strip() or answer
     cited = sorted({int(n) for n in re.findall(r"\[(\d+)\]", answer) if 0 < int(n) <= len(clauses)})
     if not cited:  # model forgot to cite: attach the clauses that best overlap the answer
         ranked = sorted(range(len(clauses)), key=lambda i: -len(_tokens(clauses[i]["text"]) & _tokens(answer)))

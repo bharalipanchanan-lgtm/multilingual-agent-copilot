@@ -13,7 +13,7 @@ from typing import Iterator
 
 from answer import OUT_OF_SCOPE, ask_stream, detect_lang, route
 from policy_select import (FILLER, _norm, by_number, choose_message, mentioned, options, other_insurer, policies,
-                           selected_message, selection_only)
+                           selected_message, selection_only, strip_names)
 
 # "Which policy document can I inspect?", "policy badlo", "switch policy": the agent wants the list,
 # not a comparison (COMPARE_RE also matches "which policy").
@@ -38,12 +38,21 @@ def chat_lang(text: str) -> str:
     return lang
 
 
-def converse(question: str, policy_id: str | None, gen) -> Iterator[dict]:
+def converse(question: str, policy_id: str | None, gen, held: bool = False,
+             prev_lang: str | None = None) -> Iterator[dict]:
+    """held: the page is re-sending a question it held while the agent chose a policy, so the
+    policy just chosen is used and policy names inside the question are not read again (the
+    question may name two policies, which is why it was held).
+    prev_lang: language of the conversation so far, used when the text is only a name or a number."""
     t0 = time.time()
     lang = chat_lang(question)
     r = route(question)
     num = by_number(question)
     found, rest = ([num], "") if num else mentioned(question)
+    if not rest.split() and prev_lang in ("en", "hi", "hinglish"):
+        lang = prev_lang  # "SBI", "2" or a tapped name carry no language of their own
+    if held and policy_id:
+        found, rest = [], question
     known = {p["policy_id"]: p for p in policies()}
     if policy_id not in known:
         policy_id = None
@@ -52,7 +61,7 @@ def converse(question: str, policy_id: str | None, gen) -> Iterator[dict]:
         return {"type": "final", "status": status, "answer": answer, "citations": [], "lang": lang,
                 "backend": "policy_select", "ms": int((time.time() - t0) * 1000), "policy_id": policy_id, **extra}
 
-    other = other_insurer(question)
+    other = None if held else other_insurer(question)
     if other and not found:
         yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
         yield final("choose_policy", choose_message(lang, key="not_loaded", insurer=other),
@@ -96,7 +105,7 @@ def converse(question: str, policy_id: str | None, gen) -> Iterator[dict]:
         yield final("choose_policy", choose_message(lang), options=options(), pending=True)
         return
 
-    for ev in ask_stream(question, policy_id, gen):
+    for ev in ask_stream(strip_names(question), policy_id, gen):
         if ev.get("type") == "final":
             ev["policy_id"] = policy_id
         yield ev
