@@ -1,0 +1,307 @@
+{
+ "format": 2,
+ "policy_id": "royal_multiplier",
+ "insurer": "Royal Sundaram General Insurance",
+ "product": "Multiplier Health Insurance Plan (brochure, UIN RSAHLIP23030V012223)",
+ "source": "handoff/fact_table_prefill.json, needs_extra_care from handoff/fact_table_review.csv",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "36 months of continuous coverage. From the 2nd and 3rd year, PED is covered with 50% co-payment up to Rs 2 lakh per policy year (inpatient only, not for 16 listed conditions). Optional ABCD benefit covers asthma, high blood pressure, high cholesterol and diabetes from day 31",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy"
+    },
+    {
+     "page": 4,
+     "quote": "In 2 year & 3 year PED will be covered with 50% Co-payment up to"
+    }
+   ],
+   "note": "Source is a marketing brochure, not the policy wording; it says the brochure is not a contract. One plan with six sum insured options (5 to 25 lakh). Brochure pages 4 to 5 are a two-page spread, read from the table image.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "24 months for 16 listed conditions including cataract, stones, hernia, hysterectomy, gastric ulcers, tonsils, arthritis, piles, sinusitis, BPH, knee or hip joint replacement, varicose veins, fibroids and chronic renal or liver failure. Not applicable to accidents",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "excluded until the expiry of 24 months of continuous coverage"
+    },
+    {
+     "page": 11,
+     "quote": "12) Knee/Hip Joint replacement"
+    }
+   ],
+   "note": "Joint replacement waits 24 months here, unlike Oriental, United India and SBI.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "30 days from first policy commencement for any illness; accidents excepted",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident"
+    }
+   ],
+   "note": "The continuous coverage exception seen in other policies is not printed in the brochure.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "Not stated in the brochure",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "No moratorium wording found by search. The full policy wording may state it.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "No room rent capping",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "No Room Rent Capping"
+    }
+   ],
+   "note": "Baseline inpatient cover is up to sum insured (page 8).",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "ICU and ICCU expenses payable within the sum insured; no separate ICU cap printed",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "Intensive Care Unit (ICU) / Intensive Cardiac Care Unit (ICCU) expenses."
+    },
+    {
+     "page": 8,
+     "quote": "up to the sum insured specified in the policy"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "No mandatory co-pay. Optional voluntary co-payment of 5%, 10%, 15% or 20% for a premium discount. PED co-pay of 50% applies in years 2 and 3 of coverage",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Each and every claim under the Policy shall be subject to a Co- payment"
+    },
+    {
+     "page": 10,
+     "quote": "5% 10% 15% 20%"
+    }
+   ],
+   "note": "Percent options read from the page 10 text; confirm the discount per percent in the full wording.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Excluded (exclusion code Excl 18); the brochure lists only the code, details are in the policy wording",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "Maternity Expenses: (Code - Excl 18)"
+    }
+   ],
+   "note": "Brochure gives the exclusion heading only.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "Covered: inpatient treatment under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy up to sum insured in an AYUSH hospital",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "up to sum insured in any AYUSH Hospital"
+    },
+    {
+     "page": 4,
+     "quote": "AYUSH Treatment"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "All day care treatments covered up to sum insured (under 24 hours of hospitalisation); OPD not covered; pre and post expenses payable up to 30 days under this benefit",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "up to sum insured in case of any medically necessary day care treatment or surgery"
+    },
+    {
+     "page": 9,
+     "quote": "Any OPD treatment undertaken in a hospital/ day care centre will not be covered"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "60 days before, 90 days after, covered up to sum insured",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "for a fixed period of 60 days prior to the date of admissible"
+    },
+    {
+     "page": 9,
+     "quote": "for a fixed period of 90 days from the date of discharge from the"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "Sum insured increases by 20% of base sum insured per claim-free policy year up to 100% of base sum insured. Brochure page 4 states no reduction in case of a claim; the page 10 wording says no claims paid or outstanding in the expiring year",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "We will increase your sum insured by 20% of base sum insured per policy year up to a"
+    },
+    {
+     "page": 10,
+     "quote": "provided that there are no claims paid/outstanding in the expiring policy year"
+    }
+   ],
+   "note": "The brochure is inconsistent on what happens to the bonus after a claim. Resolve against the full wording before answering. Also: Flexi Reload up to 100% of base sum insured and 4X Multiplier in life threatening conditions (4 times in policy lifetime).",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "renewal",
+   "value": "Lifetime renewability for adults entering at 18 to 65",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "For Adults: 18 years to 65 years (Lifetime renewability)"
+    }
+   ],
+   "note": "Grace period and fraud exceptions are not in the brochure.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "No sub-limits on core benefits (modern treatments up to sum insured). Small caps: vaccination after animal bite Rs 5,000, ambulance and cab limits, annual health checkup, second opinion for 22 critical illnesses once a year",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "up to sum insured, as specified in the"
+    },
+    {
+     "page": 4,
+     "quote": "Covered upto `5,000"
+    }
+   ],
+   "note": "Rupee symbol is a backtick in the PDF text.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Brochure mentions health check-ups through an empanelled network provider; no cashless procedure, pre-authorisation or network claim wording found",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "through our empanelled network provider"
+    }
+   ],
+   "note": "Do not answer cashless questions from this document. Obtain the full wording.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Not stated in the brochure",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "No mental illness wording found by search. Do not infer exclusion or cover.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

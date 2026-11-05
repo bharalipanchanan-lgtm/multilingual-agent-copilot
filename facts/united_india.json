@@ -1,0 +1,379 @@
+{
+ "format": 2,
+ "policy_id": "united_india",
+ "insurer": "United India Insurance",
+ "product": "Individual Health Insurance Policy (prospectus)",
+ "source": "handoff/fact_table_prefill.json, needs_extra_care from handoff/fact_table_review.csv",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "48 months of continuous coverage",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "shall be excluded until the expiry of 48 months of continuous coverage after the date of inception of the first policy with us"
+    }
+   ],
+   "note": "Source is a prospectus, not the full wording. The policy wording governs. Plans are Platinum (18 to 35), Gold (36 to 60) and Senior Citizen (61 to 65) by entry age.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "24 months (Table A): cataract, hernia, hydrocele, piles, fissures and fistula, BPH, sinusitis, calculus diseases, gout and rheumatism, menorrhagia and fibromyoma, congenital internal diseases. 48 months (Table B): joint replacement due to degenerative condition, age related osteoarthritis and osteoporosis, ARMD, neurodegenerative disorders.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "Table A. 24 Months’ waiting period"
+    },
+    {
+     "page": 5,
+     "quote": "Table B. 48 Months’ waiting period"
+    },
+    {
+     "page": 5,
+     "quote": "Joint Replacement due to Degenerative condition, unless necessitated due to an accident."
+    }
+   ],
+   "note": "Longer of the specific and PED waiting periods applies when both apply.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "30 days from first policy commencement for any illness; accidents excepted; not applicable if continuous coverage for more than twelve months",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded"
+    },
+    {
+     "page": 5,
+     "quote": "This exclusion shall not, however, apply if the Insured Person has Continuous Coverage for more than twelve months"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "Not stated in the prospectus",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "No moratorium wording found by search. The full policy wording may state it.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Up to 1% of sum insured per day or actual expenses, whichever is less; proportionate deduction applies if a costlier room is taken",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "up to 1% of Sum Insured per day or actual expenses whichever is less"
+    },
+    {
+     "page": 2,
+     "quote": "PROPORTIONATE PAYMENT CLAUSE"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "Up to 2% of sum insured per day or actual expenses, whichever is less",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "up to 2% of Sum Insured per day or actual expenses whichever is less"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not applicable",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "6. Co-Payment Not Applicable."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Excluded: childbirth including caesarean section, miscarriage (unless accident) and lawful medical termination of pregnancy; ectopic pregnancy excepted",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "18. Maternity (Code- Excl18):"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "Not stated as a benefit. Exclusion 16 refers to treatments other than Allopathy and AYUSH branches, which implies AYUSH inpatient treatment may be covered; confirm in the full wording",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "16. Treatments other than Allopathy and AYUSH branches of medicine."
+    }
+   ],
+   "note": "No AYUSH limit is given in the prospectus.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "All day care treatments as defined in the policy are covered",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "iii. All day care treatments as per definition in Clause II.A.9 of the policy wordings are covered."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PLATINUM",
+   "attribute": "pre_post_hospitalisation",
+   "value": "30 days before, 60 days after; the 10% of sum insured cap does not apply to Platinum",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "up to 30 days prior to hospitalisation"
+    },
+    {
+     "page": 3,
+     "quote": "up to 60 days after the discharge from the hospital"
+    },
+    {
+     "page": 3,
+     "quote": "The maximum limit of 10% of Sum Insured will not be applicable for Platinum Plan."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "GOLD",
+   "attribute": "pre_post_hospitalisation",
+   "value": "30 days before, 60 days after, combined maximum 10% of sum insured",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Subject to a maximum of 10% of Sum Insured for Pre- and Post-Hospitalisation combined"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "SENIOR",
+   "attribute": "pre_post_hospitalisation",
+   "value": "30 days before, 60 days after, combined maximum 10% of sum insured",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Subject to a maximum of 10% of Sum Insured for Pre- and Post-Hospitalisation combined"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "Not stated in the prospectus. Only family and direct channel discounts are described",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "No bonus or no claim discount wording found. Do not infer there is none; the full wording may state it.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "renewal",
+   "value": "Ordinarily renewable except on fraud or misrepresentation; renewal not denied because of earlier claims; 30 day grace period; the word lifelong does not appear",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "The policy shall ordinarily be renewable except on grounds of fraud or misrepresentation by the Insured Person."
+    },
+    {
+     "page": 10,
+     "quote": "can be renewed within the Grace Period of 30 days"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PLATINUM",
+   "attribute": "sublimits",
+   "value": "No sub-limits listed (sub-limits apply only to Gold and Senior Citizen)",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "(Applicable only for Gold and Senior Citizen plans)"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "GOLD",
+   "attribute": "sublimits",
+   "value": "Cataract: 25% of sum insured or Rs 40,000 per eye, whichever is less. Hernia and hysterectomy: 25% of sum insured or Rs 1,00,000, whichever is less. Major surgeries (cardiac, brain tumour, cancer, hip, knee and joint replacement, organ transplant): up to 70% of sum insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Up to 25% of Sum Insured or Rs. 40,000 per eye, whichever is less"
+    },
+    {
+     "page": 3,
+     "quote": "Up to 70% of the Sum Insured"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "SENIOR",
+   "attribute": "sublimits",
+   "value": "Same as Gold: cataract 25% of sum insured or Rs 40,000 per eye; hernia and hysterectomy 25% or Rs 1,00,000; major surgeries up to 70% of sum insured",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Up to 25% of Sum Insured or Rs. 40,000 per eye, whichever is less"
+    },
+    {
+     "page": 3,
+     "quote": "Up to 70% of the Sum Insured"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless at network hospitals only, if claim processing is by TPA, with pre-authorisation. The prospectus claims a network of 14000+ hospitals",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "Cashless facility for treatment in network hospitals only shall be available to Insured if opted for claim processing"
+    },
+    {
+     "page": 1,
+     "quote": "Our cashless hospitalisation network spans 14000+ hospitals pan India."
+    }
+   ],
+   "note": "The network size is a marketing claim in the prospectus; do not repeat it as a fact without a source date.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Not stated for inpatient treatment. The prospectus only excludes psychiatric or psychosomatic disorders from domiciliary hospitalisation",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "All Psychiatric or Psychosomatic Disorders"
+    }
+   ],
+   "note": "Check the full wording for an inpatient mental illness clause before answering.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

@@ -1,53 +1,49 @@
 """Comparison across policies, answered only from the fact table in facts/*.json.
 
-Free text search cannot compare 20 documents reliably, so comparison questions are
-mapped to a fixed attribute list and answered from values a human has checked against
-the PDF. Values not yet verified are flagged as such in every answer.
+Free text search cannot compare documents reliably, so comparison questions are mapped to a
+fixed attribute list and answered from the fact rows (fact_table.py), one row per plan where
+plans differ. Rules:
+  status not_stated  -> "Not stated in the document", never "not covered"
+  status unclear     -> the recorded reading, marked unclear
+  no row at all      -> "Not in the fact table yet", which says nothing about the document
+  verified false     -> every answer says the values are not yet verified by a person
+The table keeps the shape web/index.html expects (task 7 replaces the view with plan rows).
 """
-import json
 import re
 
-from config import FACTS_DIR
+from fact_table import ATTRIBUTES, load_facts, manifest
 
-ATTRS = {
-    "ped_waiting": "Pre-existing disease waiting period",
-    "specific_waiting": "Specific disease waiting period",
-    "initial_waiting": "Initial waiting period",
-    "room_rent": "Room rent cap",
-    "copay": "Co-payment",
-    "maternity": "Maternity cover",
-    "ayush": "AYUSH cover",
-    "daycare": "Day care procedures",
-    "pre_post": "Pre and post hospitalisation",
-    "ncb": "No claim bonus",
-    "renewal": "Renewal terms",
-    "sublimits": "Sub-limits",
-}
 KEYWORDS = [
-    (r"diabet|sugar|madhumeh|मधुमेह|डायबिटीज", ["ped_waiting", "specific_waiting"]),
+    (r"diabet|sugar|madhumeh|मधुमेह|डायबिटीज", ["ped_waiting", "specific_disease_waiting"]),
     (r"pre.?existing|\bped\b|pehle se|पहले से", ["ped_waiting"]),
     (r"initial|first 30|30 day", ["initial_waiting"]),
-    (r"specific|cataract|hernia|knee|joint", ["specific_waiting"]),
-    (r"waiting", ["ped_waiting", "specific_waiting", "initial_waiting"]),
-    (r"room|icu|kamra|कमरा", ["room_rent"]),
+    (r"specific|cataract|hernia|knee|joint", ["specific_disease_waiting"]),
+    (r"moratorium", ["moratorium"]),
+    (r"waiting", ["ped_waiting", "specific_disease_waiting", "initial_waiting"]),
+    (r"room|kamra|कमरा", ["room_rent"]),
+    (r"\bicu\b|intensive care", ["icu_limit"]),
     (r"co.?pay", ["copay"]),
     (r"maternity|pregnan|delivery|prasav|प्रसव|मातृत्व", ["maternity"]),
     (r"ayush|ayurved|homeo|आयुर्वेद", ["ayush"]),
     (r"day.?care", ["daycare"]),
-    (r"pre.?hosp|post.?hosp|pre and post", ["pre_post"]),
-    (r"no.?claim|bonus|\bncb\b", ["ncb"]),
+    (r"pre.?hosp|post.?hosp|pre and post", ["pre_post_hospitalisation"]),
+    (r"no.?claim|bonus|\bncb\b", ["no_claim_bonus"]),
     (r"renew", ["renewal"]),
-    (r"sub.?limit|cap", ["sublimits"]),
+    (r"sub.?limit|\bcap\b", ["sublimits"]),
+    (r"cashless|network hospital", ["cashless"]),
+    (r"mental|psychiatr|मानसिक", ["mental_illness"]),
+    (r"entry age|\bage\b|umar|उम्र|family member", ["entry_age"]),
+    (r"sum insured|cover amount", ["sum_insured_options"]),
+    (r"restor|reload|recharge|refill|multiplier", ["restoration_reload"]),
 ]
 NOTE = {
-    "en": ("From the policy fact table.", "Not yet verified by a human against the PDF.", "Not stated in the document."),
-    "hi": ("पॉलिसी फैक्ट टेबल से।", "अभी तक किसी व्यक्ति ने PDF से इसकी जाँच नहीं की है।", "दस्तावेज़ में नहीं दिया गया है।"),
-    "hinglish": ("Policy fact table se.", "Abhi tak kisi ne PDF se verify nahi kiya hai.", "Document mein nahi diya gaya hai."),
+    "en": ("From the policy fact table.", "Not yet verified by a person against the PDF.",
+           "Not stated in the document", "Not in the fact table yet", "unclear"),
+    "hi": ("पॉलिसी फैक्ट टेबल से।", "अभी तक किसी व्यक्ति ने PDF से इसकी जाँच नहीं की है।",
+           "दस्तावेज़ में नहीं दिया गया है", "फैक्ट टेबल में अभी नहीं है", "अस्पष्ट"),
+    "hinglish": ("Policy fact table se.", "Abhi tak kisi ne PDF se verify nahi kiya hai.",
+                 "Document mein nahi diya gaya hai", "Fact table mein abhi nahi hai", "unclear"),
 }
-
-
-def load_facts() -> list[dict]:
-    return [json.load(open(p, encoding="utf-8")) for p in sorted(FACTS_DIR.glob("*.json"))]
 
 
 def attrs_for(question: str) -> list[str]:
@@ -61,34 +57,57 @@ def attrs_for(question: str) -> list[str]:
     return found
 
 
+def _cell_text(rows: list[dict], words) -> str:
+    _, _, missing, absent, unclear = words
+    if not rows:
+        return absent
+    parts = []
+    for r in rows:
+        v = missing if r["status"] == "not_stated" else r["value"]
+        if r["status"] == "unclear":
+            v = f"{v} ({unclear})"
+        parts.append(v if r["plan"] == "ALL" else f"{r['plan']}: {v}")
+    return "; ".join(parts)
+
+
 def compare_answer(question: str, lang: str = "en") -> dict:
     facts = load_facts()
     keys = attrs_for(question)
-    head, unverified, missing = NOTE[lang]
+    words = NOTE[lang]
+    head, unverified = words[0], words[1]
     if not keys:
+        names = ", ".join(ATTRIBUTES.values())
         return {"status": "not_stated", "answer": {
-            "en": "I can compare policies on: " + ", ".join(ATTRS.values()) + ".",
-            "hi": "मैं इन बिंदुओं पर पॉलिसी की तुलना कर सकता हूँ: " + ", ".join(ATTRS.values()) + "।",
-            "hinglish": "Main in points par policies compare kar sakta hoon: " + ", ".join(ATTRS.values()) + ".",
+            "en": "I can compare policies on: " + names + ".",
+            "hi": "मैं इन बिंदुओं पर पॉलिसी की तुलना कर सकता हूँ: " + names + "।",
+            "hinglish": "Main in points par policies compare kar sakta hoon: " + names + ".",
         }[lang], "citations": [], "table": None}
-    rows, cites = [], []
+    man = manifest()
+    rows, cites, lines = [], [], [head]
     for f in facts:
+        offset = int(man.get(f["policy_id"], {}).get("page_offset") or 0)
+        name = f"{f['insurer']}: {f['product']}"  # product names alone do not say whose policy it is
         cells = []
         for k in keys:
-            a = f["attributes"].get(k, {})
-            cells.append({"attr": k, "value": a.get("value") or missing, "clause": a.get("clause"),
-                          "printed_page": a.get("printed_page"), "page": a.get("page")})
-            if a.get("value"):
-                cites.append({"n": len(cites) + 1, "policy_id": f["policy_id"], "product": f["product"],
-                              "section": f"Clause {a.get('clause')}", "page": a.get("page"),
-                              "printed_page": a.get("printed_page"), "quote": a["value"], "text": a["value"]})
-        rows.append({"policy_id": f["policy_id"], "product": f["product"], "insurer": f["insurer"],
-                     "verified": f.get("verified", False), "cells": cells})
-    lines = [head]
-    for r in rows:
-        for c in r["cells"]:
-            page = f" (clause {c['clause']}, page {c['printed_page']})" if c["clause"] else ""
-            lines.append(f"{r['product']}: {ATTRS[c['attr']]}: {c['value']}{page}")
+            frows = [r for r in f["rows"] if r["attribute"] == k]
+            page = next((e["page"] for r in frows for e in r["evidence"]), None)
+            cells.append({"attr": k, "value": _cell_text(frows, words), "page": page,
+                          "printed_page": page - offset if page else None,
+                          "verified": bool(frows) and all(r["verified"] for r in frows)})
+            for r in frows:
+                if r["status"] == "not_stated" or not r["evidence"]:
+                    continue
+                e = r["evidence"][0]
+                quotes = " ... ".join(x["quote"] for x in r["evidence"] if x.get("quote"))
+                plan = "" if r["plan"] == "ALL" else f" ({r['plan']})"
+                cites.append({"n": len(cites) + 1, "policy_id": f["policy_id"], "product": name,
+                              "section": f"{name}: {ATTRIBUTES[k]}{plan}", "page": e["page"],
+                              "printed_page": e["page"] - offset, "quote": e.get("quote") or r["value"],
+                              "text": f"{r['value']}\n\nFrom the policy: {quotes}" if quotes else r["value"]})
+            lines.append(f"{name}: {ATTRIBUTES[k]}: {cells[-1]['value']}"
+                         + (f" (page {cells[-1]['printed_page']})" if page else ""))
+        rows.append({"policy_id": f["policy_id"], "product": name, "insurer": f["insurer"],
+                     "verified": all(c["verified"] for c in cells), "cells": cells})
     if any(not r["verified"] for r in rows):
         lines.append(unverified)
     if len(rows) == 1:
@@ -96,4 +115,4 @@ def compare_answer(question: str, lang: str = "en") -> dict:
                       "hi": "अभी केवल एक पॉलिसी लोड है, इसलिए तुलना के लिए दूसरी पॉलिसी नहीं है।",
                       "hinglish": "Abhi sirf ek policy loaded hai, isliye compare karne ke liye doosri policy nahi hai."}[lang])
     return {"status": "compared", "answer": "\n".join(lines), "citations": cites,
-            "table": {"attributes": [ATTRS[k] for k in keys], "rows": rows}}
+            "table": {"attributes": [ATTRIBUTES[k] for k in keys], "rows": rows}}

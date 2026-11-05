@@ -8,3 +8,4 @@ mlx-lm>=0.20            # local LLM on Apple Silicon
 fastapi>=0.110
 uvicorn[standard]>=0.29
 # optional: pip install anthropic   (Claude backend, paid per token)
+pytest

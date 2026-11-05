@@ -1,0 +1,336 @@
+{
+ "format": 2,
+ "policy_id": "sbi_retail_health",
+ "insurer": "SBI General Insurance",
+ "product": "Health Insurance Policy Retail (prospectus, UIN SBIHLIP22138V042122)",
+ "source": "handoff/fact_table_prefill.json, needs_extra_care from handoff/fact_table_review.csv",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "48 months of continuous coverage",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "shall be excluded until the expiry of 48 months of continuous coverage after the date of"
+    }
+   ],
+   "note": "Source is a prospectus, which says it is only a summary of the policy; the wording governs. Plans A, B and C are location based (premium and cross-location claim share), not different benefit levels, so benefit rows apply to ALL plans.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "90 days: hypertension, heart disease, diabetes and related complications. 1 year: gastric or duodenal ulcers, tonsillectomy and similar, tumours and cysts, hernia and hydrocele, anal fissures, fistula and piles. 2 years: cataract, BPH, hysterectomy, arthritis, genitourinary surgery, calculus, sinusitis, disc surgery, varicose veins, chronic renal failure and others. 3 years: joint replacement due to degenerative condition, age related osteoarthritis and osteoporosis.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "ii.2 Years Waiting Period"
+    },
+    {
+     "page": 7,
+     "quote": "• Cataract"
+    },
+    {
+     "page": 7,
+     "quote": "joint replacement surgery due to Degenerative condition, Age related osteoarthritis and Osteoporosis"
+    },
+    {
+     "page": 7,
+     "quote": "• Diabetes and related complications"
+    }
+   ],
+   "note": "The 1 year list is on page 6 and the 2 year list continues on page 7. Hypertension and diabetes wait of 90 days is stated here as a specific waiting period; PED rules still apply if pre-existing.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "30 days from first policy commencement for any illness; accidents excepted; not applicable if continuous coverage for more than twelve months",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded"
+    },
+    {
+     "page": 6,
+     "quote": "This exclusion shall not, however, apply if the Insured Person has Continuous Coverage"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "Not stated in the prospectus",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "No moratorium wording found by search. The full policy wording may state it.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Up to 1% of sum insured per day; all admissible room and ICU claims together up to 25% of sum insured per illness or injury per claim. Add-on cover can remove room and ICU sub-limits",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "1. Room, Board & Nursing Expenses & Service Charges Etc - Up to 1% of the SI per day."
+    },
+    {
+     "page": 1,
+     "quote": "Up to 25% of the SI per illness/injury per claim."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "Up to 2% of sum insured per day",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "2. Intensive Care Unit - Up to 2% of the SI per day."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "10% co-pay after deductible on all eligible claims in non-network hospitals; no other co-pay found in the prospectus",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "18. 10% Co-Pay after deductible will apply on all eligible admissible claims in non-network hospitals."
+    }
+   ],
+   "note": "The deductible amount is not given in the pages read.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Excluded: childbirth including caesarean section, miscarriage (unless accident) and lawful medical termination of pregnancy; ectopic pregnancy excepted",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "19. Maternity Expenses (Code - Excl 18):"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "Covered with limits: Ayurvedic up to 15% of sum insured, maximum Rs 20,000 per policy period; Homeopathy and Unani up to 10% of sum insured, maximum Rs 15,000. Treatment must be in a government hospital or an accredited institute. Add-on can remove the cover",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "Ayurvedic Treatment Covered maximum 15% of Sum Insured per Policy period"
+    },
+    {
+     "page": 2,
+     "quote": "Homeopathy and Unani Treatment covered maximum 10% of"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Covered: treatment needing under 24 hours of hospitalisation for specified procedures such as dialysis, chemotherapy, radiotherapy, eye surgery and tonsillectomy",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "19. Day Surgery where less than 24 hours hospitalization undertaken for specified procedures"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "30 days before and 60 days after, each limited to 10% of the eligible hospitalisation expenses",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "Pre-hospitalisation - Up to 10% of the eligible hospitalisation or Domiciliary hospitalisation expenses incurred in 30 days prior"
+    },
+    {
+     "page": 1,
+     "quote": "Post-hospitalisation - Up to 10% of the eligible hospitalisation or Domiciliary hospitalisation expenses incurred in 60 days after"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "Cumulative bonus: sum insured increases by 5% for each claim free renewed year, maximum 25% of sum insured. After a claim the bonus is reduced by 5% at renewal. Up to 20% for ported policies with proof of no claims",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 31,
+     "quote": "increasing the Sum Insured by 5%. The maximum cumulative bonus shall not exceed 25% of the Sum Insured in any policy year."
+    },
+    {
+     "page": 31,
+     "quote": "In case of a claim in the Policy the Cumulative Bonus if any under the policy will get reduced by 5% at the time of renewal"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "renewal",
+   "value": "Ordinarily renewable except on misrepresentation; 30 day grace period; no exit age, beyond 70 years renewal on payment of age-band premium and loading; the word lifelong does not appear",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 34,
+     "quote": "The policy shall ordinarily be renewable except on misrepresentation by the insured person."
+    },
+    {
+     "page": 34,
+     "quote": "the Grace Period of 30 days to maintain continuity of benefits without break in policy."
+    },
+    {
+     "page": 10,
+     "quote": "4. There is no exit age."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "Per illness caps: room and ICU together 25% of sum insured; surgeon and consultant fees 40%; anaesthesia, blood, oxygen, OT and appliances 40%. Cataract 15% of sum insured up to Rs 25,000 per eye. Genetic disorders Rs 50,000. Internal congenital diseases 10% of sum insured. Modern treatments up to 50% of sum insured. Ambulance 1% of sum insured up to Rs 1,500. Mental illness sub-limit Rs 50,000",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "Surgeon, Anaesthetist, Consultants(including Teleconsultation) , Specialists Fees - Up to 40% of the SI per illness/injury per"
+    },
+    {
+     "page": 2,
+     "quote": "13. Limit of Cataract - 15% of sum insured subject to maximum of INR 25000 per eye"
+    },
+    {
+     "page": 4,
+     "quote": "22. Genetic Disorders or Diseases are covered up to the Limit Rs. 50,000"
+    },
+    {
+     "page": 5,
+     "quote": "up to 50% of -of Sum Insured"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless facility offered at network hospitals. The prospectus gives no pre-authorisation steps in the pages read",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "20. We offer Cashless facility eliminating the entire trouble of documentation and direct settlement of your bills with our Network hospitals."
+    }
+   ],
+   "note": "Non-network treatment attracts 10% co-pay after deductible.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Covered for hospitalisation for listed mental illnesses under the Mental Health Care Act 2017, with a cumulative sub-limit of Rs 50,000 including pre and post hospitalisation. Self-inflicted injury and substance abuse related conditions excluded",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "22. Mental Illness Cover: If Insured is hospitalized for any Mental Illness contracted during the Policy Period"
+    },
+    {
+     "page": 3,
+     "quote": "ed only up to Rs. 50,000/-. This sub-limit"
+    },
+    {
+     "page": 4,
+     "quote": "a. Treatment related to intentional self-inflicted Injury or attempted suicide by any means."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

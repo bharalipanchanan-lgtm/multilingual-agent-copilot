@@ -1,0 +1,667 @@
+{
+ "format": 2,
+ "policy_id": "oriental_sampoorna",
+ "insurer": "The Oriental Insurance Company",
+ "product": "Oriental Sampoorna Swasthya Suraksha (Premium, Elite, Royal plans)",
+ "source": "handoff/fact_table_prefill.json, needs_extra_care from handoff/fact_table_review.csv",
+ "rows": [
+  {
+   "plan": "PREMIUM",
+   "attribute": "ped_waiting",
+   "value": "36 months of continuous coverage",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 38,
+     "quote": "excluded until the expiry of 36 months, 24 months, and 12 (Below 45 years of age)"
+    }
+   ],
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "ped_waiting",
+   "value": "24 months of continuous coverage",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 38,
+     "quote": "excluded until the expiry of 36 months, 24 months, and 12 (Below 45 years of age)"
+    }
+   ],
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "ped_waiting",
+   "value": "12 months if below 45 years, 24 months if above 45",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 38,
+     "quote": "excluded until the expiry of 36 months, 24 months, and 12 (Below 45 years of age)"
+    },
+    {
+     "page": 18,
+     "quote": "1 year for Insured upto age of 45 Years & 2 Yrs for age above 45 Yrs"
+    }
+   ],
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "1 year: benign ENT disorders, polycystic ovarian disease. 2 years: hernia, hydrocele, cataract, piles, fistula, sinusitis, gallbladder surgery, BPH, hysterectomy, calculus and others. 3 years: joint replacement due to degenerative condition, age related osteoarthritis and osteoporosis. Hypertension and diabetes: 90 days unless pre-existing at inception.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 39,
+     "quote": "7 Cataract 2 Years"
+    },
+    {
+     "page": 39,
+     "quote": "3 Surgery of hernia 2 years"
+    },
+    {
+     "page": 40,
+     "quote": "23 Joint Replacement due to Degenerative condition 3 Years"
+    },
+    {
+     "page": 40,
+     "quote": "Waiting period for life style conditions namely, Hypertension, Diabetes, Cardiac conditions is not allowed for more than 90 days except if these diseases are pre-"
+    }
+   ],
+   "note": "Longer of the specific and PED waiting periods applies when both apply (clause 4.2 B). List has 26 numbered rows over pages 39 and 40; row 21 is missing from the extraction.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "30 days from first policy commencement for any illness; accidents excepted; not applicable if continuous coverage for more than 12 months",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 40,
+     "quote": "Expenses related to the treatment of any illness within 30days from the first policy commencement date shall be excluded"
+    },
+    {
+     "page": 40,
+     "quote": "This exclusion shall not, however, apply if the Insured Person has continuous coverage for more than twelve months"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "60 continuous months, after which no look-back applies",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 47,
+     "quote": "After the completion of sixty continuous months under this policy"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "room_rent",
+   "value": "1% of sum insured per day",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "1 % of the Sum Insured per day"
+    }
+   ],
+   "note": "Room rent upgrade option (clause 3.2.3): increment of 50% or 100% available for Premium; Elite only up to 10 lakh sum insured; not applicable to Royal.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "room_rent",
+   "value": "Up to 10 lakh sum insured: 1% of sum insured per day. Above 10 lakh: actual expenses incurred",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Upto 10 lakhs : - 1% of the Sum Insured per day Above 10 lakhs : actual expenses incurred for the Sum Insured per day"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "room_rent",
+   "value": "Actual expenses incurred per day (no cap)",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Actual expenses incurred per day"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "icu_limit",
+   "value": "2% of sum insured per day",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "2% of the Sum Insured per day."
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "icu_limit",
+   "value": "Up to 10 lakh sum insured: 2% of sum insured per day. Above 10 lakh: actual expenses incurred",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Upto 10 lakhs: - 2%of the Sum Insured per day Above 10 lakhs : actual expenses incurred for the Sum Insured per day"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "icu_limit",
+   "value": "Actual expenses incurred per day (no cap)",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Actual expenses incurred per day"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "copay",
+   "value": "10% co-payment when treated in a non-network hospital",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
+    }
+   ],
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "copay",
+   "value": "5% co-payment when treated in a non-network hospital",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
+    }
+   ],
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "copay",
+   "value": "Not applicable",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
+    }
+   ],
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "maternity",
+   "value": "Not available",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 13,
+     "quote": "Not Available"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "maternity",
+   "value": "Covered: up to 5% of sum insured, maximum Rs 50,000; two deliveries or terminations in a lifetime; 24 month waiting period",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 23,
+     "quote": "3.1.4 MATERNITY EXPENSES AND NEWBORN BABY COVER UNDER ELITE AND ROYAL PLAN"
+    },
+    {
+     "page": 13,
+     "quote": "limited to two deliveries or"
+    }
+   ],
+   "note": "Benefit amounts read from the table image on page 13, verify. Limit is total liability including related expenses.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "maternity",
+   "value": "Covered: up to 10% of sum insured, maximum Rs 2,00,000; two deliveries or terminations in a lifetime; 24 month waiting period",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 23,
+     "quote": "3.1.4 MATERNITY EXPENSES AND NEWBORN BABY COVER UNDER ELITE AND ROYAL PLAN"
+    },
+    {
+     "page": 13,
+     "quote": "limited to two deliveries or"
+    }
+   ],
+   "note": "Benefit amounts read from the table image on page 13, verify. Limit is total liability including related expenses.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "Covered up to 100% of sum insured, inpatient treatment in an AYUSH hospital (Ayurveda, Yoga and Naturopathy, Unani, Siddha, Homeopathy)",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "AYUSH Coverage Upto 100% of the Sum Insured"
+    },
+    {
+     "page": 21,
+     "quote": "inpatient care treatment under Ayurveda, Yoga and Naturopathy, Unani, Siddha, and Homeopathy systems of medicines"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Covered; 24 hour minimum hospitalisation is relaxed for day care procedures listed in Appendix I, and for other day care treatment with prior written approval",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 21,
+     "quote": "Relaxation to 24 hours minimum duration for Hospitalization is allowed in"
+    },
+    {
+     "page": 2,
+     "quote": "2.10 DAY CARE TREATMENT means medical treatment, and/or surgical procedure which is:"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "pre_post_hospitalisation",
+   "value": "30 days before, 60 days after",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "up to 30 days for the PREMIUM Plan, 45 days for the ELITE Plan, and 90 days for the ROYAL Plan before the date of admission"
+    },
+    {
+     "page": 7,
+     "quote": "upto60 days for the PREMIUM Plan, 90 days for the ELITE Plan, and 180 days for the ROYAL Plan from the date of discharge"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "pre_post_hospitalisation",
+   "value": "45 days before, 90 days after",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "up to 30 days for the PREMIUM Plan, 45 days for the ELITE Plan, and 90 days for the ROYAL Plan before the date of admission"
+    },
+    {
+     "page": 7,
+     "quote": "upto60 days for the PREMIUM Plan, 90 days for the ELITE Plan, and 180 days for the ROYAL Plan from the date of discharge"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "90 days before, 180 days after",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "up to 30 days for the PREMIUM Plan, 45 days for the ELITE Plan, and 90 days for the ROYAL Plan before the date of admission"
+    },
+    {
+     "page": 7,
+     "quote": "upto60 days for the PREMIUM Plan, 90 days for the ELITE Plan, and 180 days for the ROYAL Plan from the date of discharge"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "no_claim_bonus",
+   "value": "Cumulative bonus 10% per annum up to 100% of sum insured",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Cumulative Bonus:"
+    }
+   ],
+   "note": "Values read from the table image on page 18, verify. What happens to the bonus after a claim was not read (clause 3.1.20). Option 2: if the bonus is not availed, 2% discount on renewal premium.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "no_claim_bonus",
+   "value": "Cumulative bonus 20% per annum up to 100% of sum insured",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Cumulative Bonus: 20% per annum"
+    }
+   ],
+   "note": "Values read from the table image on page 18, verify. What happens to the bonus after a claim was not read (clause 3.1.20). Option 2: if the bonus is not availed, 2% discount on renewal premium.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "no_claim_bonus",
+   "value": "Cumulative bonus: up to 25 lakh sum insured 25% per annum up to 200%; above 25 lakh 50% per annum up to 200% of sum insured",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Upto 25 Lacs Sum"
+    }
+   ],
+   "note": "Values read from the table image on page 18, verify. What happens to the bonus after a claim was not read (clause 3.1.20). Option 2: if the bonus is not availed, 2% discount on renewal premium.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "renewal",
+   "value": "Ordinarily renewable except on established fraud, non-disclosure or misrepresentation; renewal not denied because of earlier claims; 30 day grace period; the word lifelong does not appear",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 46,
+     "quote": "The policy shall ordinarily be renewable except on grounds of established fraud or non-disclosure or misrepresentation by the insured person"
+    },
+    {
+     "page": 46,
+     "quote": "Renewal shall not be denied on the ground that the insured had made a claim or claims in the"
+    },
+    {
+     "page": 47,
+     "quote": "can be renewed within the Grace Period of 30 days"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "sublimits",
+   "value": "Specific coverage limit table applies (for example unilateral total knee replacement excluding implant Rs 1,35,000 up to 5 lakh sum insured and Rs 1,65,000 above; hernia and BPH Rs 40,000 / Rs 50,000). Cataract Rs 30,000 per eye up to 4 lakh sum insured, Rs 40,000 for 5 to 10 lakh. Modern treatment and mental illness capped at 20% of sum insured.",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 22,
+     "quote": "Unilateral Total Knee Replacement (excluding implant) ₹ 1,35,000 ₹ 1,65,000"
+    },
+    {
+     "page": 16,
+     "quote": "xxiv Specific coverage limit Yes(See Table for"
+    }
+   ],
+   "note": "Cataract and combined cap values are read from page 11 and 17 table images, verify. The specific coverage table is long (page 22 and after); only the first rows are summarised here.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "sublimits",
+   "value": "No specific coverage limit table. Cataract Rs 50,000 per eye up to 7 lakh sum insured, Rs 1,00,000 for 10 lakh and above. Modern treatment and mental illness capped at 50% of sum insured.",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "Upto 7 Lakhs Sum Insured: up to₹ 50000 (PER EYE)"
+    }
+   ],
+   "note": "Verify the column assignment on page 11 and 17 images.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "sublimits",
+   "value": "No specific coverage limit table. Cataract up to Rs 1,50,000 per eye. Modern treatment and mental illness capped at 100% of sum insured.",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "(PER EYE LIMIT upto ₹ 150000 or Actual expenses incurred, whichever is lesser"
+    }
+   ],
+   "note": "Verify the column assignment on page 11 and 17 images.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless at network hospitals with pre-authorisation (due within one hour, final bill within three hours). If denied, treat and claim within 15 days of discharge. Network list is on the insurer website, not in the policy. Non-network treatment attracts co-pay for Premium and Elite.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 50,
+     "quote": "Claim in respect of Cashless Access Services will be through the Company / TPA provided admission is in a network Hospital/ Nursing Home and is subject to pre admission authorization"
+    },
+    {
+     "page": 50,
+     "quote": "Pre-authorization will be provided immediately, but no later than one hour from the receipt of the request"
+    },
+    {
+     "page": 50,
+     "quote": "A list of network Hospitals is available on our official website"
+    }
+   ],
+   "note": "",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "PREMIUM",
+   "attribute": "mental_illness",
+   "value": "Covered within a combined limit of 20% of sum insured (with modern treatments)",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 27,
+     "quote": "3.1.15MENTAL ILLNESS COVER"
+    },
+    {
+     "page": 28,
+     "quote": "Mental Conditions associated with the abuse of alcohol and drugs are excluded"
+    }
+   ],
+   "note": "Limit is shared with modern treatments (page 17 image, verify). Conditions: hospitalisation in a Mental Health Establishment on advice of a Mental Health Professional; alcohol and drug related conditions, mental retardation and psychotherapy not needing hospitalisation are excluded.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ELITE",
+   "attribute": "mental_illness",
+   "value": "Covered within a combined limit of 50% of sum insured (with modern treatments)",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 27,
+     "quote": "3.1.15MENTAL ILLNESS COVER"
+    },
+    {
+     "page": 28,
+     "quote": "Mental Conditions associated with the abuse of alcohol and drugs are excluded"
+    }
+   ],
+   "note": "Limit is shared with modern treatments (page 17 image, verify). Conditions: hospitalisation in a Mental Health Establishment on advice of a Mental Health Professional; alcohol and drug related conditions, mental retardation and psychotherapy not needing hospitalisation are excluded.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ROYAL",
+   "attribute": "mental_illness",
+   "value": "Covered within a combined limit of 100% of sum insured (with modern treatments)",
+   "status": "stated",
+   "needs_extra_care": true,
+   "evidence": [
+    {
+     "page": 27,
+     "quote": "3.1.15MENTAL ILLNESS COVER"
+    },
+    {
+     "page": 28,
+     "quote": "Mental Conditions associated with the abuse of alcohol and drugs are excluded"
+    }
+   ],
+   "note": "Limit is shared with modern treatments (page 17 image, verify). Conditions: hospitalisation in a Mental Health Establishment on advice of a Mental Health Professional; alcohol and drug related conditions, mental retardation and psychotherapy not needing hospitalisation are excluded.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}
