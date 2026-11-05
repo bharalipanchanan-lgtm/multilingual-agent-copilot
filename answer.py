@@ -96,6 +96,7 @@ You are given numbered clauses from the policy wording. Rules:
 6. Clauses under an "Exclusions" part list what the policy does NOT pay for. A treatment listed there is not covered (unless the clause itself states an exception).
    Clauses under a "Definition" part only define words; they do not by themselves grant cover.
    An appendix "List of Expenses Generally Excluded" is a list of non-medical items such as consumables, not the policy's main exclusions.
+   A clause marked with an exclusion code such as "Code - Excl18" or "(Excl 18)" describes something the policy does NOT pay for, unless that clause says the exclusion does not apply.
 7. Never use words like "lifetime", "guaranteed", "always", "all hospitals" or "no limit" unless that exact idea is written in a clause.
 8. Write in the language you are told to use. Keep terms like "waiting period", "sum insured" and "pre-existing disease" in English.
 
@@ -136,6 +137,14 @@ def list_notes(question: str, text: str) -> list[str]:
     return notes
 
 
+def is_exclusion(c: dict) -> bool:
+    """National Mediclaim's "4 Exclusions" part, or a chunk opening with an IRDAI exclusion code (parse.py)."""
+    return "xclusion" in (c.get("part") or "")
+
+
+EXCLUDED_PREFIX = "EXCLUDED, the policy does not pay for: "
+
+
 def build_prompt(question: str, clauses: list[dict], product: str, lang: str = "en") -> str:
     parts = [f"Policy: {product}", "", "Clauses:"]
     for i, c in enumerate(clauses, 1):
@@ -143,9 +152,32 @@ def build_prompt(question: str, clauses: list[dict], product: str, lang: str = "
         tag = f"{part} > {c['section']}" if part and part != c["section"] else c["section"]
         notes = list_notes(question, c["text"])
         text = c["text"] if len(c["text"]) <= CLAUSE_CHARS else c["text"][:CLAUSE_CHARS].rsplit(" ", 1)[0] + " ..."
+        # Stated in the clause text itself: the 7B ignored the part label and read "Maternity (Code-
+        # Excl18): i. Medical treatment expenses traceable to childbirth" as cover.
+        text = (EXCLUDED_PREFIX if is_exclusion(c) else "") + text
         parts.append(f"[{i}] (page {c['printed_page']}, {tag})\n{text}" + ("\n" + "\n".join(notes) if notes else ""))
     parts += ["", f"Question: {question}", f"Language: {LANG_LINE[lang]}", "Answer:"]
     return "\n".join(parts)
+
+
+# ---------- polarity check ----------
+
+COVER_YES = re.compile(r"\b(?:is|are|will be|shall be|gets|get)\s+(?:fully\s+|also\s+|still\s+)?covered\b"
+                       r"|\bcover(?:ed)?\s+(?:hota|hoti|hote|kiya jata|kiya jaata|milta|milega)\b|\bcovered\s+hai\b"
+                       r"|कवर\s+(?:होता|होती|होते|किया|मिलता)", re.I)
+NEGATED = re.compile(r"(?:\bnot|n't|\bnever|\bnahi|\bnahin|नहीं)\W*(?:\w+\W+){0,2}$", re.I)
+
+
+def affirms_cover(answer: str) -> bool:
+    """True if the answer says something IS covered, outside a negation ("is not covered")."""
+    return any(not NEGATED.search(answer[max(0, m.start() - 30):m.start()]) for m in COVER_YES.finditer(answer))
+
+
+POLARITY_NOTE = {
+    "en": "The draft answer said this is covered, but every clause it relied on is an exclusion, so here are the clauses as written.",
+    "hi": "उत्तर के मसौदे में इसे कवर बताया गया, जबकि जिन क्लॉज़ पर वह आधारित था वे सभी एक्सक्लूज़न हैं, इसलिए क्लॉज़ जैसे लिखे हैं वैसे दिए गए हैं।",
+    "hinglish": "Draft answer ne ise covered bataya, lekin jin clauses par woh based tha woh sab exclusions hain, isliye clauses jaise likhe hain waise de raha hoon.",
+}
 
 
 # ---------- number check ----------
@@ -291,6 +323,13 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
     common = {"lang": lang, "backend": gen.name, "top_score": top, "ms": ms, "first_token_ms": first_tok,
               "retrieval_ms": t_ret}
 
+    # The model sometimes writes the sentinel inside a sentence ("maternity is NOT_STATED to ..."). Drop
+    # those sentences; what is left must still carry a citation, otherwise the answer is not stated.
+    if "NOT_STATED" in answer and not answer.startswith("NOT_STATED"):
+        kept = [x for x in re.split(r"(?<=[.!?।])\s+", answer) if "NOT_STATED" not in x]
+        answer = " ".join(kept).strip()
+        if not re.search(r"\[\d+\]", answer):
+            answer = ""
     if answer.startswith("NOT_STATED") or not answer:
         yield {"type": "final", "status": "not_stated", "answer": NOT_STATED[lang], "citations": [], **common}
         return
@@ -311,6 +350,12 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
     if missing:
         ans, cards = _extractive(question, lang, clauses, note=BLOCKED_NOTE[lang])
         yield {"type": "final", "status": "blocked", "answer": ans, "draft": answer, "unsupported_numbers": missing,
+               "citations": cards, **common}
+        return
+
+    if all(is_exclusion(clauses[i - 1]) for i in cited) and affirms_cover(answer):
+        ans, cards = _extractive(question, lang, clauses, note=POLARITY_NOTE[lang])
+        yield {"type": "final", "status": "blocked", "block_reason": "polarity", "answer": ans, "draft": answer,
                "citations": cards, **common}
         return
 

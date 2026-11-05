@@ -16,7 +16,9 @@ flowchart LR
 
     subgraph Online["Online: per question"]
         UI[web/index.html<br/>WhatsApp style chat] -- SSE --> S[server.py<br/>FastAPI]
-        S --> A[answer.py<br/>router and pipeline]
+        S --> CH[chat.py<br/>choose or keep the policy]
+        CH --> PS[policy_select.py<br/>aliases, numbers, spelling]
+        CH --> A[answer.py<br/>router and pipeline]
         A --> R[retrieve.py<br/>hybrid search]
         R --> DB
         A --> C[compare.py]
@@ -40,6 +42,7 @@ Documents are prepared offline and searched online. Nothing in the online path p
 | Parsing | parse.py | PDF to clause level chunks with physical page numbers, tables extracted cell by cell, boilerplate and footer artefacts removed |
 | Indexing | ingest.py | Embeds each chunk with bge-m3 and stores text, embedding and metadata in Chroma |
 | Retrieval | retrieve.py | Semantic search, keyword search and section expansion, filtered by policy |
+| Conversation | chat.py, policy_select.py | Chooses the policy from what the agent types (no dropdown), keeps it across turns, asks when none or several are named, refuses insurers that are not loaded |
 | Orchestration | answer.py | Language detection, routing, prompt building, grounding checks, citations, streaming events |
 | Generation | generate.py | One `Generator` interface with four backends: mlx, ollama, claude, extractive |
 | Comparison | compare.py, facts/ | Answers comparison questions from a structured fact table, not from free text |
@@ -119,6 +122,9 @@ These controls matter more than model quality. Each one exists because testing s
 | Keyword retrieval | retrieve.py `keyword_hits()` | Semantic search ranking a long list clause low when it names the exact disease |
 | Section expansion | retrieve.py `expand_sections()` | Losing the second half of a clause that continues on the next page (clause 4.3) |
 | Number check | answer.py `check_numbers()` | Any figure (amount, percentage, period) that is not in a cited clause. The draft is blocked and replaced with a verbatim quote |
+| Exclusion codes | parse.py `opens_with_exclusion()`, answer.py `EXCLUDED_PREFIX` | Reading an IRDAI exclusion ("Code - Excl18") as cover in policies whose headings do not say "Exclusions" |
+| Polarity check | answer.py `affirms_cover()` | A "covered" answer whose only cited clauses are exclusions. The draft is blocked |
+| Policy choice in conversation | chat.py | Answering from the wrong document: two policies named, an insurer that is not loaded, or no policy chosen yet |
 | Citation repair | answer.py | Answers whose citation numbers do not match the clauses shown |
 | Fact table for comparison | compare.py | Comparing policies from free text search, which mixes clauses from different products |
 
@@ -155,7 +161,7 @@ The 3B model is kept only as a fallback. In testing it said pre-existing diabete
 |---|---|
 | GET /api/status | Ready flag, active backend, load error if any |
 | GET /api/policies | Policies from the manifest, for the selector |
-| POST /api/ask | Streams `meta`, `token` and `final` events for one question |
+| POST /api/ask | `{question, policy_id or null}`. Streams `policy` (the policy in use changed), `meta`, `token` and `final` events. Final statuses include `selected` and `choose_policy` |
 | GET /api/compare | Comparison table from the fact table |
 | GET /pdf/{policy_id} | Serves the source PDF; the UI links to `#page=N` |
 | GET / | Static chat UI from web/ |
@@ -186,7 +192,7 @@ The server binds to 127.0.0.1:8000 only. On startup it loads the embedding model
 
 ## 10. Known limits
 
-Only one policy is loaded: National Mediclaim 07/2014, used for pipeline testing. Its mental illness exclusion is probably out of date against current regulation. The fact table and gold labels are pre-filled and not yet verified by a person. The score ranges of answerable and trap questions overlap, so refusals depend on the router and the model rather than a similarity threshold. Questions are typed only, there is one user at a time, and there is no authentication.
+Five policies are loaded. National Mediclaim 07/2014 is for pipeline testing; three of the other four are a prospectus or a brochure, not the full wording. Its mental illness exclusion is probably out of date against current regulation. The fact table and gold labels are pre-filled and not yet verified by a person. The score ranges of answerable and trap questions overlap, so refusals depend on the router and the model rather than a similarity threshold. Questions are typed only, there is one user at a time, and there is no authentication.
 
 ## 11. Path from prototype to production
 

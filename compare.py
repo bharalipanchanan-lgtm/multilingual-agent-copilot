@@ -70,8 +70,9 @@ def _cell_text(rows: list[dict], words) -> str:
     return "; ".join(parts)
 
 
-def compare_answer(question: str, lang: str = "en") -> dict:
-    facts = load_facts()
+def compare_answer(question: str, lang: str = "en", only: list[str] | None = None) -> dict:
+    """only: policy ids the agent named ("compare SBI and Oriental"); None compares every policy."""
+    facts = [f for f in load_facts() if not only or f["policy_id"] in only]
     keys = attrs_for(question)
     words = NOTE[lang]
     head, unverified = words[0], words[1]

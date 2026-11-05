@@ -51,6 +51,7 @@ def strip_boilerplate(pages: list[list[str]]) -> list[list[str]]:
     return [[x for x in lines if not (8 <= len(x) < 400 and norm_line(x) in bad)] for lines in pages]
 
 
+EXCL_CODE = re.compile(r"Code\s*[-–:]?\s*Exc[lI]\s*\d+", re.I)
 SUBCLAUSE_RE = re.compile(r"^(\d+(?:\.\d+)+)\s+\S")      # 4.12 Circumcision ...
 TABLE_MARK = "\x00TABLE"
 APPENDIX_RE = re.compile(r"^(Appendix|Annexure|Schedule)\s+[IVX\d]+\b", re.I)
@@ -400,6 +401,14 @@ def column_keys(page, boxes) -> list[tuple[int, int]]:
     return keys
 
 
+def opens_with_exclusion(c: dict) -> bool:
+    for where in (c["section"], c["text"][:90]):
+        m = EXCL_CODE.search(where)
+        if m and not re.search(r"shall not apply|not applicable|does not apply", c["text"][m.end():m.end() + 80], re.I):
+            return True
+    return False
+
+
 def manifest_args(r: dict, policy_dir) -> tuple:
     """(path, skip_pages, strip_regex, plans) from one manifest row, shared by every caller."""
     skip = {int(x) for x in re.split(r"[;,]", r.get("skip_pages") or "") if x.strip().isdigit()}
@@ -474,4 +483,12 @@ def parse_pdf(path, skip_pages=frozenset(), strip_regex: str | None = None, plan
     chunks = build_chunks(pages_lines, page_tables, skip_pages)
     for c in chunks:
         c["plans"] = chunk_plans(c["text"], plans)
+        # Insurers do not share heading styles, but every IRDAI standard exclusion carries its code
+        # ("Code - Excl 18", Oriental prints "ExcI18"). Label a chunk as an exclusion when the code
+        # opens it (clause heading or first words), so the prompt's exclusion rule applies as it does
+        # to National Mediclaim's "4 Exclusions" part. A code further down can sit inside a benefit
+        # ("Refractive Error- Code- ExcI15 shall not apply for this benefit"), and some section labels
+        # run on for many pages (SBI), so neither of those counts.
+        if "xclusion" not in (c.get("part") or "") and opens_with_exclusion(c):
+            c["part"] = "Exclusions (IRDAI exclusion code)"
     return {"n_pages": len(doc), "sparse_pages": sparse, "chunks": chunks}

@@ -22,7 +22,11 @@
   .title { flex: 1; min-width: 0; }
   .title b { display: block; font-size: 16px; }
   .title small { opacity: .85; font-size: 12px; }
-  select { margin-top: 4px; max-width: 100%; font-size: 13px; border-radius: 6px; border: 0; padding: 3px 6px; }
+  .cur { display: inline-block; margin-top: 3px; font-size: 12px; background: rgba(255,255,255,.16); border-radius: 10px;
+         padding: 2px 8px; cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; white-space: normal; }
+  .opt { background: #e1ece9; color: var(--header); border: 0; border-radius: 14px; padding: 5px 10px; font-size: 13px;
+         font-weight: 600; cursor: pointer; font-family: inherit; }
   #chat { flex: 1; overflow-y: auto; padding: 12px 10px 4px; }
   .msg { max-width: 88%; margin: 6px 0; padding: 8px 10px 6px; border-radius: 8px; line-height: 1.4; font-size: 15px;
          box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; word-wrap: break-word; }
@@ -69,11 +73,11 @@
     <div class="title">
       <b>Claviq Agent Copilot</b>
       <small id="status">connecting...</small><br>
-      <select id="policy" aria-label="Policy"></select>
+      <span class="cur" id="cur" title="Change policy">No policy chosen yet</span>
     </div>
   </header>
   <div id="chat">
-    <div class="sys">Answers come only from the selected policy wording, with the clause and page. If the policy does not say, the copilot says so.</div>
+    <div class="sys">Answers come only from the policy document you choose, with the clause and page. If the document does not say, the copilot says so.</div>
   </div>
   <div class="chips" id="chips"></div>
   <form id="f">
@@ -83,7 +87,10 @@
 </div>
 <script>
 const $ = s => document.querySelector(s);
-const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send"), policySel = $("#policy");
+const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send");
+// The policy is chosen in the conversation ("SBI dekhna hai"), not from a list. The server says
+// which policy is in use; the page only remembers it and sends it back with each question.
+let currentPolicy = null, pendingQuestion = null;
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
@@ -95,6 +102,8 @@ const SUGGEST = [
 ];
 const BADGE = {
   answered: ["b-ok", "Checked against the policy text"],
+  selected: ["b-ok", "Policy document chosen"],
+  choose_policy: ["b-warn", "Choose a policy document"],
   compared: ["b-ok", "From the policy fact table"],
   not_stated: ["b-warn", "Not stated in the document"],
   refused: ["b-warn", "Outside the policy wording"],
@@ -113,7 +122,8 @@ function howPanel(ev, meta) {
   if (meta && meta.route) items.push(`Route: ${({single: "single policy search", compare: "comparison fact table", premium: "out of scope (premium)", hospitals: "out of scope (hospital list)", claim_status: "out of scope (claim status)"})[meta.route] || meta.route}`);
   if (ev.top_score != null) items.push(`Best clause match score: ${Number(ev.top_score).toFixed(2)}`);
   if (ev.status === "answered" && ev.backend !== "extractive") items.push("Every figure in the answer was found in the cited clause text");
-  if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
+  if (ev.block_reason === "polarity") items.push("Blocked: the draft said covered, but every cited clause is an exclusion");
+  else if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
   if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
   items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
   return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
@@ -122,14 +132,35 @@ let BID = 0;
 function scroll() { chat.scrollTop = chat.scrollHeight; }
 function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; chat.appendChild(d); scroll(); return d; }
 
+function optionButtons(opts) {
+  if (!opts || !opts.length) return "";
+  return `<div class="opts">${opts.map(o => `<button class="opt" data-say="${esc(o.label)}" title="${esc(o.name)}">${o.n}. ${esc(o.label)}</button>`).join("")}</div>`;
+}
+function wireOptions(el) {
+  // a tap types the insurer's name as the agent's own message, so the choice shows in the chat
+  el.querySelectorAll(".opt").forEach(b => b.onclick = () => ask(b.dataset.say));
+}
+async function greet() {
+  let opts = [];
+  try { opts = await (await fetch("/api/policies")).json(); } catch (e) {}
+  const list = opts.map(o => `${o.n}. ${o.name}`).join("\n");
+  const d = add("bot", `Namaste. Which policy document would you like to inspect?\nKaunsa policy document aapko dekhna hai?\n\n${esc(list)}\n\n<small>Type the insurer's name or number, for example "SBI dekhna hai". You can switch at any time.</small>` + optionButtons(opts));
+  wireOptions(d);
+}
+function setPolicy(ev) {
+  currentPolicy = ev.policy_id;
+  $("#cur").textContent = `Policy: ${ev.name}`;
+  const s = document.createElement("div"); s.className = "sys"; s.textContent = `Now answering from: ${ev.name}`;
+  chat.appendChild(s); scroll();
+  $("#chips").style.display = "";
+}
 async function init() {
-  try {
-    const pols = await (await fetch("/api/policies")).json();
-    policySel.innerHTML = pols.map(p => `<option value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)})</option>`).join("");
-  } catch (e) { policySel.innerHTML = "<option>no policies</option>"; }
   $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
-  document.querySelectorAll(".chip").forEach(c => c.onclick = () => { qEl.value = c.textContent; ask(); });
+  document.querySelectorAll(".chip").forEach(c => c.onclick = () => ask(c.textContent));
+  $("#chips").style.display = "none";  // suggestions appear once a policy is chosen
+  $("#cur").onclick = () => ask("Which policy document can I inspect?");
   pollStatus();
+  greet();
 }
 async function pollStatus() {
   try {
@@ -157,19 +188,20 @@ function renderTable(t) {
   return `<table class="cmp">${head}${rows}</table>`;
 }
 
-async function ask() {
-  const question = qEl.value.trim();
-  if (!question) return;
-  qEl.value = ""; sendBtn.disabled = true;
+async function ask(text) {
+  const question = (text ?? qEl.value).trim();
+  if (!question || sendBtn.disabled) return;
+  if (text === undefined) qEl.value = "";
+  sendBtn.disabled = true;
   add("me", esc(question));
   const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
-  const policyId = policySel.value;
+  let policyId = currentPolicy, after = null;
   const t0 = performance.now();
   const id = ++BID;
   let streamed = "", meta = null;
   try {
     const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
-                                         body: JSON.stringify({question, policy_id: policyId}) });
+                                         body: JSON.stringify({question, policy_id: currentPolicy}) });
     const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
@@ -179,14 +211,21 @@ async function ask() {
         const line = buf.slice(0, i).replace(/^data: /, ""); buf = buf.slice(i + 2);
         if (!line.trim()) continue;
         const ev = JSON.parse(line);
+        if (ev.type === "policy") { setPolicy(ev); policyId = ev.policy_id; chat.appendChild(bubble); scroll(); }
         if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
         if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
         if (ev.type === "final") {
-          const [cls, label] = BADGE[ev.status] || BADGE.error;
+          const [cls, label] = ev.block_reason === "polarity" ? ["b-stop", "Draft blocked: it called an exclusion covered"]
+                                                              : (BADGE[ev.status] || BADGE.error);
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
           bubble.innerHTML = `<span class="badge ${cls}">${label}</span><br>${withRefs(ev.answer, id)}` +
-            renderTable(ev.table) + renderCards(ev.citations, policyId, id) + howPanel(ev, meta) +
+            renderTable(ev.table) + renderCards(ev.citations, policyId, id) + optionButtons(ev.options) +
+            (["selected", "choose_policy"].includes(ev.status) ? "" : howPanel(ev, meta)) +
             `<div class="meta">${secs}s</div>`;
+          wireOptions(bubble);
+          // a question asked before any policy was chosen is answered once the agent picks one
+          if (ev.status === "choose_policy" && ev.pending) pendingQuestion = question;
+          if (ev.status === "selected" && pendingQuestion) { after = pendingQuestion; pendingQuestion = null; }
           bubble.querySelectorAll(".ref").forEach(r => r.onclick = () => {
             const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);
             if (el) { el.scrollIntoView({behavior: "smooth", block: "center"}); el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1500); }
@@ -199,6 +238,7 @@ async function ask() {
     bubble.innerHTML = `<span class="badge b-stop">Error</span><br>${esc(e.message)}`;
   }
   sendBtn.disabled = false; qEl.focus();
+  if (after) ask(after);
 }
 $("#f").onsubmit = e => { e.preventDefault(); ask(); };
 qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });

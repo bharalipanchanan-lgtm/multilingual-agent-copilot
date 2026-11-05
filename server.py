@@ -6,14 +6,14 @@ Env:  COPILOT_BACKEND=mlx|ollama|claude|extractive   (default from config.GEN_BA
 Endpoints
   GET  /api/policies          loaded policies
   GET  /api/status            backend and warm-up state
-  POST /api/ask               {"question", "policy_id"} -> server-sent events (meta, token, final)
+  POST /api/ask               {"question", "policy_id" or null} -> server-sent events (policy, meta, token, final)
+                              The policy is chosen in the conversation (chat.py), not from a list.
   GET  /api/compare?q=...     comparison from the fact table
   GET  /pdf/{policy_id}       the policy PDF (cards link to #page=N)
 """
 import csv
 import json
 import queue
-import threading
 from concurrent.futures import ThreadPoolExecutor
 
 from fastapi import FastAPI, HTTPException
@@ -64,12 +64,13 @@ def startup():
 
 class Ask(BaseModel):
     question: str
-    policy_id: str
+    policy_id: str | None = None
 
 
 @app.get("/api/policies")
 def policies():
-    return _policies()
+    from policy_select import options
+    return options()
 
 
 @app.get("/api/status")
@@ -85,9 +86,9 @@ def ask(req: Ask):
     done = object()
 
     def job():
-        from answer import ask_stream
+        from chat import converse
         try:
-            for ev in ask_stream(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
+            for ev in converse(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
                 q.put(ev)
         except Exception as e:
             q.put({"type": "final", "status": "error", "answer": f"Something went wrong: {e}", "citations": []})
