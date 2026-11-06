@@ -144,15 +144,20 @@ classDiagram
     Generator <|-- MLXGenerator
     Generator <|-- OllamaGenerator
     Generator <|-- ClaudeGenerator
+    Generator <|-- APIGenerator
     Generator <|-- ExtractiveGenerator
     MLXGenerator : Qwen2.5 7B Instruct 4 bit
     MLXGenerator : KV cache of the system prompt prefix
     OllamaGenerator : local HTTP, qwen2.5 or llama3.1 8B
     ClaudeGenerator : claude-opus-5-5, optional, paid per token
+    APIGenerator : hosted chat completions, Sarvam, Groq or Gemini
+    APIGenerator : used by the cloud container
     ExtractiveGenerator : best matching sentence, no LLM
 ```
 
-The backend is chosen with `COPILOT_BACKEND` (default `mlx`). All four share the same prompt, checks and output format, so they can be compared on the same eval set.
+The backend is chosen with `COPILOT_BACKEND` (default `mlx`). All five share the same prompt, checks and output format, so they can be compared on the same eval set.
+
+The `api` backend sends the prompt to a hosted model, picked with `COPILOT_LLM` (sarvam, groq or gemini) and keyed from the environment. It retries once on a timeout or a 5xx. If the model still fails, the agent gets the matching clauses verbatim, marked as such, instead of an error. Hosted models also say "not stated" in words ("the clauses do not mention co-payment") instead of the sentinel, so those sentences go through the same not-stated rule (`ABSENCE_RE`). Measured with Sarvam 105B on the eval set (2026-11-06), it answered 17 of 17, refused 3 of 3 and blocked 0, with a median answer time of 0.7 seconds.
 
 The MLX backend fills the KV cache with the system prompt once and trims back to that prefix after each answer. This cut first token latency from 5 to 9 seconds down to 3 to 4.5 seconds. MLX is not thread safe, so the server runs every generation on a single worker thread.
 
@@ -164,14 +169,24 @@ The 3B model is kept only as a fallback. In testing it said pre-existing diabete
 |---|---|
 | GET /api/status | Ready flag, active backend, load error if any |
 | GET /api/policies | Policies from the manifest, for the selector |
-| POST /api/ask | `{question, policy_id or null}`. Streams `policy` (the policy in use changed), `meta`, `token` and `final` events. Final statuses include `selected` and `choose_policy` |
+| POST /api/ask | `{question, policy_id or null}`. Streams `policy` (the policy in use changed), `meta`, `token` and `final` events. Final statuses include `selected`, `choose_policy` and `ranked` (a shortlist across policies, with a `ranking` object, see SCALING.md) |
 | GET /api/compare | Comparison table from the fact table |
 | GET /pdf/{policy_id} | Serves the source PDF; the UI links to `#page=N` |
 | GET /api/voice | Whether voice is on (SARVAM_API_KEY set), model and mode |
 | POST /api/transcribe | Multipart `audio` to `{text, language_code, ms, provider}`; plain error messages for a bad key, no credit or an outage |
 | GET / | Static chat UI from web/ |
 
-The server binds to 127.0.0.1:8000 only. The one outbound call is voice transcription, which sends only the recorded clip, and only when a key is configured. On startup it loads the embedding model and the generator, runs one search and pre fills the prompt cache, so the first real question is fast.
+On the laptop the server binds to 127.0.0.1:8000 only. The one outbound call is voice transcription, which sends only the recorded clip, and only when a key is configured. On startup it loads the embedding model and the generator, runs one search and pre fills the prompt cache, so the first real question is fast.
+
+## 7a. Cloud deployment
+
+The [Dockerfile](Dockerfile) builds the same app for a public URL. It runs the same parser, bge-m3 search on the CPU, the same index (built inside the image), the same checks and the same page, with answers from the `api` backend. It needs about 3 GB of memory. Keys are passed as host secrets at run time, never baked into the image. [deploy_hf.py](deploy_hf.py) creates a Hugging Face Docker Space, stores the answer model key as a Space secret, and uploads only the files tracked in git.
+
+With `COPILOT_PUBLIC=1` (set in the image), each visitor is limited to 30 questions per 10 minutes, and voice is off unless `COPILOT_PUBLIC_VOICE=1`, because every spoken question spends the owner's Sarvam credit. On a public deployment, policy clauses and questions go to the hosted model provider, so it is for the demo only, with no real customer data.
+
+## 7b. Ranking across policies
+
+"Which policy works best for a customer who wants no waiting period and a good claims record?" goes to [rank.py](rank.py), not to search. It scores each policy plan from the fact table and the IRDAI insurer figures in [data/insurers.json](data/insurers.json). The scales are absolute, a missing fact scores 0, and every score shows its page and quote. The design for 300 policies is in [SCALING.md](SCALING.md).
 
 ## 8. Data stores
 
@@ -179,7 +194,8 @@ The server binds to 127.0.0.1:8000 only. The one outbound call is voice transcri
 |---|---|---|---|
 | Policy PDFs and manifest | data/policies/ | Source documents and per policy parsing settings | Yes |
 | Vector index | data/chroma/ | Chunks, bge-m3 embeddings, metadata | No, rebuilt by ingest.py |
-| Fact table | facts/*.json | 12 attributes per policy with clause and page, `verified` flag | Yes |
+| Fact table | facts/*.json | 19 attributes per policy plan with a verbatim quote and page, `verified` flag | Yes |
+| Insurer figures | data/insurers.json | IRDAI health incurred claims ratio per insurer, with source page; claim settlement ratio slot | Yes |
 | Models | models/ | bge-m3, Qwen2.5 7B and 3B (MLX), fetched with fetch_models.sh | No |
 | Eval set | eval/questions.yaml, eval/gold/ | 20 questions in three languages, gold pages and answers | Yes |
 | Reports and dumps | eval/reports/, data/dumps/ | Eval output and chunk dumps for human review | No |

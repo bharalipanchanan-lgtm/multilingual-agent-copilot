@@ -10,7 +10,9 @@ Pick with the COPILOT_BACKEND environment variable or config.GEN_BACKEND.
 """
 import json
 import os
+import time
 import urllib.request
+import urllib.error
 from typing import Iterator
 
 from config import CLAUDE_MODEL, GEN_BACKEND, MLX_MODEL, MLX_MODELS, OLLAMA_MODEL, OLLAMA_URL
@@ -167,6 +169,80 @@ class ClaudeGenerator(Generator):
                 yield text
 
 
+class APIGenerator(Generator):
+    """A hosted model behind the common chat completions format, for the cloud deployment where
+    the Mac's MLX model is not available. Pick with COPILOT_LLM (sarvam | groq | gemini); without
+    it, the first provider whose key is set is used. Keys come from the environment only.
+
+    Policy clauses and the agent's question are sent to the provider, so this is for the demo
+    only: no real customer data."""
+    PRESETS = {
+        # Sarvam: Indian provider, strong Hindi; pay per token after the signup credit
+        "sarvam": {"url": "https://api.sarvam.ai/v1/chat/completions", "key": "SARVAM_API_KEY",
+                   "model": "sarvam-105b", "extra": {"reasoning_effort": None}},
+        # Groq: free tier with rate limits
+        "groq": {"url": "https://api.groq.com/openai/v1/chat/completions", "key": "GROQ_API_KEY",
+                 "model": "llama-3.3-70b-versatile", "extra": {}},
+        # Google Gemini: free tier with rate limits
+        "gemini": {"url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+                   "key": "GEMINI_API_KEY", "model": "gemini-2.5-flash", "extra": {"reasoning_effort": "none"}},
+    }
+
+    def __init__(self, provider: str | None = None):
+        provider = provider or os.environ.get("COPILOT_LLM") or next(
+            (p for p, c in self.PRESETS.items() if os.environ.get(c["key"])), "groq")
+        self.provider = provider
+        c = dict(self.PRESETS.get(provider, {}))
+        self.url = os.environ.get("COPILOT_LLM_URL") or c.get("url")
+        self.key_env = c.get("key", "COPILOT_LLM_KEY")
+        self.model_id = os.environ.get("COPILOT_LLM_MODEL") or c.get("model")
+        self.extra = c.get("extra", {})
+        self.name = f"api:{provider}:{self.model_id}"
+
+    def available(self):
+        if not self.url or not self.model_id:
+            return False, f"unknown provider {self.provider!r}"
+        if not os.environ.get(self.key_env):
+            return False, f"no {self.key_env} set"
+        return True, ""
+
+    def stream(self, system, user):
+        key = os.environ[self.key_env]
+        body = {"model": self.model_id, "stream": True, "temperature": 0, "max_tokens": 600,
+                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}], **self.extra}
+        headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
+        if self.provider == "sarvam":
+            headers["api-subscription-key"] = key
+        req = urllib.request.Request(self.url, json.dumps(body).encode(), headers)
+        resp = None
+        for attempt in (1, 2):  # one retry: a hosted model occasionally stalls or is briefly rate limited
+            try:
+                resp = urllib.request.urlopen(req, timeout=25)
+                break
+            except urllib.error.HTTPError as e:
+                detail = e.read()[:300].decode("utf-8", "replace")
+                if attempt == 2 or e.code not in (429, 500, 502, 503, 504):
+                    raise RuntimeError(f"{self.provider} answered {e.code}: {detail}") from None
+            except (TimeoutError, urllib.error.URLError, OSError):
+                if attempt == 2:
+                    raise
+            time.sleep(1.5)
+        with resp:
+            for raw in resp:
+                line = raw.decode("utf-8", "replace").strip()
+                if not line.startswith("data:"):
+                    continue
+                data = line[5:].strip()
+                if data == "[DONE]":
+                    break
+                try:
+                    delta = json.loads(data)["choices"][0].get("delta") or {}
+                except (ValueError, KeyError, IndexError):
+                    continue
+                if delta.get("content"):  # reasoning_content, if any, is not shown
+                    yield delta["content"]
+
+
 class ExtractiveGenerator(Generator):
     """No model. The pipeline renders quoted clauses itself; this yields nothing."""
     name = "extractive"
@@ -176,7 +252,7 @@ class ExtractiveGenerator(Generator):
 
 
 BACKENDS = {"mlx": MLXGenerator, "ollama": OllamaGenerator, "claude": ClaudeGenerator,
-            "extractive": ExtractiveGenerator}
+            "api": APIGenerator, "extractive": ExtractiveGenerator}
 
 
 def get_generator(name: str | None = None) -> Generator:

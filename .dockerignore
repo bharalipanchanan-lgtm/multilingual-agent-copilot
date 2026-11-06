@@ -1,0 +1,15 @@
+.git
+.venv
+venv
+.env
+.env.*
+models/
+data/chroma/
+data/chroma_backup*/
+data/dumps/
+eval/reports/
+tests/voice/clips/
+__pycache__/
+*.pyc
+.DS_Store
+handoff/

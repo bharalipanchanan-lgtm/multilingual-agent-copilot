@@ -17,7 +17,8 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-URL = "http://localhost:8000/"
+import os
+URL = os.environ.get("COPILOT_URL", "http://localhost:8000/")
 ROOT = Path(__file__).resolve().parents[1]
 
 

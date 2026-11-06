@@ -43,3 +43,26 @@ def test_hinglish_terms_expand_the_search_only(q, term):
 def test_english_question_is_unchanged():
     from answer import search_query
     assert search_query("What is the room rent limit?") == "What is the room rent limit?"
+
+
+@pytest.mark.parametrize("text", [
+    "The provided policy clauses do not mention or state any co-payment [1][2].",
+    "Co-payment is not specified in the provided clauses [3].",
+    "There is no information about co-payment in the policy text [1].",
+    "Clauses mein co-pay ka zikr nahi hai [2].",
+    "पॉलिसी में को-पे का उल्लेख नहीं है [1]।",
+])
+def test_absence_in_words_is_not_an_answer(text):
+    from answer import ABSENCE_RE
+    assert ABSENCE_RE.search(text)
+
+
+@pytest.mark.parametrize("text", [
+    "Maternity is not covered under this policy [1].",
+    "The policy does not cover cosmetic treatment [2].",
+    "Room rent is limited to 1% of the sum insured per day [1].",
+    "Yeh policy lifetime renewable nahi hai [1].",
+])
+def test_real_answers_are_kept(text):
+    from answer import ABSENCE_RE
+    assert not ABSENCE_RE.search(text)

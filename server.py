@@ -15,11 +15,14 @@ Endpoints
 """
 import csv
 import json
+import os
 import queue
+import time
+from collections import defaultdict, deque
 from concurrent.futures import ThreadPoolExecutor
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -113,15 +116,24 @@ def ask(req: Ask):
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
+def _voice_status() -> dict:
+    import stt
+    s = stt.status()
+    if PUBLIC and os.environ.get("COPILOT_PUBLIC_VOICE") != "1":
+        s = {**s, "enabled": False, "reason": "Voice is off on the public demo. Please type the question."}
+    return s
+
+
 @app.get("/api/voice")
 def voice():
-    import stt
-    return stt.status()
+    return _voice_status()
 
 
 @app.post("/api/transcribe")
 def transcribe(audio: UploadFile = File(...)):
     import stt
+    if not _voice_status()["enabled"]:
+        raise HTTPException(400, _voice_status().get("reason") or "Voice is off.")
     try:
         return stt.transcribe(audio.file.read(), audio.filename or "question.webm", audio.content_type or "")
     except stt.STTError as e:
@@ -143,6 +155,31 @@ def pdf(policy_id: str):
     raise HTTPException(404)
 
 
+# On a public URL (COPILOT_PUBLIC=1) each visitor gets a fair share of the free model quota, and
+# voice stays off unless COPILOT_PUBLIC_VOICE=1, because every spoken question spends the owner's
+# Sarvam credit.
+PUBLIC = os.environ.get("COPILOT_PUBLIC") == "1"
+RATE = int(os.environ.get("COPILOT_RATE_PER_10MIN", "30"))
+_hits: dict[str, deque] = defaultdict(deque)
+
+
+def _client(request) -> str:
+    fwd = request.headers.get("x-forwarded-for", "")
+    return fwd.split(",")[0].strip() or (request.client.host if request.client else "?")
+
+
+@app.middleware("http")
+async def rate_limit(request, call_next):
+    if PUBLIC and request.method == "POST" and request.url.path in ("/api/ask", "/api/transcribe"):
+        q, now = _hits[_client(request)], time.time()
+        while q and now - q[0] > 600:
+            q.popleft()
+        if len(q) >= RATE:
+            return JSONResponse({"detail": "Too many questions in a short time. Please wait a few minutes."}, status_code=429)
+        q.append(now)
+    return await call_next(request)
+
+
 @app.middleware("http")
 async def no_cache_page(request, call_next):
     # The chat page changes as the prototype changes; a cached copy showed the old dropdown page.
@@ -156,5 +193,6 @@ app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")
 
 if __name__ == "__main__":
     import uvicorn
-    import os
-    uvicorn.run(app, host="127.0.0.1", port=int(os.environ.get("COPILOT_PORT", "8000")))
+    # the laptop listens only on itself; the cloud container sets COPILOT_HOST=0.0.0.0 and PORT
+    uvicorn.run(app, host=os.environ.get("COPILOT_HOST", "127.0.0.1"),
+                port=int(os.environ.get("PORT") or os.environ.get("COPILOT_PORT", "8000")))

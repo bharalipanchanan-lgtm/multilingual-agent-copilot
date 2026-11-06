@@ -29,6 +29,8 @@ MIN_CHARS_PER_PAGE = 150  # below this a page is treated as scanned or empty
 
 
 def device() -> str:
+    if os.environ.get("COPILOT_DEVICE"):  # "cpu" in the cloud container
+        return os.environ["COPILOT_DEVICE"]
     import torch
     if torch.backends.mps.is_available():
         return "mps"

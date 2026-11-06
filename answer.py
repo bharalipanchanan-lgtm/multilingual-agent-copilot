@@ -49,6 +49,11 @@ BLOCKED_NOTE = {
     "hi": "उत्तर का एक आंकड़ा पॉलिसी के पाठ से मेल नहीं खाया, इसलिए यहाँ संबंधित क्लॉज़ जैसे लिखे हैं वैसे दिए गए हैं।",
     "hinglish": "Draft answer ka ek figure policy text se match nahi hua, isliye relevant clauses jaise likhe hain waise de raha hoon.",
 }
+MODEL_DOWN_NOTE = {
+    "en": "The answer model did not respond in time, so here are the matching clauses as written:",
+    "hi": "उत्तर देने वाला मॉडल समय पर जवाब नहीं दे पाया, इसलिए संबंधित क्लॉज़ जैसे लिखे हैं वैसे दिए गए हैं:",
+    "hinglish": "Answer model time par jawab nahi de paya, isliye matching clauses jaise likhe hain waise de raha hoon:",
+}
 EXTRACTIVE_NOTE = {
     "en": "Here is what the policy says:",
     "hi": "पॉलिसी में यह लिखा है:",
@@ -66,6 +71,18 @@ ROUTES = [
     ("claim_status", re.compile(r"claim status|status of (my )?claim|claim ka status", re.I)),
 ]
 COMPARE_RE = re.compile(r"\bcompare\b|\bcomparison\b|which polic(y|ies)|kaun\s?si polic|kaunsi polic|konsi polic|sabse (accha|achha|best)|\bvs\.?\b|versus|कौन सी पॉलिसी", re.I)
+
+
+# "the clauses do not mention", "is not specified in the provided policy text", "no information
+# about", "clauses mein iska zikr nahi hai", "खंडों में उल्लेख नहीं": the answer says the evidence is
+# missing. "The policy does not cover maternity" is an answer, not an absence, and does not match.
+ABSENCE_RE = re.compile(
+    r"\b(clauses?|text|excerpts?|sections?|information|context|document|wording)\s+(provided\s+)?(do|does|did)\s*n[o']?t\s+"
+    r"(mention|state|specify|contain|say|provide|include|address|cover the question|discuss)"
+    r"|\bnot\s+(explicitly\s+)?(mentioned|stated|specified|addressed|provided|found|available)\s+(in|within)\s+(the\s+)?(provided\s+|given\s+)?"
+    r"(clauses?|text|excerpts?|sections?|policy (text|clauses|excerpts|wording)|document|context)"
+    r"|\bno\s+(information|mention|details?|reference)\s+(is\s+)?(given\s+|provided\s+|available\s+)?(about|of|on|regarding|for)\b"
+    r"|\b(zikr|ullekh|mention|jaankari|jankari)\s+nahi(n)?\b|उल्लेख नहीं|जानकारी नहीं दी", re.I)
 
 
 def detect_lang(q: str) -> str:
@@ -372,12 +389,22 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
     product = clauses[0].get("product", "")
     prompt = build_prompt(question, clauses, product, lang)
     buf, first_tok = "", None
-    for tok in gen.stream(SYSTEM_PROMPT, prompt):
-        if first_tok is None:
-            first_tok = int((time.time() - t0) * 1000)
-        buf += tok
-        if not buf.lstrip().startswith("NOT_STATED"[: len(buf.lstrip())]):  # do not stream the sentinel
-            yield {"type": "token", "text": tok}
+    try:
+        for tok in gen.stream(SYSTEM_PROMPT, prompt):
+            if first_tok is None:
+                first_tok = int((time.time() - t0) * 1000)
+            buf += tok
+            if not buf.lstrip().startswith("NOT_STATED"[: len(buf.lstrip())]):  # do not stream the sentinel
+                yield {"type": "token", "text": tok}
+    except Exception as e:
+        # A hosted model can time out or hit its rate limit. The agent still gets the matching
+        # clauses verbatim, marked as such, instead of an error.
+        print(f"[answer] {gen.name} failed: {e}")
+        ans, cards = _extractive(question, lang, clauses, note=MODEL_DOWN_NOTE[lang])
+        yield {"type": "final", "status": "answered", "answer": ans, "citations": cards, "lang": lang,
+               "backend": f"extractive (fallback: {gen.name} unavailable)", "top_score": top,
+               "ms": int((time.time() - t0) * 1000), "replace": True}
+        return
     answer = buf.strip()
     ms = int((time.time() - t0) * 1000)
     common = {"lang": lang, "backend": gen.name, "top_score": top, "ms": ms, "first_token_ms": first_tok,
@@ -385,8 +412,13 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
 
     # The model sometimes writes the sentinel inside a sentence ("maternity is NOT_STATED to ..."). Drop
     # those sentences; what is left must still carry a citation, otherwise the answer is not stated.
-    if "NOT_STATED" in answer and not answer.startswith("NOT_STATED"):
-        kept = [x for x in re.split(r"(?<=[.!?।])\s+", answer) if "NOT_STATED" not in x]
+    # Hosted models also say it in words ("The provided clauses do not mention any co-payment [1][2]")
+    # and cite clauses that do not support it. A sentence about what the clauses lack is the sentinel
+    # in other words and is treated the same way, so an absence is never presented as a checked answer.
+    def absent(x: str) -> bool:
+        return "NOT_STATED" in x or bool(ABSENCE_RE.search(x))
+    if any(absent(x) for x in re.split(r"(?<=[.!?।])\s+", answer)) and not answer.startswith("NOT_STATED"):
+        kept = [x for x in re.split(r"(?<=[.!?।])\s+", answer) if not absent(x)]
         answer = " ".join(kept).strip()
         if not re.search(r"\[\d+\]", answer):
             answer = ""

@@ -5,7 +5,7 @@
 1. Plug in the laptop. Close heavy apps (the local model uses about 5 GB of memory).
 2. `./run_demo.sh`, open http://localhost:8000, wait for "online" in the header.
 3. Ask one warm-up question so the first real answer is fast, then reload the page so the chat starts clean.
-4. `python demo_check.py 1` runs the script below against the server and should print 11/11. `python tests/e2e_ui.py` clicks through the page itself in Chrome and should print "All 15 steps passed".
+4. `python demo_check.py 1` runs the script below against the server and should print 11/11. `python tests/e2e_ui.py` clicks through the page itself in Chrome and should print "All 17 steps passed".
    If the page still shows a policy dropdown, the browser is showing an old copy: reload with Cmd+Shift+R.
 5. Voice (optional): with SARVAM_API_KEY in .env, run `python voice_check.py` (should print 4/4) and allow the microphone when Chrome asks. On a Mac, Chrome also needs System Settings > Privacy & Security > Microphone. Voice needs internet; everything else does not. If the network is poor, type.
 6. Fallback if anything misbehaves: stop the server and run `COPILOT_BACKEND=extractive ./run_demo.sh`. Answers become verbatim clause quotes with page numbers; refusals and comparison still work.
@@ -29,6 +29,7 @@ There is no policy dropdown. The copilot opens by asking which policy document t
 | 7 | Is maternity covered? | SBI excludes maternity (Code Excl 18). The answer says not covered. If the model ever calls an exclusion covered, the draft is blocked and the clause is shown instead. |
 | 7b | (tap the mic) "Room rent kitna hai?" | Optional, needs the key and internet. The transcript appears in the box; the agent checks it and presses send. "How this was checked" says the question was spoken and which service transcribed it. |
 | 8 | Compare the diabetes waiting period across policies | Answered from the fact table across all five policies, not free text. The values are marked unverified. Say this out loud. |
+| 9 | Tap "Best policy finder", then send: "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter." | A ranked shortlist of policy plans with a score bar. Each line shows the figure it used and links to its page. It says that premium is left out, and that the claims figure is IRDAI's incurred claims ratio, not a claim settlement ratio. Tap "Ask about this policy" to switch to that policy. |
 
 ## What to say, and what not to say
 
@@ -41,4 +42,5 @@ Be honest about the current limits:
 2. Comparison values are pre-filled and not yet verified by a person.
 3. Single policy answers on the four new documents are less reliable than on National Mediclaim, which the eval set covers. Stay on National Mediclaim for the detailed questions and use the others for the switch and the comparison. Avoid plan specific limits on Oriental (for example ELITE maternity): the clause on page 23 says 10% up to 2 lakh while the benefit table gives ELITE 5% up to ₹50,000, and the copilot quotes the clause.
 4. Voice questions use Sarvam's cloud service (the only part that leaves the laptop, and only the audio clip). WhatsApp Business API is not part of this prototype.
-5. Measured answer time on this laptop: about 5 seconds per answer (first words after 3 to 4.5 seconds). The first question after starting takes about 15 seconds, which is why the warm-up question matters.
+5. The shortlist is for the agent, not advice to the customer, and it cannot use premium. The claims record uses IRDAI's incurred claims ratio, because IRDAI no longer publishes a claim settlement ratio per insurer. Oriental scores highest on it, at 102.58%, which also means it paid out more in claims than it earned in premium; the card says so.
+6. Measured answer time on this laptop: about 5 seconds per answer (first words after 3 to 4.5 seconds). The first question after starting takes about 15 seconds, which is why the warm-up question matters.

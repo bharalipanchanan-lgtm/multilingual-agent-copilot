@@ -1,0 +1,12 @@
+# The cloud container (Dockerfile). No MLX: answers come from a hosted model (generate.py "api"),
+# and bge-m3 search runs on the server's CPU, the same model and index as on the laptop.
+# torch is installed first from the CPU-only wheel index (see Dockerfile).
+sentence-transformers>=3.0.0
+chromadb>=0.5.0,<2
+pymupdf>=1.24.0
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart
+requests
+tqdm
+pyyaml

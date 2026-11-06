@@ -26,6 +26,18 @@ To run without the LLM (quotes the best matching clauses verbatim, useful as a f
 
     COPILOT_BACKEND=extractive ./run_demo.sh
 
+On a wide screen the page shows a chat list of the policies on the left, like a desktop chat app; on a phone it is one pane with a back arrow to the list. "Best policy finder" asks for a shortlist across all policies, for example "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter." The shortlist comes from rank.py (see SCALING.md).
+
+The base version before the ranking and the new UI is tagged `v1.0-base`: `git checkout v1.0-base`.
+
+## Public demo link (cloud)
+
+The Dockerfile builds the same app for a public URL: bge-m3 search on the CPU, answers from a hosted model (`COPILOT_BACKEND=api`, `COPILOT_LLM=sarvam|groq|gemini`, key from the host's secrets), 30 questions per visitor per 10 minutes, voice off unless `COPILOT_PUBLIC_VOICE=1`. It needs about 3 GB of memory. To put it on a Hugging Face Space:
+
+    HF_TOKEN=hf_... python deploy_hf.py your-username/claviq-copilot
+
+Any Docker host with 3 GB or more also works: `docker build -t claviq-copilot . && docker run -p 7860:7860 -e GROQ_API_KEY=... claviq-copilot`. To test the cloud setup on the laptop without Docker: `COPILOT_BACKEND=api COPILOT_LLM=sarvam COPILOT_DEVICE=cpu COPILOT_PUBLIC=1 COPILOT_PORT=8002 python server.py`, then `COPILOT_URL=http://localhost:8002/ python tests/e2e_ui.py`.
+
 ## First time setup (macOS, Apple Silicon)
 
     python3 -m venv .venv && source .venv/bin/activate
@@ -47,8 +59,9 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
              -> answer.py
         route: out of scope (premium, hospital list, claim status) -> refuse
                comparison -> compare.py, from the fact table in facts/*.json
+               best policy -> rank.py, from the fact table and IRDAI insurer figures (data/insurers.json)
                single policy -> retrieve.py (top 5 semantic + keyword matches + rest of each clause, max 6)
-        generate.py: mlx (local) | ollama | claude (optional, paid) | extractive
+        generate.py: mlx (local) | ollama | claude (optional, paid) | api (hosted, cloud) | extractive
         number check: every figure in the answer must appear in a cited clause, else the draft is blocked
         polarity check: a "covered" answer resting only on exclusion clauses is blocked
     server.py (FastAPI, streaming) -> web/index.html (WhatsApp style chat, clause cards linking to the PDF page)
