@@ -215,6 +215,37 @@ def main():
             check("Answering your earlier question" in page.inner_text("#chat"), "no note that the earlier question is answered")
         step("Two policies named: asks which, then answers the held question", two_named)
 
+        def shortlist():
+            t = send("Which policy works best for a customer who wants no waiting period and a good claims record? "
+                     "Premium does not matter.")
+            check("Shortlist from the policy fact table" in t, t[:200])
+            last = page.locator(".msg.bot").last
+            n = last.locator(".rk").count()
+            check(n >= 3, f"only {n} ranked policies shown")
+            first = last.locator(".rk").first.inner_text()
+            check("Oriental" in first, f"unexpected first place: {first[:120]!r}")
+            check("ICR" in first, "claims record (IRDAI ICR) not used")
+            check("not a claim settlement ratio" in t, "ICR not explained as different from a settlement ratio")
+            check("Premium is left out" in t, "premium preference not acknowledged")
+            href = last.locator(".rk a").first.get_attribute("href")
+            check(href and href.startswith("/pdf/oriental_sampoorna#page="), f"ranking evidence links to {href}")
+            return first.splitlines()[1] if "\n" in first else first[:80]
+        step("Best policy finder ranks on waiting periods and claims record, with evidence", shortlist)
+
+        def desktop_list():
+            page.set_viewport_size({"width": 1280, "height": 860})
+            page.wait_for_timeout(300)
+            check(page.locator("#side").is_visible(), "chat list not shown on a wide screen")
+            check(page.locator("#plist .pitem").count() == 6, "expected the finder plus 5 policies in the chat list")
+            send("", tap=lambda: page.locator("#plist .pitem", has_text="Royal Sundaram").click(), expect_finals=1)
+            check("Royal Sundaram" in page.inner_text("#cur"), "tapping a policy in the list did not switch")
+            check(page.locator("#plist .pitem.sel", has_text="Royal Sundaram").count() == 1, "list does not mark the policy in use")
+            page.locator("#finder").click()
+            check("works best" in page.input_value("#q"), "finder did not fill the box")
+            page.fill("#q", "")
+            page.set_viewport_size({"width": 480, "height": 900})
+        step("Wide screen: chat list of policies switches the policy", desktop_list)
+
         browser.close()
 
     real_errors = [e for e in errors if "favicon" not in e]

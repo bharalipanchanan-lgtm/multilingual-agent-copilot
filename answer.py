@@ -75,7 +75,19 @@ def detect_lang(q: str) -> str:
     return "hinglish" if len(words & HINGLISH_WORDS) >= 2 else "en"
 
 
+# "Which policy works best for him", "sabse acchi policy kaunsi hai", "rank the policies for no
+# waiting period": a shortlist across policies from the fact table (rank.py). Checked before the
+# premium route, because a request can say "premium does not matter".
+RECOMMEND_RE = re.compile(
+    r"\b(best|recommend\w*|suggest\w*|rank|ranking|ranked|shortlist|top\s+\d)\b"
+    r"|which polic(y|ies)\s+(should|would|will|works?|is|are|suits?)\b.{0,30}\b(best|better|suit|right|good|buy|take|choose)"
+    r"|sabse\s+(accha|achha|acchi|achhi|achchhi|badhiya|best|behtar)|(kaunsi|konsi|kaun\s?si)\s+policy\s+(le|lu|loon|leni|lena|sahi|best|behtar)"
+    r"|सबसे\s+(अच्छी|अच्छा|बेहतर)|सुझा|बेहतर पॉलिसी", re.I)
+
+
 def route(q: str) -> str:
+    if RECOMMEND_RE.search(q):
+        return "recommend"
     for name, rx in ROUTES:
         if rx.search(q):
             return name

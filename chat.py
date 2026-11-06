@@ -75,6 +75,14 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         yield final("choose_policy", choose_message(lang), options=options(), pending=False)
         return
 
+    if r == "recommend":
+        # a shortlist across every loaded policy; no policy needs to be chosen first
+        from rank import rank_answer
+        yield {"type": "meta", "lang": lang, "route": "recommend", "backend": "fact_table"}
+        yield {"type": "final", **rank_answer(question, lang), "lang": lang, "backend": "fact_table",
+               "ms": int((time.time() - t0) * 1000), "policy_id": policy_id}
+        return
+
     if r == "compare":
         from compare import compare_answer
         yield {"type": "meta", "lang": lang, "route": "compare", "backend": "fact_table"}

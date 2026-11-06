@@ -2,111 +2,259 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#008069">
 <title>Claviq Agent Copilot</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2325d366'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' font-family='sans-serif' font-weight='700' fill='%23073b33'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23008069'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' font-family='sans-serif' font-weight='700' fill='%23ffffff'%3EC%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --header: #075e54; --header-text: #ffffff; --accent: #25d366; --bg: #ece5dd;
-    --me: #dcf8c6; --bot: #ffffff; --text: #111b21; --muted: #667781; --card: #f5f7f6;
-    --card-border: #d4dbd8; --ok: #1f8a4c; --warn: #b26a00; --stop: #b3261e; --chip: #ffffff;
+    --brand: #008069; --brand-dark: #005c4b; --accent: #25d366; --top: #008069; --top-text: #ffffff;
+    --app-bg: #d1d7db; --side-bg: #ffffff; --side-hd: #f0f2f5; --side-line: #e9edef; --side-hover: #f5f6f6; --side-sel: #f0f2f5;
+    --chat-bg: #efeae2; --doodle: rgba(0,0,0,.045);
+    --me: #d9fdd3; --bot: #ffffff; --text: #111b21; --muted: #667781; --soft: #8696a0;
+    --card: #f7f8fa; --card-border: #e1e6ea; --inbar: #f0f2f5; --input: #ffffff;
+    --ok: #0a7d4f; --ok-bg: #e2f6ec; --warn: #9a5b00; --warn-bg: #fff3dc; --stop: #b3261e; --stop-bg: #fde8e6;
+    --sys: #ffeecd; --sys-text: #54656f; --tick: #53bdeb; --chip: #ffffff; --shadow: 0 1px .5px rgba(11,20,26,.13);
+    --bar: #e9edef; --bar-fill: #25d366; --link: #008069;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --top: #202c33; --top-text: #e9edef; --app-bg: #0c1317; --side-bg: #111b21; --side-hd: #202c33; --side-line: #222d34;
+    --side-hover: #202c33; --side-sel: #2a3942; --chat-bg: #0b141a; --doodle: rgba(255,255,255,.035);
+    --me: #005c4b; --bot: #202c33; --text: #e9edef; --muted: #8696a0; --soft: #8696a0;
+    --card: #1a252c; --card-border: #2f3b43; --inbar: #202c33; --input: #2a3942;
+    --ok: #6fdba5; --ok-bg: #12382a; --warn: #f5c26b; --warn-bg: #3a2e14; --stop: #ff8a80; --stop-bg: #3b1c1a;
+    --sys: #182229; --sys-text: #ffd279; --chip: #202c33; --bar: #2a3942; --shadow: 0 1px .5px rgba(0,0,0,.4); --link: #00a884;
+  } }
+  :root[data-theme="dark"] {
+    --top: #202c33; --top-text: #e9edef; --app-bg: #0c1317; --side-bg: #111b21; --side-hd: #202c33; --side-line: #222d34;
+    --side-hover: #202c33; --side-sel: #2a3942; --chat-bg: #0b141a; --doodle: rgba(255,255,255,.035);
+    --me: #005c4b; --bot: #202c33; --text: #e9edef; --muted: #8696a0; --soft: #8696a0;
+    --card: #1a252c; --card-border: #2f3b43; --inbar: #202c33; --input: #2a3942;
+    --ok: #6fdba5; --ok-bg: #12382a; --warn: #f5c26b; --warn-bg: #3a2e14; --stop: #ff8a80; --stop-bg: #3b1c1a;
+    --sys: #182229; --sys-text: #ffd279; --chip: #202c33; --bar: #2a3942; --shadow: 0 1px .5px rgba(0,0,0,.4); --link: #00a884;
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Devanagari", sans-serif;
-         background: #d1d7db; color: var(--text); display: flex; justify-content: center; }
-  .app { width: 100%; max-width: 480px; height: 100vh; display: flex; flex-direction: column; background: var(--bg);
-         box-shadow: 0 0 24px rgba(0,0,0,.15); }
-  header { background: var(--header); color: var(--header-text); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); display: grid; place-items: center;
-            font-weight: 700; color: #073b33; flex: none; }
-  .title { flex: 1; min-width: 0; }
-  .title b { display: block; font-size: 16px; }
-  .title small { opacity: .85; font-size: 12px; }
-  .cur { display: inline-block; margin-top: 3px; font-size: 12px; background: rgba(255,255,255,.16); border-radius: 10px;
-         padding: 2px 8px; cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; white-space: normal; }
-  .opt { background: #e1ece9; color: var(--header); border: 0; border-radius: 14px; padding: 5px 10px; font-size: 13px;
-         font-weight: 600; cursor: pointer; font-family: inherit; }
-  #chat { flex: 1; overflow-y: auto; padding: 12px 10px 4px; }
-  .msg { max-width: 88%; margin: 6px 0; padding: 8px 10px 6px; border-radius: 8px; line-height: 1.4; font-size: 15px;
-         box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; word-wrap: break-word; }
-  .me { background: var(--me); margin-left: auto; border-top-right-radius: 0; }
-  .bot { background: var(--bot); border-top-left-radius: 0; }
-  .meta { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: right; white-space: normal; }
-  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-bottom: 6px; white-space: normal; }
-  .b-ok { background: #e3f4ea; color: var(--ok); } .b-warn { background: #fff1db; color: var(--warn); }
-  .b-stop { background: #fde7e5; color: var(--stop); }
-  .cards { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
-  .cardc { background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--header);
-           border-radius: 6px; padding: 7px 9px; font-size: 13px; }
+  body { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Noto Sans", "Noto Sans Devanagari", Helvetica, Arial, sans-serif;
+         background: var(--app-bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  button { font-family: inherit; }
+  svg { display: block; }
+
+  /* two panes on a wide screen, one pane on a phone */
+  .shell { height: 100vh; height: 100dvh; display: flex; max-width: 1600px; margin: 0 auto; background: var(--side-bg); }
+  @media (min-width: 1440px) { body { padding: 19px 0; } .shell { height: calc(100vh - 38px); box-shadow: 0 6px 18px rgba(11,20,26,.18); } }
+
+  /* ---- chat list (left) ---- */
+  .side { width: 30%; min-width: 300px; max-width: 420px; display: flex; flex-direction: column; border-right: 1px solid var(--side-line); background: var(--side-bg); }
+  .side-hd { height: 59px; background: var(--side-hd); display: flex; align-items: center; gap: 12px; padding: 0 16px; flex: none; }
+  .side-hd b { flex: 1; font-size: 16px; font-weight: 600; }
+  .side-search { padding: 7px 12px; border-bottom: 1px solid var(--side-line); flex: none; }
+  .side-search label { display: flex; align-items: center; gap: 14px; background: var(--side-hd); border-radius: 8px; padding: 0 12px; height: 35px; color: var(--soft); }
+  .side-search input { border: 0; outline: 0; background: transparent; flex: 1; font: inherit; font-size: 14px; color: var(--text); }
+  #plist { flex: 1; overflow-y: auto; }
+  .pitem { display: flex; align-items: center; gap: 13px; padding: 0 0 0 13px; cursor: pointer; width: 100%; border: 0; background: transparent; text-align: left; color: inherit; }
+  .pitem:hover { background: var(--side-hover); }
+  .pitem.sel { background: var(--side-sel); }
+  .pitem .pbody { flex: 1; min-width: 0; border-bottom: 1px solid var(--side-line); padding: 12px 15px 12px 0; }
+  .pitem .prow { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .pitem .pname { font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pitem .pkind { font-size: 12px; color: var(--soft); flex: none; }
+  .pitem .pprev { font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+  .pitem.finder .pname { font-weight: 600; }
+  .side-foot { font-size: 12px; color: var(--soft); padding: 12px 18px; border-top: 1px solid var(--side-line); line-height: 1.45; display: flex; gap: 8px; }
+  .av { width: 49px; height: 49px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; font-size: 15px; letter-spacing: .3px; }
+  .av.sm { width: 40px; height: 40px; font-size: 14px; }
+
+  /* ---- conversation (right) ---- */
+  .app { flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--chat-bg); position: relative; }
+  .app::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 1;
+    background-image:
+      radial-gradient(circle at 18px 18px, var(--doodle) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 58px 46px, var(--doodle) 1.7px, transparent 2.2px),
+      radial-gradient(circle at 34px 66px, var(--doodle) 1.2px, transparent 1.6px);
+    background-size: 76px 76px; }
+  header.top { height: 59px; background: var(--side-hd); color: var(--text); padding: 0 16px; display: flex; align-items: center; gap: 13px; flex: none; z-index: 2; border-left: 1px solid var(--side-line); }
+  .back { display: none; background: none; border: 0; color: inherit; padding: 4px; margin-left: -8px; cursor: pointer; }
+  .title { flex: 1; min-width: 0; line-height: 1.25; }
+  .title b { display: block; font-size: 16px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title small { font-size: 13px; color: var(--muted); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cur { font-size: 12.5px; border: 1px solid var(--side-line); background: var(--side-bg); color: var(--text); border-radius: 16px; padding: 5px 11px;
+         cursor: pointer; max-width: 46%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: none; }
+  .cur::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--soft); margin-right: 6px; vertical-align: 1px; }
+  .cur.on::before { background: var(--accent); }
+  #chat { flex: 1; overflow-y: auto; padding: 14px 7% 8px; position: relative; z-index: 1; scroll-behavior: smooth; }
+  .day { text-align: center; margin: 4px 0 12px; }
+  .day span { display: inline-block; background: var(--side-bg); color: var(--muted); font-size: 12.5px; padding: 5px 12px; border-radius: 8px; box-shadow: var(--shadow); }
+
+  .msg { position: relative; max-width: min(72%, 640px); margin: 2px 0 8px; padding: 6px 9px 8px; border-radius: 7.5px; line-height: 1.42; font-size: 14.2px;
+         box-shadow: var(--shadow); white-space: pre-wrap; word-wrap: break-word; width: fit-content; }
+  .msg.me { background: var(--me); margin-left: auto; border-top-right-radius: 0; }
+  .msg.bot { background: var(--bot); border-top-left-radius: 0; }
+  .msg.me::before, .msg.bot::before { content: ""; position: absolute; top: 0; width: 8px; height: 13px; }
+  .msg.me::before { right: -8px; background: linear-gradient(to bottom left, var(--me) 50%, transparent 50%); }
+  .msg.bot::before { left: -8px; background: linear-gradient(to bottom right, var(--bot) 50%, transparent 50%); }
+  .msg.wide { max-width: min(86%, 760px); }
+  .stamp, .meta { font-size: 11px; color: var(--muted); text-align: right; margin: 3px -2px -4px 12px; white-space: nowrap; float: right; position: relative; top: 6px; }
+  .stamp .tk { display: inline-block; vertical-align: -2px; margin-left: 3px; color: var(--soft); }
+  .stamp .tk.read { color: var(--tick); }
+  .clear { clear: both; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-bottom: 5px; white-space: normal; }
+  .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .b-ok { background: var(--ok-bg); color: var(--ok); } .b-warn { background: var(--warn-bg); color: var(--warn); } .b-stop { background: var(--stop-bg); color: var(--stop); }
+  .btext { display: block; }
+  .greet-h { font-weight: 600; }
+  .hint { font-size: 12.5px; color: var(--muted); }
+
+  .opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; white-space: normal; }
+  .opt { background: transparent; color: var(--link); border: 1px solid var(--card-border); border-radius: 18px; padding: 6px 12px; font-size: 13.5px;
+         font-weight: 500; cursor: pointer; }
+  .opt:hover { background: var(--card); }
+
+  .cards { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
+  .cardc { background: var(--card); border-left: 4px solid var(--brand); border-radius: 6px; padding: 7px 10px; font-size: 13px; }
   .cardc .hd { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
-  .cardc .hd b { color: var(--text); }
+  .cardc .hd b { color: var(--text); font-weight: 600; }
   .cardc q { font-style: italic; }
-  .cardc a { color: var(--header); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .cardc a, .rk a { color: var(--link); font-weight: 600; text-decoration: none; white-space: nowrap; }
   .cardc details { margin-top: 4px; } .cardc summary { cursor: pointer; color: var(--muted); font-size: 12px; }
-  .cardc .full { font-size: 12px; color: #333; margin-top: 4px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
-  table.cmp { border-collapse: collapse; font-size: 12px; margin-top: 6px; width: 100%; white-space: normal; }
-  table.cmp th, table.cmp td { border: 1px solid var(--card-border); padding: 4px 6px; text-align: left; vertical-align: top; }
-  table.cmp th { background: var(--card); }
-  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px; }
-  .chip { flex: none; background: var(--chip); border: 1px solid var(--card-border); border-radius: 16px; padding: 5px 10px;
-          font-size: 13px; cursor: pointer; }
-  form { display: flex; gap: 8px; padding: 8px 10px 12px; }
-  textarea { flex: 1; resize: none; border: 0; border-radius: 20px; padding: 10px 14px; font: inherit; font-size: 15px; height: 42px; }
-  button.send { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--header); color: #fff; font-size: 18px; cursor: pointer; }
-  button.send:disabled { opacity: .5; }
-  button.mic { width: 44px; height: 44px; border-radius: 50%; border: 0; background: #ffffff; color: var(--header);
-               font-size: 19px; cursor: pointer; flex: none; }
-  button.mic.off { opacity: .45; }
-  button.mic.rec { background: var(--stop); color: #fff; animation: pulse 1s infinite; }
-  button.mic.busy { opacity: .6; cursor: wait; }
-  @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(179,38,30,.25); } }
-  .voicenote { font-size: 12px; color: var(--muted); padding: 0 16px; min-height: 0; }
-  .voicenote:empty { display: none; }
-  .spoken { font-size: 11px; color: var(--muted); text-align: right; margin-top: 2px; }
-  .typing { color: var(--muted); font-style: italic; }
-  .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: #e1ece9;
-         color: var(--header); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
+  .cardc .full { font-size: 12px; margin-top: 4px; max-height: 180px; overflow: auto; white-space: pre-wrap; color: var(--muted); }
   .cardc.hl { box-shadow: 0 0 0 2px var(--accent); }
-  details.how { margin-top: 6px; font-size: 12px; color: var(--muted); white-space: normal; }
+  table.cmp { border-collapse: collapse; font-size: 12.5px; margin-top: 8px; width: 100%; white-space: normal; }
+  table.cmp th, table.cmp td { border-bottom: 1px solid var(--card-border); padding: 6px 6px; text-align: left; vertical-align: top; }
+  table.cmp th { color: var(--muted); font-weight: 600; font-size: 12px; }
+  .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: var(--ok-bg);
+         color: var(--ok); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
+
+  /* ranking */
+  .rank { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; white-space: normal; }
+  .rk { background: var(--card); border-radius: 8px; padding: 9px 11px; display: grid; grid-template-columns: 30px 1fr; gap: 2px 10px; }
+  .rk .no { width: 26px; height: 26px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; grid-row: span 3; }
+  .rk:first-child .no { background: var(--accent); color: #073b33; }
+  .rk .nm { font-weight: 600; font-size: 13.5px; display: flex; justify-content: space-between; gap: 8px; }
+  .rk .sc { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 600; white-space: nowrap; }
+  .rk .bar { height: 5px; background: var(--bar); border-radius: 3px; overflow: hidden; margin: 3px 0 4px; }
+  .rk .bar i { display: block; height: 100%; background: var(--bar-fill); border-radius: 3px; }
+  .rk ul { margin: 0; padding: 0; list-style: none; font-size: 12.5px; color: var(--muted); }
+  .rk li { display: flex; justify-content: space-between; gap: 8px; padding: 1px 0; }
+  .rk li span:first-child { color: var(--text); }
+  .rk li.miss span:first-child { color: var(--warn); }
+  .rk .act { grid-column: 2; margin-top: 4px; }
+  .rk .act button { background: none; border: 0; color: var(--link); font-weight: 600; font-size: 12.5px; padding: 0; cursor: pointer; }
+  .rank-foot { font-size: 12px; color: var(--muted); }
+
+  details.how { margin-top: 8px; font-size: 12px; color: var(--muted); white-space: normal; }
   details.how summary { cursor: pointer; }
   details.how ul { margin: 4px 0 0 16px; padding: 0; }
-  .sys { text-align: center; margin: 8px auto; font-size: 12px; color: #54656f; background: #fff8c4; padding: 4px 10px;
-         border-radius: 6px; max-width: 92%; white-space: normal; }
+  .typing { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
+  .dots { display: inline-flex; gap: 3px; }
+  .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--soft); animation: blink 1.2s infinite; }
+  .dots i:nth-child(2) { animation-delay: .2s; } .dots i:nth-child(3) { animation-delay: .4s; }
+  @keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+  .sys { text-align: center; margin: 8px auto 10px; font-size: 12.5px; color: var(--sys-text); background: var(--sys); padding: 6px 12px;
+         border-radius: 8px; max-width: min(92%, 560px); white-space: normal; box-shadow: var(--shadow); position: relative; z-index: 1; width: fit-content; }
+  .spoken { font-size: 11px; color: var(--muted); margin-top: 2px; display: inline-flex; align-items: center; gap: 3px; }
+
+  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 7% 4px; position: relative; z-index: 1; scrollbar-width: none; }
+  .chip { flex: none; background: var(--chip); color: var(--text); border: 0; box-shadow: var(--shadow); border-radius: 16px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
+  .chip.star { color: var(--link); font-weight: 600; }
+  .voicenote { font-size: 12.5px; color: var(--muted); padding: 2px 7% 0; position: relative; z-index: 1; }
+  .voicenote:empty { display: none; }
+
+  form.bar { display: flex; align-items: flex-end; gap: 8px; padding: 8px 16px 10px; background: var(--inbar); position: relative; z-index: 2; flex: none;
+             padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+  .pill { flex: 1; display: flex; align-items: flex-end; background: var(--input); border-radius: 8px; min-height: 42px; padding: 0 6px 0 14px; }
+  textarea { flex: 1; resize: none; border: 0; outline: 0; background: transparent; color: var(--text); padding: 11px 0 10px; font: inherit; font-size: 15px;
+             line-height: 21px; max-height: 120px; height: 42px; }
+  textarea::placeholder { color: var(--soft); }
+  .round { width: 42px; height: 42px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; flex: none; color: #fff; background: var(--brand); }
+  .round:disabled { opacity: .55; cursor: default; }
+  button.mic.off { opacity: .45; }
+  button.mic.rec { background: var(--stop); animation: pulse 1s infinite; }
+  button.mic.busy { opacity: .6; cursor: wait; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(179,38,30,.22); } }
+  form.bar.typed #mic { display: none; }
+  form.bar:not(.typed) #send { display: none; }
+
+  /* phone: one pane, the green top bar of a phone chat app */
+  @media (max-width: 899px) {
+    .side { display: none; position: fixed; inset: 0; width: 100%; max-width: none; z-index: 10; }
+    .shell.list .side { display: flex; }
+    header.top { background: var(--top); color: var(--top-text); border-left: 0; }
+    .title small { color: var(--top-text); opacity: .85; }
+    .back { display: block; }
+    .cur { background: rgba(255,255,255,.16); border-color: transparent; color: var(--top-text); max-width: 38%; padding: 5px 9px; }
+    header.top { gap: 10px; padding: 0 10px; }
+    header.top .av { display: none; }
+    #chat { padding: 10px 12px 6px; }
+    .msg { max-width: 86%; } .msg.wide { max-width: 94%; }
+    .chips, .voicenote { padding-left: 12px; padding-right: 12px; }
+    form.bar { padding: 6px 8px 8px; gap: 6px; }
+    .pill { border-radius: 22px; }
+    .round { width: 44px; height: 44px; }
+    .side-hd.phone { background: var(--top); color: var(--top-text); }
+  }
 </style>
 </head>
 <body>
-<div class="app">
-  <header>
-    <div class="avatar">C</div>
-    <div class="title">
-      <b>Claviq Agent Copilot</b>
-      <small id="status">connecting...</small><br>
-      <span class="cur" id="cur" title="Change policy">No policy chosen yet</span>
+<div class="shell" id="shell">
+  <aside class="side" id="side" aria-label="Policy documents">
+    <div class="side-hd" id="sidehd">
+      <div class="av sm" style="background:#008069">C</div>
+      <b>Claviq Copilot</b>
+      <button class="back" id="closeList" aria-label="Back to the chat" style="display:none"></button>
     </div>
-  </header>
-  <div id="chat">
-    <div class="sys">Answers come only from the policy document you choose, with the clause and page. If the document does not say, the copilot says so.</div>
-  </div>
-  <div class="chips" id="chips"></div>
-  <div class="voicenote" id="vnote"></div>
-  <form id="f">
-    <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
-    <button class="mic off" id="mic" type="button" aria-label="Speak your question" title="Speak your question">&#127908;</button>
-    <button class="send" id="send" type="submit" aria-label="Send">&#10148;</button>
-  </form>
+    <div class="side-search"><label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="filter" placeholder="Search policy documents" autocomplete="off"></label></div>
+    <div id="plist"></div>
+    <div class="side-foot">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex:none;margin-top:1px"><path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 10.9h7c-.5 4.1-3.3 7.8-7 8.9V12H5V6.3l7-3.1v8.7z"/></svg>
+      <span>Answers come only from the policy document, with clause and page. If the document does not say, the copilot says so.</span>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="top">
+      <button class="back" id="openList" aria-label="Policy documents">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"/></svg>
+      </button>
+      <div class="av sm" style="background:#25d366;color:#073b33">C</div>
+      <div class="title">
+        <b>Claviq Agent Copilot</b>
+        <small id="status">connecting...</small>
+      </div>
+      <span class="cur" id="cur" title="Change policy" role="button" tabindex="0">No policy chosen yet</span>
+    </header>
+    <div id="chat">
+      <div class="day"><span>Today</span></div>
+      <div class="sys">Answers come only from the policy document you choose, with the clause and page. If the document does not say, the copilot says so.</div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="voicenote" id="vnote"></div>
+    <form id="f" class="bar">
+      <div class="pill">
+        <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
+      </div>
+      <button class="round mic off" id="mic" type="button" aria-label="Speak your question" title="Speak your question">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 1 0-7 0v6A3.5 3.5 0 0 0 12 15zm6.2-3.5a.8.8 0 0 0-1.6 0 4.6 4.6 0 0 1-9.2 0 .8.8 0 0 0-1.6 0 6.2 6.2 0 0 0 5.4 6.1V20H9.5a.8.8 0 0 0 0 1.6h5a.8.8 0 0 0 0-1.6h-1.7v-2.4a6.2 6.2 0 0 0 5.4-6.1z"/></svg>
+      </button>
+      <button class="round send" id="send" type="submit" aria-label="Send">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21 23 12 2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+    </form>
+  </main>
 </div>
 <script>
 const $ = s => document.querySelector(s);
-const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send");
+const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send"), form = $("#f");
 // The policy is chosen in the conversation ("SBI dekhna hai"), not from a list. The server says
 // which policy is in use; the page only remembers it and sends it back with each question.
-let currentPolicy = null, pendingQuestion = null, lastLang = null;
+let currentPolicy = null, pendingQuestion = null, lastLang = null, POLICIES = [];
 // Voice: the page records, our server sends the audio to the speech service with a key the
 // browser never sees, and the transcript lands in the box for the agent to check before sending.
 let VOICE = {enabled: false}, recorder = null, recTimer = null, voiceText = null, voiceInfo = null;
 const MAX_REC_MS = 25000;
+const FINDER = "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter.";
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
@@ -121,33 +269,43 @@ const BADGE = {
   selected: ["b-ok", "Policy document chosen"],
   choose_policy: ["b-warn", "Choose a policy document"],
   compared: ["b-ok", "From the policy fact table"],
+  ranked: ["b-ok", "Shortlist from the policy fact table"],
   not_stated: ["b-warn", "Not stated in the document"],
   refused: ["b-warn", "Outside the policy wording"],
   blocked: ["b-stop", "Draft blocked: a figure did not match the policy"],
   error: ["b-stop", "Error"],
 };
+const AV_COLORS = ["#1f7a8c", "#c05621", "#2b6cb0", "#6b46c1", "#b83280", "#2f855a", "#9c4221", "#2c5282"];
+const TICK = `<svg class="tk-svg" width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.65 10.4.1a.37.37 0 0 0-.52.06L4.2 7.17 1.65 4.93a.37.37 0 0 0-.52.03l-.6.67a.37.37 0 0 0 .03.52l3.4 3a.37.37 0 0 0 .54-.05L11.13 1.17a.37.37 0 0 0-.06-.52zm4 0L14.4.1a.37.37 0 0 0-.52.06L8.2 7.17l-.9-.8-.92 1.12 1.6 1.43a.37.37 0 0 0 .54-.05L15.13 1.17a.37.37 0 0 0-.06-.52z"/></svg>`;
 
 function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
 function withRefs(text, id) {
   return esc(text).replace(/\[(\d+)\]/g, (m, n) => `<span class="ref" data-b="${id}" data-n="${n}">${n}</span>`);
 }
+function now() { return new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}); }
+function initials(label) {
+  const w = label.replace(/[^A-Za-z ]/g, "").split(/\s+/).filter(Boolean);
+  return (w.length === 1 ? w[0].slice(0, 3) : w.map(x => x[0]).join("").slice(0, 2)).toUpperCase();
+}
 const LANGN = {en: "English", hi: "Hindi", hinglish: "Hinglish"};
 function howPanel(ev, meta) {
   const items = [];
   items.push(`Language detected: ${LANGN[ev.lang] || ev.lang || "?"}`);
-  if (meta && meta.route) items.push(`Route: ${({single: "single policy search", compare: "comparison fact table", premium: "out of scope (premium)", hospitals: "out of scope (hospital list)", claim_status: "out of scope (claim status)"})[meta.route] || meta.route}`);
+  if (meta && meta.route) items.push(`Route: ${({single: "single policy search", compare: "comparison fact table", recommend: "shortlist from the fact table and IRDAI figures", premium: "out of scope (premium)", hospitals: "out of scope (hospital list)", claim_status: "out of scope (claim status)"})[meta.route] || meta.route}`);
   if (ev.top_score != null) items.push(`Best clause match score: ${Number(ev.top_score).toFixed(2)}`);
   if (ev.status === "answered" && ev.backend !== "extractive") items.push("Every figure in the answer was found in the cited clause text");
+  if (ev.status === "ranked") items.push("Scores use only fact table rows and IRDAI figures; a missing fact scores 0, never a guess");
   if (ev.block_reason === "polarity") items.push("Blocked: the draft said covered, but every cited clause is an exclusion");
   else if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
   if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
   if (ev._voice) items.push(`Question was spoken: transcribed by ${ev._voice.provider} in ${ev._voice.ms} ms (cloud), then ${ev._voice.edited ? "edited" : "sent as heard"}`);
-  items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
+  items.push(`Answered by: ${ev.backend || "-"}`);
   return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
 }
 let BID = 0;
 function scroll() { chat.scrollTop = chat.scrollHeight; }
 function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; chat.appendChild(d); scroll(); return d; }
+function sysLine(text) { const s = document.createElement("div"); s.className = "sys"; s.textContent = text; chat.appendChild(s); scroll(); return s; }
 
 function optionButtons(opts) {
   if (!opts || !opts.length) return "";
@@ -157,20 +315,46 @@ function wireOptions(el) {
   // a tap types the insurer's name as the agent's own message, so the choice shows in the chat
   el.querySelectorAll(".opt").forEach(b => b.onclick = () => ask(b.dataset.say));
 }
+
+/* ---- chat list ---- */
+function kindOf(name) { return /brochure/i.test(name) ? "brochure" : /prospectus/i.test(name) ? "prospectus" : "wording"; }
+function renderList() {
+  const f = ($("#filter").value || "").toLowerCase();
+  const rows = POLICIES.filter(p => !f || p.name.toLowerCase().includes(f) || p.label.toLowerCase().includes(f));
+  const finder = (!f || "best shortlist rank finder".includes(f)) ? `
+    <button class="pitem finder" id="finder" type="button">
+      <div class="av" style="background:#25d366;color:#073b33"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.2-.6L12 2 9.2 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg></div>
+      <div class="pbody"><div class="prow"><span class="pname">Best policy finder</span><span class="pkind">all policies</span></div>
+      <div class="pprev">Shortlist by waiting periods, claims record, room rent...</div></div></button>` : "";
+  $("#plist").innerHTML = finder + rows.map(p => `
+    <button class="pitem${p.policy_id === currentPolicy ? " sel" : ""}" type="button" data-say="${esc(p.label)}" data-id="${esc(p.policy_id)}">
+      <div class="av" style="background:${AV_COLORS[(p.n - 1) % AV_COLORS.length]}">${esc(initials(p.label))}</div>
+      <div class="pbody"><div class="prow"><span class="pname">${esc(p.label)}</span><span class="pkind">${kindOf(p.name)}</span></div>
+      <div class="pprev">${esc(p.name.split(", ").slice(1).join(", ").replace(/\s*\(.*\)$/, ""))}</div></div></button>`).join("");
+  document.querySelectorAll("#plist .pitem[data-say]").forEach(b => b.onclick = () => { closeList(); if (b.dataset.id !== currentPolicy) ask(b.dataset.say); });
+  const fb = $("#finder"); if (fb) fb.onclick = () => { closeList(); setBox(FINDER); };
+}
+function openList() { $("#shell").classList.add("list"); }
+function closeList() { $("#shell").classList.remove("list"); }
+function setBox(text) { qEl.value = text; syncBar(); qEl.focus(); }
+
 async function greet() {
-  let opts = [];
-  try { opts = await (await fetch("/api/policies")).json(); } catch (e) {}
-  const list = opts.map(o => `${o.n}. ${o.name}`).join("\n");
-  const d = add("bot", `Namaste. Which policy document would you like to inspect?\nKaunsa policy document aapko dekhna hai?\n\n${esc(list)}\n\n<small>Type the insurer's name or number, for example "SBI dekhna hai". You can switch at any time.</small>` + optionButtons(opts));
+  try { POLICIES = await (await fetch("/api/policies")).json(); } catch (e) { POLICIES = []; }
+  renderList();
+  const list = POLICIES.map(o => `${o.n}. ${o.name}`).join("\n");
+  const d = add("bot", `<span class="greet-h">Namaste. Which policy document would you like to inspect?\nKaunsa policy document aapko dekhna hai?</span>\n\n${esc(list)}\n\n<span class="hint">Type the insurer's name or number, for example "SBI dekhna hai". You can switch at any time. To shortlist across all policies, ask "Which policy is best for no waiting period?"</span>` + optionButtons(POLICIES) + `<span class="stamp">${now()}</span><div class="clear"></div>`);
   wireOptions(d);
 }
 function setPolicy(ev) {
   currentPolicy = ev.policy_id;
   $("#cur").textContent = `Policy: ${ev.name}`;
-  const s = document.createElement("div"); s.className = "sys"; s.textContent = `Now answering from: ${ev.name}`;
-  chat.appendChild(s); scroll();
+  $("#cur").classList.add("on");
+  sysLine(`Now answering from: ${ev.name}`);
   $("#chips").style.display = "";
+  renderList();
 }
+
+/* ---- voice ---- */
 const micBtn = $("#mic"), vnote = $("#vnote");
 function note(t) { vnote.textContent = t || ""; }
 async function setupVoice() {
@@ -212,7 +396,7 @@ async function sendAudio(blob) {
     const r = await fetch("/api/transcribe", {method: "POST", body: fd});
     const j = await r.json();
     if (!r.ok) { note(j.detail || "Could not transcribe. Please type the question."); return; }
-    qEl.value = j.text; qEl.focus();
+    setBox(j.text);
     voiceText = j.text; voiceInfo = {provider: j.provider, ms: j.ms};
     note("Heard this. Check it, edit if needed, then press send.");
   } catch (e) { note("Could not reach the server for transcription. Please type the question."); }
@@ -224,12 +408,23 @@ micBtn.onclick = () => {
   if (recorder && recorder.state === "recording") recorder.stop(); else startRec();
 };
 
+/* ---- input bar: mic when empty, send when typed ---- */
+function syncBar() {
+  form.classList.toggle("typed", qEl.value.trim().length > 0);
+  qEl.style.height = "42px";
+  qEl.style.height = Math.min(qEl.scrollHeight, 120) + "px";
+}
+qEl.addEventListener("input", syncBar);
+
 async function init() {
   setupVoice();
-  $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
-  document.querySelectorAll(".chip").forEach(c => c.onclick = () => ask(c.textContent));
+  $("#chips").innerHTML = `<button type="button" class="chip star" data-q="${esc(FINDER)}">Best policy finder</button>` +
+    SUGGEST.map(s => `<button type="button" class="chip" data-q="${esc(s)}">${esc(s)}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(c => c.onclick = () => c.classList.contains("star") ? setBox(c.dataset.q) : ask(c.dataset.q));
   $("#chips").style.display = "none";  // suggestions appear once a policy is chosen
   $("#cur").onclick = () => ask("Which policy document can I inspect?");
+  $("#openList").onclick = openList;
+  $("#filter").oninput = renderList;
   pollStatus();
   greet();
 }
@@ -258,22 +453,39 @@ function renderTable(t) {
     r.cells.map(c => `<td>${esc(c.value)}${c.printed_page ? ` <small>p${c.printed_page}</small>` : ""}</td>`).join("")}</tr>`).join("");
   return `<table class="cmp">${head}${rows}</table>`;
 }
+function renderRanking(rk) {
+  if (!rk) return "";
+  const label = id => (POLICIES.find(p => p.policy_id === id) || {}).label;
+  const rows = rk.rows.slice(0, 5).map(r => `
+    <div class="rk">
+      <div class="no">${r.rank}</div>
+      <div class="nm"><span>${esc(r.name)}</span><span class="sc">${r.score}/100</span></div>
+      <div class="bar"><i style="width:${Math.max(2, r.score)}%"></i></div>
+      <ul>${r.parts.map(p => `<li class="${p.missing ? "miss" : ""}"><span>${esc(p.label)}: ${esc(p.reading)}</span>${
+        p.printed_page ? `<a href="/pdf/${esc(r.policy_id)}#page=${p.page}" target="_blank">p${esc(p.printed_page)}</a>`
+                       : p.source ? `<span title="${esc(p.source)}">IRDAI p${esc(p.printed_page || "")}</span>` : ""}</li>`).join("")}</ul>
+      ${label(r.policy_id) ? `<div class="act"><button type="button" data-say="${esc(label(r.policy_id))}">Ask about this policy &#8250;</button></div>` : ""}
+    </div>`).join("");
+  const more = rk.rows.length > 5 ? `<div class="rank-foot">${rk.rows.length - 5} more ranked lower.</div>` : "";
+  return `<div class="rank">${rows}${more}</div>`;
+}
 
 async function ask(text, held = false) {
   const question = (text ?? qEl.value).trim();
   if (!question || sendBtn.disabled) return;
-  if (text === undefined) qEl.value = "";
+  if (text === undefined) { qEl.value = ""; syncBar(); }
   sendBtn.disabled = true;
   let voiced = null;
   if (voiceText !== null && text === undefined) {  // this question came from the mic
     voiced = {...voiceInfo, edited: question !== voiceText};
     voiceText = null; voiceInfo = null; note("");
   }
+  let mine = null;
   if (held) {  // the agent already asked this; say it is being answered now rather than repeat it
-    const s = document.createElement("div"); s.className = "sys"; s.textContent = `Answering your earlier question: ${question}`;
-    chat.appendChild(s);
-  } else add("me", esc(question) + (voiced ? `<div class="spoken">spoken${voiced.edited ? ", edited" : ""}</div>` : ""));
-  const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
+    sysLine(`Answering your earlier question: ${question}`);
+  } else mine = add("me", esc(question) + (voiced ? `\n<span class="spoken"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 1 0-7 0v6A3.5 3.5 0 0 0 12 15z"/></svg>spoken${voiced.edited ? ", edited" : ""}</span>` : "") +
+                    `<span class="stamp">${now()}<span class="tk">${TICK}</span></span><div class="clear"></div>`);
+  const bubble = add("bot", `<span class="typing"><span class="dots"><i></i><i></i><i></i></span> checking the policy...</span>`);
   let policyId = currentPolicy, after = null;
   const t0 = performance.now();
   const id = ++BID;
@@ -281,6 +493,8 @@ async function ask(text, held = false) {
   try {
     const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
                                          body: JSON.stringify({question, policy_id: currentPolicy, held, prev_lang: lastLang}) });
+    if (!resp.ok) throw new Error(resp.status === 429 ? "Too many questions in a short time. Please wait a minute." : `Server error ${resp.status}`);
+    if (mine) mine.querySelector(".tk").classList.add("read");
     const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
@@ -291,18 +505,24 @@ async function ask(text, held = false) {
         if (!line.trim()) continue;
         const ev = JSON.parse(line);
         if (ev.type === "policy") { setPolicy(ev); policyId = ev.policy_id; chat.appendChild(bubble); scroll(); }
-        if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
+        if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing"><span class="dots"><i></i><i></i><i></i></span> reading the policy clauses...</span>`;
+                                   if (ev.route === "recommend") bubble.innerHTML = `<span class="typing"><span class="dots"><i></i><i></i><i></i></span> ranking the policies...</span>`; }
         if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
         if (ev.type === "final") {
           if (voiced) ev._voice = voiced;
           const [cls, label] = ev.block_reason === "polarity" ? ["b-stop", "Draft blocked: it called an exclusion covered"]
                                                               : (BADGE[ev.status] || BADGE.error);
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
-          bubble.innerHTML = `<span class="badge ${cls}">${label}</span><br>${withRefs(ev.answer, id)}` +
-            renderTable(ev.table) + renderCards(ev.citations, policyId, id) + optionButtons(ev.options) +
+          if (ev.table || ev.ranking) bubble.classList.add("wide");
+          bubble.innerHTML = `<span class="badge ${cls}">${label}</span><span class="btext">${withRefs(ev.answer, id)}</span>` +
+            renderRanking(ev.ranking) + renderTable(ev.table) +
+            (ev.ranking && ev.citations && ev.citations.length
+              ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted clauses</summary>${renderCards(ev.citations, policyId, id)}</details>`
+              : renderCards(ev.citations, policyId, id)) + optionButtons(ev.options) +
             (["selected", "choose_policy"].includes(ev.status) ? "" : howPanel(ev, meta)) +
-            `<div class="meta">${secs}s</div>`;
+            `<div class="meta">${secs}s · ${now()}</div><div class="clear"></div>`;
           wireOptions(bubble);
+          bubble.querySelectorAll(".rk .act button").forEach(b => b.onclick = () => ask(b.dataset.say));
           if (ev.lang) lastLang = ev.lang;
           // a question asked before any policy was chosen is answered once the agent picks one
           if (ev.status === "choose_policy" && ev.pending) pendingQuestion = question;
@@ -316,12 +536,12 @@ async function ask(text, held = false) {
       }
     }
   } catch (e) {
-    bubble.innerHTML = `<span class="badge b-stop">Error</span><br>${esc(e.message)}`;
+    bubble.innerHTML = `<span class="badge b-stop">Error</span><span class="btext">${esc(e.message)}</span><div class="meta">${now()}</div><div class="clear"></div>`;
   }
   sendBtn.disabled = false; qEl.focus();
   if (after) ask(after, true);
 }
-$("#f").onsubmit = e => { e.preventDefault(); ask(); };
+form.onsubmit = e => { e.preventDefault(); ask(); };
 qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
 init();
 </script>

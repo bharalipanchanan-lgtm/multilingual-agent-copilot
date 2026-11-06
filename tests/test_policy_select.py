@@ -125,7 +125,8 @@ def test_which_policy_questions_still_compare(text):
                                   "Which policy document covers maternity?"])
 def test_content_after_which_policy_is_not_a_list_request(text):
     _, fin = turn(text)
-    assert fin["status"] == "compared"
+    # "best room rent" asks for a shortlist (rank.py); the others are comparisons. Never the list.
+    assert fin["status"] == ("ranked" if "best" in text else "compared")
 
 
 def test_held_question_naming_two_policies_uses_the_chosen_one():
