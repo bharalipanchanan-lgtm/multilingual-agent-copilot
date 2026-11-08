@@ -26,3 +26,7 @@ data/chroma/
 eval/reports/
 models/
 data/chroma_backup*/
+
+# Downloaded binaries (cloudflared for the share link)
+tools/
+share_url.txt

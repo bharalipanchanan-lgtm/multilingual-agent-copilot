@@ -30,6 +30,12 @@ On a wide screen the page shows a chat list of the policies on the left, like a 
 
 The base version before the ranking and the new UI is tagged `v1.0-base`: `git checkout v1.0-base`.
 
+## Public demo link from this laptop (free, no account)
+
+    ./share_link.sh          # prints https://<random-words>.trycloudflare.com
+
+It starts the copilot in public mode (Sarvam 105B answers, using the SARVAM_API_KEY in .env; 30 questions per visitor per 10 minutes; voice off for visitors) and opens a Cloudflare quick tunnel to it. tools/cloudflared is the official binary from github.com/cloudflare/cloudflared/releases, gitignored. The link works only while the script runs and the laptop is awake and online, and it changes on every run. Ctrl+C stops both. Visitors' questions and the matching clauses go to Sarvam, so no real customer data.
+
 ## Public demo link (cloud)
 
 The Dockerfile builds the same app for a public URL: bge-m3 search on the CPU, answers from a hosted model (`COPILOT_BACKEND=api`, `COPILOT_LLM=sarvam|groq|gemini`, key from the host's secrets), 30 questions per visitor per 10 minutes, voice off unless `COPILOT_PUBLIC_VOICE=1`. It needs about 3 GB of memory. To put it on a Hugging Face Space:
