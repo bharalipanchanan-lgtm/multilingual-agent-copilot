@@ -16,15 +16,13 @@ from fact_table import manifest
 
 # Insurers whose policies are not loaded. If the agent names one, say so rather than answer
 # from whichever policy happens to be selected.
-OTHER_INSURERS = {"hdfc ergo": "HDFC ERGO", "hdfc": "HDFC ERGO", "star health": "Star Health",
-                  "care health": "Care Health", "niva bupa": "Niva Bupa", "max bupa": "Niva Bupa",
-                  "icici lombard": "ICICI Lombard", "bajaj allianz": "Bajaj Allianz", "tata aig": "Tata AIG",
-                  "aditya birla": "Aditya Birla", "manipal cigna": "ManipalCigna", "new india": "New India Assurance",
-                  "go digit": "Go Digit", "digit": "Go Digit", "acko": "Acko", "reliance general": "Reliance General",
-                  "future generali": "Future Generali", "cholamandalam": "Cholamandalam MS",
-                  "iffco tokio": "IFFCO Tokio", "liberty general": "Liberty General", "kotak": "Kotak General",
-                  "magma": "Magma HDI", "universal sompo": "Universal Sompo", "galaxy health": "Galaxy Health",
-                  "narayana": "Narayana Health", "lic": "LIC"}
+# Insurers with no document loaded: naming one gets a clear "not loaded", never another insurer's answer.
+# Insurers that are loaded are matched by their manifest aliases before this list is consulted.
+OTHER_INSURERS = {"manipal cigna": "ManipalCigna", "manipalcigna": "ManipalCigna", "reliance general": "Reliance General",
+                  "future generali": "Future Generali", "cholamandalam": "Cholamandalam MS", "chola ms": "Cholamandalam MS",
+                  "liberty general": "Liberty General", "kotak": "Kotak General", "magma": "Magma HDI",
+                  "universal sompo": "Universal Sompo", "galaxy health": "Galaxy Health", "narayana": "Narayana Health",
+                  "zuno": "Zuno", "navi": "Navi General", "lic": "LIC"}
 
 # Words that carry no content in "I would like to review the SBI policy" style requests. The last
 # Roman line holds the spellings Sarvam's transliteration uses ("Mujhe SBI vali policy dekhni hai").
@@ -46,6 +44,11 @@ TEXT = {
         "en": "Which policy document would you like to inspect?",
         "hinglish": "Kaunsa policy document aapko dekhna hai?",
         "hi": "आप कौन सा पॉलिसी दस्तावेज़ देखना चाहते हैं?",
+    },
+    "more": {
+        "en": "...and {n} more. Type the insurer's name, or use Browse all documents.",
+        "hinglish": "...aur {n} aur documents. Insurer ka naam likhiye, ya Browse all documents dabaiye.",
+        "hi": "...और {n} दस्तावेज़। बीमा कंपनी का नाम लिखिए, या Browse all documents दबाइए।",
     },
     "choose_hint": {
         "en": "Type the insurer's name or its number.",
@@ -86,7 +89,8 @@ def policies() -> list[dict]:
             continue
         aliases = [a.strip().lower() for a in (r.get("aliases") or "").split(";") if a.strip()]
         out.append({"n": len(out) + 1, "policy_id": r["policy_id"], "insurer": r["insurer"],
-                    "product": r["product"], "name": display_name(r), "aliases": aliases})
+                    "product": r["product"], "name": display_name(r), "aliases": aliases,
+                    "label": r.get("label") or ""})
     return out
 
 
@@ -169,11 +173,19 @@ def by_number(text: str) -> str | None:
     return None
 
 
+def _label(p: dict) -> str:
+    """Short name for buttons; tapping one sends it as the agent's message, so it must be an alias.
+    The manifest "label" column sets it; without one it is derived from the insurer's name."""
+    return (p.get("label") or "").strip() or (p["insurer"].replace(" General Insurance", "")
+                                              .replace(" Insurance Company", "").replace(" Insurance", "").replace("The ", ""))
+
+
 def options(only: list[str] | None = None) -> list[dict]:
-    return [{"n": p["n"], "policy_id": p["policy_id"], "name": p["name"],
-             "label": p["insurer"].replace(" General Insurance", "").replace(" Insurance Company", "")
-                                  .replace(" Insurance", "").replace("The ", "")}
+    return [{"n": p["n"], "policy_id": p["policy_id"], "name": p["name"], "label": _label(p)}
             for p in policies() if not only or p["policy_id"] in only]
+
+
+LIST_IN_MESSAGE = 5  # documents written out in a message; the rest are reached by name or the browser
 
 
 def option_lines(opts: list[dict]) -> str:
@@ -190,5 +202,8 @@ def selected_message(policy_id: str, lang: str) -> str:
 
 
 def choose_message(lang: str, opts: list[dict] | None = None, key: str = "choose", **fmt) -> str:
+    """At 300 documents the message must not list 300: it lists the first few and says how many more."""
     opts = opts or options()
-    return f"{TEXT[key][lang].format(**fmt)}\n{option_lines(opts)}\n{TEXT['choose_hint'][lang]}"
+    shown, more = opts[:LIST_IN_MESSAGE], len(opts) - LIST_IN_MESSAGE
+    extra = "\n" + TEXT["more"][lang].format(n=more) if more > 0 else ""
+    return f"{TEXT[key][lang].format(**fmt)}\n{option_lines(shown)}{extra}\n{TEXT['choose_hint'][lang]}"

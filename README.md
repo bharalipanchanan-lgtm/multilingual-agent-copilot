@@ -72,6 +72,10 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
         polarity check: a "covered" answer resting only on exclusion clauses is blocked
     server.py (FastAPI, streaming) -> web/index.html (WhatsApp style chat, clause cards linking to the PDF page)
 
+## Loaded documents
+
+There are 17 documents. The first five (National, Oriental, United India, SBI, Royal Sundaram) have fact table rows and gold labels. Twelve full policy wordings, one per insurer, were added on 2026-11-08 from the policy wording links on joinditto.in product pages: HDFC ERGO my: Optima Secure, Aditya Birla Activ One, ICICI Lombard Elevate, Star Super Star, TATA AIG MediCare Premier, Care Supreme, Niva Bupa ReAssure 2.0, Bajaj Health Care Supreme, Acko Personal Health Policy, Digit Health Insurance Policy, New India Premier Mediclaim and IFFCO Tokio Health Protector. They are searchable and answerable, but they have no fact rows yet, so comparison and the best policy finder do not include them and say so. The ManipalCigna wording was dropped because its PDF text extracts as garbled characters.
+
 ## Adding a policy
 
 1. Put the PDF in data/policies/ and add a row to data/policies/manifest.csv.

@@ -51,6 +51,10 @@ def test_english_question_is_unchanged():
     "There is no information about co-payment in the policy text [1].",
     "Clauses mein co-pay ka zikr nahi hai [2].",
     "पॉलिसी में को-पे का उल्लेख नहीं है [1]।",
+    "Room Rent ki koi limit policy mein mentioned nahi hai [1].",
+    "Is policy mein room rent par koi specific limit nahi di gayi hai [1].",
+    "Room rent ki limit ke baare mein is policy wording mein kuch nahi bataya gaya hai [1][2].",
+    "No specific limit is mentioned for room rent [2].",
 ])
 def test_absence_in_words_is_not_an_answer(text):
     from answer import ABSENCE_RE
@@ -62,6 +66,9 @@ def test_absence_in_words_is_not_an_answer(text):
     "The policy does not cover cosmetic treatment [2].",
     "Room rent is limited to 1% of the sum insured per day [1].",
     "Yeh policy lifetime renewable nahi hai [1].",
+    "Maternity is policy mein cover nahi hota hai [1].",
+    "Room rent ki limit 1% of sum insured per day hai [1].",
+    "Pre-existing diseases 36 months tak cover nahi honge [2].",
 ])
 def test_real_answers_are_kept(text):
     from answer import ABSENCE_RE

@@ -56,6 +56,25 @@ def manifest() -> dict[str, dict]:
     return {r["policy_id"]: r for r in csv.DictReader(open(MANIFEST, encoding="utf-8"))}
 
 
+COVERAGE = {
+    "en": "The fact table covers {k} of the {n} loaded documents. Not yet included: {names}.",
+    "hinglish": "Fact table abhi {n} loaded documents mein se {k} ko cover karti hai. Abhi shamil nahi: {names}.",
+    "hi": "फैक्ट टेबल अभी {n} लोड किए गए दस्तावेज़ों में से {k} को कवर करती है। अभी शामिल नहीं: {names}।",
+}
+
+
+def coverage_note(lang: str, covered: set[str]) -> str | None:
+    """Comparison and ranking read only the fact table. When documents are loaded without fact rows,
+    say so, so a shortlist of 5 is never read as the best of all loaded documents."""
+    from policy_select import options
+    missing = [o["label"] for o in options() if o["policy_id"] not in covered]
+    if not missing:
+        return None
+    n = len(options())
+    names = ", ".join(missing[:8]) + (f" (+{len(missing) - 8})" if len(missing) > 8 else "")
+    return COVERAGE[lang].format(k=n - len(missing), n=n, names=names)
+
+
 def _legacy_to_rows(f: dict) -> list[dict]:
     rows = []
     for key, a in f.get("attributes", {}).items():

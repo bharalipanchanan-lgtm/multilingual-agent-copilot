@@ -51,7 +51,11 @@ def test_question_without_policy_asks_which_one():
     pol, fin = turn("Room rent kitna hai?")
     assert pol is None and fin["status"] == "choose_policy" and fin["pending"] is True
     assert "Kaunsa policy document" in fin["answer"]
-    assert len(fin["options"]) == 5
+    from policy_select import policies
+    n = len(policies())
+    assert len(fin["options"]) == n
+    # the message lists five and points to the rest; it never writes out every document
+    assert fin["answer"].count("\n") < 12 and (n <= 5 or f"{n - 5} " in fin["answer"])
 
 
 def test_greeting_like_text_asks_in_english():
@@ -65,8 +69,8 @@ def test_two_policies_outside_compare_asks_which():
 
 
 def test_unloaded_insurer_is_not_answered_from_the_current_policy():
-    pol, fin = turn("HDFC Ergo ka room rent kitna hai?", current="sbi_retail_health")
-    assert fin["status"] == "choose_policy" and "HDFC" in fin["answer"]
+    pol, fin = turn("ManipalCigna ka room rent kitna hai?", current="sbi_retail_health")
+    assert fin["status"] == "choose_policy" and "ManipalCigna" in fin["answer"]
 
 
 def test_switching_policy_mid_conversation():
@@ -164,3 +168,12 @@ def test_strip_names(text, clean):
 def test_sarvam_transliteration_spellings_select(text, pid):
     pol, fin = turn(text)
     assert pol == pid and fin["status"] == "selected" and fin["lang"] == "hinglish"
+
+
+def test_every_button_label_selects_its_own_policy():
+    """A tapped button (greeting or browser) is sent as the agent's message, so each label must
+    pick exactly its own policy and read as a pure selection."""
+    from policy_select import mentioned, options, selection_only
+    for o in options():
+        found, rest = mentioned(o["label"])
+        assert found == [o["policy_id"]] and selection_only(rest), (o["label"], found, rest)

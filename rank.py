@@ -382,6 +382,10 @@ def rank_answer(question: str, lang: str = "en", top: int = 3) -> dict:
         lines.append(w["claims_note"])
     if any(not r["verified"] for r in res["ranked"][:top]):
         lines.append(w["unverified"])
+    from fact_table import coverage_note
+    note = coverage_note(lang, {f["policy_id"] for f in load_facts()})
+    if note:
+        lines.append(note)
     lines.append(w["advice"])
     return {"status": "ranked", "answer": "\n".join(lines), "citations": cites, "table": None,
             "ranking": {"criteria": [{"key": k, "label": CRITERIA[k].label, "weight": v}

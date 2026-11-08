@@ -1,0 +1,8 @@
+policy_id,line,reason,reviewed_on
+hdfc_optima_secure,HDFC ERGO General Insurance Company Limited,"Company name inside sentences: the preamble (p2, 'issued by ... (hereinafter called the Company)') and the grievance addresses (p41). The header lines are stripped.",2026-11-08
+hdfc_optima_secure,my: Optima Secure,"Product name inside sentences on the plan chart and add-on pages (p61, p69: 'my: Optima Secure offers following Add on Covers').",2026-11-08
+icici_elevate,ICICI Lombard General Insurance Company Limited,"Inside the preamble definition of Condition Precedent (p1).",2026-11-08
+icici_elevate,: customersupport@icicilombard.com,"Grievance contact paragraph (p38), body text an agent may need.",2026-11-08
+tata_medicare_premier,TATA AIG General Insurance Company Limited,"Inside sentences: the operative clause (p1, 'will provide the insurance cover') and the premium condition (p56).",2026-11-08
+bajaj_hcs_vital,Bajaj General Insurance Limited,"Inside the definition 'We, Our, Ours, Us means the Bajaj General Insurance Limited' (p5).",2026-11-08
+acko_platinum_health,Acko General Insurance Limited,"Inside sentences: premium payable in favour of the company (p44) and the grievance officer address (p56).",2026-11-08

@@ -82,7 +82,11 @@ ABSENCE_RE = re.compile(
     r"|\bnot\s+(explicitly\s+)?(mentioned|stated|specified|addressed|provided|found|available)\s+(in|within)\s+(the\s+)?(provided\s+|given\s+)?"
     r"(clauses?|text|excerpts?|sections?|policy (text|clauses|excerpts|wording)|document|context)"
     r"|\bno\s+(information|mention|details?|reference)\s+(is\s+)?(given\s+|provided\s+|available\s+)?(about|of|on|regarding|for)\b"
-    r"|\b(zikr|ullekh|mention|jaankari|jankari)\s+nahi(n)?\b|उल्लेख नहीं|जानकारी नहीं दी", re.I)
+    r"|\bno\s+(specific\s+)?(limit|information|details?|mention)\s+(is\s+)?(given|mentioned|specified|stated)\b"
+    r"|\b(zikr|ullekh|mention|mentioned|jaankari|jankari)\s+nahi(n)?\b|उल्लेख नहीं|जानकारी नहीं दी"
+    # Hinglish: "koi specific limit nahi di gayi hai", "kuch nahi bataya gaya", "likha nahi hai"
+    r"|\bnahi(n)?\s+(di|diya|dee|likhi|likha)\s+gay[aie]\b|\bnahi(n)?\s+bataya\s+gaya\b|\b(likha|likhi)\s+nahi(n)?\b"
+    r"|\bbaare\s+mein\s+(kuch|koi)\b.{0,40}\bnahi(n)?\b|नहीं बताया गया|नहीं दी गई", re.I)
 
 
 def detect_lang(q: str) -> str:

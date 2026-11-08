@@ -188,16 +188,17 @@ def main():
         step("Plan question on Oriental gets a checked answer", plan_question)
 
         def not_loaded():
-            t = send("HDFC Ergo ka room rent kitna hai?")
-            check("HDFC ERGO" in t and "loaded nahi" in t, t[:200])
+            t = send("ManipalCigna ka room rent kitna hai?")
+            check("ManipalCigna" in t and "loaded nahi" in t, t[:200])
             check("Oriental" in page.inner_text("#cur"), "policy changed after an unloaded insurer")
-        step("Unloaded insurer HDFC ERGO is refused, policy unchanged", not_loaded)
+        step("Unloaded insurer ManipalCigna is refused, policy unchanged", not_loaded)
 
         def compare():
             t = send("Compare the diabetes waiting period across policies")
             check("From the policy fact table" in t, t[:160])
             n = page.locator(".msg.bot").last.locator("table.cmp tr").count() - 1
             check(n == 5, f"comparison table has {n} policies")
+            check("fact table covers 5 of the" in t, "comparison does not say how many documents the fact table covers")
             check("Not yet verified" in t or "unverified" in t, "no unverified marker")
         step("Comparison table covers all five policies, marked unverified", compare)
 
@@ -241,10 +242,12 @@ def main():
             check(page.locator(".msg.bot").first.locator(".browse").count() == 1, "greeting has no Browse all documents")
             page.click("#browseTop")
             check(page.locator("#sheet").is_visible(), "document browser did not open")
-            check(page.locator("#doclist .doc").count() == 5, "browser does not list the 5 documents")
+            n_docs = len(page.request.get(URL.rstrip("/") + "/api/policies").json())
+            check(n_docs >= 15, f"only {n_docs} documents loaded")
+            check(page.locator("#doclist .doc").count() == n_docs, "browser does not list every loaded document")
             page.fill("#docsearch", "royal sund")
             check(page.locator("#doclist .doc").count() == 1, "search did not narrow to one document")
-            page.fill("#docsearch", "hdfc")
+            page.fill("#docsearch", "manipal")
             check("No loaded document matches" in page.inner_text("#doclist"), "no message for a document that is not loaded")
             page.fill("#docsearch", "multiplier")
             send("", tap=lambda: page.locator("#doclist .doc").first.click(), expect_finals=1)

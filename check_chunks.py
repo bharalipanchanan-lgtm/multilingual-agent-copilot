@@ -11,6 +11,9 @@ Three checks per policy:
            the chunk text, after whitespace normalisation.
   pages    every chunk has a physical page within the document; with --index every stored
            chunk also has printed_page = page - page_offset.
+  reviewed a running line that a person has read in context and found inside real sentences
+           (data/policies/leaks_reviewed.csv: policy, line, reason, date) is listed as reviewed, not
+           failed. Only the exact line for that policy is exempt; every other leak still fails.
   review   chunks containing header-like tokens (UIN codes, CIN, "Page n of m", IRDAI Reg) are
            listed for a human to read. Body text can cite a UIN legitimately, so these do not
            fail the check on their own; a one-off header block shows up here.
@@ -48,6 +51,18 @@ SIGNATURE = re.compile(r"UIN[: ]*[A-Z]{6,}\w+|P a g e|Page \d+ of \d+|IRDAI? Reg
                        r"CIN[: ]*(?:No\.)?[A-Z]\d{4,}|Registered Office")
 
 
+REVIEWED_FILE = POLICY_DIR / "leaks_reviewed.csv"
+
+
+def reviewed_lines() -> dict[str, dict[str, str]]:
+    if not REVIEWED_FILE.exists():
+        return {}
+    out: dict[str, dict[str, str]] = {}
+    for row in csv.DictReader(open(REVIEWED_FILE, encoding="utf-8")):
+        out.setdefault(row["policy_id"], {})[re.sub(r"\d+", "#", norm(row["line"]))] = row["reason"]
+    return out
+
+
 def check_policy(r: dict) -> tuple[list[str], dict]:
     path, skip, strip_regex, plans = manifest_args(r, POLICY_DIR)
     parsed = parse_pdf(path, skip, strip_regex, plans)
@@ -60,17 +75,22 @@ def check_policy(r: dict) -> tuple[list[str], dict]:
             fails.append(f"pages: chunk {i} has page {c.get('page')}")
     runners = running_lines(path, skip)
     masked = [(i, c["page"], re.sub(r"\d+", "#", norm(c["text"]))) for i, c in enumerate(chunks)]
+    exempt = reviewed_lines().get(r["policy_id"], {})
+    reviewed = []
     for line in runners:
         hits = [(i, p) for i, p, t in masked if line in t]
         if hits:
             where = ", ".join(f"chunk {i} p{p}" for i, p in hits[:4])
-            fails.append(f"leak: running line {line[:70]!r} in {len(hits)} chunks ({where})")
+            if line in exempt:
+                reviewed.append(f"reviewed: {line[:70]!r} in {len(hits)} chunks ({where}): {exempt[line]}")
+            else:
+                fails.append(f"leak: running line {line[:70]!r} in {len(hits)} chunks ({where})")
     review = []
     for i, c in enumerate(chunks):
         for m in SIGNATURE.finditer(c["text"]):
             review.append(f"chunk {i} p{c['page']}: ...{c['text'][max(0, m.start() - 50):m.end() + 30]}...")
     sizes = [len(c["text"]) for c in chunks]
-    stats = {"review": review, "pages": parsed["n_pages"], "chunks": len(chunks), "max": max(sizes, default=0),
+    stats = {"review": review, "reviewed": reviewed, "pages": parsed["n_pages"], "chunks": len(chunks), "max": max(sizes, default=0),
              "running_lines": len(runners)}
     return fails, stats
 
@@ -106,6 +126,8 @@ def main():
         print(f"{r['policy_id']:24} {s['pages']:>5} {s['chunks']:>6} {s['max']:>5} {s['running_lines']:>13}  "
               f"{'PASS' if not fails else f'FAIL ({len(fails)})'}")
         all_fails += [f"{r['policy_id']}: {f}" for f in fails]
+        for line in s["reviewed"]:
+            print(f"    {line}")
         for line in s["review"]:
             print(f"    review {line}")
     if a.index:

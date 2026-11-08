@@ -111,6 +111,10 @@ def compare_answer(question: str, lang: str = "en", only: list[str] | None = Non
                      "verified": all(c["verified"] for c in cells), "cells": cells})
     if any(not r["verified"] for r in rows):
         lines.append(unverified)
+    from fact_table import coverage_note
+    note = coverage_note(lang, {f["policy_id"] for f in load_facts()})
+    if note and not only:
+        lines.append(note)
     if len(rows) == 1:
         lines.append({"en": "Only one policy is loaded, so there is nothing to compare it with yet.",
                       "hi": "अभी केवल एक पॉलिसी लोड है, इसलिए तुलना के लिए दूसरी पॉलिसी नहीं है।",
