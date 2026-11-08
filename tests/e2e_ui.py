@@ -233,19 +233,31 @@ def main():
             return first.splitlines()[1] if "\n" in first else first[:80]
         step("Best policy finder ranks on waiting periods and claims record, with evidence", shortlist)
 
-        def desktop_list():
+        def browse_documents():
+            # one conversation, never a chat per policy; other documents are found by search
             page.set_viewport_size({"width": 1280, "height": 860})
             page.wait_for_timeout(300)
-            check(page.locator("#side").is_visible(), "chat list not shown on a wide screen")
-            check(page.locator("#plist .pitem").count() == 6, "expected the finder plus 5 policies in the chat list")
-            send("", tap=lambda: page.locator("#plist .pitem", has_text="Royal Sundaram").click(), expect_finals=1)
-            check("Royal Sundaram" in page.inner_text("#cur"), "tapping a policy in the list did not switch")
-            check(page.locator("#plist .pitem.sel", has_text="Royal Sundaram").count() == 1, "list does not mark the policy in use")
-            page.locator("#finder").click()
-            check("works best" in page.input_value("#q"), "finder did not fill the box")
-            page.fill("#q", "")
+            check(page.locator(".side, #plist, .pitem").count() == 0, "a chat list of policies is on the page")
+            check(page.locator(".msg.bot").first.locator(".browse").count() == 1, "greeting has no Browse all documents")
+            page.click("#browseTop")
+            check(page.locator("#sheet").is_visible(), "document browser did not open")
+            check(page.locator("#doclist .doc").count() == 5, "browser does not list the 5 documents")
+            page.fill("#docsearch", "royal sund")
+            check(page.locator("#doclist .doc").count() == 1, "search did not narrow to one document")
+            page.fill("#docsearch", "hdfc")
+            check("No loaded document matches" in page.inner_text("#doclist"), "no message for a document that is not loaded")
+            page.fill("#docsearch", "multiplier")
+            send("", tap=lambda: page.locator("#doclist .doc").first.click(), expect_finals=1)
+            check(not page.locator("#sheet").is_visible(), "browser stayed open after picking")
+            check("Royal Sundaram" in page.inner_text("#cur"), "picking in the browser did not switch the policy")
+            check("me" in page.locator(".msg").nth(-2).get_attribute("class"), "the pick was not shown as the agent's message")
+            check("Policy document chosen" in bot_texts()[-1], "copilot did not confirm the document in the chat")
+            page.click("#browseTop")
+            check(page.locator("#doclist .doc.sel", has_text="Royal Sundaram").count() == 1, "browser does not mark the document in use")
+            page.keyboard.press("Escape")
+            check(not page.locator("#sheet").is_visible(), "Escape did not close the browser")
             page.set_viewport_size({"width": 480, "height": 900})
-        step("Wide screen: chat list of policies switches the policy", desktop_list)
+        step("Browse all documents: search, pick, the copilot confirms in the same chat", browse_documents)
 
         browser.close()
 

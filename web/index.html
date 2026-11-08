@@ -40,30 +40,40 @@
   button { font-family: inherit; }
   svg { display: block; }
 
-  /* two panes on a wide screen, one pane on a phone */
-  .shell { height: 100vh; height: 100dvh; display: flex; max-width: 1600px; margin: 0 auto; background: var(--side-bg); }
-  @media (min-width: 1440px) { body { padding: 19px 0; } .shell { height: calc(100vh - 38px); box-shadow: 0 6px 18px rgba(11,20,26,.18); } }
-
-  /* ---- chat list (left) ---- */
-  .side { width: 30%; min-width: 300px; max-width: 420px; display: flex; flex-direction: column; border-right: 1px solid var(--side-line); background: var(--side-bg); }
-  .side-hd { height: 59px; background: var(--side-hd); display: flex; align-items: center; gap: 12px; padding: 0 16px; flex: none; }
-  .side-hd b { flex: 1; font-size: 16px; font-weight: 600; }
-  .side-search { padding: 7px 12px; border-bottom: 1px solid var(--side-line); flex: none; }
-  .side-search label { display: flex; align-items: center; gap: 14px; background: var(--side-hd); border-radius: 8px; padding: 0 12px; height: 35px; color: var(--soft); }
-  .side-search input { border: 0; outline: 0; background: transparent; flex: 1; font: inherit; font-size: 14px; color: var(--text); }
-  #plist { flex: 1; overflow-y: auto; }
-  .pitem { display: flex; align-items: center; gap: 13px; padding: 0 0 0 13px; cursor: pointer; width: 100%; border: 0; background: transparent; text-align: left; color: inherit; }
-  .pitem:hover { background: var(--side-hover); }
-  .pitem.sel { background: var(--side-sel); }
-  .pitem .pbody { flex: 1; min-width: 0; border-bottom: 1px solid var(--side-line); padding: 12px 15px 12px 0; }
-  .pitem .prow { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-  .pitem .pname { font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .pitem .pkind { font-size: 12px; color: var(--soft); flex: none; }
-  .pitem .pprev { font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
-  .pitem.finder .pname { font-weight: 600; }
-  .side-foot { font-size: 12px; color: var(--soft); padding: 12px 18px; border-top: 1px solid var(--side-line); line-height: 1.45; display: flex; gap: 8px; }
-  .av { width: 49px; height: 49px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; font-size: 15px; letter-spacing: .3px; }
+  /* one conversation with the copilot; centred on a wide screen, full width on a phone */
+  .shell { height: 100vh; height: 100dvh; display: flex; max-width: 980px; margin: 0 auto; background: var(--side-bg); }
+  @media (min-width: 1000px) { body { padding: 19px 0; } .shell { height: calc(100vh - 38px); box-shadow: 0 6px 18px rgba(11,20,26,.18); border-radius: 4px; overflow: hidden; } }
+  .av { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; font-size: 14px; letter-spacing: .3px; }
   .av.sm { width: 40px; height: 40px; font-size: 14px; }
+  .icon { background: none; border: 0; color: inherit; padding: 8px; border-radius: 50%; cursor: pointer; flex: none; }
+  .icon:hover { background: rgba(0,0,0,.06); }
+
+  /* ---- document browser: one search panel over every loaded document, not a chat per policy ---- */
+  .sheet { position: fixed; inset: 0; z-index: 20; display: none; align-items: center; justify-content: center; background: rgba(11,20,26,.45); padding: 16px; }
+  .sheet.open { display: flex; }
+  .panel { width: 100%; max-width: 560px; max-height: min(640px, 92vh); background: var(--side-bg); color: var(--text); border-radius: 12px;
+           display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+  .panel-hd { display: flex; align-items: center; gap: 10px; padding: 14px 16px 10px; }
+  .panel-hd b { flex: 1; font-size: 17px; font-weight: 600; }
+  .panel-search { padding: 0 16px 10px; }
+  .panel-search label { display: flex; align-items: center; gap: 12px; background: var(--side-hd); border-radius: 8px; padding: 0 12px; height: 38px; color: var(--soft); }
+  .panel-search input { border: 0; outline: 0; background: transparent; flex: 1; font: inherit; font-size: 15px; color: var(--text); }
+  .panel-count { font-size: 12px; color: var(--muted); padding: 0 16px 6px; }
+  #doclist { overflow-y: auto; flex: 1; border-top: 1px solid var(--side-line); }
+  .doc { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 16px; border: 0; border-bottom: 1px solid var(--side-line);
+         background: transparent; color: inherit; text-align: left; cursor: pointer; font: inherit; }
+  .doc:hover, .doc:focus-visible { background: var(--side-hover); outline: 0; }
+  .doc.sel { background: var(--side-sel); }
+  .doc .dbody { flex: 1; min-width: 0; }
+  .doc .dname { font-size: 15px; font-weight: 500; }
+  .doc .dprod { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .doc .dkind { font-size: 11px; color: var(--muted); border: 1px solid var(--card-border); border-radius: 10px; padding: 1px 7px; flex: none; }
+  .doc .dnow { font-size: 11px; color: var(--ok); font-weight: 600; flex: none; }
+  .panel-empty { padding: 24px 16px; color: var(--muted); font-size: 14px; text-align: center; }
+  .panel-foot { font-size: 12px; color: var(--muted); padding: 10px 16px 14px; border-top: 1px solid var(--side-line); }
+  .browse { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; background: var(--brand); color: #fff; border: 0; border-radius: 18px;
+            padding: 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+  .browse:hover { filter: brightness(1.07); }
 
   /* ---- conversation (right) ---- */
   .app { flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--chat-bg); position: relative; }
@@ -74,7 +84,6 @@
       radial-gradient(circle at 34px 66px, var(--doodle) 1.2px, transparent 1.6px);
     background-size: 76px 76px; }
   header.top { height: 59px; background: var(--side-hd); color: var(--text); padding: 0 16px; display: flex; align-items: center; gap: 13px; flex: none; z-index: 2; border-left: 1px solid var(--side-line); }
-  .back { display: none; background: none; border: 0; color: inherit; padding: 4px; margin-left: -8px; cursor: pointer; }
   .title { flex: 1; min-width: 0; line-height: 1.25; }
   .title b { display: block; font-size: 16px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .title small { font-size: 13px; color: var(--muted); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -177,53 +186,35 @@
 
   /* phone: one pane, the green top bar of a phone chat app */
   @media (max-width: 899px) {
-    .side { display: none; position: fixed; inset: 0; width: 100%; max-width: none; z-index: 10; }
-    .shell.list .side { display: flex; }
     header.top { background: var(--top); color: var(--top-text); border-left: 0; }
     .title small { color: var(--top-text); opacity: .85; }
-    .back { display: block; }
-    .cur { background: rgba(255,255,255,.16); border-color: transparent; color: var(--top-text); max-width: 38%; padding: 5px 9px; }
-    header.top { gap: 10px; padding: 0 10px; }
-    header.top .av { display: none; }
+    .icon:hover { background: rgba(255,255,255,.12); }
+    .cur { background: rgba(255,255,255,.16); border-color: transparent; color: var(--top-text); max-width: 34%; padding: 5px 9px; }
+    header.top { gap: 8px; padding: 0 6px 0 12px; }
+    .sheet { padding: 0; align-items: stretch; }
+    .panel { max-width: none; max-height: none; border-radius: 0; }
     #chat { padding: 10px 12px 6px; }
     .msg { max-width: 86%; } .msg.wide { max-width: 94%; }
     .chips, .voicenote { padding-left: 12px; padding-right: 12px; }
     form.bar { padding: 6px 8px 8px; gap: 6px; }
     .pill { border-radius: 22px; }
     .round { width: 44px; height: 44px; }
-    .side-hd.phone { background: var(--top); color: var(--top-text); }
   }
 </style>
 </head>
 <body>
 <div class="shell" id="shell">
-  <aside class="side" id="side" aria-label="Policy documents">
-    <div class="side-hd" id="sidehd">
-      <div class="av sm" style="background:#008069">C</div>
-      <b>Claviq Copilot</b>
-      <button class="back" id="closeList" aria-label="Back to the chat" style="display:none"></button>
-    </div>
-    <div class="side-search"><label>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
-      <input id="filter" placeholder="Search policy documents" autocomplete="off"></label></div>
-    <div id="plist"></div>
-    <div class="side-foot">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex:none;margin-top:1px"><path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 10.9h7c-.5 4.1-3.3 7.8-7 8.9V12H5V6.3l7-3.1v8.7z"/></svg>
-      <span>Answers come only from the policy document, with clause and page. If the document does not say, the copilot says so.</span>
-    </div>
-  </aside>
-
   <main class="app">
     <header class="top">
-      <button class="back" id="openList" aria-label="Policy documents">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"/></svg>
-      </button>
       <div class="av sm" style="background:#25d366;color:#073b33">C</div>
       <div class="title">
         <b>Claviq Agent Copilot</b>
         <small id="status">connecting...</small>
       </div>
       <span class="cur" id="cur" title="Change policy" role="button" tabindex="0">No policy chosen yet</span>
+      <button class="icon" id="browseTop" type="button" aria-label="Browse all documents" title="Browse all documents">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      </button>
     </header>
     <div id="chat">
       <div class="day"><span>Today</span></div>
@@ -243,6 +234,22 @@
       </button>
     </form>
   </main>
+</div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="panel">
+    <div class="panel-hd">
+      <b id="sheetTitle">Browse policy documents</b>
+      <button class="icon" id="sheetClose" type="button" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4l5.6 5.6L5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg>
+      </button>
+    </div>
+    <div class="panel-search"><label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+      <input id="docsearch" placeholder="Search by insurer, product or plan" autocomplete="off"></label></div>
+    <div class="panel-count" id="doccount"></div>
+    <div id="doclist"></div>
+    <div class="panel-foot">Pick a document and the copilot answers from it in this chat. Only loaded documents are listed.</div>
+  </div>
 </div>
 <script>
 const $ = s => document.querySelector(s);
@@ -314,35 +321,51 @@ function optionButtons(opts) {
 function wireOptions(el) {
   // a tap types the insurer's name as the agent's own message, so the choice shows in the chat
   el.querySelectorAll(".opt").forEach(b => b.onclick = () => ask(b.dataset.say));
+  el.querySelectorAll(".browse").forEach(b => b.onclick = openDocs);
 }
 
-/* ---- chat list ---- */
-function kindOf(name) { return /brochure/i.test(name) ? "brochure" : /prospectus/i.test(name) ? "prospectus" : "wording"; }
-function renderList() {
-  const f = ($("#filter").value || "").toLowerCase();
-  const rows = POLICIES.filter(p => !f || p.name.toLowerCase().includes(f) || p.label.toLowerCase().includes(f));
-  const finder = (!f || "best shortlist rank finder".includes(f)) ? `
-    <button class="pitem finder" id="finder" type="button">
-      <div class="av" style="background:#25d366;color:#073b33"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.2-.6L12 2 9.2 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg></div>
-      <div class="pbody"><div class="prow"><span class="pname">Best policy finder</span><span class="pkind">all policies</span></div>
-      <div class="pprev">Shortlist by waiting periods, claims record, room rent...</div></div></button>` : "";
-  $("#plist").innerHTML = finder + rows.map(p => `
-    <button class="pitem${p.policy_id === currentPolicy ? " sel" : ""}" type="button" data-say="${esc(p.label)}" data-id="${esc(p.policy_id)}">
+/* ---- document browser ----
+   One conversation with the copilot. The greeting offers the first few documents as buttons; every
+   other document is found here by search (5 today, 300 later), and picking one is said in the chat
+   like any other choice, so the copilot confirms it and the conversation carries on. */
+const SHOWN_IN_CHAT = 5;   // option buttons in a message; the rest are reached through the browser
+function kindOf(name) { return /brochure/i.test(name) ? "brochure" : /prospectus/i.test(name) ? "prospectus" : "policy wording"; }
+function product(p) { return p.name.split(", ").slice(1).join(", ").replace(/\s*\((prospectus|brochure)[^)]*\)$/i, ""); }
+function norm(s) { return (s || "").toLowerCase().normalize("NFKD").replace(/[^\w\s]/g, " "); }
+function renderDocs() {
+  const words = norm($("#docsearch").value).split(/\s+/).filter(Boolean);
+  const rows = POLICIES.filter(p => { const h = norm(`${p.name} ${p.label} ${p.n}`); return words.every(w => h.includes(w)); });
+  $("#doccount").textContent = words.length ? `${rows.length} of ${POLICIES.length} documents match` : `${POLICIES.length} documents loaded`;
+  $("#doclist").innerHTML = rows.length ? rows.map(p => `
+    <button class="doc${p.policy_id === currentPolicy ? " sel" : ""}" type="button" data-say="${esc(p.label)}" data-id="${esc(p.policy_id)}">
       <div class="av" style="background:${AV_COLORS[(p.n - 1) % AV_COLORS.length]}">${esc(initials(p.label))}</div>
-      <div class="pbody"><div class="prow"><span class="pname">${esc(p.label)}</span><span class="pkind">${kindOf(p.name)}</span></div>
-      <div class="pprev">${esc(p.name.split(", ").slice(1).join(", ").replace(/\s*\(.*\)$/, ""))}</div></div></button>`).join("");
-  document.querySelectorAll("#plist .pitem[data-say]").forEach(b => b.onclick = () => { closeList(); if (b.dataset.id !== currentPolicy) ask(b.dataset.say); });
-  const fb = $("#finder"); if (fb) fb.onclick = () => { closeList(); setBox(FINDER); };
+      <div class="dbody"><div class="dname">${esc(p.label)}</div><div class="dprod">${esc(product(p))}</div></div>
+      ${p.policy_id === currentPolicy ? `<span class="dnow">in use</span>` : `<span class="dkind">${kindOf(p.name)}</span>`}
+    </button>`).join("")
+    : `<div class="panel-empty">No loaded document matches "${esc($("#docsearch").value)}".<br>Only loaded documents can be answered from.</div>`;
+  document.querySelectorAll("#doclist .doc").forEach(b => b.onclick = () => {
+    closeDocs();
+    if (b.dataset.id !== currentPolicy) ask(b.dataset.say);   // said in the chat, confirmed by the copilot
+  });
 }
-function openList() { $("#shell").classList.add("list"); }
-function closeList() { $("#shell").classList.remove("list"); }
+function openDocs() {
+  $("#docsearch").value = "";
+  renderDocs();
+  $("#sheet").classList.add("open");
+  setTimeout(() => $("#docsearch").focus(), 30);
+}
+function closeDocs() { $("#sheet").classList.remove("open"); qEl.focus(); }
+function browseButton() {
+  return `<div><button type="button" class="browse"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>Browse all documents</button></div>`;
+}
 function setBox(text) { qEl.value = text; syncBar(); qEl.focus(); }
 
 async function greet() {
   try { POLICIES = await (await fetch("/api/policies")).json(); } catch (e) { POLICIES = []; }
-  renderList();
-  const list = POLICIES.map(o => `${o.n}. ${o.name}`).join("\n");
-  const d = add("bot", `<span class="greet-h">Namaste. Which policy document would you like to inspect?\nKaunsa policy document aapko dekhna hai?</span>\n\n${esc(list)}\n\n<span class="hint">Type the insurer's name or number, for example "SBI dekhna hai". You can switch at any time. To shortlist across all policies, ask "Which policy is best for no waiting period?"</span>` + optionButtons(POLICIES) + `<span class="stamp">${now()}</span><div class="clear"></div>`);
+  const shown = POLICIES.slice(0, SHOWN_IN_CHAT);
+  const list = shown.map(o => `${o.n}. ${o.name}`).join("\n");
+  const more = POLICIES.length > shown.length ? `\n${POLICIES.length - shown.length} more documents are in the browser.` : "";
+  const d = add("bot", `<span class="greet-h">Namaste. Which policy document would you like to inspect?\nKaunsa policy document aapko dekhna hai?</span>\n\n${esc(list)}${esc(more)}\n\n<span class="hint">Tap one, type its name or number (for example "SBI dekhna hai"), or browse all documents. You can switch at any time. To shortlist across all policies, ask "Which policy is best for no waiting period?"</span>` + optionButtons(shown) + browseButton() + `<span class="stamp">${now()}</span><div class="clear"></div>`);
   wireOptions(d);
 }
 function setPolicy(ev) {
@@ -351,7 +374,6 @@ function setPolicy(ev) {
   $("#cur").classList.add("on");
   sysLine(`Now answering from: ${ev.name}`);
   $("#chips").style.display = "";
-  renderList();
 }
 
 /* ---- voice ---- */
@@ -423,8 +445,14 @@ async function init() {
   document.querySelectorAll(".chip").forEach(c => c.onclick = () => c.classList.contains("star") ? setBox(c.dataset.q) : ask(c.dataset.q));
   $("#chips").style.display = "none";  // suggestions appear once a policy is chosen
   $("#cur").onclick = () => ask("Which policy document can I inspect?");
-  $("#openList").onclick = openList;
-  $("#filter").oninput = renderList;
+  $("#browseTop").onclick = openDocs;
+  $("#sheetClose").onclick = closeDocs;
+  $("#sheet").onclick = e => { if (e.target.id === "sheet") closeDocs(); };
+  $("#docsearch").oninput = renderDocs;
+  $("#docsearch").onkeydown = e => {
+    if (e.key === "Enter") { const first = $("#doclist .doc"); if (first) first.click(); }
+  };
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#sheet").classList.contains("open")) closeDocs(); });
   pollStatus();
   greet();
 }
@@ -518,7 +546,8 @@ async function ask(text, held = false) {
             renderRanking(ev.ranking) + renderTable(ev.table) +
             (ev.ranking && ev.citations && ev.citations.length
               ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted clauses</summary>${renderCards(ev.citations, policyId, id)}</details>`
-              : renderCards(ev.citations, policyId, id)) + optionButtons(ev.options) +
+              : renderCards(ev.citations, policyId, id)) + optionButtons((ev.options || []).slice(0, SHOWN_IN_CHAT)) +
+            (ev.status === "choose_policy" && (ev.options || []).length > 2 ? browseButton() : "") +
             (["selected", "choose_policy"].includes(ev.status) ? "" : howPanel(ev, meta)) +
             `<div class="meta">${secs}s · ${now()}</div><div class="clear"></div>`;
           wireOptions(bubble);

@@ -26,7 +26,7 @@ To run without the LLM (quotes the best matching clauses verbatim, useful as a f
 
     COPILOT_BACKEND=extractive ./run_demo.sh
 
-On a wide screen the page shows a chat list of the policies on the left, like a desktop chat app; on a phone it is one pane with a back arrow to the list. "Best policy finder" asks for a shortlist across all policies, for example "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter." The shortlist comes from rank.py (see SCALING.md).
+The agent has one conversation with the copilot, never a chat per policy. The greeting lists the first five documents as buttons with a "Browse all documents" button; the browser (also the search icon in the header) searches every loaded document by insurer, product or plan, so it works for 300 as well as 5. Picking a document is said in the chat and the copilot confirms it there. "Best policy finder" asks for a shortlist across all policies, for example "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter." The shortlist comes from rank.py (see SCALING.md).
 
 The base version before the ranking and the new UI is tagged `v1.0-base`: `git checkout v1.0-base`.
 
