@@ -45,10 +45,20 @@ TEXT = {
         "hinglish": "Kaunsa policy document aapko dekhna hai?",
         "hi": "आप कौन सा पॉलिसी दस्तावेज़ देखना चाहते हैं?",
     },
+    "greet": {
+        "en": "Hello! I'm {agent}, your health insurance policy copilot. I answer only from the policy document, with the clause and page, and I say so when the document is silent.",
+        "hinglish": "Namaste! Main {agent} hoon, aapka health insurance policy copilot. Main sirf policy document se jawab deta hoon, clause aur page ke saath. Document mein na ho to saaf bata deta hoon.",
+        "hi": "नमस्ते! मैं {agent} हूँ, आपका हेल्थ इंश्योरेंस पॉलिसी कोपायलट। मैं केवल पॉलिसी दस्तावेज़ से, क्लॉज़ और पेज के साथ जवाब देता हूँ, और दस्तावेज़ में न हो तो साफ़ बता देता हूँ।",
+    },
+    "greet_again": {
+        "en": "Hello again! I'm answering from {name}. Ask your question, or name another policy to switch.",
+        "hinglish": "Namaste! Abhi main {name} se jawab de raha hoon. Apna sawaal poochiye, ya doosri policy ka naam lijiye.",
+        "hi": "नमस्ते! अभी मैं {name} से जवाब दे रहा हूँ। अपना सवाल पूछिए, या दूसरी पॉलिसी का नाम लीजिए।",
+    },
     "more": {
-        "en": "...and {n} more. Type the insurer's name, or use Browse all documents.",
-        "hinglish": "...aur {n} aur documents. Insurer ka naam likhiye, ya Browse all documents dabaiye.",
-        "hi": "...और {n} दस्तावेज़। बीमा कंपनी का नाम लिखिए, या Browse all documents दबाइए।",
+        "en": "{n} more documents are loaded. Find them with Browse all documents.",
+        "hinglish": "{n} aur documents loaded hain. Unhe Browse all documents mein dhundhiye.",
+        "hi": "{n} और दस्तावेज़ लोड हैं। उन्हें Browse all documents में खोजिए।",
     },
     "choose_hint": {
         "en": "Type the insurer's name or its number.",
@@ -199,6 +209,31 @@ def selected_message(policy_id: str, lang: str) -> str:
     if kind:
         msg += "\n" + TEXT["not_wording"][lang].format(kind=KIND[kind][lang])
     return msg
+
+
+# "hi", "hello there", "namaste ji", "good morning", "नमस्ते": a greeting with nothing else in it
+GREETING_RE = re.compile(
+    r"^\s*(hi+|hello+|hey+|helo|hallo|hii+|namaste|namaskar|namaskaar|namastey|pranam|good\s+(morning|afternoon|evening)|"
+    r"नमस्ते|नमस्कार|हेलो|हाय|प्रणाम)(?:[\s,!.]+(there|ji|sir|madam|team|everyone|bima\s+saathi|saathi|copilot))?[\s,!.?]*$", re.I)
+
+
+def greeting_only(text: str) -> bool:
+    return bool(GREETING_RE.match(text or ""))
+
+
+def greeting_lang(text: str) -> str:
+    if re.search(r"[ऀ-ॿ]", text):
+        return "hi"
+    return "hinglish" if re.search(r"namas|pranam|\bji\b", text, re.I) else "en"
+
+
+def greet_message(lang: str, policy_id: str | None = None) -> str:
+    from config import AGENT_NAME
+    if policy_id:
+        p = next((p for p in policies() if p["policy_id"] == policy_id), None)
+        if p:
+            return TEXT["greet_again"][lang].format(name=p["name"])
+    return TEXT["greet"][lang].format(agent=AGENT_NAME) + "\n\n" + choose_message(lang)
 
 
 def choose_message(lang: str, opts: list[dict] | None = None, key: str = "choose", **fmt) -> str:

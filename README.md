@@ -1,6 +1,6 @@
 # Claviq Agent Copilot: local prototype
 
-An insurance agent asks about a health policy in English, Hindi or Hinglish. The copilot answers from the policy wording only, quotes the clause, shows the page, and says "not stated in the document" when the policy does not answer.
+The copilot is called Bima Saathi (by Claviq); the name is set once in config.py (AGENT_NAME). The page opens on a welcome screen, and the conversation starts when the agent says "Hi", "Namaste" or asks a question. An insurance agent asks about a health policy in English, Hindi or Hinglish. The copilot answers from the policy wording only, quotes the clause, shows the page, and says "not stated in the document" when the policy does not answer.
 
 Everything runs on the laptop. No paid services, and no network once the models are downloaded.
 

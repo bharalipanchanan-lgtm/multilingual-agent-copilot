@@ -12,8 +12,8 @@ import time
 from typing import Iterator
 
 from answer import OUT_OF_SCOPE, ask_stream, detect_lang, route
-from policy_select import (FILLER, _norm, by_number, choose_message, mentioned, options, other_insurer, policies,
-                           selected_message, selection_only, strip_names)
+from policy_select import (FILLER, _norm, by_number, choose_message, greet_message, greeting_lang, greeting_only,
+                           mentioned, options, other_insurer, policies, selected_message, selection_only, strip_names)
 
 # "Which policy document can I inspect?", "policy badlo", "switch policy": the agent wants the list,
 # not a comparison (COMPARE_RE also matches "which policy").
@@ -60,6 +60,18 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
     def final(status, answer, **extra):
         return {"type": "final", "status": status, "answer": answer, "citations": [], "lang": lang,
                 "backend": "policy_select", "ms": int((time.time() - t0) * 1000), "policy_id": policy_id, **extra}
+
+    if greeting_only(question):
+        # "Hi" opens the conversation: introduce the copilot, then ask which document (or, if one is
+        # already in use, say which). Nothing is retrieved or generated.
+        glang = greeting_lang(question) if not prev_lang or greeting_lang(question) != "en" else prev_lang
+        yield {"type": "meta", "lang": glang, "route": "greeting", "backend": "policy_select"}
+        if policy_id:
+            yield {**final("greeting", greet_message(glang, policy_id)), "lang": glang}
+        else:
+            yield {**final("choose_policy", greet_message(glang), options=options(), pending=False), "lang": glang,
+                   "greeting": True}
+        return
 
     other = None if held else other_insurer(question)
     if other and not found:

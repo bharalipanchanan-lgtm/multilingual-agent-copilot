@@ -50,7 +50,7 @@ def main():
                                                f"--use-file-for-fake-audio-capture={wav}%noloop"])
             page = browser.new_page(viewport={"width": 480, "height": 900})
             page.goto(URL, wait_until="networkidle")
-            page.wait_for_selector("text=Kaunsa policy document")
+            page.wait_for_selector("#hero")
             page.wait_for_timeout(800)
 
             def finals():

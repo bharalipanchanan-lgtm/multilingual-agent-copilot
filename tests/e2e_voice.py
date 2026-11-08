@@ -139,7 +139,7 @@ def main():
                 return page.locator(".msg.bot").last.inner_text()
 
             page.goto(URL, wait_until="networkidle")
-            page.wait_for_selector("text=Kaunsa policy document")
+            page.wait_for_selector("#hero")
             page.wait_for_timeout(800)
 
             step("Mic is on when the server has a key",
@@ -207,7 +207,7 @@ def main():
             browser = pw.chromium.launch(headless=not a.headed)
             page = browser.new_page(viewport={"width": 480, "height": 900})
             page.goto(URL, wait_until="networkidle")
-            page.wait_for_selector("text=Kaunsa policy document")
+            page.wait_for_selector("#hero")
             page.wait_for_timeout(800)
 
             def no_key():

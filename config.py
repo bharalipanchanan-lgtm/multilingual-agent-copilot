@@ -5,6 +5,10 @@ from pathlib import Path
 os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 
 ROOT = Path(__file__).parent
+
+# The copilot's name, shown on the page and used in its greeting. Change it here only.
+AGENT_NAME = os.environ.get("COPILOT_NAME", "Bima Saathi")
+AGENT_BRAND = "Claviq"
 POLICY_DIR = ROOT / "data" / "policies"
 MANIFEST = POLICY_DIR / "manifest.csv"
 CHROMA_DIR = ROOT / "data" / "chroma"

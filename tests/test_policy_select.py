@@ -177,3 +177,24 @@ def test_every_button_label_selects_its_own_policy():
     for o in options():
         found, rest = mentioned(o["label"])
         assert found == [o["policy_id"]] and selection_only(rest), (o["label"], found, rest)
+
+
+@pytest.mark.parametrize("text,lang", [("Hi", "en"), ("hello!", "en"), ("Hey there", "en"), ("Good morning", "en"),
+                                       ("Namaste", "hinglish"), ("namaste ji", "hinglish"), ("नमस्ते", "hi")])
+def test_greeting_opens_the_conversation(text, lang):
+    from config import AGENT_NAME
+    pol, fin = turn(text)
+    assert pol is None and fin["status"] == "choose_policy" and fin["pending"] is False and fin.get("greeting")
+    assert AGENT_NAME in fin["answer"] and fin["lang"] == lang
+    assert len(fin["options"]) >= 5
+
+
+def test_greeting_with_a_policy_in_use_says_which():
+    pol, fin = turn("hello", current="sbi_retail_health")
+    assert fin["status"] == "greeting" and "SBI" in fin["answer"]
+
+
+@pytest.mark.parametrize("text", ["Hi, what is the room rent limit?", "hello SBI", "High BP ka waiting period?"])
+def test_greeting_plus_content_is_not_just_a_greeting(text):
+    from policy_select import greeting_only
+    assert not greeting_only(text)

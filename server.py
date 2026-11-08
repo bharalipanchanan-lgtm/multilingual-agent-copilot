@@ -82,7 +82,8 @@ def policies():
 
 @app.get("/api/status")
 def status():
-    return STATE
+    from config import AGENT_BRAND, AGENT_NAME
+    return {**STATE, "agent": AGENT_NAME, "brand": AGENT_BRAND}
 
 
 @app.post("/api/ask")

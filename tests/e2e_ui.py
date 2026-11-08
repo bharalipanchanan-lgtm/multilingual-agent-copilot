@@ -87,9 +87,11 @@ def main():
         page.goto(URL, wait_until="networkidle")
 
         def greeting():
-            page.wait_for_selector("text=Kaunsa policy document aapko dekhna hai?", timeout=10000)
+            # the page opens on a welcome screen with the copilot's name; it speaks once the agent does
+            page.wait_for_selector("#hero", timeout=10000)
+            check("Bima Saathi" in page.inner_text("#hero"), "welcome screen does not name the copilot")
+            check(page.locator(".msg").count() == 0, "the copilot spoke before the agent did")
             check(page.locator("select").count() == 0, "a dropdown is still on the page")
-            check(page.locator(".opt").count() == 5, f"expected 5 option buttons, saw {page.locator('.opt').count()}")
             check("No policy chosen yet" in page.inner_text("#cur"), "header does not say no policy is chosen")
             check(not page.locator("#chips").is_visible(), "suggestions shown before a policy is chosen")
             for _ in range(120):  # wait for the models
@@ -97,7 +99,13 @@ def main():
                     break
                 page.wait_for_timeout(1000)
             check("online" in page.inner_text("#status"), "server not online")
-        step("Greeting asks which policy, no dropdown", greeting)
+            t = send("Hi")
+            check(not page.locator("#hero").is_visible(), "welcome screen still shown after the first message")
+            check("Bima Saathi" in t and "Which policy document would you like to inspect?" in t, f"no greeting: {t[:160]!r}")
+            check(page.locator(".opt").count() == 5, f"expected 5 option buttons, saw {page.locator('.opt').count()}")
+            said = page.locator(".msg.bot").last.locator(".btext").inner_text()
+            check(not re.search(r"(?m)^1\. ", said), "documents listed twice (as text and as cards)")
+        step("Welcome screen names the copilot; Hi gets a greeting and the documents", greeting)
 
         def held_question():
             t = send("Diabetes ke liye waiting period kitna hai?")
