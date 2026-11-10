@@ -1,2 +1,7 @@
 file,policy_id,insurer,product,skip_pages,page_offset,strip_regex
 National_Mediclaim_Policy.pdf,national_mediclaim,National Insurance,National Mediclaim Policy,1;2;3,3,"(?m)^National Insurance Company Limited\s*$|Regd\. Office 3, Middleton Street[^\n]*|CIN - U10200WB1906GOI001713|IRDA Regn\. No\. - 58|^Issuing Office\s*$|National Mediclaim Policy\s+\d+\s+IRDA/\S+|N\s+Na\s+at\s+ti\s+io\s+on\s+na\s+al\s+l\s+M\s+Me\s+ed\s+di\s+ic\s+cl\s+la\s+ai\s+im\s+m\s+P\s+Po\s+ol\s+li\s+ic\s+cy|\by\s+\d+\s+IRDA/\S+"
+1-star-family-health-optima.pdf,star_family_health_optima,Star Health,Family Health Optima Insurance Plan,1,1,(?m)^STAR HEALTH AND ALLIED INSURANCE COMPANY LIMITED \| POLICY WORDINGS\s*$|Family Health Optima Insurance Plan \| UIN : SHAHLIP26046V092526 \| POL / FHO / V\.\d+ / \d{4}\s*\d*\s*/?\s*\d*
+2-hdfc-optima-secure.pdf,hdfc_optima_secure,HDFC ERGO,Optima Secure,,0,HDFC ERGO General Insurance Company Limited\.[^\n]*|ERGO International AG and used by the Company under license\. UIN: my: Optima Secure - HDFHLIP24092V032324\.?
+3-care-supreme.pdf,care_supreme,Care Health,Care Supreme,1,1,(?m)^\s*Care Supreme-\s*CHIHLIP23128V012223\s*\d*\s*$
+4-niva-reassure-2.0.pdf,niva_reassure_2,Niva Bupa,ReAssure 2.0,,0,"(?m)^\s*ReAssure 2\.0_Policy Wordings\s*$|Product Name: ReAssure 2\.0, Product UIN: NBHHLIP26042V022526"
+5-tata-medicare-premier.pdf,tata_medicare_premier,TATA AIG,MediCare Premier,,0,(?m)^Page \d+ of \d+\s*$|No\.: \d+ • CIN: U85110MH2000PLC128425 • TATA AIG MediCare Premier UIN: TATHLIP26052V052526

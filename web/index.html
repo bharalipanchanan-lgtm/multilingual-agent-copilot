@@ -3,206 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claviq Agent Copilot</title>
-<style>
-  :root {
-    --header: #075e54; --header-text: #ffffff; --accent: #25d366; --bg: #ece5dd;
-    --me: #dcf8c6; --bot: #ffffff; --text: #111b21; --muted: #667781; --card: #f5f7f6;
-    --card-border: #d4dbd8; --ok: #1f8a4c; --warn: #b26a00; --stop: #b3261e; --chip: #ffffff;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Devanagari", sans-serif;
-         background: #d1d7db; color: var(--text); display: flex; justify-content: center; }
-  .app { width: 100%; max-width: 480px; height: 100vh; display: flex; flex-direction: column; background: var(--bg);
-         box-shadow: 0 0 24px rgba(0,0,0,.15); }
-  header { background: var(--header); color: var(--header-text); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); display: grid; place-items: center;
-            font-weight: 700; color: #073b33; flex: none; }
-  .title { flex: 1; min-width: 0; }
-  .title b { display: block; font-size: 16px; }
-  .title small { opacity: .85; font-size: 12px; }
-  select { margin-top: 4px; max-width: 100%; font-size: 13px; border-radius: 6px; border: 0; padding: 3px 6px; }
-  #chat { flex: 1; overflow-y: auto; padding: 12px 10px 4px; }
-  .msg { max-width: 88%; margin: 6px 0; padding: 8px 10px 6px; border-radius: 8px; line-height: 1.4; font-size: 15px;
-         box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; word-wrap: break-word; }
-  .me { background: var(--me); margin-left: auto; border-top-right-radius: 0; }
-  .bot { background: var(--bot); border-top-left-radius: 0; }
-  .meta { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: right; white-space: normal; }
-  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-bottom: 6px; white-space: normal; }
-  .b-ok { background: #e3f4ea; color: var(--ok); } .b-warn { background: #fff1db; color: var(--warn); }
-  .b-stop { background: #fde7e5; color: var(--stop); }
-  .cards { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
-  .cardc { background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--header);
-           border-radius: 6px; padding: 7px 9px; font-size: 13px; }
-  .cardc .hd { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
-  .cardc .hd b { color: var(--text); }
-  .cardc q { font-style: italic; }
-  .cardc a { color: var(--header); font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .cardc details { margin-top: 4px; } .cardc summary { cursor: pointer; color: var(--muted); font-size: 12px; }
-  .cardc .full { font-size: 12px; color: #333; margin-top: 4px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
-  table.cmp { border-collapse: collapse; font-size: 12px; margin-top: 6px; width: 100%; white-space: normal; }
-  table.cmp th, table.cmp td { border: 1px solid var(--card-border); padding: 4px 6px; text-align: left; vertical-align: top; }
-  table.cmp th { background: var(--card); }
-  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px; }
-  .chip { flex: none; background: var(--chip); border: 1px solid var(--card-border); border-radius: 16px; padding: 5px 10px;
-          font-size: 13px; cursor: pointer; }
-  form { display: flex; gap: 8px; padding: 8px 10px 12px; }
-  textarea { flex: 1; resize: none; border: 0; border-radius: 20px; padding: 10px 14px; font: inherit; font-size: 15px; height: 42px; }
-  button.send { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--header); color: #fff; font-size: 18px; cursor: pointer; }
-  button.send:disabled { opacity: .5; }
-  .typing { color: var(--muted); font-style: italic; }
-  .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: #e1ece9;
-         color: var(--header); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
-  .cardc.hl { box-shadow: 0 0 0 2px var(--accent); }
-  details.how { margin-top: 6px; font-size: 12px; color: var(--muted); white-space: normal; }
-  details.how summary { cursor: pointer; }
-  details.how ul { margin: 4px 0 0 16px; padding: 0; }
-  .sys { text-align: center; margin: 8px auto; font-size: 12px; color: #54656f; background: #fff8c4; padding: 4px 10px;
-         border-radius: 6px; max-width: 92%; white-space: normal; }
-</style>
+<title>Pick the product — Claviq Agent Copilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="app">
-  <header>
-    <div class="avatar">C</div>
-    <div class="title">
-      <b>Claviq Agent Copilot</b>
-      <small id="status">connecting...</small><br>
-      <select id="policy" aria-label="Policy"></select>
-    </div>
-  </header>
-  <div id="chat">
-    <div class="sys">Answers come only from the selected policy wording, with the clause and page. If the policy does not say, the copilot says so.</div>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="logo">Quick<span>insure</span></div>
+    <div class="topbar__role">Agent copilot</div>
   </div>
-  <div class="chips" id="chips"></div>
-  <form id="f">
-    <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
-    <button class="send" id="send" type="submit" aria-label="Send">&#10148;</button>
-  </form>
-</div>
-<script>
-const $ = s => document.querySelector(s);
-const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send"), policySel = $("#policy");
-const SUGGEST = [
-  "Diabetes ke liye waiting period kitna hai?",
-  "What is the room rent limit?",
-  "Kya ICU charges par bhi room rent ka cap lagta hai?",
-  "Is maternity covered?",
-  "What is the premium for a 45 year old for 10 lakh?",
-  "क्या इस पॉलिसी में पहले से मौजूद बीमारियों के लिए वेटिंग पीरियड है?",
-  "Compare the diabetes waiting period across policies",
-];
-const BADGE = {
-  answered: ["b-ok", "Checked against the policy text"],
-  compared: ["b-ok", "From the policy fact table"],
-  not_stated: ["b-warn", "Not stated in the document"],
-  refused: ["b-warn", "Outside the policy wording"],
-  blocked: ["b-stop", "Draft blocked: a figure did not match the policy"],
-  error: ["b-stop", "Error"],
-};
+</header>
 
-function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
-function withRefs(text, id) {
-  return esc(text).replace(/\[(\d+)\]/g, (m, n) => `<span class="ref" data-b="${id}" data-n="${n}">${n}</span>`);
-}
-const LANGN = {en: "English", hi: "Hindi", hinglish: "Hinglish"};
-function howPanel(ev, meta) {
-  const items = [];
-  items.push(`Language detected: ${LANGN[ev.lang] || ev.lang || "?"}`);
-  if (meta && meta.route) items.push(`Route: ${({single: "single policy search", compare: "comparison fact table", premium: "out of scope (premium)", hospitals: "out of scope (hospital list)", claim_status: "out of scope (claim status)"})[meta.route] || meta.route}`);
-  if (ev.top_score != null) items.push(`Best clause match score: ${Number(ev.top_score).toFixed(2)}`);
-  if (ev.status === "answered" && ev.backend !== "extractive") items.push("Every figure in the answer was found in the cited clause text");
-  if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
-  if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
-  items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
-  return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
-}
-let BID = 0;
-function scroll() { chat.scrollTop = chat.scrollHeight; }
-function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; chat.appendChild(d); scroll(); return d; }
+<main>
+  <p class="fixture-note fixture-note--ok">
+    <b>5 wordings, read page by page.</b>
+    <span>Every value carries the page it came from. Premiums and entry ages are not in policy wordings, so they are not answered here.</span>
+  </p>
 
-async function init() {
-  try {
-    const pols = await (await fetch("/api/policies")).json();
-    policySel.innerHTML = pols.map(p => `<option value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)})</option>`).join("");
-  } catch (e) { policySel.innerHTML = "<option>no policies</option>"; }
-  $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
-  document.querySelectorAll(".chip").forEach(c => c.onclick = () => { qEl.value = c.textContent; ask(); });
-  pollStatus();
-}
-async function pollStatus() {
-  try {
-    const s = await (await fetch("/api/status")).json();
-    $("#status").textContent = s.error ? "model error: " + s.error : s.ready ? `online · ${s.backend}` : "warming up the models...";
-    if (!s.ready && !s.error) setTimeout(pollStatus, 2000);
-  } catch (e) { $("#status").textContent = "offline"; setTimeout(pollStatus, 3000); }
-}
+  <div id="catalogue-note"></div>
 
-function renderCards(cites, policyId, id) {
-  if (!cites || !cites.length) return "";
-  return `<div class="cards">` + cites.map(c => `
-    <div class="cardc" id="c${id}-${c.n}">
-      <div class="hd"><span>[${c.n}] <b>${esc(c.section)}</b></span>
-        <a href="/pdf/${esc(c.policy_id || policyId)}#page=${c.page}" target="_blank">Page ${esc(c.printed_page)} &#8599;</a></div>
-      <q>${esc(c.quote)}</q>
-      ${c.text && c.text !== c.quote ? `<details><summary>Full clause</summary><div class="full">${esc(c.text)}</div></details>` : ""}
-    </div>`).join("") + `</div>`;
-}
-function renderTable(t) {
-  if (!t) return "";
-  const head = `<tr><th>Policy</th>${t.attributes.map(a => `<th>${esc(a)}</th>`).join("")}</tr>`;
-  const rows = t.rows.map(r => `<tr><td>${esc(r.product)}${r.verified ? "" : " <small>(unverified)</small>"}</td>${
-    r.cells.map(c => `<td>${esc(c.value)}${c.printed_page ? ` <small>p${c.printed_page}</small>` : ""}</td>`).join("")}</tr>`).join("");
-  return `<table class="cmp">${head}${rows}</table>`;
-}
+  <h1>Which product exactly?</h1>
+  <p class="sub">Names repeat across tiers and years. Pick one before anything is answered.</p>
 
-async function ask() {
-  const question = qEl.value.trim();
-  if (!question) return;
-  qEl.value = ""; sendBtn.disabled = true;
-  add("me", esc(question));
-  const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
-  const policyId = policySel.value;
-  const t0 = performance.now();
-  const id = ++BID;
-  let streamed = "", meta = null;
-  try {
-    const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
-                                         body: JSON.stringify({question, policy_id: policyId}) });
-    const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
-    while (true) {
-      const {value, done} = await reader.read(); if (done) break;
-      buf += dec.decode(value, {stream: true});
-      let i;
-      while ((i = buf.indexOf("\n\n")) >= 0) {
-        const line = buf.slice(0, i).replace(/^data: /, ""); buf = buf.slice(i + 2);
-        if (!line.trim()) continue;
-        const ev = JSON.parse(line);
-        if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
-        if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
-        if (ev.type === "final") {
-          const [cls, label] = BADGE[ev.status] || BADGE.error;
-          const secs = ((performance.now() - t0) / 1000).toFixed(1);
-          bubble.innerHTML = `<span class="badge ${cls}">${label}</span><br>${withRefs(ev.answer, id)}` +
-            renderTable(ev.table) + renderCards(ev.citations, policyId, id) + howPanel(ev, meta) +
-            `<div class="meta">${secs}s</div>`;
-          bubble.querySelectorAll(".ref").forEach(r => r.onclick = () => {
-            const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);
-            if (el) { el.scrollIntoView({behavior: "smooth", block: "center"}); el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1500); }
-          });
-          scroll();
-        }
-      }
-    }
-  } catch (e) {
-    bubble.innerHTML = `<span class="badge b-stop">Error</span><br>${esc(e.message)}`;
-  }
-  sendBtn.disabled = false; qEl.focus();
-}
-$("#f").onsubmit = e => { e.preventDefault(); ask(); };
-qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
-init();
-</script>
+  <section class="search">
+    <label class="sr-only" for="q">Search by product name, insurer, or what the customer needs</label>
+    <div class="search__field">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="e.g. optima restore, or: mother 50, diabetes, room rent 10000">
+    </div>
+    <p class="search__hint">Type a product name, or describe the need in plain words.</p>
+
+    <div class="filters" id="filters" role="group" aria-label="Limit to my insurers"></div>
+  </section>
+
+  <div id="pinned-slot" aria-live="polite"></div>
+
+  <section id="results-section">
+    <h2 id="results-head">Matches</h2>
+    <p class="count" id="count"></p>
+    <ul class="results" id="results"></ul>
+  </section>
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>

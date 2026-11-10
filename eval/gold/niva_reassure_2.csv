@@ -1,0 +1,21 @@
+qid,question,answerable,gold_pages,key_phrases,gold_answer,notes
+q01,What is the waiting period for pre-existing diseases?,yes,15,expiry of 36 months  of continuous|expiry of 36 months of continuous,PED excluded until the expiry of 36 months of continuous coverage (Excl01). PED waiting time is also modifiable as an option (4.20).,"VERIFIED by reading the cited physical page of the PDF (Claude, 2026-11-10). gold_pages are PHYSICAL pdf pages."
+q02,Diabetes ke liye waiting period kitna hai?,,,,,
+q03,"Is there a specific waiting period for cataract, knee replacement or hernia?",,,,,
+q04,Is the initial 30 day waiting period applicable to accidents?,,,,,
+q05,What is the room rent limit?,yes,15,Single Private Room and a Sharing Room,Choice of Single Private Room or Sharing Room; ICU always paid up to Base Sum Insured (4.21).,"VERIFIED by reading the cited physical page of the PDF (Claude, 2026-11-10). gold_pages are PHYSICAL pdf pages."
+q06,Kya ICU charges par bhi room rent ka cap lagta hai?,,,,,
+q07,"Is there any co-payment, and does it depend on age?",,,,,
+q08,Are there disease wise sub-limits on any treatments?,,,,,
+q09,"Is maternity covered, and after how long?",,,,,
+q10,Are AYUSH treatments covered?,yes,6,AYUSH treatment in a AYUSH Hospital,AYUSH treatment is covered when taken in an AYUSH Hospital.,"VERIFIED from extracted page text (Claude, 2026-11-10). gold_pages are PHYSICAL pdf pages."
+q11,Are daycare procedures covered?,,,,,
+q12,Is treatment for mental illness covered?,,,,,
+q13,What are the permanent exclusions under this policy?,,,,,
+q14,Kya cashless treatment kisi bhi hospital mein mil jata hai?,,,,,
+q15,How many days of pre and post hospitalisation expenses are covered?,,,,,
+q16,"Is there a no claim bonus, and what happens to it after a claim?",,,,,
+q17,Kya yeh policy lifetime renewable hai?,,,,,
+q18,क्या इस पॉलिसी में पहले से मौजूद बीमारियों के लिए वेटिंग पीरियड है?,,,,,
+q19,What is the premium for a 45 year old for a 10 lakh sum insured?,no,,,,Trap: premium/network are never in a policy wording.
+q20,Which hospitals in Bengaluru are in the cashless network?,no,,,,Trap: premium/network are never in a policy wording.

@@ -1,0 +1,323 @@
+{
+  "_provenance": {
+    "built_from": "5 real policy wordings (PDF) supplied 2026-11-10",
+    "extracted_by": "ingest/extract.py (poppler pdftotext -layout)",
+    "verified_by": "Claude, by reading the cited page of each PDF",
+    "verified_on": "2026-11-10",
+    "rule": "Every value here carries the PDF page it was read from. A value that is not stated in the wording is null with a reason. Nothing is inferred from another product.",
+    "page_numbering": "pdf_page is the 1-based PDF index. printed_page is what the footer of that page shows, which is what the agent sees. They differ in 2 of 5 documents.",
+    "NOT_IN_WORDINGS": "Premium and entry-age limits do not appear in policy wordings. They live in the prospectus and rate card. They are null here on purpose."
+  },
+  "documents": {
+    "star-family-health-optima": {
+      "source": "1-star-family-health-optima.pdf",
+      "pdf_pages": 44,
+      "page_offset": -1,
+      "uin": "SHAHLIP26046V092526"
+    },
+    "hdfc-optima-secure": {
+      "source": "2-hdfc-optima-secure.pdf",
+      "pdf_pages": 29,
+      "page_offset": 0,
+      "uin": "HDFHLIP24092V032324"
+    },
+    "care-supreme": {
+      "source": "3-care-supreme.pdf",
+      "pdf_pages": 44,
+      "page_offset": -1,
+      "uin": "CHIHLIP23128V012223"
+    },
+    "niva-reassure-2": {
+      "source": "4-niva-reassure-2.0.pdf",
+      "pdf_pages": 34,
+      "page_offset": null,
+      "uin": "NBHHLIP26042V022526"
+    },
+    "tata-medicare-premier": {
+      "source": "5-tata-medicare-premier.pdf",
+      "pdf_pages": 60,
+      "page_offset": 0,
+      "uin": "TATHLIP26052V052526"
+    }
+  },
+  "catalogue": {
+    "updated_on": "2026-11-10",
+    "review_every_days": 90,
+    "source": "Five insurer policy wordings, read page by page. Not a live feed."
+  },
+  "products": [
+    {
+      "id": "star-family-health-optima",
+      "insurer": "Star Health",
+      "name": "Family Health Optima",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP26046V092526",
+      "differentiator": "Room rent and cataract both capped by sum insured band",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "pdf_page": 28,
+          "printed_page": 27,
+          "quote": "Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Up to Rs 2,000/day at 1–2L SI; Rs 5,000/day at 3–4L SI; Single Standard A/C Room at 5L SI and above",
+          "unit": "si-band",
+          "pdf_page": 10,
+          "printed_page": 9,
+          "quote": null,
+          "note": "Read from the table/panel on this page. The page mixes columns and a table, so no contiguous sentence can be quoted from the extracted text. Value confirmed by reading the page image; show the agent the page, not a quote.",
+          "stated": true,
+          "source_kind": "table"
+        },
+        "ayush": {
+          "value": "Up to Sum Insured, in an AYUSH Hospital",
+          "unit": "text",
+          "pdf_page": 10,
+          "printed_page": 9,
+          "quote": null,
+          "note": "Read from the table/panel on this page. The page mixes columns and a table, so no contiguous sentence can be quoted from the extracted text. Value confirmed by reading the page image; show the agent the page, not a quote.",
+          "stated": true,
+          "source_kind": "table"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        }
+      }
+    },
+    {
+      "id": "hdfc-optima-secure",
+      "insurer": "HDFC ERGO",
+      "name": "Optima Secure",
+      "variant": null,
+      "status": "active",
+      "uin": "HDFHLIP24092V032324",
+      "differentiator": "PED 36 months, specified diseases 24 months",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Entitlement is set by the Policy Schedule, not fixed in the wording. Ask which plan and sum insured.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        }
+      }
+    },
+    {
+      "id": "care-supreme",
+      "insurer": "Care Health",
+      "name": "Care Supreme",
+      "variant": null,
+      "status": "active",
+      "uin": "CHIHLIP23128V012223",
+      "differentiator": "Longest PED wait of the five at 48 months",
+      "facts": {
+        "ped_wait_months": {
+          "value": 48,
+          "unit": "months",
+          "pdf_page": 17,
+          "printed_page": 16,
+          "quote": "Coverage under the policy after the expiry of 48 months for any pre-existing disease is subject to the same being declared at the time of application and accepted by Insurer.",
+          "note": null,
+          "stated": true
+        },
+        "named_ailment_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "pdf_page": 17,
+          "printed_page": 16,
+          "quote": "Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the Company.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Entitlement is set by the Policy Schedule, not fixed in the wording. Ask which plan and sum insured.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        }
+      }
+    },
+    {
+      "id": "niva-reassure-2",
+      "insurer": "Niva Bupa",
+      "name": "ReAssure 2.0",
+      "variant": null,
+      "status": "active",
+      "uin": "NBHHLIP26042V022526",
+      "differentiator": "PED wait can be shortened or lengthened as an option",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Choice of Single Private Room or Sharing Room; ICU always paid up to Base Sum Insured",
+          "unit": "text",
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "You can choose between a Single Private Room and a Sharing Room.",
+          "note": null,
+          "stated": true
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        }
+      }
+    },
+    {
+      "id": "tata-medicare-premier",
+      "insurer": "TATA AIG",
+      "name": "MediCare Premier",
+      "variant": null,
+      "status": "active",
+      "uin": "TATHLIP26052V052526",
+      "differentiator": "Shortest PED wait of the five at 24 months",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "pdf_page": 36,
+          "printed_page": 36,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "pdf_page": 34,
+          "printed_page": 34,
+          "quote": "Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Entitlement is set by the Policy Schedule, not fixed in the wording. Ask which plan and sum insured.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        }
+      }
+    }
+  ]
+}
