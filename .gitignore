@@ -23,6 +23,7 @@ build/
 # Generated artefacts
 data/dumps/
 data/chroma/
+data/audit.jsonl
 eval/reports/
 models/
 data/pages/

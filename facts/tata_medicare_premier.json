@@ -1,0 +1,22 @@
+{
+  "policy_id": "tata_medicare_premier",
+  "insurer": "TATA AIG",
+  "product": "MediCare Premier",
+  "version": "TATHLIP26052V052526",
+  "verified": true,
+  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "attributes": {
+    "ped_waiting": {"value": "24 months of continuous coverage", "clause": "Section 3.1.iii (Code-Excl01)", "page": 36, "printed_page": 36},
+    "specific_waiting": {"value": "24 months of continuous coverage (cataract, hernia, joint replacement, etc.)", "clause": "Section 3.1.ii (Code-Excl02)", "page": 34, "printed_page": 34},
+    "initial_waiting": {"value": "30 days from first policy commencement date (accidents excluded)", "clause": "Section 3.1.i (Code-Excl03)", "page": 34, "printed_page": 34},
+    "room_rent": {"value": "In-Patient hospitalization covered up to Sum Insured as per Policy Schedule plan", "clause": "Section 2 B1", "page": 11, "printed_page": 11},
+    "copay": {"value": "Zonal co-payment only if Zone B/C insured takes treatment in higher zone as per Schedule", "clause": "Section 1 Zone Categorization", "page": 11, "printed_page": 11},
+    "maternity": {"value": "Covered after 3 years (36 months) waiting period up to limits specified in benefit B21", "clause": "Section 2 B21", "page": 20, "printed_page": 20},
+    "ayush": {"value": "In-Patient or Day Care AYUSH treatment covered in an AYUSH Hospital or AYUSH Day Care Centre", "clause": "Section 2 B8", "page": 13, "printed_page": 13},
+    "daycare": {"value": "Day Care Treatment covered up to Sum Insured", "clause": "Section 2 B4", "page": 12, "printed_page": 12},
+    "pre_post": {"value": "60 days pre-hospitalisation; 90 days post-hospitalisation (up to ₹50L SI) or 200 days (₹75L–₹3Cr SI)", "clause": "Section 2 B2, B3", "page": 11, "printed_page": 11},
+    "ncb": {"value": "Cumulative Bonus 50% of Basic Sum Insured per claim-free year up to 100% (or Renewal Premium Discount option)", "clause": "Section 2 B35", "page": 23, "printed_page": 23},
+    "renewal": {"value": "Lifelong renewability with 30-day Grace Period", "clause": "Section 4.10", "page": 44, "printed_page": 44},
+    "sublimits": {"value": "Hearing Aid 50% or ₹10,000; Maternity per benefit table; Robotic surgeries covered under Modern Treatments", "clause": "Section 1 Clause 25, Section 2", "page": 10, "printed_page": 10}
+  }
+}

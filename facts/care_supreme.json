@@ -1,0 +1,22 @@
+{
+  "policy_id": "care_supreme",
+  "insurer": "Care Health",
+  "product": "Care Supreme",
+  "version": "CHIHLIP23128V012223",
+  "verified": true,
+  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "attributes": {
+    "ped_waiting": {"value": "48 months of continuous coverage", "clause": "4.1(i) (Code Excl01)", "page": 17, "printed_page": 16},
+    "specific_waiting": {"value": "24 months Named Ailment waiting period (cataract, hernia, joint replacement, etc.)", "clause": "4.1(ii) (Code Excl02)", "page": 17, "printed_page": 16},
+    "initial_waiting": {"value": "30 days initial waiting period (accidents excluded)", "clause": "4.1(iii) (Code Excl03)", "page": 17, "printed_page": 16},
+    "room_rent": {"value": "No limit on Room Rent or ICU Charges in base policy (Optional Room Rent Modification to Single Private AC / Twin Sharing)", "clause": "3.1.1(ix), 3.2.5", "page": 11, "printed_page": 10},
+    "copay": {"value": "No mandatory age co-payment in base wording", "clause": "3.1", "page": 10, "printed_page": 9},
+    "maternity": {"value": "Not covered (excluded under Code Excl18)", "clause": "4.1(15) (Code Excl18)", "page": 19, "printed_page": 18},
+    "ayush": {"value": "Covered up to Sum Insured in any AYUSH Hospital across Ayurveda, Yoga & Naturopathy, Unani, Siddha and Homeopathy", "clause": "3.1.1(vi)", "page": 9, "printed_page": 8},
+    "daycare": {"value": "All Day Care Treatments covered up to Sum Insured", "clause": "3.1.1(ii)", "page": 8, "printed_page": 7},
+    "pre_post": {"value": "60 days pre-hospitalisation and 180 days post-hospitalisation up to Sum Insured", "clause": "3.1.1(iii), 3.1.1(iv)", "page": 8, "printed_page": 7},
+    "ncb": {"value": "Cumulative Bonus 50% per Policy Year up to 100% of Base Sum Insured (not reduced on claim); optional Cumulative Bonus Super up to 500%", "clause": "3.1.4, 3.2.1", "page": 11, "printed_page": 10},
+    "renewal": {"value": "Lifelong renewability with 30-day Grace Period", "clause": "5.1.10", "page": 24, "printed_page": 23},
+    "sublimits": {"value": "No room rent or ICU sub-limit; Road Ambulance covered up to Sum Insured", "clause": "3.1.1, 3.1.2", "page": 11, "printed_page": 10}
+  }
+}

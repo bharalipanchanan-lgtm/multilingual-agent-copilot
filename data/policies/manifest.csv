@@ -5,3 +5,5 @@ National_Mediclaim_Policy.pdf,national_mediclaim,National Insurance,National Med
 3-care-supreme.pdf,care_supreme,Care Health,Care Supreme,1,1,(?m)^\s*Care Supreme-\s*CHIHLIP23128V012223\s*\d*\s*$
 4-niva-reassure-2.0.pdf,niva_reassure_2,Niva Bupa,ReAssure 2.0,,0,"(?m)^\s*ReAssure 2\.0_Policy Wordings\s*$|Product Name: ReAssure 2\.0, Product UIN: NBHHLIP26042V022526"
 5-tata-medicare-premier.pdf,tata_medicare_premier,TATA AIG,MediCare Premier,,0,(?m)^Page \d+ of \d+\s*$|No\.: \d+ • CIN: U85110MH2000PLC128425 • TATA AIG MediCare Premier UIN: TATHLIP26052V052526
+6-icici-elevate.pdf,icici_elevate,ICICI Lombard (ICC),ICICI Lombard Elevate,,0,(?m)^ICICI Lombard General Insurance Company Limited \(ICC\)\s*$
+7-max-life-smart-secure-plus.pdf,max_life_smart_secure_plus,Max Life,Max Life Smart Health Rider,,0,(?m)^Max Life Insurance Company Limited\s*$

@@ -140,16 +140,30 @@ function assess(p, need) {
       cannotCheck.push("Entry age is not in the wording — check the prospectus");
     } else if (need.age > f.entry_age_max.value) {
       fails.push(`Entry age stops at ${f.entry_age_max.value}, customer is ${need.age}`);
+    } else {
+      wins.push(`Entry age up to ${f.entry_age_max.value} years (customer is ${need.age})`);
     }
   }
 
   if (need.budgetMax !== null) {
-    cannotCheck.push("Premium is not in the wording — check the rate card");
+    if (f.premium_inr?.stated && typeof f.premium_inr.value === "number") {
+      if (f.premium_inr.value > need.budgetMax) {
+        fails.push(`Indicative premium ₹${f.premium_inr.value.toLocaleString("en-IN")} exceeds budget ₹${need.budgetMax.toLocaleString("en-IN")}`);
+      } else {
+        wins.push(`Within budget at ₹${f.premium_inr.value.toLocaleString("en-IN")}`);
+      }
+    } else {
+      cannotCheck.push("Premium is not in the wording — check the rate card");
+    }
   }
 
   if (need.roomRentMin !== null) {
     if (!f.room_rent?.stated) {
       cannotCheck.push("Room rent is set by the Policy Schedule — ask which plan");
+    } else if (typeof f.room_rent.max_per_day === "number" && f.room_rent.max_per_day < need.roomRentMin) {
+      fails.push(
+        `Room rent capped at ₹${f.room_rent.max_per_day.toLocaleString("en-IN")}/day, customer needs ₹${need.roomRentMin.toLocaleString("en-IN")}+`
+      );
     } else {
       wins.push(`Room rent: ${f.room_rent.value}`);
     }
@@ -461,6 +475,18 @@ function pinnedView(p) {
         ` ${fmtDate(p.withdrawn_on)}. Do not quote this to a new customer.`
       )
     );
+    const next = state.byId.get(p.replaced_by);
+    if (next) {
+      flag.append(document.createTextNode(" "));
+      const switchBtn = textNode(
+        "button",
+        "pinned__change",
+        `Switch to ${next.insurer} ${fullName(next)} →`
+      );
+      switchBtn.type = "button";
+      switchBtn.addEventListener("click", () => select(next.id));
+      flag.append(switchBtn);
+    }
     box.append(flag);
   }
 
@@ -554,6 +580,7 @@ function fastAnswer(p, intentId) {
         f.value
       )} if the policy begins today.`,
       cite,
+      section: f.section || null,
       quote: f.quote,
     };
   }
@@ -562,6 +589,7 @@ function fastAnswer(p, intentId) {
     lead: String(f.value),
     note: f.note || "",
     cite,
+    section: f.section || null,
     quote: f.quote,
   };
 }
@@ -578,6 +606,7 @@ function findClause(productId, topic) {
   return {
     quote: f.quote,
     cite: citePage(f),
+    section: f.section || null,
     plain: f.value,
     note: f.note,
     sourceKind: f.source_kind || "prose",
@@ -615,6 +644,7 @@ function clauseCard(c, p) {
 
   const ref = textNode("p", "clause__ref");
   ref.append(textNode("span", null, pageLabel(c.cite)));
+  if (c.section) ref.append(textNode("span", null, c.section));
   ref.append(textNode("span", null, p.uin));
   card.append(ref);
 
@@ -636,6 +666,15 @@ function clauseCard(c, p) {
     plain.append(textNode("b", null, "In plain words: "));
     plain.append(document.createTextNode(String(c.plain)));
     card.append(plain);
+  }
+  if (c.cite?.n) {
+    const a = document.createElement("a");
+    a.className = "clause__open";
+    a.href = `/pdf/${policyIdOf(p)}#page=${c.cite.n}`;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = "Open this page in the wording";
+    card.append(a);
   }
   return card;
 }
@@ -708,9 +747,12 @@ function copilotTurn(p, result, ms) {
   if (result.kind === "fast") {
     bubble.append(textNode("p", "bubble__lead bubble__lead--num", result.lead));
     if (result.note) bubble.append(textNode("p", "bubble__src", result.note));
-    bubble.append(
-      textNode("p", "bubble__src", `Verified against ${pageLabel(result.cite)} of the wording.`)
-    );
+    const verifiedLine = [
+      `Verified against ${pageLabel(result.cite)}`,
+      result.section ? result.section : null,
+      "of the wording.",
+    ].filter(Boolean).join(" · ");
+    bubble.append(textNode("p", "bubble__src", verifiedLine));
     if (result.quote) {
       bubble.append(textNode("blockquote", "clause__quote", `“${result.quote}”`));
     }
@@ -891,7 +933,7 @@ function askView(p) {
    it cites and returns status "blocked" when a figure is unsupported.
    That check is why this is safe to put in front of an agent. */
 
-const policyIdOf = (p) => p.id.replace(/-/g, "_");
+const policyIdOf = (p) => p.policy_id || p.id.replace(/-/g, "_");
 
 async function askBackend(p, question, onToken, onFinal) {
   const res = await fetch("/api/ask", {
@@ -1002,12 +1044,10 @@ function render() {
   if (state.selected) {
     const p = state.byId.get(state.selected);
     el.pinnedSlot.append(pinnedView(p), askView(p));
-    if (state.thread.length) {
-      const kit = textNode("section", "ask");
-      kit.append(textNode("h2", null, "Close the sale"));
-      kit.append(closeKitView(p));
-      el.pinnedSlot.append(kit);
-    }
+    const kit = textNode("section", "ask");
+    kit.append(textNode("h2", null, "Close the sale"));
+    kit.append(closeKitView(p));
+    el.pinnedSlot.append(kit);
     el.resultsSection.hidden = true;
     return;
   }

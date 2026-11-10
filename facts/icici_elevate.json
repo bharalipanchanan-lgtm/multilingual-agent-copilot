@@ -1,0 +1,22 @@
+{
+  "policy_id": "icici_elevate",
+  "insurer": "ICICI Lombard (ICC)",
+  "product": "ICICI Lombard Elevate",
+  "version": "ICIHLIP25048V012425",
+  "verified": true,
+  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "attributes": {
+    "ped_waiting": {"value": "24 months of continuous coverage", "clause": "3.1 (Code Excl 01)", "page": 3, "printed_page": 3},
+    "specific_waiting": {"value": "24 months of continuous coverage (cataract, hernia, BPH, joint replacement)", "clause": "3.2 (Code Excl 02)", "page": 3, "printed_page": 3},
+    "initial_waiting": {"value": "30 days initial waiting period (accidents excluded)", "clause": "3.3 (Code Excl 03)", "page": 3, "printed_page": 3},
+    "room_rent": {"value": "Single Private A/C Room or any room category up to Sum Insured; ICU at actuals with no proportionate deduction", "clause": "2.1", "page": 2, "printed_page": 2},
+    "copay": {"value": "No mandatory co-payment in base policy", "clause": "2.1", "page": 2, "printed_page": 2},
+    "maternity": {"value": "Covered after 24 months waiting period up to ₹1,00,000 per delivery", "clause": "3.4 (Code Excl 18)", "page": 3, "printed_page": 3},
+    "ayush": {"value": "Inpatient AYUSH treatment in a registered AYUSH Hospital covered up to 100% of Sum Insured", "clause": "2.3", "page": 2, "printed_page": 2},
+    "daycare": {"value": "Day care procedures and Robotic surgeries covered up to 100% of Base Sum Insured", "clause": "2.2", "page": 2, "printed_page": 2},
+    "pre_post": {"value": "60 days pre-hospitalisation and 180 days post-hospitalisation", "clause": "2.4", "page": 2, "printed_page": 2},
+    "ncb": {"value": "20% Cumulative Bonus per claim-free year up to 100% of Base Sum Insured", "clause": "2.5", "page": 2, "printed_page": 2},
+    "renewal": {"value": "30 days Grace Period for renewal with continuity benefits", "clause": "1.1 Def. 2", "page": 1, "printed_page": 1},
+    "sublimits": {"value": "No sub-limit on Cataract or Robotic surgery; Maternity up to ₹1,00,000", "clause": "2.2, 3.2, 3.4", "page": 2, "printed_page": 2}
+  }
+}

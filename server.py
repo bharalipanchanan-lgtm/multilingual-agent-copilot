@@ -88,6 +88,25 @@ def ask(req: Ask):
         from answer import ask_stream
         try:
             for ev in ask_stream(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
+                if ev.get("type") == "final":
+                    try:
+                        log_path = ROOT / "data" / "audit.jsonl"
+                        log_path.parent.mkdir(parents=True, exist_ok=True)
+                        with open(log_path, "a", encoding="utf-8") as lf:
+                            lf.write(json.dumps({
+                                "ts": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
+                                "policy_id": req.policy_id,
+                                "question": req.question.strip(),
+                                "status": ev.get("status"),
+                                "backend": ev.get("backend"),
+                                "ms": ev.get("ms"),
+                                "citations": [
+                                    {"page": c.get("page"), "printed_page": c.get("printed_page"), "section": c.get("section")}
+                                    for c in (ev.get("citations") or [])
+                                ],
+                            }, ensure_ascii=False) + "\n")
+                    except Exception:
+                        pass
                 q.put(ev)
         except Exception as e:
             q.put({"type": "final", "status": "error", "answer": f"Something went wrong: {e}", "citations": []})

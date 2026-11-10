@@ -29,23 +29,40 @@ DEFAULT_OUT = ROOT / "data" / "pages"
 
 
 def page_count(pdf: pathlib.Path) -> int:
-    out = subprocess.run(
-        ["pdfinfo", str(pdf)], capture_output=True, text=True, check=True
-    ).stdout
-    m = re.search(r"^Pages:\s+(\d+)", out, re.M)
-    if not m:
-        raise RuntimeError(f"no page count for {pdf.name}")
-    return int(m.group(1))
+    try:
+        out = subprocess.run(
+            ["pdfinfo", str(pdf)], capture_output=True, text=True, check=True
+        ).stdout
+        m = re.search(r"^Pages:\s+(\d+)", out, re.M)
+        if m:
+            return int(m.group(1))
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+    import fitz
+    with fitz.open(pdf) as doc:
+        return len(doc)
 
 
 def _run(pdf: pathlib.Path, n: int, *flags: str) -> str:
-    out = subprocess.run(
-        ["pdftotext", *flags, "-f", str(n), "-l", str(n), str(pdf), "-"],
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout
-    return re.sub(r"\n{3,}", "\n\n", out).strip()
+    try:
+        out = subprocess.run(
+            ["pdftotext", *flags, "-f", str(n), "-l", str(n), str(pdf), "-"],
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout
+        return re.sub(r"\n{3,}", "\n\n", out).strip()
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        import fitz
+        with fitz.open(pdf) as doc:
+            page = doc[n - 1]
+            mode = "blocks" if "-layout" in flags else "text"
+            if mode == "blocks":
+                blocks = sorted(page.get_text("blocks"), key=lambda b: (round(b[1], 1), round(b[0], 1)))
+                txt = "\n".join(b[4].strip() for b in blocks if b[4].strip())
+            else:
+                txt = page.get_text("text")
+            return re.sub(r"\n{3,}", "\n\n", txt).strip()
 
 
 def page_text(pdf: pathlib.Path, n: int) -> str:
@@ -83,7 +100,7 @@ def extract(pdf: pathlib.Path, out_dir: pathlib.Path) -> dict:
     }
     out_dir.mkdir(parents=True, exist_ok=True)
     dest = out_dir / f"{pdf.stem}.json"
-    dest.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
+    dest.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     return {
         "pdf": pdf.name,
         "pages": total,

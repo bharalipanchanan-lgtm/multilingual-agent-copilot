@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 # hf-xet transfers stalled on this network; plain HTTPS downloads work.
@@ -37,13 +38,16 @@ def device() -> str:
     return "cpu"
 
 # Generation (see generate.py). Local by default; Claude is optional and paid per token.
-GEN_BACKEND = "mlx"                                    # mlx | ollama | claude | extractive
+# mlx = Apple Silicon only. On Windows/Linux default to ollama (or extractive if Ollama is down).
+GEN_BACKEND = os.environ.get("COPILOT_BACKEND") or (
+    "mlx" if sys.platform == "darwin" else "ollama"
+)  # mlx | ollama | claude | extractive
 MLX_MODELS = [                                         # first fully downloaded one is used
     "mlx-community/Qwen2.5-7B-Instruct-4bit",           # about 4.3 GB, better Hindi and reasoning
     "mlx-community/Qwen2.5-3B-Instruct-4bit",           # about 1.8 GB, fallback
 ]
 MLX_MODEL = os.environ.get("COPILOT_MLX_MODEL") or None  # force one model
-OLLAMA_MODEL = "qwen2.5:7b"
+OLLAMA_MODEL = os.environ.get("COPILOT_OLLAMA_MODEL") or "qwen2.5:7b"
 OLLAMA_URL = "http://localhost:11434"
 CLAUDE_MODEL = "claude-opus-5-5"
 

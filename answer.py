@@ -93,6 +93,7 @@ You are given numbered clauses from the policy wording. Rules:
    Never conclude that something does not exist just because no clause mentions it.
 5. Write 2 to 4 short sentences an agent can say to a customer. Include conditions and exceptions that change the answer.
    For a named disease, check every clause: if it appears in a specific waiting period list AND the pre-existing disease rule could apply, state both periods and when each applies.
+   Ignore retrieved clauses that are about unrelated benefits (such as wellness points, reward scores or fitness discounts) when the question is about waiting periods, room rent or coverage limits.
 6. Clauses under an "Exclusions" part list what the policy does NOT pay for. A treatment listed there is not covered (unless the clause itself states an exception).
    Clauses under a "Definition" part only define words; they do not by themselves grant cover.
    An appendix "List of Expenses Generally Excluded" is a list of non-medical items such as consumables, not the policy's main exclusions.

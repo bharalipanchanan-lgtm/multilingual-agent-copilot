@@ -121,6 +121,21 @@ check(
   "tata-medicare-premier"
 );
 
+/* National Mediclaim is ruled out (withdrawn + Rs 5,000/day room rent cap < Rs 10,000) */
+const natAssess = assess(byId["national-mediclaim"], need);
+check("withdrawn product is ineligible", natAssess.eligible, false);
+check(
+  "room rent cap below 10000 is flagged as a failure reason",
+  natAssess.fails.some((f) => /5,000/.test(f)),
+  true
+);
+
+/* Entry age check on Max Life (max 65 years) */
+const maxAgeOk = assess(byId["max-life-smart-secure-plus"], parseNeed("mother 50"));
+check("Max Life passes age 50<=65", maxAgeOk.eligible, true);
+const maxAgeFail = assess(byId["max-life-smart-secure-plus"], parseNeed("father 70"));
+check("Max Life rejects age 70>65", maxAgeFail.eligible, false);
+
 const nameOf = (a) => `${a.product.insurer} ${a.product.name}`;
 console.log(`\nbest:     ${nameOf(r.best)} (PED ${r.best.product.facts.ped_wait_months.value}mo)`);
 console.log(`second:   ${nameOf(r.second)} (PED ${r.second.product.facts.ped_wait_months.value}mo)`);
