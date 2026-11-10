@@ -440,12 +440,14 @@ function closeKitMsg(p) {
     ${kitLists(k, L, lang)}`);
 }
 
-/* papers and do-not-promise lines, each with the page of this product's wording it came from */
+/* sale papers and claim papers stay separate; each line cites its wording page */
 function kitLists(k, L, lang) {
   const li = (d) => `<li${d.quote ? ` title="${esc(d.quote)}"` : ""}>${esc(d.text)}${d.cite ? ` <span class="cite">${esc(d.cite)}</span>` : ""}</li>`;
-  const none = lang === "en" ? "This wording does not list claim papers — ask the insurer." : lang === "hi" ? "इस वर्डिंग में क्लेम के कागज़ नहीं लिखे — इंश्योरर से पूछें।" : "Is wording mein claim papers likhe nahi — insurer se poochho.";
-  return `<div class="kit"><p class="kit__t">${esc(L.papers)}</p>${k.papers.length ? `<ul>${k.papers.map(li).join("")}</ul>` : `<p class="small">${esc(none)}</p>`}</div>
-    <div class="kit kit--warn"><p class="kit__t">${esc(L.dont)}</p><ul>${k.dont.map(li).join("")}</ul></div>`;
+  const noneBuy = lang === "en" ? "This wording does not list sale papers — ask the insurer." : lang === "hi" ? "इस वर्डिंग में खरीद के कागज़ नहीं लिखे — इंश्योरर से पूछें।" : "Is wording mein buy papers likhe nahi — insurer se poochho.";
+  const noneClaim = lang === "en" ? "This wording does not list claim papers — ask the insurer." : lang === "hi" ? "इस वर्डिंग में क्लेम के कागज़ नहीं लिखे — इंश्योरर से पूछें।" : "Is wording mein claim papers likhe nahi — insurer se poochho.";
+  const buy = `<div class="kit"><p class="kit__t">${esc(L.papers)}</p>${k.papers.length ? `<ul>${k.papers.map(li).join("")}</ul>` : `<p class="small">${esc(noneBuy)}</p>`}</div>`;
+  const claim = `<div class="kit"><p class="kit__t">${esc(L.claimPapers)}</p>${(k.claimPapers || []).length ? `<ul>${k.claimPapers.map(li).join("")}</ul>` : `<p class="small">${esc(noneClaim)}</p>`}</div>`;
+  return `${buy}${claim}<div class="kit kit--warn"><p class="kit__t">${esc(L.dont)}</p><ul>${k.dont.map(li).join("")}</ul></div>`;
 }
 
 chat.addEventListener("click", async (e) => {

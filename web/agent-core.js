@@ -449,7 +449,8 @@
   /* the one small difference written next to each look-alike */
   function difference(p) {
     if (p.status === "withdrawn") return `Stopped ${p.withdrawn_on ? fmtDate(p.withdrawn_on) : ""} — renewals only`.trim();
-    return (p.differentiator || "").split(";")[0].trim();
+    /* never show an unqualified "shortest" here — ranking already owns that claim */
+    return (p.differentiator || "").split(";")[0].trim().replace(/^Shortest\s+/i, "");
   }
 
   /* the difference that actually separates the options on screen: the first
@@ -546,12 +547,13 @@
     reports: { en: "Investigation / diagnostic test reports", hi: "जांच / डायग्नोस्टिक रिपोर्ट", hinglish: "Test / diagnostic reports" },
     prescription: { en: "Doctor's prescription", hi: "डॉक्टर का प्रिस्क्रिप्शन", hinglish: "Doctor ka prescription" },
     pharmacy: { en: "Pharmacy bills", hi: "दवा के बिल", hinglish: "Pharmacy / dawai ke bills" },
-    bank: { en: "Bank details / cancelled cheque for the claim payment", hi: "क्लेम पेमेंट के लिए बैंक डिटेल / कैंसल चेक", hinglish: "Claim payment ke liye bank details / cancelled cheque" },
+    bank: { en: "Bank details / cancelled cheque", hi: "बैंक डिटेल / कैंसल चेक", hinglish: "Bank details / cancelled cheque" },
     fir_mlc: { en: "FIR or medico-legal certificate (accident claims)", hi: "FIR या मेडिको-लीगल सर्टिफिकेट (एक्सीडेंट क्लेम)", hinglish: "FIR ya medico-legal certificate (accident claim)" },
-    pre_policy_check: { en: "Pre-policy medical check-up, if the insurer asks for it (at proposal)", hi: "प्री-पॉलिसी मेडिकल चेक-अप, अगर इंश्योरर माँगे (प्रपोज़ल पर)", hinglish: "Pre-policy medical check-up, agar insurer maange (proposal par)" },
-    medical_records: { en: "Previous medical / treatment records", hi: "पुराने मेडिकल / इलाज के रिकॉर्ड", hinglish: "Purane medical / treatment records" },
+    pre_policy_check: { en: "Pre-policy medical check-up, if the insurer asks for it", hi: "प्री-पॉलिसी मेडिकल चेक-अप, अगर इंश्योरर माँगे", hinglish: "Pre-policy medical check-up, agar insurer maange" },
+    medical_records: { en: "Previous medical / treatment records for declared conditions", hi: "घोषित बीमारी के पुराने मेडिकल / इलाज के रिकॉर्ड", hinglish: "Declared condition ke purane medical / treatment records" },
     prev_policy: { en: "Previous policy copy (portability)", hi: "पिछली पॉलिसी की कॉपी (पोर्टेबिलिटी)", hinglish: "Pichhli policy ki copy (portability)" },
   };
+  const CLAIM_KEYS = new Set(["claim_form", "discharge", "bills", "reports", "prescription", "pharmacy", "fir_mlc"]);
 
   const hasAmount = (f) => f?.stated && /\d/.test(String(f.value));
 
@@ -619,8 +621,15 @@
     const conds = need?.conditions || [];
     const condWord = conds.includes("diabetes") ? "diabetes" : conds[0] || (lang === "en" ? "a declared illness" : "declared illness");
     const L = lang === "hi" ? "hi" : lang === "hinglish" ? "hinglish" : "en";
-    const papers = (p.close_kit?.papers || []).map((x) => ({ text: (PAPER[x.key] || {})[L] || x.key, cite: pageLabel(citePage(x)), quote: x.quote }));
-    const claimPapers = papers.filter((x, i) => p.close_kit?.papers[i].key !== "pre_policy_check").slice(0, 4).map((x) => x.text).join(", ");
+    const mapPaper = (x) => ({ text: (PAPER[x.key] || {})[L] || x.key, cite: pageLabel(citePage(x)), quote: x.quote, key: x.key });
+    const kit = p.close_kit || {};
+    const buySrc = kit.buy_papers
+      || (kit.papers || []).filter((x) => x.phase === "buy" || (!x.phase && !CLAIM_KEYS.has(x.key)));
+    const claimSrc = kit.claim_papers
+      || (kit.papers || []).filter((x) => x.phase === "claim" || (!x.phase && CLAIM_KEYS.has(x.key)));
+    const papers = buySrc.map(mapPaper);          /* sale / proposal — shown first */
+    const claimPapers = claimSrc.map(mapPaper);   /* claim-time — separate list */
+    const buyLine = papers.slice(0, 4).map((x) => x.text).join(", ");
 
     let say, wa;
     if (L === "en") {
@@ -636,7 +645,7 @@
         "• New illnesses: covered once the policy starts",
         end ? `• ${condWord[0].toUpperCase() + condWord.slice(1)}: covered from ${end}` : "• Pre-existing wait: confirming with the insurer",
         `• Room: ${roomLine}`,
-        claimPapers ? `For a claim, the policy asks for: ${claimPapers}.` : null,
+        buyLine ? `To buy, the wording asks for: ${buyLine}.` : null,
         "Shall I start the proposal?",
       ].filter(Boolean).join("\n");
     } else if (L === "hi") {
@@ -652,7 +661,7 @@
         "• नई बीमारी: पॉलिसी शुरू होते ही कवर",
         end ? `• ${condWord}: ${end} से कवर` : "• PED वेट: इंश्योरर से कन्फ़र्म",
         `• रूम: ${roomLine}`,
-        claimPapers ? `क्लेम के लिए पॉलिसी में ये कागज़ माँगे गए हैं: ${claimPapers}।` : null,
+        buyLine ? `खरीदने के लिए वर्डिंग में ये कागज़ माँगे गए हैं: ${buyLine}।` : null,
         "प्रपोजल शुरू करें?",
       ].filter(Boolean).join("\n");
     } else {
@@ -668,7 +677,7 @@
         "• Nayi bimari: policy start hote hi cover",
         end ? `• ${condWord}: ${end} se cover` : "• PED wait: insurer se confirm",
         `• Room: ${roomLine}`,
-        claimPapers ? `Claim ke liye policy mein yeh papers maange gaye hain: ${claimPapers}.` : null,
+        buyLine ? `Kharidne ke liye wording mein yeh papers maange gaye hain: ${buyLine}.` : null,
         "Proposal start karein?",
       ].filter(Boolean).join("\n");
     }
@@ -676,17 +685,17 @@
     const dont = dontLines(p, w, end, condWord, conds, L);
 
     const labels = L === "hi"
-      ? { say: "ग्राहक से यह कहें", wa: "WhatsApp मैसेज", wait: "वेटिंग खत्म", papers: "इस वर्डिंग में माँगे गए कागज़", dont: "यह वादा न करें", pitch: "कैसे पिच करें", pick: "यह चुनें" }
+      ? { say: "ग्राहक से यह कहें", wa: "WhatsApp मैसेज", wait: "वेटिंग खत्म", papers: "खरीदने के लिए कागज़", claimPapers: "क्लेम के समय कागज़", dont: "यह वादा न करें", pitch: "कैसे पिच करें", pick: "यह चुनें" }
       : L === "hinglish"
-        ? { say: "Customer se yeh bolo", wa: "WhatsApp message", wait: "Waiting khatam", papers: "Is wording mein maange gaye papers", dont: "Yeh promise mat karo", pitch: "Kaise pitch karein", pick: "Yeh choose karein" }
-        : { say: "Say this to the customer", wa: "WhatsApp message", wait: "Waiting ends", papers: "Papers this wording asks for", dont: "Do not promise", pitch: "How to pitch", pick: "Pick this" };
+        ? { say: "Customer se yeh bolo", wa: "WhatsApp message", wait: "Waiting khatam", papers: "Papers needed to buy", claimPapers: "Papers at claim time", dont: "Yeh promise mat karo", pitch: "Kaise pitch karein", pick: "Yeh choose karein" }
+        : { say: "Say this to the customer", wa: "WhatsApp message", wait: "Waiting ends", papers: "Papers needed to buy", claimPapers: "Papers at claim time", dont: "Do not promise", pitch: "How to pitch", pick: "Pick this" };
 
     if (w?.carved) {
       say[1] = L === "hi" ? `${condWord}: वर्डिंग के अनुसार इसका PED वेट नहीं है — पॉलिसी शुरू होते ही कवर।`
         : L === "hinglish" ? `${condWord}: wording ke hisaab se iska PED wait nahi hai — policy start hote hi cover.`
           : `For ${condWord}, the wording lifts the pre-existing wait — covered from the start.`;
     }
-    return { say, whatsapp: wa, waitEnd: end ? { date: end, months: w.months, cite: pageLabel(citePage(w.fact)) } : null, papers, dont, labels };
+    return { say, whatsapp: wa, waitEnd: end ? { date: end, months: w.months, cite: pageLabel(citePage(w.fact)) } : null, papers, claimPapers, dont, labels };
   }
 
   window.QPCore = {

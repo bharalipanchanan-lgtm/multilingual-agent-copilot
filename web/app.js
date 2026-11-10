@@ -924,17 +924,25 @@ Shall I start the proposal?`;
   wa.append(copy);
   kit.append(wa);
 
-  /* papers and promises come from this product's own wording, with the page each line is on */
+  /* sale papers and claim papers stay separate; each line cites its wording page */
   const k = window.QPCore.closeKit(p, null, "en");
   const item = (d) => textNode("li", null, d.cite ? `${d.text} (${d.cite})` : d.text);
 
-  const docs = textNode("div", "kit__block");
-  docs.append(textNode("p", "kit__title", k.labels.papers));
-  const ul = document.createElement("ul");
-  for (const d of k.papers) ul.append(item(d));
-  if (!k.papers.length) ul.append(textNode("li", null, "This wording does not list claim papers — ask the insurer."));
-  docs.append(ul);
-  kit.append(docs);
+  const buy = textNode("div", "kit__block");
+  buy.append(textNode("p", "kit__title", k.labels.papers));
+  const ulBuy = document.createElement("ul");
+  for (const d of k.papers) ulBuy.append(item(d));
+  if (!k.papers.length) ulBuy.append(textNode("li", null, "This wording does not list sale papers — ask the insurer."));
+  buy.append(ulBuy);
+  kit.append(buy);
+
+  const claim = textNode("div", "kit__block");
+  claim.append(textNode("p", "kit__title", k.labels.claimPapers));
+  const ulClaim = document.createElement("ul");
+  for (const d of k.claimPapers || []) ulClaim.append(item(d));
+  if (!(k.claimPapers || []).length) ulClaim.append(textNode("li", null, "This wording does not list claim papers — ask the insurer."));
+  claim.append(ulClaim);
+  kit.append(claim);
 
   const warn = textNode("div", "kit__block kit__block--warn");
   warn.append(textNode("p", "kit__title", k.labels.dont));

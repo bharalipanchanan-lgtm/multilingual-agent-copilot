@@ -61,15 +61,24 @@ for (const p of cat.products) {
   }
 }
 
-/* close kit is built from each product's own wording */
+/* close kit is built from each product's own wording; sale papers ≠ claim papers */
 const a = C.closeKit(byId.get("care-health-care-freedom"), need, "en");
 const b = C.closeKit(byId.get("star-family-health-optima"), need, "en");
-const sig = (k) => JSON.stringify([k.papers.map((x) => x.text), k.dont.map((x) => x.text)]);
+const sig = (k) => JSON.stringify([k.papers.map((x) => x.text), (k.claimPapers || []).map((x) => x.text), k.dont.map((x) => x.text)]);
 check(sig(a) !== sig(b), "close kit differs between two products");
-for (const [name, k] of [["care-health-care-freedom", a], ["star-family-health-optima", b]]) {
-  check(k.papers.length > 0 && k.papers.every((x) => x.cite && x.quote), `${name}: every paper cites its wording page`);
+const optimaKit = C.closeKit(optima, need, "en");
+check(optimaKit.papers.every((x) => !/discharge|claim form|pharmacy|FIR|hospital bills/i.test(x.text)),
+  "Optima V08 sale papers are not claim-only papers", optimaKit.papers.map((x) => x.text).join(" | "));
+check((optimaKit.claimPapers || []).length > 0, "Optima V08 still lists claim papers separately");
+for (const [name, k] of [["care-health-care-freedom", a], ["star-family-health-optima", b], ["optima-v08", optimaKit]]) {
+  const all = [...k.papers, ...(k.claimPapers || [])];
+  check(all.length > 0 && all.every((x) => x.cite && x.quote), `${name}: every paper cites its wording page`);
   check(k.dont.filter((x) => !/premium/i.test(x.text)).every((x) => x.cite), `${name}: every do-not-promise line cites its wording page`);
 }
+/* replacement card must not contradict the ranking "shortest" claim */
+const premier = byId.get("tata-medicare-premier");
+check(!/^Shortest\b/i.test(C.difference(premier)),
+  "Tata MediCare Premier difference has no unqualified 'shortest'", C.difference(premier));
 
 console.log(failed ? `\n${failed} failing` : "\nall passing");
 process.exit(failed ? 1 : 0);
