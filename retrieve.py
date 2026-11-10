@@ -52,8 +52,13 @@ def keyword_hits(query: str, policy_id: str, have: set[str], max_hits: int = 2) 
         for form in {w.lower(), w.capitalize()}:
             res = col.get(where={"policy_id": policy_id}, where_document={"$contains": form}, limit=4)
             for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"]):
-                # prefer numbered clauses over appendix lists and definitions
-                if cid in have or not (meta.get("section") or "")[:1].isdigit() or "means" in doc[:120]:
+                # prefer numbered clauses over appendix lists and definitions,
+                # but never drop a table: benefit tables carry the modern
+                # treatment lists, room rent bands and sub-limits, and they
+                # are stored with section "Table", which is not a digit.
+                numbered = (meta.get("section") or "")[:1].isdigit()
+                is_table = meta.get("type") == "table"
+                if cid in have or not (numbered or is_table) or "means" in doc[:120]:
                     continue
                 have.add(cid)
                 out.append({"id": cid, "text": doc, "score": None, "keyword": w, **meta})
