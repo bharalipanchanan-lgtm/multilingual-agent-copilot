@@ -47,6 +47,24 @@ INITIAL = re.compile(
 )
 BUY_CTX = re.compile(r"proposal|underwrit|pre[- ]?policy|prePolicy|portabilit|declar(?:ation|ed) in the proposal", re.I)
 CLAIM_CTX = re.compile(r"\bclaim\b|reimburs|cashless|hospitali[sz]ation documents|documentation will include", re.I)
+# a paper counts only where the wording asks for it: a list of documents to submit / furnish / attach
+REQ_CTX = re.compile(
+    r"documents?\b[^.]{0,60}\b(?:required|needed|necessary|submit|furnish|support|list)|"
+    r"(?:submit|furnish|produce|provide|send|attach|enclos)\w*\b|along with|accompanied by|"
+    r"following documents|documentation|duly (?:filled|completed|signed)|original",
+    re.I,
+)
+# a hit that names the paper only to rule it out or in passing ("not for medico-legal purposes",
+# "store their lab reports" on an app portal)
+NOT_REQ = re.compile(r"\bnot (?:for|be|required|necessary)\b[^.]{0,30}$|\bportal\b|\bapp\b|\bstore\b|\bupload\b|disclos|misrepresent|fraud", re.I)
+
+
+# hand-checked quotes where the PDF's two columns interleave and no rule can find the clean end.
+# each value must still be verbatim text from that page (checked by the assert in main)
+QUOTE_FIX = {
+    # p34: "a. Duly completed claim form, and surgeons, g. ..." — "and surgeons" is the next column
+    ("star-family-health-optima", "claim_form"): "Duly completed claim form",
+}
 
 
 def norm(s: str) -> str:
@@ -73,9 +91,31 @@ def snippet(flat: str, m: re.Match) -> str:
     right = flat[m.end() : b]
     stop = min([i for i in (right.find(". "), right.find("; "), right.find(" •")) if i >= 0] or [len(right)])
     b = m.end() + stop + (1 if stop < len(right) and right[stop] == "." else 0)
-    if b == m.end() + len(right) and " " in right:
+    cut_short = b == m.end() + len(right) and " " in right and b < len(flat)
+    if cut_short:
         b = m.end() + right.rfind(" ")
-    return flat[a:b].strip(" ,;•")
+    q = clean_end(flat[a:b])
+    # the sentence goes on past the window: say so rather than present a fragment as the whole line
+    return q + " …" if cut_short and not q.endswith((".", ")")) else q
+
+
+# the next list item's marker leaks onto the end of a quote: "claim form, and b." / "original d."
+TAIL_MARKER = re.compile(r"(?:[\s,;]+(?:and|or))?[\s,;]+(?:[a-z]|[ivx]{1,4})\.?$", re.I)
+# a word cut by the window edge, or a dangling joiner
+TAIL_JOINER = re.compile(r"[\s,;]+(?:and|or|the|of|to|in|for|with|by|from|as|at|a|an)$", re.I)
+
+
+def clean_end(q: str) -> str:
+    """Trim to a clean end. Only removes text, so the quote stays verbatim."""
+    q = q.strip(" ,;•\u0007\t")
+    for _ in range(3):
+        before = q
+        q = TAIL_MARKER.sub("", q)
+        q = TAIL_JOINER.sub("", q)
+        q = q.rstrip(" ,;:•(-")
+        if q == before:
+            break
+    return q
 
 
 def phase_for(key_phase: str, flat: str, m: re.Match) -> str | None:
@@ -114,14 +154,23 @@ def kit_for(doc_pages, offset):
             return (not (has_buy or has_claim), n)
 
         for n, flat in sorted(pages, key=rank):
-            m = rx.search(flat)
-            if not m:
-                continue
-            phase = phase_for(key_phase, flat, m)
-            if not phase or key in seen:
-                continue
-            q = snippet(flat, m)
-            if len(norm(q)) < 12:
+            if key in seen:
+                break
+            for m in rx.finditer(flat):
+                phase = phase_for(key_phase, flat, m)
+                if not phase:
+                    continue
+                # buy papers are named in underwriting text ("results of the pre-policy medical
+                # examination"), not in a submit list, so only claim papers need the request context
+                if phase == "claim" and not REQ_CTX.search(flat[max(0, m.start() - 250) : m.end() + 80]):
+                    continue
+                if NOT_REQ.search(flat[max(0, m.start() - 60) : m.start()]):
+                    continue
+                q = snippet(flat, m)
+                if len(norm(q)) < 12 or NOT_REQ.search(q):
+                    continue
+                break
+            else:
                 continue
             item = {
                 "key": key,
@@ -160,6 +209,10 @@ def main() -> int:
         f = PAGES / (d["source"][:-4] + ".json")
         doc = json.loads(f.read_text(encoding="utf-8"))
         kit = kit_for(doc["pages"], d.get("page_offset"))
+        for item in kit["papers"]:
+            fix = QUOTE_FIX.get((p["id"], item["key"]))
+            if fix:
+                item["quote"] = fix  # same dict object as in buy/claim lists
         for item in kit["papers"] + ([kit["initial_wait"]] if kit["initial_wait"] else []):
             page = next(x["text"] for x in doc["pages"] if x["page"] == item["pdf_page"])
             assert norm(item["quote"]) in norm(page), (p["id"], item.get("key"), item["quote"][:80])

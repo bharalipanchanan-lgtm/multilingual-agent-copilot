@@ -170,7 +170,6 @@
     const ageBit = need.age != null ? (lang === "en" ? ` (${need.age})` : ` (${need.age} saal)`) : "";
     const best = r.best?.product;
     const second = r.second?.product;
-    const third = r.third?.product;
     const w = best ? waitFor(best, need) : null;
     const ped = w ? { stated: true, value: w.months } : null;
     const end = w ? waitEndDate(w.months) : null;
@@ -207,7 +206,7 @@
         ageOnly,
       ];
       if (second) lines.push(`Second: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} months wait` : ""}.`);
-      if (third) lines.push(`Third: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} months wait` : ""}.`);
+      /* Feature 3: best + second only on screen; third stays in others if needed */
       if (knee) lines.push(`Knee / joint pain already diagnosed waits like any pre-existing condition; joint replacement may have its own listed-illness wait.`);
       if (r.cannotPremium) lines.push(`Money was not compared. Premium is never written in a policy wording — the insurer sets it from its rate card after the health check${need.budgetMax != null ? `, so the ${rupees(need.budgetMax)} budget was not checked` : ""}. These plans are ranked on waiting period and cover only.`);
       if (need.roomRentMin != null) lines.push(`Room rent of ${rupees(need.roomRentMin)}+ was checked where the wording states it.`);
@@ -226,7 +225,6 @@
         ageOnly,
       ];
       if (second) lines.push(`दूसरा: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} महीने वेट` : ""}।`);
-      if (third) lines.push(`तीसरा: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} महीने वेट` : ""}।`);
       if (knee) lines.push(`घुटने का दर्द अगर पहले से है तो PED वेट ही लगेगी; जॉइंट रिप्लेसमेंट की अलग लिस्टेड वेट भी हो सकती है।`);
       if (r.cannotPremium) lines.push(`पैसे की तुलना नहीं की गई। प्रीमियम किसी पॉलिसी वर्डिंग में नहीं होता — इंश्योरर हेल्थ चेक के बाद रेट कार्ड से तय करता है${need.budgetMax != null ? `, इसलिए ${rupees(need.budgetMax)} का बजट चेक नहीं हुआ` : ""}। रैंकिंग सिर्फ वेटिंग पीरियड और कवर पर है।`);
       return lines.filter(Boolean);
@@ -244,7 +242,6 @@
       ageOnly,
     ];
     if (second) lines.push(`Doosra: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} months wait` : ""}.`);
-    if (third) lines.push(`Teesra: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} months wait` : ""}.`);
     if (knee) lines.push(`Ghutne ka dard agar pehle se hai toh PED wait hi lagti hai; joint replacement ki alag listed wait bhi ho sakti hai.`);
     if (r.cannotPremium) lines.push(`Paisa compare nahi kiya. Premium kisi bhi wording mein nahi hota — insurer health check ke baad rate card se batata hai${need.budgetMax != null ? `, isliye ${rupees(need.budgetMax)} ka budget check nahi hua` : ""}. Ranking sirf waiting period aur cover par hai.`);
     if (need.roomRentMin != null) lines.push(`Room rent ${rupees(need.roomRentMin)}+ jahan wording mein likha hai, wahan check kiya.`);

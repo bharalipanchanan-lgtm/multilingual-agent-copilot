@@ -288,7 +288,7 @@ function needFirst(need) {
   const lang = S.lang;
   const r = C.recommend(S.products, need, S.mine, S.byId);
   const answer = C.needAnswer(need, r, lang);
-  const tops = [r.best, r.second, r.third].filter(Boolean);
+  const tops = [r.best, r.second].filter(Boolean); /* story Feature 3: best + second only */
   const cards = tops.length
     ? tops.map((a, i) => recCard(a, i + 1, r.best, need, lang)).join("")
     : "";

@@ -403,49 +403,28 @@
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "Duly completed claim form, and surgeons, g."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "\u0007Discharge Summary in original from 1 Reimbursement of hospitalization, day care and pre hospitalization"
+            "quote": "Discharge Summary in original from 1 Reimbursement of hospitalization, day care and pre hospitalization …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 39,
             "printed_page": 38,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 26,
-            "printed_page": 25,
-            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), health data add family members."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 19,
-            "printed_page": 18,
-            "quote": "\u0007 The second opinion should be only for medical reasons and not for medico-legal purposes."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "kyc",
             "phase": "claim",
-            "pdf_page": 33,
-            "printed_page": 32,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "\u0007NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code n."
+            "quote": "KYC (Identity proof with Address) of the proposer as per AML Guidelines"
           }
         ],
         "papers": [
@@ -454,49 +433,28 @@
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "Duly completed claim form, and surgeons, g."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "\u0007Discharge Summary in original from 1 Reimbursement of hospitalization, day care and pre hospitalization"
+            "quote": "Discharge Summary in original from 1 Reimbursement of hospitalization, day care and pre hospitalization …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 39,
             "printed_page": 38,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 26,
-            "printed_page": 25,
-            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), health data add family members."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 19,
-            "printed_page": 18,
-            "quote": "\u0007 The second opinion should be only for medical reasons and not for medico-legal purposes."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "kyc",
             "phase": "claim",
-            "pdf_page": 33,
-            "printed_page": 32,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
             "pdf_page": 34,
             "printed_page": 33,
-            "quote": "\u0007NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code n."
+            "quote": "KYC (Identity proof with Address) of the proposer as per AML Guidelines"
           }
         ],
         "initial_wait": null
@@ -597,7 +555,7 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -606,56 +564,56 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "papers": [
@@ -671,63 +629,63 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "initial_wait": {
@@ -824,7 +782,7 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -833,56 +791,56 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "papers": [
@@ -898,63 +856,63 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "initial_wait": {
@@ -1051,7 +1009,7 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -1060,56 +1018,56 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "papers": [
@@ -1125,63 +1083,63 @@
             "phase": "buy",
             "pdf_page": 21,
             "printed_page": 21,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+            "quote": "Invoice for vaccination and payment receipt"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "KYC documents (in all claims above Rs."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": 23,
-            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on …"
           }
         ],
         "initial_wait": {
@@ -1301,7 +1259,7 @@
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 26,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -1315,7 +1273,7 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 28,
-            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or Care Supreme- CHIHLIP23128V012223 28 However"
+            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or Care Supreme- CHIHLIP23128V012223 28 However …"
           },
           {
             "key": "fir_mlc",
@@ -1352,7 +1310,7 @@
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 26,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -1366,7 +1324,7 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 28,
-            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or Care Supreme- CHIHLIP23128V012223 28 However"
+            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or Care Supreme- CHIHLIP23128V012223 28 However …"
           },
           {
             "key": "fir_mlc",
@@ -1477,7 +1435,7 @@
             "phase": "claim",
             "pdf_page": 25,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -1521,7 +1479,7 @@
             "phase": "claim",
             "pdf_page": 25,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -1670,42 +1628,21 @@
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 50,
             "printed_page": 50,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "Copy of MLC (Medico legal case) records, if carried out and FIR (First information report) if registered, in case"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements m."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "papers": [
@@ -1721,42 +1658,21 @@
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 50,
             "printed_page": 50,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "Copy of MLC (Medico legal case) records, if carried out and FIR (First information report) if registered, in case"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements m."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 51,
-            "printed_page": 51,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "initial_wait": {
@@ -1863,18 +1779,11 @@
       "close_kit": {
         "buy_papers": [
           {
-            "key": "pre_policy_check",
-            "phase": "buy",
-            "pdf_page": 33,
-            "printed_page": 33,
-            "quote": "The Illnesses have been disclosed by You or detected during pre-policy medical examination, and accepted by Us at the inception of the Policy and mentioned in the Policy Schedule."
-          },
-          {
             "key": "medical_records",
             "phase": "buy",
             "pdf_page": 83,
             "printed_page": 83,
-            "quote": "filled and signed Certificate by treating medical practitioner duly attested Current and past consultation papers All histology/cytology/FNAC/Biopsy/Immuno-chemistry reports, X-ray, CT Scan, MRI, PET"
+            "quote": "filled and signed Certificate by treating medical practitioner duly attested Current and past consultation papers All histology/cytology/FNAC/Biopsy/Immuno-chemistry reports, X-ray, CT Scan, MRI, PET …"
           }
         ],
         "claim_papers": [
@@ -1883,28 +1792,21 @@
             "phase": "claim",
             "pdf_page": 83,
             "printed_page": 83,
-            "quote": "Claim form duly filled and signed Certificate by treating medical practitioner duly attested"
+            "quote": "Claim form duly filled and signed Certificate by treating medical practitioner duly attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 83,
-            "printed_page": 83,
-            "quote": "Discharge summary where applicable (in case of hospitalisation) f."
+            "pdf_page": 106,
+            "printed_page": 106,
+            "quote": "b) Original bills, receipts, and discharge certificate/ card from the Hospital/ Medical Practitioner."
           },
           {
             "key": "bills",
             "phase": "claim",
-            "pdf_page": 74,
-            "printed_page": 74,
-            "quote": "Reimbursement shall be subject to submission of the USG report, payment receipt and consultation note from Gynaecologist, limited to the available Diagnostic credit"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 65,
-            "printed_page": 65,
-            "quote": "registrations and health insurance) and Digital health records (Store all diagnostics, lab reports & vitals online at one place) on their digital platform Available Available Available"
+            "pdf_page": 106,
+            "printed_page": 106,
+            "quote": "b) Original bills, receipts, and discharge certificate/ card from the Hospital/ Medical Practitioner."
           },
           {
             "key": "kyc",
@@ -1916,46 +1818,32 @@
         ],
         "papers": [
           {
-            "key": "pre_policy_check",
-            "phase": "buy",
-            "pdf_page": 33,
-            "printed_page": 33,
-            "quote": "The Illnesses have been disclosed by You or detected during pre-policy medical examination, and accepted by Us at the inception of the Policy and mentioned in the Policy Schedule."
-          },
-          {
             "key": "medical_records",
             "phase": "buy",
             "pdf_page": 83,
             "printed_page": 83,
-            "quote": "filled and signed Certificate by treating medical practitioner duly attested Current and past consultation papers All histology/cytology/FNAC/Biopsy/Immuno-chemistry reports, X-ray, CT Scan, MRI, PET"
+            "quote": "filled and signed Certificate by treating medical practitioner duly attested Current and past consultation papers All histology/cytology/FNAC/Biopsy/Immuno-chemistry reports, X-ray, CT Scan, MRI, PET …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 83,
             "printed_page": 83,
-            "quote": "Claim form duly filled and signed Certificate by treating medical practitioner duly attested"
+            "quote": "Claim form duly filled and signed Certificate by treating medical practitioner duly attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 83,
-            "printed_page": 83,
-            "quote": "Discharge summary where applicable (in case of hospitalisation) f."
+            "pdf_page": 106,
+            "printed_page": 106,
+            "quote": "b) Original bills, receipts, and discharge certificate/ card from the Hospital/ Medical Practitioner."
           },
           {
             "key": "bills",
             "phase": "claim",
-            "pdf_page": 74,
-            "printed_page": 74,
-            "quote": "Reimbursement shall be subject to submission of the USG report, payment receipt and consultation note from Gynaecologist, limited to the available Diagnostic credit"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 65,
-            "printed_page": 65,
-            "quote": "registrations and health insurance) and Digital health records (Store all diagnostics, lab reports & vitals online at one place) on their digital platform Available Available Available"
+            "pdf_page": 106,
+            "printed_page": 106,
+            "quote": "b) Original bills, receipts, and discharge certificate/ card from the Hospital/ Medical Practitioner."
           },
           {
             "key": "kyc",
@@ -1980,7 +1868,8 @@
       "variant": "2014 Edition",
       "status": "withdrawn",
       "withdrawn_on": "2024-04-01",
-      "replaced_by": "tata-medicare-premier",
+      "replaced_by": null,
+      "stop_reason": "No current National Insurance wording is loaded yet. Do not sell this 2014 wording; check National Insurance's current health product list.",
       "uin": "IRDA/NL-HLT/NI/P-H/V.I/17/13-14",
       "differentiator": "Legacy 2014 wording (withdrawn for fresh sales): room rent capped at Rs 5,000/day, PED 48 months",
       "facts": {
@@ -2052,7 +1941,7 @@
             "phase": "claim",
             "pdf_page": 10,
             "printed_page": 7,
-            "quote": "Completed claim form ii."
+            "quote": "Completed claim form"
           },
           {
             "key": "discharge",
@@ -2066,21 +1955,7 @@
             "phase": "claim",
             "pdf_page": 10,
             "printed_page": 7,
-            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 11,
-            "printed_page": 8,
-            "quote": "On receipt of the final document(s) or investigation report (if any), as the case may be, the company shall within a period of 30 days offer a"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 17,
-            "printed_page": 14,
-            "quote": "BOX Not Payable MORTUARY CHARGES Payable upto 24 hrs, shifting charges not payable MEDICO LEGAL CASE CHARGES Not Payable (MLC CHARGES) EXTERNAL DURABLE DEVICES WALKING AIDS CHARGES Not"
+            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/ …"
           }
         ],
         "papers": [
@@ -2089,7 +1964,7 @@
             "phase": "claim",
             "pdf_page": 10,
             "printed_page": 7,
-            "quote": "Completed claim form ii."
+            "quote": "Completed claim form"
           },
           {
             "key": "discharge",
@@ -2103,21 +1978,7 @@
             "phase": "claim",
             "pdf_page": 10,
             "printed_page": 7,
-            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 11,
-            "printed_page": 8,
-            "quote": "On receipt of the final document(s) or investigation report (if any), as the case may be, the company shall within a period of 30 days offer a"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 17,
-            "printed_page": 14,
-            "quote": "BOX Not Payable MORTUARY CHARGES Payable upto 24 hrs, shifting charges not payable MEDICO LEGAL CASE CHARGES Not Payable (MLC CHARGES) EXTERNAL DURABLE DEVICES WALKING AIDS CHARGES Not"
+            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/ …"
           }
         ],
         "initial_wait": {
@@ -2228,21 +2089,21 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested"
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested"
+            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "that We are liable under Section C1-In- Patient Hospitalization Treatment above and the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "that We are liable under Section C1-In- Patient Hospitalization Treatment above and the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
@@ -2256,7 +2117,7 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies of"
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies …"
           }
         ],
         "papers": [
@@ -2265,21 +2126,21 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested"
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested"
+            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "that We are liable under Section C1-In- Patient Hospitalization Treatment above and the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "that We are liable under Section C1-In- Patient Hospitalization Treatment above and the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
@@ -2293,7 +2154,7 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies of"
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies …"
           }
         ],
         "initial_wait": {
@@ -2399,7 +2260,7 @@
             "phase": "buy",
             "pdf_page": 30,
             "printed_page": null,
-            "quote": "4.2.1.2 Cost Of Pre-Insurance Medical Examination We will reimburse 100% of the cost of any pre-insurance medical examination"
+            "quote": "4.2.1.2 Cost Of Pre-Insurance Medical Examination We will reimburse 100% of the cost of any pre-insurance medical examination …"
           }
         ],
         "claim_papers": [
@@ -2459,7 +2320,7 @@
             "phase": "buy",
             "pdf_page": 30,
             "printed_page": null,
-            "quote": "4.2.1.2 Cost Of Pre-Insurance Medical Examination We will reimburse 100% of the cost of any pre-insurance medical examination"
+            "quote": "4.2.1.2 Cost Of Pre-Insurance Medical Examination We will reimburse 100% of the cost of any pre-insurance medical examination …"
           },
           {
             "key": "claim_form",
@@ -2627,7 +2488,7 @@
             "phase": "buy",
             "pdf_page": 40,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -2636,35 +2497,35 @@
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
@@ -2678,7 +2539,7 @@
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, c."
+            "quote": "Photo ID and Age Proof"
           }
         ],
         "papers": [
@@ -2694,42 +2555,42 @@
             "phase": "buy",
             "pdf_page": 40,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
@@ -2743,7 +2604,7 @@
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, c."
+            "quote": "Photo ID and Age Proof"
           }
         ],
         "initial_wait": {
@@ -2870,35 +2731,28 @@
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Discharge Summary (Photo Copy in case of claim for Pre/Post Hospitalization only) iv."
+            "quote": "Discharge Summary (Photo Copy in case of claim for Pre/Post Hospitalization only)"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Investigation Reports with supporting prescriptions vii."
+            "quote": "Investigation Reports with supporting prescriptions"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Pharmacy Bills (Original Only)with supporting prescriptions ix."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 25,
-            "printed_page": 25,
-            "quote": "on the medical records submitted  The opinion is only for medical reasons and not for medico-legal purposes  Any liability due to any errors or omission or consequences of any action"
+            "quote": "Pharmacy Bills (Original Only)with supporting prescriptions"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Copy of Photo ID / Proof iii."
+            "quote": "Copy of Photo ID / Proof"
           }
         ],
         "papers": [
@@ -2921,35 +2775,28 @@
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Discharge Summary (Photo Copy in case of claim for Pre/Post Hospitalization only) iv."
+            "quote": "Discharge Summary (Photo Copy in case of claim for Pre/Post Hospitalization only)"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Investigation Reports with supporting prescriptions vii."
+            "quote": "Investigation Reports with supporting prescriptions"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Pharmacy Bills (Original Only)with supporting prescriptions ix."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 25,
-            "printed_page": 25,
-            "quote": "on the medical records submitted  The opinion is only for medical reasons and not for medico-legal purposes  Any liability due to any errors or omission or consequences of any action"
+            "quote": "Pharmacy Bills (Original Only)with supporting prescriptions"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 31,
             "printed_page": 31,
-            "quote": "Copy of Photo ID / Proof iii."
+            "quote": "Copy of Photo ID / Proof"
           }
         ],
         "initial_wait": {
@@ -3056,16 +2903,16 @@
             "phase": "buy",
             "pdf_page": 47,
             "printed_page": 47,
-            "quote": "the Health status is adverse, as revealed in the proposal form or as evidenced in the pre policy check-up may be accepted as per the board approved underwriting policy of the Company with an"
+            "quote": "the Health status is adverse, as revealed in the proposal form or as evidenced in the pre policy check-up may be accepted as per the board approved underwriting policy of the Company …"
           }
         ],
         "claim_papers": [
           {
             "key": "claim_form",
             "phase": "claim",
-            "pdf_page": 48,
-            "printed_page": 48,
-            "quote": "Claim form – https://www.libertyinsurance.in/customer-support/download-forms.html iv."
+            "pdf_page": 49,
+            "printed_page": 49,
+            "quote": "The same has to be quoted in the claim form."
           },
           {
             "key": "discharge",
@@ -3079,21 +2926,35 @@
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "Original payment Receipt of the hospital bill with receipt number First Consultation letted and subsequent"
+            "quote": "Original payment Receipt of the hospital bill with receipt number First Consultation letted and subsequent …"
           },
           {
             "key": "reports",
             "phase": "claim",
-            "pdf_page": 52,
-            "printed_page": 52,
-            "quote": "Investigation reports / other related documents reflecting the critical illness diagnosis 7."
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "All X-Ray / Investigation reports and films supporting to disablement."
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
-            "pdf_page": 12,
-            "printed_page": 12,
-            "quote": "Any Second Opinion provided under the Benefit shall not be valid for any medico-legal purposes."
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "Attested copy of FIR."
+          },
+          {
+            "key": "kyc",
+            "phase": "claim",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "C-KYC form for claims above 1 lac P OPD treatment 1."
+          },
+          {
+            "key": "bank",
+            "phase": "claim",
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "Claim form with NEFT details 10."
           }
         ],
         "papers": [
@@ -3102,14 +2963,14 @@
             "phase": "buy",
             "pdf_page": 47,
             "printed_page": 47,
-            "quote": "the Health status is adverse, as revealed in the proposal form or as evidenced in the pre policy check-up may be accepted as per the board approved underwriting policy of the Company with an"
+            "quote": "the Health status is adverse, as revealed in the proposal form or as evidenced in the pre policy check-up may be accepted as per the board approved underwriting policy of the Company …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
-            "pdf_page": 48,
-            "printed_page": 48,
-            "quote": "Claim form – https://www.libertyinsurance.in/customer-support/download-forms.html iv."
+            "pdf_page": 49,
+            "printed_page": 49,
+            "quote": "The same has to be quoted in the claim form."
           },
           {
             "key": "discharge",
@@ -3123,21 +2984,35 @@
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": 51,
-            "quote": "Original payment Receipt of the hospital bill with receipt number First Consultation letted and subsequent"
+            "quote": "Original payment Receipt of the hospital bill with receipt number First Consultation letted and subsequent …"
           },
           {
             "key": "reports",
             "phase": "claim",
-            "pdf_page": 52,
-            "printed_page": 52,
-            "quote": "Investigation reports / other related documents reflecting the critical illness diagnosis 7."
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "All X-Ray / Investigation reports and films supporting to disablement."
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
-            "pdf_page": 12,
-            "printed_page": 12,
-            "quote": "Any Second Opinion provided under the Benefit shall not be valid for any medico-legal purposes."
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "Attested copy of FIR."
+          },
+          {
+            "key": "kyc",
+            "phase": "claim",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "C-KYC form for claims above 1 lac P OPD treatment 1."
+          },
+          {
+            "key": "bank",
+            "phase": "claim",
+            "pdf_page": 53,
+            "printed_page": 53,
+            "quote": "Claim form with NEFT details 10."
           }
         ],
         "initial_wait": {
@@ -3257,28 +3132,14 @@
             "phase": "claim",
             "pdf_page": 60,
             "printed_page": null,
-            "quote": "The claim form along with the attending Medical Practitioner’s certificate duly filled and signed in"
+            "quote": "The claim form along with the attending Medical Practitioner’s certificate duly filled and signed …"
           },
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 57,
-            "printed_page": null,
-            "quote": "record containing all relevant and accurate medical records like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming"
-          },
-          {
-            "key": "bills",
-            "phase": "claim",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Bill/Payment receipt confirming cost of buying or renting any of “Durable Medical Equipment” listed."
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 57,
-            "printed_page": null,
-            "quote": "like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming the need for treatment (if any) and shall allow Us or our"
+            "quote": "For a) maternity claims, discharge summary mentioning LMP, EDD & Gravida b) Cataract claims - IOL sticker c) PTCA claims - Stent …"
           }
         ],
         "papers": [
@@ -3294,28 +3155,14 @@
             "phase": "claim",
             "pdf_page": 60,
             "printed_page": null,
-            "quote": "The claim form along with the attending Medical Practitioner’s certificate duly filled and signed in"
+            "quote": "The claim form along with the attending Medical Practitioner’s certificate duly filled and signed …"
           },
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 57,
-            "printed_page": null,
-            "quote": "record containing all relevant and accurate medical records like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming"
-          },
-          {
-            "key": "bills",
-            "phase": "claim",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Bill/Payment receipt confirming cost of buying or renting any of “Durable Medical Equipment” listed."
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 57,
-            "printed_page": null,
-            "quote": "like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming the need for treatment (if any) and shall allow Us or our"
+            "quote": "For a) maternity claims, discharge summary mentioning LMP, EDD & Gravida b) Cataract claims - IOL sticker c) PTCA claims - Stent …"
           }
         ],
         "initial_wait": {
@@ -3426,7 +3273,7 @@
             "phase": "buy",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Pre-Policy medical check up Where a pre-policy medical check-up has been undertaken by the proposed Insured"
+            "quote": "Pre-Policy medical check up Where a pre-policy medical check-up has been undertaken by the proposed Insured …"
           }
         ],
         "claim_papers": [
@@ -3435,7 +3282,7 @@
             "phase": "claim",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Completed claim forms and processing documents must be furnished to Us within the stipulated timelines for"
+            "quote": "Completed claim forms and processing documents must be furnished to Us within the stipulated timelines …"
           },
           {
             "key": "discharge",
@@ -3470,21 +3317,21 @@
             "phase": "claim",
             "pdf_page": 64,
             "printed_page": null,
-            "quote": "MLC/FIR Report/Post-Mortem Report (if applicable and conducted) We may call for any additional"
+            "quote": "MLC/FIR Report/Post-Mortem Report (if applicable and conducted) We may call for any additional …"
           },
           {
             "key": "kyc",
             "phase": "claim",
-            "pdf_page": 62,
+            "pdf_page": 56,
             "printed_page": null,
-            "quote": "photo identification proof (Voter ID card/Driving License/ Passport/PAN Card/any other identity proof as approved by Us)."
+            "quote": "of Zone will be based on Proposer’s city-location pin code as mentioned in KYC documents."
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 64,
             "printed_page": null,
-            "quote": "Cancelled cheque for NEFT payment ManipalCigna ProHealth Prime | Protect Plan and Advantage Plan | Terms"
+            "quote": "Cancelled cheque for NEFT payment ManipalCigna ProHealth Prime | Protect Plan and Advantage Plan | Terms …"
           }
         ],
         "papers": [
@@ -3493,14 +3340,14 @@
             "phase": "buy",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Pre-Policy medical check up Where a pre-policy medical check-up has been undertaken by the proposed Insured"
+            "quote": "Pre-Policy medical check up Where a pre-policy medical check-up has been undertaken by the proposed Insured …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 61,
             "printed_page": null,
-            "quote": "Completed claim forms and processing documents must be furnished to Us within the stipulated timelines for"
+            "quote": "Completed claim forms and processing documents must be furnished to Us within the stipulated timelines …"
           },
           {
             "key": "discharge",
@@ -3535,21 +3382,21 @@
             "phase": "claim",
             "pdf_page": 64,
             "printed_page": null,
-            "quote": "MLC/FIR Report/Post-Mortem Report (if applicable and conducted) We may call for any additional"
+            "quote": "MLC/FIR Report/Post-Mortem Report (if applicable and conducted) We may call for any additional …"
           },
           {
             "key": "kyc",
             "phase": "claim",
-            "pdf_page": 62,
+            "pdf_page": 56,
             "printed_page": null,
-            "quote": "photo identification proof (Voter ID card/Driving License/ Passport/PAN Card/any other identity proof as approved by Us)."
+            "quote": "of Zone will be based on Proposer’s city-location pin code as mentioned in KYC documents."
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 64,
             "printed_page": null,
-            "quote": "Cancelled cheque for NEFT payment ManipalCigna ProHealth Prime | Protect Plan and Advantage Plan | Terms"
+            "quote": "Cancelled cheque for NEFT payment ManipalCigna ProHealth Prime | Protect Plan and Advantage Plan | Terms …"
           }
         ],
         "initial_wait": null
@@ -3658,7 +3505,7 @@
             "phase": "claim",
             "pdf_page": 11,
             "printed_page": 11,
-            "quote": "interaction with participating healthcare providers, and allows to receive digital lab reports, prescription and diagnosis seamlessly from a verified healthcare professionals and"
+            "quote": "interaction with participating healthcare providers, and allows to receive digital lab reports, prescription and diagnosis seamlessly from a verified healthcare professionals …"
           }
         ],
         "papers": [
@@ -3674,7 +3521,7 @@
             "phase": "claim",
             "pdf_page": 11,
             "printed_page": 11,
-            "quote": "interaction with participating healthcare providers, and allows to receive digital lab reports, prescription and diagnosis seamlessly from a verified healthcare professionals and"
+            "quote": "interaction with participating healthcare providers, and allows to receive digital lab reports, prescription and diagnosis seamlessly from a verified healthcare professionals …"
           }
         ],
         "initial_wait": {
@@ -3781,7 +3628,7 @@
             "phase": "claim",
             "pdf_page": 41,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -3825,7 +3672,7 @@
             "phase": "claim",
             "pdf_page": 41,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -3966,7 +3813,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the Company / TPA within 15 days of"
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the Company / TPA within 15 days …"
           },
           {
             "key": "discharge",
@@ -3980,14 +3827,14 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the"
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if"
+            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if …"
           }
         ],
         "papers": [
@@ -3996,7 +3843,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the Company / TPA within 15 days of"
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the Company / TPA within 15 days …"
           },
           {
             "key": "discharge",
@@ -4010,14 +3857,14 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the"
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if"
+            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if …"
           }
         ],
         "initial_wait": {
@@ -4128,7 +3975,7 @@
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "Claim Form / PreAuthorization Request form 10."
+            "quote": "are insufficient for us Pre-Authorito consider the zation request in Pre-defined Claim Form, We will request additional information or documentation"
           },
           {
             "key": "discharge",
@@ -4152,25 +3999,11 @@
             "quote": "Certified copy of final hospital bill, pharmacy bills, Investigation labs bills 4."
           },
           {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 12,
-            "printed_page": null,
-            "quote": "under this benefit shall be limited to the covered Illness and not be valid for any medico legal purposes."
-          },
-          {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "CKYC Form and KYC Documents Process for I."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 20,
-            "printed_page": null,
-            "quote": "Beneficiary bank account / NEFT details: Cancelled cheque or copy of first page of bank passbook showing account"
+            "quote": "CKYC Form and KYC Documents Process"
           }
         ],
         "papers": [
@@ -4179,7 +4012,7 @@
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "Claim Form / PreAuthorization Request form 10."
+            "quote": "are insufficient for us Pre-Authorito consider the zation request in Pre-defined Claim Form, We will request additional information or documentation"
           },
           {
             "key": "discharge",
@@ -4203,25 +4036,11 @@
             "quote": "Certified copy of final hospital bill, pharmacy bills, Investigation labs bills 4."
           },
           {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 12,
-            "printed_page": null,
-            "quote": "under this benefit shall be limited to the covered Illness and not be valid for any medico legal purposes."
-          },
-          {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "CKYC Form and KYC Documents Process for I."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 20,
-            "printed_page": null,
-            "quote": "Beneficiary bank account / NEFT details: Cancelled cheque or copy of first page of bank passbook showing account"
+            "quote": "CKYC Form and KYC Documents Process"
           }
         ],
         "initial_wait": {
@@ -4328,7 +4147,7 @@
             "phase": "claim",
             "pdf_page": 8,
             "printed_page": 8,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
@@ -4342,14 +4161,7 @@
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 6,
-            "printed_page": 6,
-            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), track health data add family members."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "kyc",
@@ -4357,13 +4169,6 @@
             "pdf_page": 8,
             "printed_page": 8,
             "quote": "KYC (Identity proof with Address) of the proposer, as per AML guidelines."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 8,
-            "printed_page": 8,
-            "quote": "NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code j."
           }
         ],
         "papers": [
@@ -4372,7 +4177,7 @@
             "phase": "claim",
             "pdf_page": 8,
             "printed_page": 8,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
@@ -4386,14 +4191,7 @@
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 6,
-            "printed_page": 6,
-            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), track health data add family members."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "kyc",
@@ -4401,13 +4199,6 @@
             "pdf_page": 8,
             "printed_page": 8,
             "quote": "KYC (Identity proof with Address) of the proposer, as per AML guidelines."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 8,
-            "printed_page": 8,
-            "quote": "NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code j."
           }
         ],
         "initial_wait": null
@@ -4507,28 +4298,14 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Such documentation will include the fol owing: r claim form, duIly completed Ou11 a."
+            "quote": "r claim form, duIly completed Ou11"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 21,
-            "printed_page": null,
-            "quote": "enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof andphotograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 21,
-            "printed_page": null,
-            "quote": "Imandatory NEFT (to I I 1• enable direct credit of claim amount in bank account) and KYC (recent"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           }
         ],
         "papers": [
@@ -4537,28 +4314,14 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Such documentation will include the fol owing: r claim form, duIly completed Ou11 a."
+            "quote": "r claim form, duIly completed Ou11"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 20,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 21,
-            "printed_page": null,
-            "quote": "enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof andphotograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 21,
-            "printed_page": null,
-            "quote": "Imandatory NEFT (to I I 1• enable direct credit of claim amount in bank account) and KYC (recent"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           }
         ],
         "initial_wait": {
@@ -4698,13 +4461,6 @@
             "quote": "All original medical Investigation reports (viz."
           },
           {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 33,
-            "printed_page": 33,
-            "quote": "MLC (Medico Legal Certificate) / FIR (First Information report)."
-          },
-          {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 32,
@@ -4747,13 +4503,6 @@
             "pdf_page": 33,
             "printed_page": 33,
             "quote": "All original medical Investigation reports (viz."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 33,
-            "printed_page": 33,
-            "quote": "MLC (Medico Legal Certificate) / FIR (First Information report)."
           },
           {
             "key": "kyc",
@@ -4882,13 +4631,6 @@
             "pdf_page": 23,
             "printed_page": 23,
             "quote": "Original payment receipt of the hospital bill with receipt number 6."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 23,
-            "printed_page": 23,
-            "quote": "Copy of the first information report from police department / copy of the medico-legal certificate."
           }
         ],
         "papers": [
@@ -4912,13 +4654,6 @@
             "pdf_page": 23,
             "printed_page": 23,
             "quote": "Original payment receipt of the hospital bill with receipt number 6."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 23,
-            "printed_page": 23,
-            "quote": "Copy of the first information report from police department / copy of the medico-legal certificate."
           }
         ],
         "initial_wait": {
@@ -5059,7 +4794,7 @@
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": 43,
-            "quote": "Claim Form Investigation Payment Receipt Original Investigation Report Original Pharmacy Bills Original Pharmacy Prescription Copy of Discharge Summary All Claims for"
+            "quote": "Claim Form Investigation Payment Receipt Original Investigation Report Original Pharmacy Bills Original Pharmacy Prescription Copy of Discharge Summary All Claims …"
           },
           {
             "key": "fir_mlc",
@@ -5073,7 +4808,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": 33,
-            "quote": "(v) Photo ID (vi) Address proof, and photo to comply with KYC norms If the foregoing information is"
+            "quote": "(v) Photo ID (vi) Address proof, and photo to comply with KYC norms If the foregoing information is …"
           }
         ],
         "papers": [
@@ -5117,7 +4852,7 @@
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": 43,
-            "quote": "Claim Form Investigation Payment Receipt Original Investigation Report Original Pharmacy Bills Original Pharmacy Prescription Copy of Discharge Summary All Claims for"
+            "quote": "Claim Form Investigation Payment Receipt Original Investigation Report Original Pharmacy Bills Original Pharmacy Prescription Copy of Discharge Summary All Claims …"
           },
           {
             "key": "fir_mlc",
@@ -5131,7 +4866,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": 33,
-            "quote": "(v) Photo ID (vi) Address proof, and photo to comply with KYC norms If the foregoing information is"
+            "quote": "(v) Photo ID (vi) Address proof, and photo to comply with KYC norms If the foregoing information is …"
           }
         ],
         "initial_wait": {
@@ -5248,7 +4983,7 @@
             "phase": "buy",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the prePolicy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the prePolicy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -5257,49 +4992,49 @@
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, c."
+            "quote": "Photo ID and Age Proof"
           }
         ],
         "papers": [
@@ -5315,56 +5050,56 @@
             "phase": "buy",
             "pdf_page": 43,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the prePolicy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the prePolicy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Duly Completed claim form, b."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "MLC / FIR Copy – in Accident cases only, k."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 51,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, c."
+            "quote": "Photo ID and Age Proof"
           }
         ],
         "initial_wait": {
@@ -5480,16 +5215,16 @@
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": 45,
-            "quote": "be availed within 60 days of hospitalization or as defined by medical practitioner in discharge summary."
+            "pdf_page": 57,
+            "printed_page": 56,
+            "quote": "is Medical, Insured needs to produce a Medical Certificate and a discharge summary from the Medical Practitioner attending the patient."
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 91,
             "printed_page": 90,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -5503,7 +5238,7 @@
             "phase": "claim",
             "pdf_page": 58,
             "printed_page": 57,
-            "quote": "scheduled accommodation - In case of cancellation due to loss of passport, FIR copies for loss of passport - Judicial or Law enforcement agency order (if applicable) -"
+            "quote": "scheduled accommodation - In case of cancellation due to loss of passport, FIR copies for loss of passport - Judicial or Law enforcement agency order (if applicable)"
           },
           {
             "key": "kyc",
@@ -5524,16 +5259,16 @@
           {
             "key": "discharge",
             "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": 45,
-            "quote": "be availed within 60 days of hospitalization or as defined by medical practitioner in discharge summary."
+            "pdf_page": 57,
+            "printed_page": 56,
+            "quote": "is Medical, Insured needs to produce a Medical Certificate and a discharge summary from the Medical Practitioner attending the patient."
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 91,
             "printed_page": 90,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -5547,7 +5282,7 @@
             "phase": "claim",
             "pdf_page": 58,
             "printed_page": 57,
-            "quote": "scheduled accommodation - In case of cancellation due to loss of passport, FIR copies for loss of passport - Judicial or Law enforcement agency order (if applicable) -"
+            "quote": "scheduled accommodation - In case of cancellation due to loss of passport, FIR copies for loss of passport - Judicial or Law enforcement agency order (if applicable)"
           },
           {
             "key": "kyc",
@@ -5657,7 +5392,7 @@
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -5701,7 +5436,7 @@
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "Documents required with claim form: Hospital / Medical records:"
+            "quote": "Documents required with claim form: Hospital / Medical records"
           },
           {
             "key": "discharge",
@@ -5857,21 +5592,21 @@
             "phase": "claim",
             "pdf_page": 54,
             "printed_page": null,
-            "quote": "Original bills of pharmacy/medicines purchased, or of any other investigation done outside Hospital"
+            "quote": "Original bills of pharmacy/medicines purchased, or of any other investigation done outside Hospital …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
-            "pdf_page": 13,
+            "pdf_page": 54,
             "printed_page": null,
-            "quote": "e-Consultation under this beneﬁt shall not be valid for any medico-legal purposes."
+            "quote": "For Medico-legal cases (MLC) or in case of Accident"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 53,
             "printed_page": null,
-            "quote": "Age / Identity proof document of Insured Person in case of claim approved under Cashless Facility (not"
+            "quote": "Age / Identity proof document of Insured Person in case of claim approved under Cashless Facility (not …"
           }
         ],
         "papers": [
@@ -5894,21 +5629,21 @@
             "phase": "claim",
             "pdf_page": 54,
             "printed_page": null,
-            "quote": "Original bills of pharmacy/medicines purchased, or of any other investigation done outside Hospital"
+            "quote": "Original bills of pharmacy/medicines purchased, or of any other investigation done outside Hospital …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
-            "pdf_page": 13,
+            "pdf_page": 54,
             "printed_page": null,
-            "quote": "e-Consultation under this beneﬁt shall not be valid for any medico-legal purposes."
+            "quote": "For Medico-legal cases (MLC) or in case of Accident"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 53,
             "printed_page": null,
-            "quote": "Age / Identity proof document of Insured Person in case of claim approved under Cashless Facility (not"
+            "quote": "Age / Identity proof document of Insured Person in case of claim approved under Cashless Facility (not …"
           }
         ],
         "initial_wait": null
@@ -6016,42 +5751,21 @@
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": null,
-            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": null,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 18,
-            "printed_page": null,
-            "quote": "Provided that any recommendation under this Policy shall not be valid for any medico legal purposes."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 34,
-            "printed_page": null,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 34,
-            "printed_page": null,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "papers": [
@@ -6067,42 +5781,21 @@
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": null,
-            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 34,
             "printed_page": null,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 18,
-            "printed_page": null,
-            "quote": "Provided that any recommendation under this Policy shall not be valid for any medico legal purposes."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 34,
-            "printed_page": null,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 34,
-            "printed_page": null,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "initial_wait": {
@@ -6228,35 +5921,14 @@
             "phase": "claim",
             "pdf_page": 45,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 45,
             "printed_page": null,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "Copy of MLC (Medico legal case) records, if carried out and FIR (First information report), if registered, in case"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "papers": [
@@ -6279,35 +5951,14 @@
             "phase": "claim",
             "pdf_page": 45,
             "printed_page": null,
-            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 45,
             "printed_page": null,
-            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "Copy of MLC (Medico legal case) records, if carried out and FIR (First information report), if registered, in case"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 46,
-            "printed_page": null,
-            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge …"
           }
         ],
         "initial_wait": {
@@ -6419,7 +6070,7 @@
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 38,
-            "quote": "ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, diagnostic"
+            "quote": "ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, diagnostic …"
           },
           {
             "key": "reports",
@@ -6427,27 +6078,6 @@
             "pdf_page": 38,
             "printed_page": 38,
             "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate g."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
           }
         ],
         "papers": [
@@ -6463,7 +6093,7 @@
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 38,
-            "quote": "ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, diagnostic"
+            "quote": "ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, diagnostic …"
           },
           {
             "key": "reports",
@@ -6471,27 +6101,6 @@
             "pdf_page": 38,
             "printed_page": 38,
             "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate g."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 38,
-            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
           }
         ],
         "initial_wait": {
@@ -6627,27 +6236,6 @@
             "pdf_page": 32,
             "printed_page": 32,
             "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate 8."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
           }
         ],
         "papers": [
@@ -6671,27 +6259,6 @@
             "pdf_page": 32,
             "printed_page": 32,
             "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate 8."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 32,
-            "printed_page": 32,
-            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
           }
         ],
         "initial_wait": null
@@ -6799,14 +6366,14 @@
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "v) Discharge Summary, with Date of admission and discharge, clinical history, past history, procedure details"
+            "quote": "v) Discharge Summary, with Date of admission and discharge, clinical history, past history, procedure details …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "Original bills with detailed breakup of charges (including but not limited to pharmacy purchase bill"
+            "quote": "Original bills with detailed breakup of charges (including but not limited to pharmacy purchase bill …"
           },
           {
             "key": "reports",
@@ -6829,14 +6396,14 @@
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "v) Discharge Summary, with Date of admission and discharge, clinical history, past history, procedure details"
+            "quote": "v) Discharge Summary, with Date of admission and discharge, clinical history, past history, procedure details …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 22,
             "printed_page": null,
-            "quote": "Original bills with detailed breakup of charges (including but not limited to pharmacy purchase bill"
+            "quote": "Original bills with detailed breakup of charges (including but not limited to pharmacy purchase bill …"
           },
           {
             "key": "reports",
@@ -6958,42 +6525,28 @@
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 37,
-            "quote": "for Duly completed claim form, and b."
+            "quote": "for Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 37,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": 42,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "reports",
             "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 37,
-            "quote": "\u0007Police Investigation report (wherever required) e."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 37,
-            "quote": "FIR (wherever required) d."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 37,
-            "printed_page": 36,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines Documents for"
+            "pdf_page": 23,
+            "printed_page": 22,
+            "quote": "- \u0007 If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 wellness points."
           }
         ],
         "papers": [
@@ -7009,42 +6562,28 @@
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 37,
-            "quote": "for Duly completed claim form, and b."
+            "quote": "for Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 38,
             "printed_page": 37,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 43,
             "printed_page": 42,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "reports",
             "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 37,
-            "quote": "\u0007Police Investigation report (wherever required) e."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 38,
-            "printed_page": 37,
-            "quote": "FIR (wherever required) d."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 37,
-            "printed_page": 36,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines Documents for"
+            "pdf_page": 23,
+            "printed_page": 22,
+            "quote": "- \u0007 If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 wellness points."
           }
         ],
         "initial_wait": {
@@ -7150,21 +6689,21 @@
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 27,
-            "quote": "Duly completed claim form, and Reimbursement of hospitalization, day care and pre hospitalization expenses Claim"
+            "quote": "Duly completed claim form, and Reimbursement of hospitalization, day care and pre hospitalization expenses Claim …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 27,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 32,
             "printed_page": 32,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "reports",
@@ -7172,13 +6711,6 @@
             "pdf_page": 16,
             "printed_page": 16,
             "quote": "- \u0007If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 wellness points."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 27,
-            "printed_page": 27,
-            "quote": "\u0007 KYC (Identity proof with Address) of the proposer, as per AMLGuidelines In non-network"
           }
         ],
         "papers": [
@@ -7187,21 +6719,21 @@
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 27,
-            "quote": "Duly completed claim form, and Reimbursement of hospitalization, day care and pre hospitalization expenses Claim"
+            "quote": "Duly completed claim form, and Reimbursement of hospitalization, day care and pre hospitalization expenses Claim …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 27,
             "printed_page": 27,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 32,
             "printed_page": 32,
-            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "reports",
@@ -7209,13 +6741,6 @@
             "pdf_page": 16,
             "printed_page": 16,
             "quote": "- \u0007If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 wellness points."
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 27,
-            "printed_page": 27,
-            "quote": "\u0007 KYC (Identity proof with Address) of the proposer, as per AMLGuidelines In non-network"
           }
         ],
         "initial_wait": {
@@ -7325,14 +6850,14 @@
             "phase": "buy",
             "pdf_page": 19,
             "printed_page": null,
-            "quote": "the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be insured under the Policy b) Loadings shall be applied from"
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be insured under the Policy b) Loadings shall be applied …"
           },
           {
             "key": "medical_records",
             "phase": "buy",
             "pdf_page": 19,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be …"
           }
         ],
         "claim_papers": [
@@ -7341,49 +6866,49 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Duly Completed claim form, ii."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, v."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and ﬁnal payment receipt and refund receipt(s), if advance amount refunded, vi."
+            "quote": "Final Hospital bill with all original deposit and ﬁnal payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, x."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "MLC / FIR Copy – in Accident cases only, xi."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, iii."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
@@ -7399,63 +6924,63 @@
             "phase": "buy",
             "pdf_page": 19,
             "printed_page": null,
-            "quote": "the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be insured under the Policy b) Loadings shall be applied from"
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be insured under the Policy b) Loadings shall be applied …"
           },
           {
             "key": "medical_records",
             "phase": "buy",
             "pdf_page": 19,
             "printed_page": null,
-            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be"
+            "quote": "the declarations made in the Proposal Form and the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be …"
           },
           {
             "key": "claim_form",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Duly Completed claim form, ii."
+            "quote": "Duly Completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Discharge Card / Day Care Summary / Transfer Summary, v."
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Final Hospital bill with all original deposit and ﬁnal payment receipt and refund receipt(s), if advance amount refunded, vi."
+            "quote": "Final Hospital bill with all original deposit and ﬁnal payment receipt and refund receipt(s), if advance amount refunded"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, x."
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "MLC / FIR Copy – in Accident cases only, xi."
+            "quote": "MLC / FIR Copy – in Accident cases only"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "Photo ID and Age Proof, iii."
+            "quote": "Photo ID and Age Proof"
           },
           {
             "key": "bank",
@@ -7562,56 +7087,42 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked"
+            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case"
+            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7"
+            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11"
+            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply) and"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 26,
-            "printed_page": null,
-            "quote": "√ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 MLC/FIR Report (If applicable) √ × √ × Sr."
+            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply)"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 24,
             "printed_page": null,
-            "quote": "Please note KYC documents (Photo ID card) shall be required at the premium refund to the Insured Member"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 27,
-            "printed_page": null,
-            "quote": "applicable) √ × √ × 19 *KYC (Photo ID card, If applicable) √ √ √ √ 20 Bank Details with Cancelled Cheque (If applicable) √ √ √ √ Note: There are times when you or any other person who could"
+            "quote": "Please note KYC documents (Photo ID card) shall be required at the premium refund to the Insured Member …"
           }
         ],
         "papers": [
@@ -7620,56 +7131,42 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked"
+            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case"
+            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7"
+            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11"
+            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply) and"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 26,
-            "printed_page": null,
-            "quote": "√ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 MLC/FIR Report (If applicable) √ × √ × Sr."
+            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply)"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 24,
             "printed_page": null,
-            "quote": "Please note KYC documents (Photo ID card) shall be required at the premium refund to the Insured Member"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 27,
-            "printed_page": null,
-            "quote": "applicable) √ × √ × 19 *KYC (Photo ID card, If applicable) √ √ √ √ 20 Bank Details with Cancelled Cheque (If applicable) √ √ √ √ Note: There are times when you or any other person who could"
+            "quote": "Please note KYC documents (Photo ID card) shall be required at the premium refund to the Insured Member …"
           }
         ],
         "initial_wait": null
@@ -7773,14 +7270,14 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 29,
-            "quote": "The insured shall submit the claim form along with attending physician’s certificate duly filled and signed in all respects with"
+            "quote": "The insured shall submit the claim form along with attending physician’s certificate duly filled and signed in all respects …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 29,
-            "quote": "Discharge summary (detailed) describing the nature of the complaints and its duration, treatment given"
+            "quote": "Discharge summary (detailed) describing the nature of the complaints and its duration, treatment given …"
           },
           {
             "key": "bills",
@@ -7788,20 +7285,6 @@
             "pdf_page": 29,
             "printed_page": 29,
             "quote": "Hospital Final Bill and advance and final hospital payment receipts, in Original."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 29,
-            "printed_page": 29,
-            "quote": "and nature of injury/Accident in case of claims arising out of injury (in the absence of FIR) 10."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 29,
-            "printed_page": 29,
-            "quote": "Cancelled cheque leaf in the name of the proposer clearing showing the IFSC code and account holder’s"
           }
         ],
         "papers": [
@@ -7810,14 +7293,14 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 29,
-            "quote": "The insured shall submit the claim form along with attending physician’s certificate duly filled and signed in all respects with"
+            "quote": "The insured shall submit the claim form along with attending physician’s certificate duly filled and signed in all respects …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 29,
-            "quote": "Discharge summary (detailed) describing the nature of the complaints and its duration, treatment given"
+            "quote": "Discharge summary (detailed) describing the nature of the complaints and its duration, treatment given …"
           },
           {
             "key": "bills",
@@ -7825,20 +7308,6 @@
             "pdf_page": 29,
             "printed_page": 29,
             "quote": "Hospital Final Bill and advance and final hospital payment receipts, in Original."
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 29,
-            "printed_page": 29,
-            "quote": "and nature of injury/Accident in case of claims arising out of injury (in the absence of FIR) 10."
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 29,
-            "printed_page": 29,
-            "quote": "Cancelled cheque leaf in the name of the proposer clearing showing the IFSC code and account holder’s"
           }
         ],
         "initial_wait": {
@@ -7972,14 +7441,7 @@
             "phase": "claim",
             "pdf_page": 25,
             "printed_page": 24,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 14,
-            "printed_page": 13,
-            "quote": "- If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 reward points - If two or more test results are not within the normal"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "fir_mlc",
@@ -8023,14 +7485,7 @@
             "phase": "claim",
             "pdf_page": 25,
             "printed_page": 24,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 14,
-            "printed_page": 13,
-            "quote": "- If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 reward points - If two or more test results are not within the normal"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "fir_mlc",
@@ -8177,14 +7632,14 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": 20,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": 20,
-            "quote": "(vi) Original pathological/diagnostic test reports/radiology reports and payment Policyholder's or Insured Person's duty at the time of"
+            "quote": "(vi) Original pathological/diagnostic test reports/radiology reports and payment Policyholder's or Insured Person's duty at the time …"
           },
           {
             "key": "prescription",
@@ -8221,14 +7676,14 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": 20,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": 20,
-            "quote": "(vi) Original pathological/diagnostic test reports/radiology reports and payment Policyholder's or Insured Person's duty at the time of"
+            "quote": "(vi) Original pathological/diagnostic test reports/radiology reports and payment Policyholder's or Insured Person's duty at the time …"
           },
           {
             "key": "prescription",
@@ -8361,7 +7816,7 @@
             "phase": "claim",
             "pdf_page": 16,
             "printed_page": 15,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -8375,7 +7830,7 @@
             "phase": "claim",
             "pdf_page": 16,
             "printed_page": 15,
-            "quote": "(iii) Medical Practitioner's prescription advising drugs / JOY - UIN:"
+            "quote": "(iii) Medical Practitioner's prescription advising drugs / JOY - UIN: RHIHLIP21373V022021"
           }
         ],
         "papers": [
@@ -8398,7 +7853,7 @@
             "phase": "claim",
             "pdf_page": 16,
             "printed_page": 15,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -8412,7 +7867,7 @@
             "phase": "claim",
             "pdf_page": 16,
             "printed_page": 15,
-            "quote": "(iii) Medical Practitioner's prescription advising drugs / JOY - UIN:"
+            "quote": "(iii) Medical Practitioner's prescription advising drugs / JOY - UIN: RHIHLIP21373V022021"
           }
         ],
         "initial_wait": {
@@ -8536,7 +7991,7 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 28,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -8544,20 +7999,6 @@
             "pdf_page": 31,
             "printed_page": 30,
             "quote": "Original pathological/diagnostic test reports/radiology reports and payment receipts"
-          },
-          {
-            "key": "prescription",
-            "phase": "claim",
-            "pdf_page": 31,
-            "printed_page": 30,
-            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or consultations"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 17,
-            "printed_page": 16,
-            "quote": "Benefit (vii) Any Second Opinion provided under this Benefit shall not be valid for any medico-legal purposes."
           },
           {
             "key": "kyc",
@@ -8587,7 +8028,7 @@
             "phase": "claim",
             "pdf_page": 29,
             "printed_page": 28,
-            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect …"
           },
           {
             "key": "reports",
@@ -8595,20 +8036,6 @@
             "pdf_page": 31,
             "printed_page": 30,
             "quote": "Original pathological/diagnostic test reports/radiology reports and payment receipts"
-          },
-          {
-            "key": "prescription",
-            "phase": "claim",
-            "pdf_page": 31,
-            "printed_page": 30,
-            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or consultations"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 17,
-            "printed_page": 16,
-            "quote": "Benefit (vii) Any Second Opinion provided under this Benefit shall not be valid for any medico-legal purposes."
           },
           {
             "key": "kyc",
@@ -8721,74 +8148,60 @@
           {
             "key": "claim_form",
             "phase": "claim",
-            "pdf_page": 2,
-            "printed_page": 2,
-            "quote": "non Cancellation disclosure of material fact as declared in the proposal form and/or claim form at the tim e of claim and non co-operation of the insured by sending the Insured 30 days"
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "Discharge Summary from the hospital in original d."
+            "quote": "Discharge Summary from the hospital in original"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 8,
             "printed_page": 8,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 9,
-            "printed_page": 9,
-            "quote": "Police Investigation report (wherever required) e."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "First Information Report in-case of Road Trafﬁc Accident i."
+            "quote": "First Information Report in-case of Road Trafﬁc Accident"
           }
         ],
         "papers": [
           {
             "key": "claim_form",
             "phase": "claim",
-            "pdf_page": 2,
-            "printed_page": 2,
-            "quote": "non Cancellation disclosure of material fact as declared in the proposal form and/or claim form at the tim e of claim and non co-operation of the insured by sending the Insured 30 days"
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "Discharge Summary from the hospital in original d."
+            "quote": "Discharge Summary from the hospital in original"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 8,
             "printed_page": 8,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 9,
-            "printed_page": 9,
-            "quote": "Police Investigation report (wherever required) e."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           },
           {
             "key": "fir_mlc",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "First Information Report in-case of Road Trafﬁc Accident i."
+            "quote": "First Information Report in-case of Road Trafﬁc Accident"
           }
         ],
         "initial_wait": null
@@ -8891,42 +8304,21 @@
             "phase": "claim",
             "pdf_page": 7,
             "printed_page": 7,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 7,
             "printed_page": 7,
-            "quote": "Discharge Summary from the hospital in original d."
+            "quote": "Discharge Summary from the hospital in original"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 7,
-            "printed_page": 7,
-            "quote": "Clinical, radiological, histological, pathological, histopathological and laboratory reports in support Note: Call the 24 hour help-line for assistance-1800 425 2255 / 1800 102"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 5,
-            "printed_page": 5,
-            "quote": "records submitted · The second opinion should be only for medical reasons and not for medico-legal purposes · Any liability due to any errors or omission or consequences of any action"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 7,
-            "printed_page": 7,
-            "quote": "NEFT details F."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           }
         ],
         "papers": [
@@ -8935,42 +8327,21 @@
             "phase": "claim",
             "pdf_page": 7,
             "printed_page": 7,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 7,
             "printed_page": 7,
-            "quote": "Discharge Summary from the hospital in original d."
+            "quote": "Discharge Summary from the hospital in original"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 9,
             "printed_page": 9,
-            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 7,
-            "printed_page": 7,
-            "quote": "Clinical, radiological, histological, pathological, histopathological and laboratory reports in support Note: Call the 24 hour help-line for assistance-1800 425 2255 / 1800 102"
-          },
-          {
-            "key": "fir_mlc",
-            "phase": "claim",
-            "pdf_page": 5,
-            "printed_page": 5,
-            "quote": "records submitted · The second opinion should be only for medical reasons and not for medico-legal purposes · Any liability due to any errors or omission or consequences of any action"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 7,
-            "printed_page": 7,
-            "quote": "NEFT details F."
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give …"
           }
         ],
         "initial_wait": null
@@ -9073,28 +8444,21 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": 25,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": 25,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 30,
             "printed_page": 29,
-            "quote": "\u0007The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall Medi Classic"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 25,
-            "printed_page": 24,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall Medi Classic …"
           }
         ],
         "papers": [
@@ -9103,28 +8467,21 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": 25,
-            "quote": "Duly completed claim form, and b."
+            "quote": "Duly completed claim form"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": 25,
-            "quote": "\u0007Discharge Summary in original from the hospital d."
+            "quote": "Discharge Summary in original from the hospital"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 30,
             "printed_page": 29,
-            "quote": "\u0007The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall Medi Classic"
-          },
-          {
-            "key": "kyc",
-            "phase": "claim",
-            "pdf_page": 25,
-            "printed_page": 24,
-            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall Medi Classic …"
           }
         ],
         "initial_wait": null
@@ -9248,21 +8605,14 @@
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "For Medico-legal cases(MLC) or in case of Accident i."
+            "quote": "For Medico-legal cases(MLC) or in case of Accident"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "Age/Identity proof document: Of Insured Person in case of cashless claim (not required if submitted at the"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 28,
-            "printed_page": null,
-            "quote": "Cancelled cheque/ bank statement / copy of passbook mentioning account holder’s name, IFSC code and"
+            "quote": "Self attested copy of identity proof (passport / driving license / PAN card / voter identity card)"
           }
         ],
         "papers": [
@@ -9292,21 +8642,14 @@
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "For Medico-legal cases(MLC) or in case of Accident i."
+            "quote": "For Medico-legal cases(MLC) or in case of Accident"
           },
           {
             "key": "kyc",
             "phase": "claim",
             "pdf_page": 28,
             "printed_page": null,
-            "quote": "Age/Identity proof document: Of Insured Person in case of cashless claim (not required if submitted at the"
-          },
-          {
-            "key": "bank",
-            "phase": "claim",
-            "pdf_page": 28,
-            "printed_page": null,
-            "quote": "Cancelled cheque/ bank statement / copy of passbook mentioning account holder’s name, IFSC code and"
+            "quote": "Self attested copy of identity proof (passport / driving license / PAN card / voter identity card)"
           }
         ],
         "initial_wait": {
@@ -9411,13 +8754,6 @@
             "pdf_page": 49,
             "printed_page": 48,
             "quote": "a) Forthwith file/submit a claim form in accordance with \"Claim Procedure\" clause."
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 18,
-            "printed_page": 17,
-            "quote": "- In-network diagnostics on submission of diagnostic reports -In-network Physiotherapy on submission of consultation papers This benefit is subject"
           }
         ],
         "papers": [
@@ -9427,13 +8763,6 @@
             "pdf_page": 49,
             "printed_page": 48,
             "quote": "a) Forthwith file/submit a claim form in accordance with \"Claim Procedure\" clause."
-          },
-          {
-            "key": "reports",
-            "phase": "claim",
-            "pdf_page": 18,
-            "printed_page": 17,
-            "quote": "- In-network diagnostics on submission of diagnostic reports -In-network Physiotherapy on submission of consultation papers This benefit is subject"
           }
         ],
         "initial_wait": {
