@@ -24,13 +24,15 @@ HDFC = {"hdfc_optima_secure", "hdfc_optima_restore", "hdfc_optima_senior"}
 
 
 @pytest.mark.parametrize("text,ids", [
-    ("HDFC dekhna hai", HDFC),
+    ("HDFC health policy dekhna hai", HDFC),
     ("Optima", HDFC),
     ("ReAssure", {"niva_reassure", "niva_reassure2_platinum", "niva_reassure3"}),
     ("star health", {"star_super_star", "star_health_premier", "star_diabetes_safe", "star_super_surplus_gold"}),
 ])
 def test_insurer_name_alone_names_the_family(text, ids):
-    found, _ = mentioned(text)
+    from policy_select import narrow_by_category
+    found, rest = mentioned(text)
+    found = narrow_by_category(found, rest)
     assert set(found) == ids and one_family(found)
 
 
@@ -50,7 +52,7 @@ def test_day_care_does_not_name_care_health():
 
 
 def test_family_asks_which_exact_product_with_a_difference_each():
-    pol, fin = turn("HDFC")
+    pol, fin = turn("HDFC health")
     assert pol is None and fin["status"] == "choose_policy" and fin.get("which_product")
     assert {o["policy_id"] for o in fin["options"]} == HDFC
     assert all(o["differs"] for o in fin["options"])

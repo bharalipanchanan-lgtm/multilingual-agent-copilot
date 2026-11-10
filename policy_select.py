@@ -22,7 +22,7 @@ OTHER_INSURERS = {"manipal cigna": "ManipalCigna", "manipalcigna": "ManipalCigna
                   "future generali": "Future Generali", "cholamandalam": "Cholamandalam MS", "chola ms": "Cholamandalam MS",
                   "liberty general": "Liberty General", "kotak": "Kotak General", "magma": "Magma HDI",
                   "universal sompo": "Universal Sompo", "galaxy health": "Galaxy Health", "narayana": "Narayana Health",
-                  "zuno": "Zuno", "navi": "Navi General", "lic": "LIC"}
+                  "zuno": "Zuno", "navi": "Navi General"}
 
 # Words that carry no content in "I would like to review the SBI policy" style requests. The last
 # Roman line holds the spellings Sarvam's transliteration uses ("Mujhe SBI vali policy dekhni hai").
@@ -30,7 +30,7 @@ FILLER = set("""
 i i'd id me my we us let lets let's would like want wanna to the a an of about for on in with and please pls kindly
 review inspect check see look open use select choose show switch change go start load read study discuss
 policy policies document documents doc wording wordings plan plans health insurance insurer company mediclaim
-now ok okay yes sure thanks thank you this that one
+now ok okay yes sure thanks thank you this that one term life cover products product
 mujhe mujhko humein hume hum main mai mein ko ka ki ke se par pe wala wali wale ab abhi chalo theek thik haan han
 dekhna dekhni dekhne dekho dikhao dikhaiye kholo kholiye karna karni karo kariye chahta chahti chahte chahiye hai hain
 hoon hu hun ho jao jaaye baat batao bataiye policy polisi document dastavez bima
@@ -41,14 +41,14 @@ vali vala vale chahie chaahie chahiye chaahiye dekhani dekhana mujhko iss is us 
 
 TEXT = {
     "choose": {
-        "en": "Which policy document would you like to inspect?",
-        "hinglish": "Kaunsa policy document aapko dekhna hai?",
-        "hi": "आप कौन सा पॉलिसी दस्तावेज़ देखना चाहते हैं?",
+        "en": "Which policy document are you looking for? Type the insurer or product name (for example ICICI or Star Health), or browse the documents.",
+        "hinglish": "Aapko kaunsa policy document chahiye? Insurer ya product ka naam likhiye (jaise ICICI ya Star Health), ya documents browse kijiye.",
+        "hi": "आपको कौन सा पॉलिसी दस्तावेज़ चाहिए? बीमा कंपनी या प्रोडक्ट का नाम लिखिए (जैसे ICICI या Star Health), या दस्तावेज़ ब्राउज़ कीजिए।",
     },
     "greet": {
-        "en": "Hello! I'm {agent}, your health insurance policy copilot. I answer only from the policy document, with the clause and page, and I say so when the document is silent.\nTwo ways to start: tell me the customer's need (for example 'mother 50, diabetes, room rent above 10,000') and I find the best products, or name the product and I check only that one.",
-        "hinglish": "Namaste! Main {agent} hoon, aapka health insurance policy copilot. Main sirf policy document se jawab deta hoon, clause aur page ke saath. Document mein na ho to saaf bata deta hoon.\nDo tareeke: customer ki zaroorat bataiye (jaise 'mummy 50 saal, diabetes, room rent 10,000 se upar') aur main best product dhoondhunga, ya product ka naam lijiye aur main sirf usi ko check karunga.",
-        "hi": "नमस्ते! मैं {agent} हूँ, आपका हेल्थ इंश्योरेंस पॉलिसी कोपायलट। मैं केवल पॉलिसी दस्तावेज़ से, क्लॉज़ और पेज के साथ जवाब देता हूँ, और दस्तावेज़ में न हो तो साफ़ बता देता हूँ।\nदो तरीके: ग्राहक की ज़रूरत बताइए (जैसे 'माँ 50 साल, डायबिटीज़, रूम रेंट 10,000 से ऊपर') और मैं सबसे अच्छे प्रोडक्ट ढूँढूँगा, या प्रोडक्ट का नाम लीजिए और मैं सिर्फ़ उसी को जाँचूँगा।",
+        "en": "Hello! I'm {agent}, your insurance policy copilot. I answer only from the policy document, with the clause and page.",
+        "hinglish": "Namaste! Main {agent} hoon, aapka insurance policy copilot. Main sirf policy document se jawab deta hoon, clause aur page ke saath.",
+        "hi": "नमस्ते! मैं {agent} हूँ, आपका इंश्योरेंस पॉलिसी कोपायलट। मैं केवल पॉलिसी दस्तावेज़ से, क्लॉज़ और पेज के साथ जवाब देता हूँ।",
     },
     "greet_again": {
         "en": "Hello again! I'm answering from {name}. Ask your question, or name another policy to switch.",
@@ -81,9 +81,9 @@ TEXT = {
         "hi": "आपने एक से अधिक पॉलिसी का नाम लिया। मैं कौन सी इस्तेमाल करूँ?",
     },
     "which_product": {
-        "en": "{insurer} has {n} products with similar names loaded. Which exact product do you mean?",
-        "hinglish": "{insurer} ke {n} milte-julte naam wale products loaded hain. Aap kaunsa product dekhna chahte hain?",
-        "hi": "{insurer} के {n} मिलते-जुलते नाम वाले प्रोडक्ट लोड हैं। आप ठीक कौन सा प्रोडक्ट देखना चाहते हैं?",
+        "en": "I have {n} {insurer} documents loaded. Which exact product do you mean?",
+        "hinglish": "Mere paas {insurer} ke {n} documents loaded hain. Aap kaunsa product dekhna chahte hain?",
+        "hi": "मेरे पास {insurer} के {n} दस्तावेज़ लोड हैं। आप ठीक कौन सा प्रोडक्ट देखना चाहते हैं?",
     },
     "which_hint": {
         "en": "Tap one, or type its name. I answer from one product only, never a mix.",
@@ -101,9 +101,9 @@ TEXT = {
         "hi": "नई बिक्री के लिए मौजूदा प्रोडक्ट {new} है। बदलने के लिए \"{label}\" लिखिए।",
     },
     "not_loaded": {
-        "en": "I do not have a {insurer} policy loaded, so I cannot answer from it. These are the policies I have:",
-        "hinglish": "Mere paas {insurer} ki koi policy loaded nahi hai, isliye main usse jawab nahi de sakta. Yeh policies hain:",
-        "hi": "मेरे पास {insurer} की कोई पॉलिसी लोड नहीं है, इसलिए मैं उससे जवाब नहीं दे सकता। ये पॉलिसी उपलब्ध हैं:",
+        "en": "I do not have a {insurer} policy loaded, so I cannot answer from it.",
+        "hinglish": "Mere paas {insurer} ki koi policy loaded nahi hai, isliye main usse jawab nahi de sakta.",
+        "hi": "मेरे पास {insurer} की कोई पॉलिसी लोड नहीं है, इसलिए मैं उससे जवाब नहीं दे सकता।",
     },
 }
 KIND = {"brochure": {"en": "brochure", "hinglish": "brochure", "hi": "ब्रोशर"},
@@ -118,12 +118,19 @@ def policies() -> list[dict]:
         if not (POLICY_DIR / r["file"]).exists():
             continue
         # aliases in the same form as the text they are matched against ("ReAssure 2.0" -> "reassure 2 0")
-        aliases = list(dict.fromkeys(_norm(a).strip() for a in (r.get("aliases") or "").split(";") if a.strip()))
+        # the insurer's full name ("Life Insurance Corporation of India", "The New India Assurance Company")
+        # always names its products, with and without a leading "The"
+        full = _norm(r["insurer"]).strip()
+        short = re.sub(r"( of india| limited| ltd| company| insurance| assurance| general)+$", "", re.sub(r"^the ", "", full))
+        names = (r.get("aliases") or "").split(";") + [full, re.sub(r"^the ", "", full)] + ([short] if len(short) > 3 else [])
+        aliases = list(dict.fromkeys(_norm(a).strip() for a in names if a.strip()))
         out.append({"n": len(out) + 1, "policy_id": r["policy_id"], "insurer": r["insurer"],
                     "product": r["product"], "name": display_name(r), "aliases": aliases,
                     "label": r.get("label") or "", "uin": r.get("uin") or "",
                     "status": (r.get("status") or "active").strip(), "replaced_by": (r.get("replaced_by") or "").strip(),
-                    "status_source": r.get("status_source") or "", "differs": (r.get("differs") or "").strip()})
+                    "status_source": r.get("status_source") or "", "differs": (r.get("differs") or "").strip(),
+                    "category": (r.get("category") or "health").strip(),
+                    "solo": [_norm(a).strip() for a in (r.get("solo_aliases") or "").split(";") if a.strip()]})
     return out
 
 
@@ -183,6 +190,15 @@ def mentioned(text: str) -> tuple[list[str], str]:
                 if hit and single[hit[0]] not in sets:
                     sets.append(single[hit[0]])
                     cut = cut.replace(f" {w} ", " ")
+    if not sets:
+        # "Star", "Care", "Royal", "Max": too common to match inside a sentence ("star rating", "day
+        # care"), so they name their products only when the message is that word and nothing else
+        words = [w for w in cut.split() if w not in FILLER]
+        if len(words) == 1:
+            ids = [p["policy_id"] for p in pols if words[0] in p["solo"]]
+            if ids:
+                sets.append(ids)
+                cut = cut.replace(f" {words[0]} ", " ")
     found: list[str] = []
     for s_ in sets:
         if any(set(o) < set(s_) for o in sets):  # a more specific name narrows this one
@@ -192,10 +208,55 @@ def mentioned(text: str) -> tuple[list[str], str]:
 
 
 def one_family(ids: list[str]) -> bool:
-    """True when every id is a product of the same insurer: the agent named the insurer or a
-    shared product name, not two policies to choose between."""
-    ins = {p["insurer"] for p in policies() if p["policy_id"] in ids}
-    return len(ids) > 1 and len(ins) == 1
+    """True when the ids share a name the agent can use for all of them ("ICICI" names ICICI Lombard's
+    health policy and ICICI Prudential's term plans; "Star" names four Star Health products): the agent
+    named a brand, not two policies to choose between."""
+    pols = [p for p in policies() if p["policy_id"] in ids]
+    if len(pols) < 2:
+        return False
+    common = set(pols[0]["aliases"] + pols[0]["solo"])
+    for p in pols[1:]:
+        common &= set(p["aliases"] + p["solo"])
+    return bool(common)
+
+
+# "ICICI health policy", "HDFC term plan": the kind of cover narrows a brand's list
+CATEGORY_RE = {
+    "health": re.compile(r"\b(health|mediclaim|medical|hospital\w*|swasthya|sehat|room rent|kamra|icu|maternity|co-?pay\w*"
+                         r"|pre-?existing|cashless|day ?care|ayush|cataract|surgery)\b|स्वास्थ्य|हेल्थ|मेडिक्लेम|अस्पताल|रूम रेंट", re.I),
+    "term": re.compile(r"\b(term|life cover|life insurance|jeevan bima|death (cover|benefit)|sum assured|maturity|suicide"
+                         r"|return of premium)\b|टर्म|जीवन बीमा|मृत्यु", re.I),
+}
+CATEGORY_NAME = {"health": {"en": "health", "hinglish": "health", "hi": "हेल्थ"},
+                 "term": {"en": "term", "hinglish": "term", "hi": "टर्म"}}
+
+
+def category_in(text: str) -> str | None:
+    hits = [c for c, rx in CATEGORY_RE.items() if rx.search(text)]
+    return hits[0] if len(hits) == 1 else None
+
+
+def narrow_by_category(ids: list[str], rest: str) -> list[str]:
+    """Keep the products of the kind the agent asked for. The words are read from the text left after
+    the policy names are removed, so "Star Health" (a name) does not count as asking for health."""
+    cat = category_in(rest)
+    if not cat or len(ids) < 2:
+        return ids
+    kept = [i for i in ids if (by_id(i) or {}).get("category") == cat]
+    return kept or ids
+
+
+def group_name(ids: list[str]) -> str:
+    """What the agent called the group: the insurer when there is one, else the shared name (ICICI)."""
+    pols = [p for p in policies() if p["policy_id"] in ids]
+    ins = {p["insurer"] for p in pols}
+    if len(ins) == 1:
+        return pols[0]["insurer"]
+    common = set(pols[0]["aliases"] + pols[0]["solo"])
+    for p in pols[1:]:
+        common &= set(p["aliases"] + p["solo"])
+    latin = sorted((a for a in common if a.isascii()), key=len)
+    return latin[0].upper() if latin and len(latin[0]) <= 5 else (latin[0].title() if latin else pols[0]["insurer"])
 
 
 def strip_names(text: str) -> str:
@@ -246,7 +307,7 @@ def _label(p: dict) -> str:
 
 def options(only: list[str] | None = None) -> list[dict]:
     out = [{"n": p["n"], "policy_id": p["policy_id"], "name": p["name"], "label": _label(p),
-            "status": p["status"], "replaced_by": p["replaced_by"]}
+            "status": p["status"], "replaced_by": p["replaced_by"], "category": p["category"]}
            for p in policies() if not only or p["policy_id"] in only]
     if only and len(out) > 1:
         notes = differences([o["policy_id"] for o in out])
@@ -277,7 +338,7 @@ def _features(p: dict) -> list[tuple[str, str]]:
     products are shown next to each option."""
     num = _fact_numbers(p["policy_id"])
     prod = p["product"].lower()
-    out = []
+    out = []   # health or term is shown as a tag on the card, not repeated here
     if p["status"] == "withdrawn":
         rep = by_id(p["replaced_by"]) if p["replaced_by"] else None
         out.append(("status", "stopped" + (f", replaced by {_label(rep)}" if rep else "")))
@@ -368,8 +429,7 @@ def stopped_note(policy_id: str, lang: str) -> str | None:
 
 def which_product_message(lang: str, ids: list[str]) -> tuple[str, list[dict]]:
     opts = options(ids)
-    ins = next(p["insurer"] for p in policies() if p["policy_id"] == ids[0])
-    head = TEXT["which_product"][lang].format(insurer=ins, n=len(opts))
+    head = TEXT["which_product"][lang].format(insurer=group_name(ids), n=len(opts))
     return f"{head}\n{option_lines(opts)}\n{TEXT['which_hint'][lang]}", opts
 
 
@@ -407,12 +467,13 @@ def greet_message(lang: str, policy_id: str | None = None) -> str:
         p = next((p for p in policies() if p["policy_id"] == policy_id), None)
         if p:
             return TEXT["greet_again"][lang].format(name=p["name"])
-    return TEXT["greet"][lang].format(agent=AGENT_NAME) + "\n\n" + choose_message(lang)
+    return TEXT["greet"][lang].format(agent=AGENT_NAME) + "\n" + TEXT["choose"][lang]
 
 
 def choose_message(lang: str, opts: list[dict] | None = None, key: str = "choose", **fmt) -> str:
-    """At 300 documents the message must not list 300: it lists the first few and says how many more."""
-    opts = opts or options()
-    shown, more = opts[:LIST_IN_MESSAGE], len(opts) - LIST_IN_MESSAGE
-    extra = "\n" + TEXT["more"][lang].format(n=more) if more > 0 else ""
-    return f"{TEXT[key][lang].format(**fmt)}\n{option_lines(shown)}{extra}\n{TEXT['choose_hint'][lang]}"
+    """Asking which document: no list when nothing narrows it (the agent types a name or browses, which
+    works for 300 documents as well as 5); a short list when a name matched several."""
+    if opts is None:
+        head = TEXT[key][lang].format(**fmt)
+        return head if key == "choose" else head.rstrip(":：") + "\n" + TEXT["choose"][lang]
+    return f"{TEXT[key][lang].format(**fmt)}\n{option_lines(opts)}\n{TEXT['choose_hint'][lang]}"

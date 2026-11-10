@@ -67,10 +67,11 @@ def coverage_note(lang: str, covered: set[str]) -> str | None:
     """Comparison and ranking read only the fact table. When documents are loaded without fact rows,
     say so, so a shortlist of 5 is never read as the best of all loaded documents."""
     from policy_select import options
-    missing = [o["label"] for o in options() if o["policy_id"] not in covered]
+    health = [o for o in options() if o.get("category", "health") == "health"]  # the fact table holds health facts
+    missing = [o["label"] for o in health if o["policy_id"] not in covered]
     if not missing:
         return None
-    n = len(options())
+    n = len(health)
     names = ", ".join(missing[:8]) + (f" (+{len(missing) - 8})" if len(missing) > 8 else "")
     return COVERAGE[lang].format(k=n - len(missing), n=n, names=names)
 

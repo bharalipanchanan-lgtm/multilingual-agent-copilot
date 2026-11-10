@@ -93,23 +93,26 @@ def main():
             check(page.locator(".msg").count() == 0, "the copilot spoke before the agent did")
             check(page.locator("select").count() == 0, "a dropdown is still on the page")
             check("No policy chosen yet" in page.inner_text("#cur"), "header does not say no policy is chosen")
-            check(not page.locator("#chips").is_visible(), "suggestions shown before a policy is chosen")
+            check(page.locator("#hero button").count() == 1 and page.inner_text("#hiBtn") == "Hi",
+                  "the welcome screen should have exactly one button, Hi")
+            check(page.locator(".chip").count() == 0, "suggestion chips are back")
             for _ in range(120):  # wait for the models
                 if "online" in page.inner_text("#status"):
                     break
                 page.wait_for_timeout(1000)
             check("online" in page.inner_text("#status"), "server not online")
-            t = send("Hi")
+            t = send("", tap=lambda: page.click("#hiBtn"))
             check(not page.locator("#hero").is_visible(), "welcome screen still shown after the first message")
-            check("Bima Saathi" in t and "Which policy document would you like to inspect?" in t, f"no greeting: {t[:160]!r}")
-            check(page.locator(".opt").count() == 5, f"expected 5 option buttons, saw {page.locator('.opt').count()}")
-            said = page.locator(".msg.bot").last.locator(".btext").inner_text()
-            check(not re.search(r"(?m)^1\. ", said), "documents listed twice (as text and as cards)")
-        step("Welcome screen names the copilot; Hi gets a greeting and the documents", greeting)
+            check("Bima Saathi" in t and "Which policy document are you looking for?" in t, f"no greeting: {t[:160]!r}")
+            last = page.locator(".msg.bot").last
+            check(last.locator(".opt").count() == 0, "the greeting should not list documents")
+            acts = [b.inner_text() for b in last.locator(".act-btn").all()]
+            check(acts == ["Browse the policy documents", "Find a product for a customer"], f"greeting buttons: {acts}")
+        step("Welcome screen has one Hi button; Hi asks which document, with Browse and Find", greeting)
 
         def held_question():
             t = send("Diabetes ke liye waiting period kitna hai?")
-            check("Kaunsa policy document aapko dekhna hai?" in t, "did not ask which policy")
+            check("kaunsa policy document chahiye" in t.lower(), "did not ask which policy")
             check("Choose a policy document" in t, "badge missing")
         step("Question before choosing is held, copilot asks which policy", held_question)
 
@@ -123,7 +126,7 @@ def main():
             check(re.search(r"2 saal|two years|2 years", ans, re.I), "diabetes answer lacks the 2 year rule")
             quotes = page.locator(".msg.bot").last.locator(".cardc q").all_inner_texts()
             check(any("diabet" in q.lower() for q in quotes), f"no clause card quotes the diabetes line: {quotes}")
-            check(page.locator("#chips").is_visible(), "suggestions not shown after choosing")
+            check(page.locator(".chip").count() == 0, "suggestion chips came back after choosing")
             return ans.splitlines()[1][:90]
         step("Typing 'National Mediclaim policy dekhna hai' chooses it and answers the held question", choose_by_typing)
 
@@ -165,18 +168,17 @@ def main():
 
         def switch_by_tap():
             t = send("", tap=lambda: page.click("#cur"))
-            check("Which policy document" in t or "Kaunsa" in t, f"tapping the header did not show the list: {t[:120]!r}")
+            check("Which policy document" in t or "Kaunsa" in t or "kaunsa" in t, f"tapping the header did not ask: {t[:120]!r}")
             last = page.locator(".msg.bot").last
-            check(last.locator(".opt").count() == 5, "no option buttons in the list")
-            # SBI Retail is marked withdrawn, so it is no longer among the first five; Royal Sundaram is a brochure
-            t = send("", tap=lambda: last.locator(".opt", has_text="Royal Sundaram").click())
+            check(last.locator(".act-btn").count() == 2, "no Browse and Find buttons")
+            t = send("Royal")   # the short name alone selects Royal Sundaram, a brochure
             check("Royal Sundaram" in page.inner_text("#cur"), "header did not switch to Royal Sundaram")
             check("brochure" in t, "no brochure warning")
             check("me" in page.locator(".msg").nth(-2).get_attribute("class"), "the tap did not show as the agent's message")
-        step("Tap header, tap Royal Sundaram: switches with a brochure warning", switch_by_tap)
+        step("Tap header asks which document; 'Royal' switches with a brochure warning", switch_by_tap)
 
         def sbi_maternity():
-            t = send("SBI")
+            t = send("SBI health policy")   # "SBI" alone lists SBI General (health) and SBI Life (term)
             check("no longer sold" in t, f"SBI Retail is marked withdrawn but no warning: {t[:200]!r}")
             t = send("Is maternity covered?")
             check("no longer sold" in t, "answer from a withdrawn product carries no warning")
@@ -209,8 +211,8 @@ def main():
             t = send("Compare the diabetes waiting period across policies")
             check("From the policy fact table" in t, t[:160])
             n = page.locator(".msg.bot").last.locator("table.cmp tr").count() - 1
-            on_sale = sum(1 for p in page.request.get(URL.rstrip("/") + "/api/policies").json() if p["status"] != "withdrawn")
-            check(n == on_sale, f"comparison table has {n} policies, {on_sale} are on sale")
+            on_sale = sum(1 for p in page.request.get(URL.rstrip("/") + "/api/policies").json() if p["status"] != "withdrawn" and p["category"] == "health")
+            check(n == on_sale, f"comparison table has {n} policies, {on_sale} health products are on sale")
             check("no longer sold" not in t, "a withdrawn product is in the comparison")
             check("Not yet verified" in t or "unverified" in t, "no unverified marker")
         step("Comparison covers every product on sale, marked unverified", compare)
@@ -251,11 +253,16 @@ def main():
             t = send("HDFC")
             check("Which exact product" in t, t[:160])
             last = page.locator(".msg.bot").last
-            check(last.locator(".opt").count() == 3, "should offer the three HDFC products")
+            check(last.locator(".opt").count() == 5, "should offer HDFC ERGO's three health and HDFC Life's two term documents")
+            check(last.locator(".opt .cat.term").count() == 2, "term plans are not marked as term")
+            t = send("HDFC health policy")
+            last = page.locator(".msg.bot").last
+            check(last.locator(".opt").count() == 3, "HDFC health should list only the three health documents")
+            check(last.locator(".opt .cat.term").count() == 0, "a term plan was listed for HDFC health")
             check(last.locator(".opt small.diff").count() == 3, "each product needs a line on how it differs")
             t = send("", tap=lambda: last.locator(".opt", has_text="Optima Restore").click())
             check("Optima Restore" in page.inner_text("#cur"), "did not switch to Optima Restore")
-        step("Insurer with look-alike products: asks which exact product, one line of difference each", which_product)
+        step("HDFC lists 5 (health and term); HDFC health lists only the 3 health, each with how it differs", which_product)
 
         def quick():
             t0 = time.time()
@@ -289,14 +296,19 @@ def main():
             page.set_viewport_size({"width": 1280, "height": 860})
             page.wait_for_timeout(300)
             check(page.locator(".side, #plist, .pitem").count() == 0, "a chat list of policies is on the page")
-            check(page.locator(".msg.bot").first.locator(".browse").count() == 1, "greeting has no Browse all documents")
-            page.click("#browseTop")
+            browse = page.locator(".msg.bot").first.locator(".act-btn[data-act=browse]")
+            check(browse.count() == 1, "greeting has no Browse the policy documents button")
+            browse.click()
             check(page.locator("#sheet").is_visible(), "document browser did not open")
             n_docs = len(page.request.get(URL.rstrip("/") + "/api/policies").json())
             check(n_docs >= 15, f"only {n_docs} documents loaded")
             check(page.locator("#doclist .doc").count() == n_docs, "browser does not list every loaded document")
             page.fill("#docsearch", "royal sund")
             check(page.locator("#doclist .doc").count() == 1, "search did not narrow to one document")
+            page.fill("#docsearch", "icici term")
+            check(page.locator("#doclist .doc").count() == 2, "searching 'icici term' should find the two ICICI term plans")
+            page.fill("#docsearch", "star")
+            check(page.locator("#doclist .doc").count() == 4, "searching 'star' should find the four Star Health products")
             page.fill("#docsearch", "manipal")
             check("No loaded document matches" in page.inner_text("#doclist"), "no message for a document that is not loaded")
             page.fill("#docsearch", "multiplier")

@@ -87,6 +87,12 @@ Simple questions (room rent, waiting period, age limit, co-pay, sum insured, bon
     python fit.py "mother 50, diabetes, room rent above 10000"
     python extract_facts.py --all          # draft fact rows (hosted model, quotes checked against the PDF)
 
+## Health and term, one Hi button (2026-11-10, later)
+
+39 documents: 29 health and 10 term life plans. The page opens with one "Hi" button. The copilot then asks which document, with two buttons: "Browse the policy documents" and "Find a product for a customer". Naming a brand lists its documents ("ICICI" gives ICICI Lombard's health policy and ICICI Prudential's two term plans); naming the kind narrows it ("ICICI term plan", "HDFC health"). "Star", "Care", "Royal" and "Max" work when typed alone. The customer finder, ranking and quick answers cover health only.
+
+    COPILOT_URL=http://localhost:8000/ python tests/e2e_all_docs.py   # every document: PDF, names, a question, browser search
+
 ## Adding a policy
 
 1. Put the PDF in data/policies/ and add a row to data/policies/manifest.csv.

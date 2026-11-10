@@ -54,3 +54,7 @@ Be honest about the current limits:
 5. Add a product name to the same need ("... Check Diabetes Safe") and only that product is checked.
 
 Say in the demo: fact values were drafted by a model and every quote was checked against the PDF, but no person has signed them off yet; entry ages are mostly in brochures, not wordings, so the copilot asks the agent to confirm age instead of guessing. Premium is still never quoted.
+
+## Opening (from 2026-11-10, later)
+
+Tap Hi. The copilot introduces itself and asks which document, with Browse and Find buttons. Type "ICICI": three documents, tagged Health and Term. Type "ICICI health policy": it opens the health policy directly. Type "Star": the four Star Health products. Search "term" in the browser: the ten term plans.

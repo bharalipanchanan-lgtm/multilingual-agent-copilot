@@ -18,13 +18,13 @@ def turn(text, current=None):
 
 @pytest.mark.parametrize("text,pid", [
     ("I would like to review the SBI health insurance policy", "sbi_retail_health"),
-    ("SBI dekhna hai", "sbi_retail_health"),
+    ("SBI health policy dekhna hai", "sbi_retail_health"),   # SBI alone names SBI General and SBI Life
     ("mujhe oriental wali policy dekhni hai", "oriental_sampoorna"),
     ("Oriental Sampoorna Swasthya Suraksha", "oriental_sampoorna"),
     ("United India", "united_india"),
     ("Royal Sundaram multiplier policy kholo", "royal_multiplier"),
     ("national mediclaim", "national_mediclaim"),
-    ("एसबीआई की पॉलिसी देखनी है", "sbi_retail_health"),
+    ("एसबीआई की हेल्थ पॉलिसी देखनी है", "sbi_retail_health"),
     ("मुझे यूनाइटेड इंडिया पॉलिसी दिखाओ", "united_india"),
     ("oriantal", "oriental_sampoorna"),  # spelling slip
     ("sundram", "royal_multiplier"),
@@ -50,12 +50,9 @@ def test_number_picks_from_the_list():
 def test_question_without_policy_asks_which_one():
     pol, fin = turn("Room rent kitna hai?")
     assert pol is None and fin["status"] == "choose_policy" and fin["pending"] is True
-    assert "Kaunsa policy document" in fin["answer"]
-    from policy_select import policies
-    n = len(policies())
-    assert len(fin["options"]) == n
-    # the message lists five and points to the rest; it never writes out every document
-    assert fin["answer"].count("\n") < 12 and (n <= 5 or f"{n - 5} " in fin["answer"])
+    assert "kaunsa policy document" in fin["answer"].lower()
+    # no list of documents: the agent names one or browses (works for 300 as well as 5)
+    assert fin["options"] == [] and fin["actions"] == ["browse", "find"]
 
 
 def test_greeting_like_text_asks_in_english():
@@ -162,7 +159,7 @@ def test_strip_names(text, clean):
 
 @pytest.mark.parametrize("text,pid", [
     # exact transcripts returned by Sarvam saaras:v3 (mode translit) for the test clips
-    ("Mujhe SBI vali policy dekhni hai.", "sbi_retail_health"),
+    ("Mujhe SBI health vali policy dekhni hai.", "sbi_retail_health"),
     ("Mujhe oriental vala policy chahie.", "oriental_sampoorna"),
 ])
 def test_sarvam_transliteration_spellings_select(text, pid):
@@ -186,7 +183,7 @@ def test_greeting_opens_the_conversation(text, lang):
     pol, fin = turn(text)
     assert pol is None and fin["status"] == "choose_policy" and fin["pending"] is False and fin.get("greeting")
     assert AGENT_NAME in fin["answer"] and fin["lang"] == lang
-    assert len(fin["options"]) >= 5
+    assert fin["options"] == [] and fin["actions"] == ["browse", "find"]
 
 
 def test_greeting_with_a_policy_in_use_says_which():
@@ -198,3 +195,31 @@ def test_greeting_with_a_policy_in_use_says_which():
 def test_greeting_plus_content_is_not_just_a_greeting(text):
     from policy_select import greeting_only
     assert not greeting_only(text)
+
+
+@pytest.mark.parametrize("text,ids", [
+    ("ICICI", {"icici_elevate", "icici_pru_iprotect_smart_plus", "icici_pru_iprotect_super"}),
+    ("ICICI term plan", {"icici_pru_iprotect_smart_plus", "icici_pru_iprotect_super"}),
+    ("HDFC health", {"hdfc_optima_secure", "hdfc_optima_restore", "hdfc_optima_senior"}),
+    ("HDFC term insurance", {"hdfc_life_click2protect_super", "hdfc_life_click2protect_supreme_plus"}),
+    ("Mujhe SBI vali policy dekhni hai.", {"sbi_retail_health", "sbi_life_eshield_insta"}),
+    ("Star", {"star_super_star", "star_health_premier", "star_diabetes_safe", "star_super_surplus_gold"}),
+    ("Care", {"care_supreme", "care_care", "care_senior"}),
+])
+def test_brand_lists_its_documents_and_the_kind_narrows_them(text, ids):
+    pol, fin = turn(text)
+    assert pol is None and fin["status"] == "choose_policy"
+    assert {o["policy_id"] for o in fin["options"]} == ids
+
+
+@pytest.mark.parametrize("text,pid", [("ICICI health policy", "icici_elevate"), ("SBI life", "sbi_life_eshield_insta"),
+                                      ("Royal", "royal_multiplier"), ("LIC", "lic_digi_term")])
+def test_brand_with_one_document_of_the_kind_opens_it(text, pid):
+    pol, fin = turn(text)
+    assert pol == pid and fin["status"] == "selected"
+
+
+@pytest.mark.parametrize("text", ["star rating of hospital kya hai", "day care treatment covered?"])
+def test_short_brand_words_inside_a_sentence_select_nothing(text):
+    pol, fin = turn(text)
+    assert pol is None and fin["options"] == []

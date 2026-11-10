@@ -117,7 +117,7 @@ def route(q: str) -> str:
     return "single"
 
 
-SYSTEM_PROMPT = """You help Indian insurance agents answer customer questions about a health insurance policy.
+SYSTEM_PROMPT = """You help Indian insurance agents answer customer questions about an insurance policy (health or term life).
 You are given numbered clauses from the policy wording. Rules:
 1. Answer ONLY from the clauses. Do not use outside knowledge and do not guess.
 2. After each sentence, cite the clause numbers it comes from in square brackets, like [1] or [2][3].

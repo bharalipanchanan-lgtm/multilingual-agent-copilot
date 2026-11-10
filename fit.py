@@ -520,7 +520,7 @@ def fit_answer(question: str, lang: str = "en", policy_id: str | None = None, to
     p = profile(question, today)
     w = TEXT[lang]
     prods = {x["policy_id"]: x for x in products()}
-    total = sum(1 for _ in manifest())
+    total = sum(1 for r in manifest().values() if (r.get("category") or "health") == "health")
     lines = [w["for"].format(who=who_line(p))]
     if policy_id:  # product first: check this one only
         prod = prods.get(policy_id)

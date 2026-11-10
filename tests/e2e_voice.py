@@ -146,8 +146,8 @@ def main():
                  lambda: check("off" not in page.get_attribute("#mic", "class"), "mic shows as off"))
 
             def spoken_choice():
-                record("mujhe SBI wali policy dekhni hai")
-                wait_box("mujhe SBI wali policy dekhni hai")
+                record("mujhe SBI health wali policy dekhni hai")
+                wait_box("mujhe SBI health wali policy dekhni hai")
                 check(finals() == 0, "transcript was sent without the agent pressing send")
                 check("Check it" in page.inner_text("#vnote"), "no 'check before sending' note")
                 rec = json.loads(LOG.read_text())
@@ -216,7 +216,7 @@ def main():
                 page.click("#mic")
                 if "SARVAM_API_KEY" not in page.inner_text("#vnote"):
                     raise AssertionError(f"no reason shown: {page.inner_text('#vnote')!r}")
-                page.fill("#q", "SBI dekhna hai")
+                page.fill("#q", "SBI health dekhna hai")
                 page.press("#q", "Enter")
                 page.wait_for_selector("text=Policy document chosen", timeout=30000)
             t0 = time.time()

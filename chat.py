@@ -13,7 +13,8 @@ from typing import Iterator
 
 from answer import OUT_OF_SCOPE, ask_stream, detect_lang, route
 from policy_select import (FILLER, _norm, by_number, choose_message, greet_message, greeting_lang, greeting_only,
-                           mentioned, one_family, options, other_insurer, policies, selected_message, selection_only,
+                           mentioned, narrow_by_category, one_family, options, other_insurer, policies, selected_message,
+                           selection_only,
                            stopped_note, strip_names, which_product_message)
 
 # "Which policy document can I inspect?", "policy badlo", "switch policy": the agent wants the list,
@@ -30,6 +31,10 @@ CHOOSE_WORDS = {"which", "what", "konsa", "kaunsa", "konsi", "kaunsi", "kaun", "
 
 HINGLISH_SELECT = {"mujhe", "dekhna", "dekhni", "dikhao", "kholo", "chahiye", "chahta", "chahti", "wali", "wala",
                    "kaunsa", "konsa", "karo", "karna", "abhi", "chalo", "vali", "vala", "chahie", "mujhko"}
+
+
+# what the page offers when the copilot asks which document: browse, or describe the customer
+ACTIONS = ["browse", "find"]
 
 
 def chat_lang(text: str) -> str:
@@ -50,6 +55,7 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
     r = route(question)
     num = by_number(question)
     found, rest = ([num], "") if num else mentioned(question)
+    found = narrow_by_category(found, rest)  # "ICICI health policy": only ICICI's health documents
     if not rest.split() and prev_lang in ("en", "hi", "hinglish"):
         lang = prev_lang  # "SBI", "2" or a tapped name carry no language of their own
     if held and policy_id:
@@ -70,22 +76,22 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         if policy_id:
             yield {**final("greeting", greet_message(glang, policy_id)), "lang": glang}
         else:
-            yield {**final("choose_policy", greet_message(glang), options=options(), pending=False), "lang": glang,
-                   "greeting": True}
+            yield {**final("choose_policy", greet_message(glang), options=[], actions=ACTIONS, pending=False),
+                   "lang": glang, "greeting": True}
         return
 
     other = None if held else other_insurer(question)
     if other and not found:
         yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
         yield final("choose_policy", choose_message(lang, key="not_loaded", insurer=other),
-                    options=options(), pending=False)
+                    options=[], actions=ACTIONS, pending=False)
         return
 
     wants_list = CHOOSE_RE.search(question) and not [
         w for w in _norm(question).split() if w not in FILLER and w not in CHOOSE_WORDS]
     if not found and wants_list:
         yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
-        yield final("choose_policy", choose_message(lang), options=options(), pending=False)
+        yield final("choose_policy", choose_message(lang), options=[], actions=ACTIONS, pending=False)
         return
 
     from fit import fit_answer, is_need
@@ -149,7 +155,7 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
 
     if policy_id is None and r not in OUT_OF_SCOPE:
         yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
-        yield final("choose_policy", choose_message(lang), options=options(), pending=True)
+        yield final("choose_policy", choose_message(lang), options=[], actions=ACTIONS, pending=True)
         return
 
     notice = stopped_note(policy_id, lang) if policy_id else None
