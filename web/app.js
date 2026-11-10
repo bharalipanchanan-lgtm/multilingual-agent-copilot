@@ -135,9 +135,13 @@ function assess(p, need) {
 
   if (p.status === "withdrawn") fails.push("Withdrawn — cannot be sold fresh");
 
+  let ageUnknown = false;
   if (need.age !== null) {
     if (!f.entry_age_max?.stated) {
       cannotCheck.push("Entry age is not in the wording — check the prospectus");
+      ageUnknown = true;
+    } else if (typeof f.entry_age_max.value !== "number") {
+      wins.push(`Entry age: ${f.entry_age_max.value}`);
     } else if (need.age > f.entry_age_max.value) {
       fails.push(`Entry age stops at ${f.entry_age_max.value}, customer is ${need.age}`);
     } else {
@@ -164,19 +168,23 @@ function assess(p, need) {
       fails.push(
         `Room rent capped at ₹${f.room_rent.max_per_day.toLocaleString("en-IN")}/day, customer needs ₹${need.roomRentMin.toLocaleString("en-IN")}+`
       );
+    } else if (["depends", "si_band", "pct_si", "schedule"].includes(f.room_rent.room_class)) {
+      cannotCheck.push(`Room rent depends on the plan in the Policy Schedule — ${f.room_rent.note || "ask which plan"}`);
     } else {
       wins.push(`Room rent: ${f.room_rent.value}`);
     }
   }
 
   const ped = f.ped_wait_months;
-  if (need.conditions.length && ped?.stated) {
-    wins.push(`Pre-existing cover starts after ${ped.value} months`);
-  }
+  const dw = f.diabetes_wait;
+  const carved = dw?.stated && need.conditions.length && need.conditions.every((c) => (dw.conditions || []).includes(c === "hypertension" ? "high BP" : c));
+  const months = carved ? dw.months : ped?.stated ? ped.value : 999;
+  if (carved) wins.push(`${dw.value} (p.${dw.pdf_page})`);
+  else if (need.conditions.length && ped?.stated) wins.push(`Pre-existing cover starts after ${ped.value} months`);
 
-  // shorter waiting period is better; that is the one thing every
-  // wording states, so it is the only thing we rank on
-  const score = (ped?.stated ? ped.value : 999) * 1000;
+  // a confirmed age limit beats one we cannot check; then the shorter wait
+  // for this customer's conditions — the one thing every wording states
+  const score = (ageUnknown ? 1e6 : 0) + months * 1000;
 
   return {
     product: p,

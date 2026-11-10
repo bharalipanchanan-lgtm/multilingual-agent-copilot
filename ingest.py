@@ -13,12 +13,13 @@ from parse import parse_pdf
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", help="ingest a single policy_id")
+    ap.add_argument("--only", help="ingest these policy_ids (comma-separated)")
     args = ap.parse_args()
 
     rows = list(csv.DictReader(open(MANIFEST, encoding="utf-8")))
     if args.only:
-        rows = [r for r in rows if r["policy_id"] == args.only]
+        only = {s.strip() for s in args.only.split(",") if s.strip()}
+        rows = [r for r in rows if r["policy_id"] in only]
 
     model = SentenceTransformer(EMBED_MODEL, device=device())
     model.max_seq_length = 512

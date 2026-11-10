@@ -116,9 +116,16 @@ check(
   true
 );
 check(
+  "a plan with a confirmed entry age outranks one the wording cannot confirm",
+  r.best.cannotCheck.some((c) => /entry age/i.test(c)),
+  false
+);
+const rankedIds = fixture.products
+  .map((p) => assess(p, need)).filter((a) => a.eligible).sort((a, b) => a.score - b.score).map((a) => a.product.id);
+check(
   "Tata (24 months) outranks Care Supreme (48 months)",
-  r.best.product.id,
-  "tata-medicare-premier"
+  rankedIds.indexOf("tata-medicare-premier") < rankedIds.indexOf("care-supreme"),
+  true
 );
 
 /* National Mediclaim is ruled out (withdrawn + Rs 5,000/day room rent cap < Rs 10,000) */

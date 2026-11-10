@@ -248,9 +248,9 @@ def _expand_query(question: str) -> str:
 
 
 def _retrieve(question: str, policy_id: str) -> list[dict]:
-    from retrieve import expand_sections, keyword_hits, search
+    from retrieve import expand_sections, hybrid, keyword_hits
     q = _expand_query(question)
-    hits = search(q, policy_id, RETRIEVE_K)
+    hits = hybrid(q, policy_id, RETRIEVE_K)
     # keyword pass uses the original agent words plus the English expansions
     kw = keyword_hits(q, policy_id, {h["id"] for h in hits})
     for k in kw:

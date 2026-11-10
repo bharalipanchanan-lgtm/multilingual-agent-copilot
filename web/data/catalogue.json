@@ -1,6 +1,6 @@
 {
   "_provenance": {
-    "built_from": "8 policy wordings (PDF) in data/policies/",
+    "built_from": "49 policy wordings (PDF) in data/policies/",
     "extracted_by": "ingest/extract.py",
     "verified_by": "Automated quote-on-page check (test/catalogue.test.mjs)",
     "verified_on": "2026-11-10",
@@ -68,12 +68,246 @@
       "pdf_pages": 18,
       "page_offset": -3,
       "uin": "IRDA/NL-HLT/NI/P-H/V.I/17/13-14"
+    },
+    "bajaj-allianz-health-guard": {
+      "source": "02-bajaj-allianz-health-guard-plan.pdf",
+      "pdf_pages": 35,
+      "page_offset": null,
+      "uin": "BAJHLIP25035V072425"
+    },
+    "generali-central-health-absolute": {
+      "source": "06-generali-central-formerly-future-generali-health-absolute-plan.pdf",
+      "pdf_pages": 60,
+      "page_offset": null,
+      "uin": "GCIHLIP27050V042627"
+    },
+    "hdfc-ergo-optima-secure-v06-2024-25-wording": {
+      "source": "08-hdfc-ergo-optima-secure-plan.pdf",
+      "pdf_pages": 53,
+      "page_offset": null,
+      "uin": "HDFHLIP25041V062425"
+    },
+    "iffco-tokio-individual-health-protector": {
+      "source": "10-iffco-tokio-individual-health-protector-plan.pdf",
+      "pdf_pages": 46,
+      "page_offset": 0,
+      "uin": "IFFHLIP22197V042122"
+    },
+    "liberty-general-healthprime-connect": {
+      "source": "11-liberty-general-healthprime-connect-plan.pdf",
+      "pdf_pages": 62,
+      "page_offset": 0,
+      "uin": "LIBHLIP25037V032425"
+    },
+    "magma-hdi-onehealth": {
+      "source": "12-magma-hdi-onehealth-insurance-plan.pdf",
+      "pdf_pages": 89,
+      "page_offset": null,
+      "uin": "MAGHLIP27040V012627"
+    },
+    "manipalcigna-prohealth-prime": {
+      "source": "13-manipalcigna-prohealth-prime-plan.pdf",
+      "pdf_pages": 85,
+      "page_offset": null,
+      "uin": "MCIHLIP27045V032627"
+    },
+    "new-india-assurance-yuva-bharat-health": {
+      "source": "15-new-india-assurance-yuva-bharat-health-policy.pdf",
+      "pdf_pages": 54,
+      "page_offset": 0,
+      "uin": "NIAHLIP25059V032425"
+    },
+    "niva-bupa-reassure-3-0": {
+      "source": "16-niva-bupa-reassure-3-0-plan.pdf",
+      "pdf_pages": 62,
+      "page_offset": null,
+      "uin": "NBHHLIP27059V022627"
+    },
+    "oriental-insurance-happy-family-floater": {
+      "source": "17-oriental-insurance-happy-family-floater-policy.pdf",
+      "pdf_pages": 52,
+      "page_offset": null,
+      "uin": "OICHLIP25046V062425"
+    },
+    "sbi-general-arogya-supreme": {
+      "source": "21-sbi-general-arogya-supreme-policy.pdf",
+      "pdf_pages": 29,
+      "page_offset": null,
+      "uin": "SBIHLIP27036V022627"
+    },
+    "star-health-smart-health-pro": {
+      "source": "22-star-health-smart-health-pro-plan.pdf",
+      "pdf_pages": 14,
+      "page_offset": 0,
+      "uin": "SHAHLIP23172V012223"
+    },
+    "tata-aig-medicare-plus": {
+      "source": "23-tata-aig-medicare-plus-plan.pdf",
+      "pdf_pages": 26,
+      "page_offset": null,
+      "uin": "TATHLIP21253V022021"
+    },
+    "universal-sompo-complete-healthcare": {
+      "source": "25-universal-sompo-complete-healthcare-insurance-plan.pdf",
+      "pdf_pages": 59,
+      "page_offset": 0,
+      "uin": "UNIHLIP25036V042425"
+    },
+    "zuno-health-insurance": {
+      "source": "26-zuno-formerly-edelweiss-health-insurance-plan.pdf",
+      "pdf_pages": 26,
+      "page_offset": 0,
+      "uin": "ZUNHLIP26040V052526"
+    },
+    "zurich-kotak-health-premier": {
+      "source": "27-zurich-kotak-formerly-kotak-health-premier-plan.pdf",
+      "pdf_pages": 74,
+      "page_offset": 0,
+      "uin": "ZUKHLIP27071V062627"
+    },
+    "hdfc-ergo-optima-secure-v08-2025-26-wording": {
+      "source": "29-hdfc-ergo-optima-secure-plus-plan.pdf",
+      "pdf_pages": 69,
+      "page_offset": null,
+      "uin": "HDFHLIP26058V082526"
+    },
+    "care-health-ultimate-care": {
+      "source": "30-care-health-ultimate-care-plan.pdf",
+      "pdf_pages": 121,
+      "page_offset": -1,
+      "uin": "CHIHLIP25044V012425"
+    },
+    "niva-bupa-aspire": {
+      "source": "32-niva-bupa-aspire-plan.pdf",
+      "pdf_pages": 36,
+      "page_offset": null,
+      "uin": "NBHHLIP26049V022526"
+    },
+    "niva-bupa-health-premia": {
+      "source": "33-niva-bupa-health-premia-plan.pdf",
+      "pdf_pages": 78,
+      "page_offset": null,
+      "uin": "MAXHLIP21176V022021"
+    },
+    "tata-aig-medicare": {
+      "source": "35-tata-aig-medicare-plan-base.pdf",
+      "pdf_pages": 40,
+      "page_offset": null,
+      "uin": "TATHLIP23118V032223"
+    },
+    "tata-aig-health-supercharge": {
+      "source": "36-tata-aig-health-supercharge-plan.pdf",
+      "pdf_pages": 60,
+      "page_offset": null,
+      "uin": "TATHLIP24113V012324"
+    },
+    "hdfc-ergo-optima-restore": {
+      "source": "37-hdfc-ergo-optima-restore-plan.pdf",
+      "pdf_pages": 53,
+      "page_offset": 0,
+      "uin": "HDFHLIP26055V102526"
+    },
+    "hdfc-ergo-energy-health": {
+      "source": "39-hdfc-ergo-energy-health-insurance-plan.pdf",
+      "pdf_pages": 42,
+      "page_offset": 0,
+      "uin": "HDFHLIP26048V052526"
+    },
+    "hdfc-ergo-optima-senior": {
+      "source": "40-hdfc-ergo-optima-senior-plan.pdf",
+      "pdf_pages": 30,
+      "page_offset": null,
+      "uin": "HDHHLIP21379V022021"
+    },
+    "star-health-comprehensive": {
+      "source": "41-star-health-comprehensive-insurance-plan.pdf",
+      "pdf_pages": 48,
+      "page_offset": -1,
+      "uin": "SHAHLIP26044V092526"
+    },
+    "star-health-young-star": {
+      "source": "42-star-health-young-star-insurance-plan.pdf",
+      "pdf_pages": 39,
+      "page_offset": 0,
+      "uin": "SHAHLIP26043V062526"
+    },
+    "aditya-birla-health-activ-one": {
+      "source": "01-aditya-birla-health-activ-one-plan.pdf",
+      "pdf_pages": 56,
+      "page_offset": null,
+      "uin": "ADIHLIP24097V012324"
+    },
+    "digit-go-digit-health-care-plus": {
+      "source": "05-digit-go-digit-health-care-plus-plan.pdf",
+      "pdf_pages": 31,
+      "page_offset": null,
+      "uin": "GODHLIP19045V011920"
+    },
+    "royal-sundaram-next-gen-health": {
+      "source": "20-royal-sundaram-next-gen-health-insurance-plan.pdf",
+      "pdf_pages": 42,
+      "page_offset": 0,
+      "uin": "RSAHLIP24078V012324"
+    },
+    "care-health-care-plus-plan-care-health-plus-care-plus": {
+      "source": "47-care-health-care-plus-plan-care-health-plus-care-plus.pdf",
+      "pdf_pages": 42,
+      "page_offset": -1,
+      "uin": "CHIHLIP22047V012122"
+    },
+    "care-health-care-freedom": {
+      "source": "48-care-health-care-freedom-plan.pdf",
+      "pdf_pages": 45,
+      "page_offset": -1,
+      "uin": "CHIHLIP26052V032526"
+    },
+    "care-health-care-joy-plan-joy-today-joy-tomorrow-maternity-care-joy": {
+      "source": "49-care-health-care-joy-plan-joy-today-joy-tomorrow-maternity-care-joy.pdf",
+      "pdf_pages": 45,
+      "page_offset": -1,
+      "uin": "RHIHLIP21373V022021"
+    },
+    "care-health-care-heart": {
+      "source": "50-care-health-care-heart-plan.pdf",
+      "pdf_pages": 56,
+      "page_offset": -1,
+      "uin": "CHIHLIP26053V032526"
+    },
+    "star-health-cardiac-care": {
+      "source": "51-star-health-cardiac-care-insurance-policy.pdf",
+      "pdf_pages": 16,
+      "page_offset": 0,
+      "uin": "SHAHLIP18006V021819"
+    },
+    "star-health-cancer-care-platinum": {
+      "source": "52-star-health-cancer-care-platinum-insurance-policy.pdf",
+      "pdf_pages": 12,
+      "page_offset": 0,
+      "uin": "SHAHLIP22031V022122"
+    },
+    "star-health-medi-classic": {
+      "source": "53-star-health-medi-classic-insurance-policy.pdf",
+      "pdf_pages": 36,
+      "page_offset": -1,
+      "uin": "SHAHLIP26047V092526"
+    },
+    "niva-bupa-health-companion-family-floater": {
+      "source": "54-niva-bupa-health-companion-family-floater.pdf",
+      "pdf_pages": 37,
+      "page_offset": null,
+      "uin": "NBHHLIP26051V092526"
+    },
+    "icici-lombard-complete-health-insurance-health-advantedge": {
+      "source": "55-icici-lombard-complete-health-insurance-health-advantedge.pdf",
+      "pdf_pages": 86,
+      "page_offset": -1,
+      "uin": "ICIHLIP22206V022122"
     }
   },
   "catalogue": {
     "updated_on": "2026-11-10",
     "review_every_days": 90,
-    "source": "Eight insurer policy wordings + plan variants, verified page by page."
+    "source": "49 insurer policy wordings + plan variants, verified page by page."
   },
   "products": [
     {
@@ -174,7 +408,7 @@
       "insurer": "HDFC ERGO",
       "name": "Optima Secure",
       "variant": "Base",
-      "status": "active",
+      "status": "withdrawn",
       "uin": "HDFHLIP24092V032324",
       "differentiator": "100% inbuilt Secure Benefit from day 1; PED 36 months, India cover",
       "facts": {
@@ -245,7 +479,10 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
-      }
+      },
+      "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
+      "withdrawn_on": null,
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
     },
     {
       "id": "hdfc-optima-super-secure",
@@ -253,7 +490,7 @@
       "insurer": "HDFC ERGO",
       "name": "Optima Secure",
       "variant": "Super Secure",
-      "status": "active",
+      "status": "withdrawn",
       "uin": "HDFHLIP24092V032324",
       "differentiator": "200% inbuilt Secure Benefit (3X cover) + Rs 1,000/day shared room cash; SI 10L–200L",
       "facts": {
@@ -316,7 +553,10 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
-      }
+      },
+      "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
+      "withdrawn_on": null,
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
     },
     {
       "id": "hdfc-optima-suraksha",
@@ -324,7 +564,7 @@
       "insurer": "HDFC ERGO",
       "name": "Optima Secure",
       "variant": "Suraksha",
-      "status": "active",
+      "status": "withdrawn",
       "uin": "HDFHLIP24092V032324",
       "differentiator": "Cumulative Bonus plan (no inbuilt Secure/Plus/Protect benefit); SI 5L–50L",
       "facts": {
@@ -387,7 +627,10 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
-      }
+      },
+      "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
+      "withdrawn_on": null,
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
     },
     {
       "id": "care-supreme",
@@ -901,6 +1144,3575 @@
           "stated": false
         }
       }
+    },
+    {
+      "id": "bajaj-allianz-health-guard",
+      "policy_id": "qi_bajaj_allianz_health_guard_plan",
+      "insurer": "Bajaj Allianz",
+      "name": "Health Guard",
+      "variant": null,
+      "status": "active",
+      "uin": "BAJHLIP25035V072425",
+      "source_url": "https://www.bajajgeneralinsurance.com/download-documents/health-insurance/health-guard/Health-Guard-Policy-Wordings-print.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 1 Pre-existing Diseases waiting period",
+          "pdf_page": 13,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Health Guard Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 2 Specified disease/procedure waiting period",
+          "pdf_page": 13,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Health Guard Policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "- Up to 1% of Sum Insured per day (Excluding Cumulative Bonus)  Gold Plan and Platinum Plan - Sum Insured 3 lacs to 7.5 lacs- maximum eligible room is Single Private Air-Conditioned room - Sum Insured 10 Lacs and above - eligible for any …",
+          "unit": "text",
+          "section": "Clause i Room rent and Boarding expenses as provided by th",
+          "pdf_page": 7,
+          "printed_page": null,
+          "quote": "- Up to 1% of Sum Insured per day (Excluding Cumulative Bonus)  Gold Plan and Platinum Plan - Sum Insured 3 lacs to 7.5 lacs- maximum eligible room is Single Private Air-Conditioned room - Sum Insured 10 Lacs and above - eligible for any room category ii.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: 20% of the Sum Insured per eye, as written in this clause.",
+          "unit": "text",
+          "section": "Clause iii Cataract Limit",
+          "pdf_page": 20,
+          "printed_page": null,
+          "quote": "Cataract Limit : Our obligation to make payment in respect of surgeries for cataracts (after the expiry of the 24 months period referred to in Exclusion 02 ) above, shall be restricted to 20% of the Sum Insured for each eye, subject to maximum of Rs 1,00,000/- for each of You.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 31,
+          "printed_page": null,
+          "quote": "D Oral chemotherapy E Immunotherapy- Monoclonal Antibody to be given as injection F Intra vitreal injections G Robotic surgeries H Stereotactic radio surgeries I Bronchical Thermoplasty J Vaporisation of the prostrate (Green laser treatment or holmium laser treatment) K IONM -(Intra Operative Neuro",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "generali-central-health-absolute",
+      "policy_id": "qi_generali_central_formerly_future_generali_health_absolute_plan",
+      "insurer": "Generali Central",
+      "name": "Health Absolute",
+      "variant": null,
+      "status": "active",
+      "uin": "GCIHLIP27050V042627",
+      "source_url": "https://assets.generalicentralinsurance.com/strapi/health_absolute_policy_wording_c92d2d0c63.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 3.1.1.1 Pre-Existing Disease- Excl",
+          "pdf_page": 23,
+          "printed_page": null,
+          "quote": "01 a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 3.1.1.2 Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 23,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24/36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: ₹75,000 per eye, as written in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 53,
+          "printed_page": null,
+          "quote": "Compulsory Co-Pay - 20% Co-Payment Where Entry Age Is 61years And Above Applicable Applicable Applicable Sub Limits Cataract 10% Of SI, Maximum Of ₹ 75,000/- Per Eye.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 5 Immunotherapy- Monoclonal Antibody t",
+          "pdf_page": 36,
+          "printed_page": null,
+          "quote": "4) Oral chemotherapy 5) Immunotherapy- Monoclonal Antibody to be given as injection 6) Intra vitreal injections 7) Robotic surgeries 8) Stereotactic radio surgeries 9) Bronchical Thermoplasty 10) Vaporisation of the prostrate (Green laser treatment or holmium laser treatment) 11) IONM - (Intra",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months"
+    },
+    {
+      "id": "hdfc-ergo-optima-secure-v06-2024-25-wording",
+      "policy_id": "qi_hdfc_ergo_optima_secure_plan",
+      "insurer": "HDFC ERGO",
+      "name": "Optima Secure",
+      "variant": "V06 · 2024-25 wording",
+      "status": "withdrawn",
+      "uin": "HDFHLIP25041V062425",
+      "source_url": "https://customer-portal-assets.hdfcergo.com/assets/v2/docs/default-source/downloads/policy-wordings/health/optima-secure-revision/optima-secure-revision-pw-647504209314.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause i Expenses related to the treatment of a pre-existi (Code-Excl01)",
+          "pdf_page": 28,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months (Unless specified otherwise in the Policy Schedule) of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause i Expenses related to the treatment of the listed C (Code-Excl02)",
+          "pdf_page": 28,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 11,
+          "printed_page": null,
+          "quote": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
+          "note": null,
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 12,
+          "printed_page": null,
+          "quote": "AYUSH Treatment The Company shall indemnify the Medical Expenses incurred by the Insured Person only for Inpatient Care under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy systems of medicines during each Policy Year up to the Sub-limit specified against this Cover in the Policy",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 29,
+          "printed_page": null,
+          "quote": "Rhinitis Perineal Abscesses Perianal Abscesses Skin tumors Cataract and other disorders of lens and Retina Fissure/fistula in anus, Haemorrhoids including Gout and rheumatism Tonsillitis",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room at actuals",
+      "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
+      "withdrawn_on": null,
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP25041V062425."
+    },
+    {
+      "id": "iffco-tokio-individual-health-protector",
+      "policy_id": "qi_iffco_tokio_individual_health_protector_plan",
+      "insurer": "IFFCO Tokio",
+      "name": "Individual Health Protector",
+      "variant": null,
+      "status": "active",
+      "uin": "IFFHLIP22197V042122",
+      "source_url": "https://www.IFFCOtokio.co.in/content/dam/iffcotokio/pdfs/policy_wording_ihp_2020.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 13,
+          "printed_page": 13,
+          "quote": "a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": "Clause 3 Specific Waiting Period (Code-Excl02)",
+          "pdf_page": 14,
+          "printed_page": 14,
+          "quote": "to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage, as may be the case after the date of inception of the first policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "but including cumulative bonus), the room-rent expenses as mentioned in 1(b)below will be payable according to actual expenses without any room rent expenses capping limits.",
+          "unit": "text",
+          "section": "Clause 1 Room Rent Expenses",
+          "pdf_page": 13,
+          "printed_page": 13,
+          "quote": "but including cumulative bonus), the room-rent expenses as mentioned in 1(b)below will be payable according to actual expenses without any room rent expenses capping limits.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": "Clause 3 For the purpose of determining the sub-limits of",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "For the purpose of determining the sub-limits of expenses for Room/ Boarding/ nursing charges and AYUSH hospitalization expenses including pre- hospitalization and post-hospitalization and domiciliary hospitalization as detailed under item (1), (4) & (5) of “What is covered” above, the specified",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause (i Cataract",
+          "pdf_page": 14,
+          "printed_page": 14,
+          "quote": "f) List of specific diseases/procedures (i) Cataract, Benign Prostatic Hypertrophy, Hysterectomy for Menorrhagia or Fibromyoma (ii) Hernia, Hydrocele, Congenital Internal Disease.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 22,
+          "printed_page": 22,
+          "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "liberty-general-healthprime-connect",
+      "policy_id": "qi_liberty_general_healthprime_connect_plan",
+      "insurer": "Liberty General",
+      "name": "HealthPrime Connect",
+      "variant": null,
+      "status": "active",
+      "uin": "LIBHLIP25037V032425",
+      "source_url": "https://www.libertyinsurance.in/Docx/Health%20Prime%20Connect%20-%20Policy%20Wordings%20(UIN%20-%20LIBHLIP25037V032425)%20(Effective%20from%2030.09.2024)_06_04_26.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause vi Pre-existing disease/s as on commencement date of",
+          "pdf_page": 33,
+          "printed_page": 33,
+          "quote": "Pre-existing disease/s as on commencement date of the first Policy with us and any complications arising from the same shall not be covered until 36 months of continuous coverage have elapsed, since inception of your first Policy with Us & with this benefit. vii. Any payments under this benefit will only be made in India, in Indian Rupees and on reimbursement basis.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": 65,
+          "unit": "years",
+          "section": "Clause 1 Entry Age Minimum entry Age",
+          "pdf_page": 47,
+          "printed_page": 47,
+          "quote": "Child -S1 days Maximum entry Age: 65 Years 2 Dependent child/children: covered with Us under Family Floater shall have the option to continue renewal by migrating to a suitable policy at the end of the specified exit age.",
+          "note": null,
+          "stated": true
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause 12 AYUSH Treatment",
+          "pdf_page": 12,
+          "printed_page": 12,
+          "quote": "AYUSH Treatment# The Company will indemnify Reasonable and Customary charges up to the Basic Sum Insured mentioned in the Policy Schedule, towards Medical Expenses incutfed for the inpatient hospitalization treatment taken under Ayurveda, Yoga, Naturopathy, Unani, Siddha and Homeopathy provided",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause 1 Cataract Calculus diseases of Gall bladder and Ui",
+          "pdf_page": 34,
+          "printed_page": 34,
+          "quote": "Cataract Calculus diseases of Gall bladder and Uiogenital system Surgical Treatment of Obesity 2.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 25,
+          "printed_page": 25,
+          "quote": "Robotic surgeries H. Steteotactic radio sutgeties",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; entry up to 65"
+    },
+    {
+      "id": "magma-hdi-onehealth",
+      "policy_id": "qi_magma_hdi_onehealth_insurance_plan",
+      "insurer": "Magma HDI",
+      "name": "OneHealth",
+      "variant": null,
+      "status": "active",
+      "uin": "MAGHLIP27040V012627",
+      "source_url": "https://www.magmainsurance.com/documents/5553002/42694151/Policy+wordings_OneHealth+10.0.pdf/80b4b42c-fb3c-b95a-22ef-31d17924dff3?t=1789042556563",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 3.1 Standard Exclusions (Code-Excl01)",
+          "pdf_page": 45,
+          "printed_page": null,
+          "quote": "a) Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 3.1.2 Specific Diseases Waiting Period (Code-Excl02)",
+          "pdf_page": 45,
+          "printed_page": null,
+          "quote": "to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the Insurer.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "payment of Room Rent and other boarding charges, and Qualified Nurses’ charges incurred at the Hospital shall be as per “Single private AC room category.",
+          "unit": "text",
+          "section": "Clause 89 Reimbursement of payment of Room Rent and other b",
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "payment of Room Rent and other boarding charges, and Qualified Nurses’ charges incurred at the Hospital shall be as per “Single private AC room category.",
+          "note": null,
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": "Clause 3.2.3 Any Alternative Treatment except for the Benefits",
+          "pdf_page": 48,
+          "printed_page": null,
+          "quote": "3.2.3) Any Alternative Treatment except for the Benefits under Section 2.8 (Inpatient AYUSH Treatment) 3.2.4) Charges related to a Hospital stay not expressly mentioned as being covered.",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause 3 Hernia",
+          "pdf_page": 45,
+          "printed_page": null,
+          "quote": "Cataract 2. Stones in biliary and urinary systems 3.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 19,
+          "printed_page": null,
+          "quote": "Robotic surgeries • Stereotactic radio surgeries",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; single private room"
+    },
+    {
+      "id": "manipalcigna-prohealth-prime",
+      "policy_id": "qi_manipalcigna_prohealth_prime_plan",
+      "insurer": "ManipalCigna",
+      "name": "ProHealth Prime",
+      "variant": null,
+      "status": "active",
+      "uin": "MCIHLIP27045V032627",
+      "source_url": "https://www.manipalcigna.com/documents/10140644/0/MCHI%20-%20ProHealth%20Prime%20-%20Tnc%20-%20Protect%20&%20Advantage/034ce3d4-d80b-4bce-0027-e7d995e7843c?t=28",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause v Health Check-up E (Code-Excl01)",
+          "pdf_page": 42,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of the applicable waiting period a. 24 months of continuous coverage from the date of commencement of coverage for Sum Insured ₹ 7.5 Lacs and above b. 36 months of continuous coverage from the date of commencement of coverage for Sum Insured Up to ₹5 Lacs. b.",
+          "note": "Depends on the plan or sum insured chosen: 24, 36 months. The longest is used for ranking.",
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 43,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "₹12.5 Lacs, ₹15 Lacs, ₹20 Lacs, ₹25 Lacs, ₹30 Lacs, ₹40 Lacs, ₹50 Lacs, ₹100 Lacs Inpatient Hospitalization (When you are hospitalized) Room Rent: Covered up to Single Private AC Room For ICU - Covered up to Sum Insured This benefit shall …",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 75,
+          "printed_page": null,
+          "quote": "₹12.5 Lacs, ₹15 Lacs, ₹20 Lacs, ₹25 Lacs, ₹30 Lacs, ₹40 Lacs, ₹50 Lacs, ₹100 Lacs Inpatient Hospitalization (When you are hospitalized) Room Rent: Covered up to Single Private AC Room For ICU - Covered up to Sum Insured This benefit shall also offer the below covers up to the limits mentioned: a.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause iii Restored amount All Claims under this benefit can",
+          "pdf_page": 17,
+          "printed_page": null,
+          "quote": "D.I.9 AYUSH Treatment We will indemnify the Medical Expenses incurred during the Policy Year, up to the Sum Insured as specified in the Policy Schedule, of an Insured Person in case of Medically Necessary Treatment taken during In-patient Hospitalization for AYUSH Treatment for an Illness or Injury",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: ₹50,000 per eye, as written in this clause.",
+          "unit": "text",
+          "section": "Clause 3 Surgeries for benign Prostate Hypertrophy",
+          "pdf_page": 36,
+          "printed_page": null,
+          "quote": "Surgical treatment of stones of renal system ₹50,000 ₹65,000 Treatment of Cataract (Per Eye) ₹20,000 ₹30,000 Treatment of Total Knee replacement (Per knee) ₹80,000 ₹1,00,000 Treatment for breakage of bones ₹2,00,000 ₹2,50,000 Wherever the above mentioned sub-limits are applied, co-payment for the",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause i Bronchi",
+          "pdf_page": 14,
+          "printed_page": null,
+          "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "new-india-assurance-yuva-bharat-health",
+      "policy_id": "qi_new_india_assurance_yuva_bharat_health_policy",
+      "insurer": "New India Assurance",
+      "name": "Yuva Bharat Health",
+      "variant": null,
+      "status": "active",
+      "uin": "NIAHLIP25059V032425",
+      "source_url": "https://www.newindia.co.in/assets/docs/know-more/health/yuva-bharat-health-policy/Policy%20Clause%20Yuva%20Bharat%20Health.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 4.1 PRE-EXISTING DISEASES (Code-Excl01)",
+          "pdf_page": 25,
+          "printed_page": 25,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 4.2 SPECIFIC WAITING PERIOD (Code-Excl02)",
+          "pdf_page": 25,
+          "printed_page": 25,
+          "quote": "to the treatment of the following listed conditions, surgeries / treatments shall be excluded until the expiry of Ninety Days / 12 / 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the insurer.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 3.5 L U",
+          "pdf_page": 18,
+          "printed_page": 18,
+          "quote": "2.5 L 3.12.7 Robotic surgeries Upto Rs.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months"
+    },
+    {
+      "id": "niva-bupa-reassure-3-0",
+      "policy_id": "qi_niva_bupa_reassure_3_0_plan",
+      "insurer": "Niva Bupa",
+      "name": "ReAssure 3.0",
+      "variant": null,
+      "status": "active",
+      "uin": "NBHHLIP27059V022627",
+      "source_url": "https://transaction.nivabupa.com/pages/doc/policy_wording/ReAssure30_Policy_Wordings.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 5.1.1 Pre-existing Diseases (Code-Excl01)",
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 5.1.2 Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause iii Hyperplasia o",
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "Cataract, glaucoma and retinal detachment iii.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 9 Deep Br",
+          "pdf_page": 7,
+          "printed_page": null,
+          "quote": "Robotic surgeries 8. Stereotactic radio Surgeries 9.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "oriental-insurance-happy-family-floater",
+      "policy_id": "qi_oriental_insurance_happy_family_floater_policy",
+      "insurer": "Oriental Insurance",
+      "name": "Happy Family Floater",
+      "variant": null,
+      "status": "active",
+      "uin": "OICHLIP25046V062425",
+      "source_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/POLICY_WORDINGS_148642ec2f.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 4.1 Pre-existing Diseases (Code-Excl01)",
+          "pdf_page": 23,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with the insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": 65,
+          "unit": "years",
+          "section": "Clause xix Maximum Entry Age",
+          "pdf_page": 12,
+          "printed_page": null,
+          "quote": "Maximum Entry Age 65yearsfor all members 65years for all members 65 years for all members 65 years for all members xx.",
+          "note": null,
+          "stated": true
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered with a limit of 10% as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 18,
+          "printed_page": null,
+          "quote": "Robotic surgeries Per policy period 10% of SI, subject to maximum INR 1,00,000.* Per policy period 10% of SI, subject to maximum INR 2,00,000.* *(The sub limit is on the cost incurred due to modern treatment methods of robotics and associated expenses and this amount is over and above the limit for",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; entry up to 65"
+    },
+    {
+      "id": "sbi-general-arogya-supreme",
+      "policy_id": "qi_sbi_general_arogya_supreme_policy",
+      "insurer": "SBI General",
+      "name": "Arogya Supreme",
+      "variant": null,
+      "status": "active",
+      "uin": "SBIHLIP27036V022627",
+      "source_url": "https://content.sbigeneral.in/uploads/Arogya_Supreme_Policy_Wordings_w_e_f_10th_July_2026_9729ea596a.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": null,
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "a) Expenses related to the treatment of a Pre-Existing Diseases (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": null,
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "to the treatment of listed Conditions; Surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "At actuals up to Sum Insured a) Room rent and boarding expenses as provided by the Hospital/Nursing home subject to below limits",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": null,
+          "quote": "At actuals up to Sum Insured a) Room rent and boarding expenses as provided by the Hospital/Nursing home subject to below limits",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: Rs 50,000 per eye, as written in this clause.",
+          "unit": "text",
+          "section": "Clause 9 Pre-Hospitalization Cover We will pay Medical Exp",
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "Pre-Hospitalization Cover We will pay Medical Expenses of Rs 50,000/- or Rs 1,00,000/- incurred for treatment of Cataract as specified in the Policy Schedule, per eye including cost of lens during Policy Year, subject to claim admissible under the Policy.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause x Vaporisation of the Prostrate",
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "Robotic Surgeries x. Vaporisation of the Prostrate (Green laser treatment or holmium laser treatment) xi.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "star-health-smart-health-pro",
+      "policy_id": "qi_star_health_smart_health_pro_plan",
+      "insurer": "Star Health",
+      "name": "Smart Health Pro",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP23172V012223",
+      "source_url": "https://cms-prod.s3.ap-south-1.amazonaws.com/Smart_Health_Pro_PW_6136213ee0.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 7,
+          "printed_page": 7,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the ﬁrst policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 2 Speci (Code-Excl02)",
+          "pdf_page": 7,
+          "printed_page": 7,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the ﬁrst policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause 1 Treatment of Cataract and diseases of the anterio",
+          "pdf_page": 7,
+          "printed_page": 7,
+          "quote": "Treatment of Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Benign diseases of the breast.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 3,
+          "printed_page": 3,
+          "quote": "d) Oral Chemotherapy e) Immunotherapy- Monoclonal Antibody to be given as injection f) Intra Vitreal injections g) Robotic surgeries h) Stereotactic radio surgeries i) Bronchical Thermoplasty j) Vaporisation of the prostate (Green laser treatment or holmium laser treatment) k) IONM-(Intra Operative",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "tata-aig-medicare-plus",
+      "policy_id": "qi_tata_aig_medicare_plus_plan",
+      "insurer": "TATA AIG",
+      "name": "MediCare Plus",
+      "variant": null,
+      "status": "active",
+      "uin": "TATHLIP21253V022021",
+      "source_url": "https://www.tataaig.com/s3/Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause i P re-existing Diseases Waiting Period (Code-Excl01)",
+          "pdf_page": 9,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "Cataract XXIV. Retinal detachment XXV.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "universal-sompo-complete-healthcare",
+      "policy_id": "qi_universal_sompo_complete_healthcare_insurance_plan",
+      "insurer": "Universal Sompo",
+      "name": "Complete Healthcare",
+      "variant": null,
+      "status": "active",
+      "uin": "UNIHLIP25036V042425",
+      "source_url": "https://www.universalsompo.com/assets/file/complete-healthcare-insurance/chi-policy-wordings.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause E.1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 28,
+          "printed_page": 28,
+          "quote": "a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": null,
+          "pdf_page": 29,
+          "printed_page": 29,
+          "quote": "to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage, as may be the case after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 4,
+          "printed_page": 4,
+          "quote": "AYUSH Benefit The Medical Expenses incurred for an In-patient treatment taken under Ayurveda, Unani, Sidha or Homeopathy provided that: Our maximum liability will be limited to the amounts specified in the Policy Schedule If We accept any claim under this benefit, then We will not make any payment",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 29,
+          "printed_page": 29,
+          "quote": "cataract; fissure/fistula in anus, hemorrhoids, pilonidal sinus, gastric and duodenal ulcers",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered with a limit of 10% as written.",
+          "unit": "text",
+          "section": "Clause 6 Deep Brai",
+          "pdf_page": 2,
+          "printed_page": 2,
+          "quote": "Sinuplasty 10% of SI and maximum upto Rs 200,000 6 Deep Brain stimulation 50% of SI and maximum upto Rs 500,000 7 Robotic Surgeries 50% of SI and maximum upto Rs 500,000 8 Stereotactic radio surgeries 20% of SI and maximum upto Rs 250,000 9 Bronchial Thermoplasty 50% of SI and maximum upto Rs",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "zuno-health-insurance",
+      "policy_id": "qi_zuno_formerly_edelweiss_health_insurance_plan",
+      "insurer": "Zuno",
+      "name": "Health Insurance",
+      "variant": null,
+      "status": "active",
+      "uin": "ZUNHLIP26040V052526",
+      "source_url": "https://cms.hizuno.com/uploads/Zuno_Health_Insurance_policy_wording_V_1_5_9bbbe898b2.pdf?updated_at=2026-03-30T09:03:41.353Z",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 2 Pre-existing disease code -excl (Code-Excl01)",
+          "pdf_page": 12,
+          "printed_page": 12,
+          "quote": "01 A) expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36months (silver), 36 months (gold) and 24 months (platinum) of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": "Depends on the plan or sum insured chosen: 24, 36 months. The longest is used for ranking.",
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": null,
+          "pdf_page": 12,
+          "printed_page": 12,
+          "quote": "to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of twenty four months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": "No upper limit",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 6,
+          "printed_page": 6,
+          "quote": "is renewal of policy, for platinum variant there will be no maximum entry age limit.",
+          "note": "The wording sets no maximum entry age for adults.",
+          "stated": true
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": "Clause 7 Benefit",
+          "pdf_page": 8,
+          "printed_page": 8,
+          "quote": "7 Benefit 7: AYUSH The Company will Indemnify the Policy Holder/Insured Person, the Reasonable and Customary Charges, up to the amount specified against this Benefit, for Medical Expenses incurred on the Insured Person’s Medically Necessary and Medically Advised Inpatient Hospitalization during the",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause v Dilatation and curettage vi",
+          "pdf_page": 12,
+          "printed_page": 12,
+          "quote": "Cataract v. Dilatation and curettage vi.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; no max entry age"
+    },
+    {
+      "id": "zurich-kotak-health-premier",
+      "policy_id": "qi_zurich_kotak_formerly_kotak_health_premier_plan",
+      "insurer": "Zurich Kotak",
+      "name": "Health Premier",
+      "variant": null,
+      "status": "active",
+      "uin": "ZUKHLIP27071V062627",
+      "source_url": "https://cms.zurichkotak.com/uploads/KHP_Policy_Wordings_1d81dbc2d9.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 3.1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 26,
+          "printed_page": 26,
+          "quote": "a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36/ 24 months (as mentioned in the Policy Schedule) of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 3.3 Specified disease/ procedure waiting period (Code-Excl02)",
+          "pdf_page": 27,
+          "printed_page": 27,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: ₹100,000 per eye, as written in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 27,
+          "printed_page": 27,
+          "quote": "*Our maximum liability for any Claim for an Insured Person’s cataract treatment shall be 10% of the Base Sum Insured up to a maximum of INR 100,000 per eye for each Policy Year of the Policy Period.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months"
+    },
+    {
+      "id": "hdfc-ergo-optima-secure-v08-2025-26-wording",
+      "policy_id": "qi_hdfc_ergo_optima_secure_plus_plan",
+      "insurer": "HDFC ERGO",
+      "name": "Optima Secure",
+      "variant": "V08 · 2025-26 wording",
+      "status": "active",
+      "uin": "HDFHLIP26058V082526",
+      "source_url": "https://juhdcjswjkxmgqqbhdal.supabase.co/storage/v1/object/public/product-documents/hdfc-ergo/optima-secure/policy-2026-05-30_01-15-21.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause i Expenses related to the treatment of a pre-existi (Code-Excl01)",
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months (Unless specified otherwise in the Policy Schedule) of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause i Expenses related to the treatment of the listed C (Code-Excl02)",
+          "pdf_page": 31,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 11,
+          "printed_page": null,
+          "quote": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
+          "note": null,
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": "No upper limit",
+          "unit": "text",
+          "section": "Clause 1.27 Eligibility",
+          "pdf_page": 44,
+          "printed_page": null,
+          "quote": "minimum entry age for an adult is 18 years and there is no limit on maximum entry age.",
+          "note": "The wording sets no maximum entry age for adults.",
+          "stated": true
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 12,
+          "printed_page": null,
+          "quote": "AYUSH Treatment The Company shall indemnify the Medical Expenses incurred by the Insured Person only for Inpatient Care under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy systems",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 31,
+          "printed_page": null,
+          "quote": "Rhinitis Perineal Abscesses Perianal Abscesses Skin tumors Cataract and other disorders of lens and Retina Fissure/fistula in anus, Haemorrhoids including Gout and rheumatism Tonsillitis",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room at actuals; no max entry age"
+    },
+    {
+      "id": "care-health-ultimate-care",
+      "policy_id": "qi_care_health_ultimate_care_plan",
+      "insurer": "Care Health",
+      "name": "Ultimate Care",
+      "variant": null,
+      "status": "active",
+      "uin": "CHIHLIP25044V012425",
+      "source_url": "https://cms-prod.s3.ap-south-1.amazonaws.com/ultimate_care_policy_terms_and_conditions_1_4f906b4307.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause (i Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 70,
+          "printed_page": 69,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause (ii Named Ailment Waiting Period (Code-Excl02)",
+          "pdf_page": 70,
+          "printed_page": 69,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the Company.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited for …",
+          "unit": "text",
+          "section": "Clause i Single Private AC Room If the Policy Schedule sta",
+          "pdf_page": 39,
+          "printed_page": 38,
+          "quote": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited for stay in a Single Private AC Room.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 23,
+          "printed_page": 22,
+          "quote": "(vi) AYUSH Treatment The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH Hospitals or",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 22,
+          "printed_page": 21,
+          "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "niva-bupa-aspire",
+      "policy_id": "qi_niva_bupa_aspire_plan",
+      "insurer": "Niva Bupa",
+      "name": "Aspire",
+      "variant": null,
+      "status": "active",
+      "uin": "NBHHLIP26049V022526",
+      "source_url": "https://transaction.nivabupa.com/pages/doc/policy_wording/Aspire_Policy_Wordings.pdf?v=1.8",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 5.1.1 Pre-existing Diseases (Code-Excl01)",
+          "pdf_page": 17,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 12months/24 months/ 36 months (as per Variant selected) of continuous coverage after the date of inception of the first Policy.",
+          "note": "Depends on the plan or sum insured chosen: 12, 24, 36 months. The longest is used for ranking.",
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 5.1.2 Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 17,
+          "printed_page": null,
+          "quote": "to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months/12 months (as per Variant Selected) of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause ii Cataract",
+          "pdf_page": 17,
+          "printed_page": null,
+          "quote": "Cataract, glaucoma and retinal detachment",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 9 Deep Br",
+          "pdf_page": 6,
+          "printed_page": null,
+          "quote": "Robotic surgeries 8. Stereotactic radio Surgeries 9.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "niva-bupa-health-premia",
+      "policy_id": "qi_niva_bupa_health_premia_plan",
+      "insurer": "Niva Bupa",
+      "name": "Health Premia",
+      "variant": null,
+      "status": "active",
+      "uin": "MAXHLIP21176V022021",
+      "source_url": "https://www.nivabupa.com/content/dam/nivabupa/PDF/health-premia/NB%20Health%20Premia%20Policy%20Wording.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 48,
+          "unit": "months",
+          "section": "Clause i Pre-existing Diseases (Code-Excl01)",
+          "pdf_page": 36,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 48 months of continuous coverage after the date of inception of the ﬁrst Policy with Us.",
+          "note": "Another option in this wording reads 24 months — check the plan in the schedule.",
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": "Clause 5.1.1.2 Speci (Code-Excl02)",
+          "pdf_page": 39,
+          "printed_page": null,
+          "quote": "to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage after the date of inception of the ﬁrst Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause ii Cataract",
+          "pdf_page": 40,
+          "printed_page": null,
+          "quote": "Cataract, glaucoma and other disorders of lens, disorders of retina iii.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered with a limit of INR 1 Lac as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 23,
+          "printed_page": null,
+          "quote": "Special condition applicable for robotic surgeries: A limit of maximum INR 1 Lac will apply to all robotic surgeries, except the following: i.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 48 months"
+    },
+    {
+      "id": "tata-aig-medicare",
+      "policy_id": "qi_tata_aig_medicare_plan_base",
+      "insurer": "TATA AIG",
+      "name": "MediCare",
+      "variant": null,
+      "status": "active",
+      "uin": "TATHLIP23118V032223",
+      "source_url": "https://www.tataaig.com/s3/Tata_AIG_Medi_Care_PW_b34c9c6817.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause i Pre-existing Diseases Waiting Period (Code-Excl01)",
+          "pdf_page": 19,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause ii Specified Disease/Procedure Waiting Period (Code-Excl02)",
+          "pdf_page": 19,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "tata-aig-health-supercharge",
+      "policy_id": "qi_tata_aig_health_supercharge_plan",
+      "insurer": "TATA AIG",
+      "name": "Health SuperCharge",
+      "variant": null,
+      "status": "active",
+      "uin": "TATHLIP24113V012324",
+      "source_url": "https://www.tataaig.com/s3/Health_Super_Charge_Policy_Wordings_eed27d4280.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause i Pre-Existing Diseases Waiting Period (Code-Excl01)",
+          "pdf_page": 29,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause ii Specified Disease/Procedure Waiting Period (Code-Excl02)",
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with Us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Room Rent, Boarding, Nursing Expenses as provided by the Hospital / Nursing Home upto the limit per day/room category as specified in the Policy Schedule ii.",
+          "unit": "text",
+          "section": "Clause i Room Rent",
+          "pdf_page": 11,
+          "printed_page": null,
+          "quote": "Room Rent, Boarding, Nursing Expenses as provided by the Hospital / Nursing Home upto the limit per day/room category as specified in the Policy Schedule ii.",
+          "note": "The room category is set in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "schedule",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "Cataract, Retinal detachment, Glaucoma XIX.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 0 Balloon Sinuplasty/ FESS",
+          "pdf_page": 51,
+          "printed_page": null,
+          "quote": "150,00 225,00 300,000 0 0 0 lmmunotherapy- Monoclonal 125,000 175,00 250,00 375,00 500,000 Antibody all forms 0 0 0 Robotic surgeries 125,000 175,00 250,00 375,00 500,000 0 0 0 Stem cell therapy for Hematopoietic stem cells for bone marrow 125,000 175,00 250,00 375,00 500,000 transplant for",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "hdfc-ergo-optima-restore",
+      "policy_id": "qi_hdfc_ergo_optima_restore_plan",
+      "insurer": "HDFC ERGO",
+      "name": "Optima Restore",
+      "variant": null,
+      "status": "active",
+      "uin": "HDFHLIP26055V102526",
+      "source_url": "https://customer-portal-assets.hdfcergo.com/documents/PolicyWordings_OptimaRestore-811520192624.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause iii Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 21,
+          "printed_page": 21,
+          "quote": "a) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause ii Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 11,
+          "printed_page": 11,
+          "quote": "Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In- patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "hdfc-ergo-energy-health",
+      "policy_id": "qi_hdfc_ergo_energy_health_insurance_plan",
+      "insurer": "HDFC ERGO",
+      "name": "Energy Health",
+      "variant": null,
+      "status": "active",
+      "uin": "HDFHLIP26048V052526",
+      "source_url": "https://uatsf.hdfcergo.com/docs/default-source/downloads/policy-wordings/health/energy-combined-pw-cis.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause ii For which Medical advice or treatment was recomme",
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "a) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause i Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 16,
+          "printed_page": 16,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments as mentioned in the table below shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": 9,
+          "quote": "and other devices or equipment if implanted internally during a Surgical Procedure Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        },
+        "diabetes_wait": {
+          "value": "Covered from the start — no pre-existing wait for diabetes and high BP",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "Any condition or illness, complication or ailment arising out of or connected to the below mentioned conditions shall not be considered as part of this waiting period. a. Type 2 Diabetes Mellitus b. Impaired Fasting Glucose (IFG) c. Impaired Glucose Tolerance (IGT) d. Type 1 Diabetes e. Hypertension",
+          "note": "Other pre-existing illnesses still follow the normal PED wait.",
+          "stated": true,
+          "months": 0,
+          "conditions": [
+            "diabetes",
+            "high BP"
+          ],
+          "source_kind": "prose"
+        }
+      },
+      "differentiator": "no PED wait for diabetes / BP; PED 24 months"
+    },
+    {
+      "id": "hdfc-ergo-optima-senior",
+      "policy_id": "qi_hdfc_ergo_optima_senior_plan",
+      "insurer": "HDFC ERGO",
+      "name": "Optima Senior",
+      "variant": null,
+      "status": "active",
+      "uin": "HDHHLIP21379V022021",
+      "source_url": "https://www.hdfcergo.com/docs/default-source/downloads/policy-wordings/health/optima-senior.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause iii Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 11,
+          "printed_page": null,
+          "quote": "a) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause ii Specified disease/procedure waiting period (Code-Excl02)",
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments as mentioned in the table below shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": "Clause 7 C-I",
+          "pdf_page": 7,
+          "printed_page": null,
+          "quote": "In-Patient Treatment Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "star-health-comprehensive",
+      "policy_id": "qi_star_health_comprehensive_insurance_plan",
+      "insurer": "Star Health",
+      "name": "Comprehensive",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP26044V092526",
+      "source_url": "https://d28c6jni2fmamz.cloudfront.net/Policy_Wordings_Star_Comprehensive_Insurance_Policy_433b7f0939.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 31,
+          "printed_page": 30,
+          "quote": "\u0007Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": "Another option in this wording reads 12 months — check the plan in the schedule.",
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 30,
+          "printed_page": 29,
+          "quote": "to the treatment of the following listed Conditions, surgeries/ treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 30,
+          "printed_page": 29,
+          "quote": "\u0007Treatment of Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Benign diseases of the breast ii.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 10,
+          "printed_page": 9,
+          "quote": "Sum Insured (Rs.) Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplasty Vaporisation of the prostate (Green laser treatment or holmium laser treatment) IONM-(Intra Operative Neuro Monitoring) Stem cell theraphy: Hematopoietic stem cells for bone marrow transplant for haematological",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "star-health-young-star",
+      "policy_id": "qi_star_health_young_star_insurance_plan",
+      "insurer": "Star Health",
+      "name": "Young Star",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP26043V062526",
+      "source_url": "https://d28c6jni2fmamz.cloudfront.net/Policy_Young_Star_Insurance_Policy_V_15_2acca6f090.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 22,
+          "printed_page": 22,
+          "quote": "\u0007Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 12 months of continuous coverage after the date of inception of the first Policy with insurer B.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 22,
+          "printed_page": 22,
+          "quote": "to the treatment of the following listed Conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": 9,
+          "quote": "Sum Insured ( Rs.) Robotic Surgeries Stereotactic Radio Surgeries Bronchical Thermoplasty Vaporasation of the Prostate (Green Laser Treatment or Holmium Laser Treatment) IONM-( Intra Operative Neuro Monitoring) Stem Cell therapy: Hematopoietic stem cells for bone marrow transplant for",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 12 months"
+    },
+    {
+      "id": "aditya-birla-health-activ-one",
+      "policy_id": "qi_aditya_birla_health_activ_one_plan",
+      "insurer": "Aditya Birla Health",
+      "name": "Activ One",
+      "variant": null,
+      "status": "active",
+      "uin": "ADIHLIP24097V012324",
+      "source_url": "https://www.adityabirlahealthinsurance.com/assets/pdf/active-one/MAX/product-information/policy-document.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "The PED wait is chosen with the plan and printed in the Policy Schedule — this wording gives no fixed number.",
+          "stated": false
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause D.1.2 Speci (Code-Excl02)",
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "to the treatment of the listed Conditions, surgeries / treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the ﬁrst policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "(up to Base Sum Insured) 100% of Base Sum Insured per year, up to 500% of Base Sum Insured (up to Max of INR 3 Crores under this beneﬁt) Room Rent ICU Charges Road Ambulance Cover (per hospitalization) Day Care Treatments Modern Procedures …",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 46,
+          "printed_page": null,
+          "quote": "(up to Base Sum Insured) 100% of Base Sum Insured per year, up to 500% of Base Sum Insured (up to Max of INR 3 Crores under this beneﬁt) Room Rent ICU Charges Road Ambulance Cover (per hospitalization) Day Care Treatments Modern Procedures / Treatments HIV / AIDS and STD Cover Mental Illness",
+          "note": "A share of the sum insured per day — the rupee figure depends on the sum insured chosen.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "pct_si",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 46,
+          "printed_page": null,
+          "quote": "Expenses (up to Sum Insured) Claim Protect (Non-Medical Expense Waiver) Domiciliar Hospitalization Home Health Care AYUSH Treatment Organ Donor Expenses Annual Health Check-up Super Reload (Unlimited Reﬁll) Super Credit (Increases Irrespective of Claim) Hospitalization Treatment Entr Age (Adult)",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 10,
+          "printed_page": null,
+          "quote": "Illness Cataract Glaucoma Refractive Error Correction Sinusitis Rhinitis Tonsillitis & Adenitis Tympanitis & Non Traumatic Perforation Deviated Nasal Septum Otitis Media Adenoiditis Mastoiditis",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 29,
+          "printed_page": null,
+          "quote": "Chemotherapy Intra Vitreal Injections Vaporisation of the Prostrate (Green laser treatment or holmium laser treatment) Robotic Surgeries Bronchial Thermoplasty Stem Cell Therapy: Hematopoietic Stem Cells for Bone Marrow Transplant for Haematological Conditions Stereotactic Radio Surgeries IONM -",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "room 100% of SI/day"
+    },
+    {
+      "id": "digit-go-digit-health-care-plus",
+      "policy_id": "qi_digit_go_digit_health_care_plus_plan",
+      "insurer": "Digit (Go Digit)",
+      "name": "Health Care Plus",
+      "variant": null,
+      "status": "active",
+      "uin": "GODHLIP19045V011920",
+      "source_url": "https://www.godigit.com/content/dam/godigit/directportal/en/corona/digit-health-plus-policy-wordings-retail.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "The PED wait is chosen with the plan and printed in the Policy Schedule — this wording gives no fixed number.",
+          "stated": false
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause 24 Specific Treatments",
+          "pdf_page": 21,
+          "printed_page": null,
+          "quote": "Robotic surgeries however expenses will be covered up-to the conventional procedure cost.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "Policy wording on file"
+    },
+    {
+      "id": "royal-sundaram-next-gen-health",
+      "policy_id": "qi_royal_sundaram_next_gen_health_insurance_plan",
+      "insurer": "Royal Sundaram",
+      "name": "NeXT Gen Health",
+      "variant": null,
+      "status": "active",
+      "uin": "RSAHLIP24078V012324",
+      "source_url": "https://www.royalsundaram.in/assets/forms-central/NeXT_Gen_Health_Insurance_Plan/Policy_Wordings_NeXT_Gen_Health_Insurance_Plan.pdf",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause E.1.1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause E.1.3 Specific Waiting Period (Code-Excl02)",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the insurer.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause 9 Organ Donor Expenses Covered up to Sum Insured",
+          "pdf_page": 40,
+          "printed_page": 40,
+          "quote": "Medical Expenses are payable up to 30 days and 60 days respectively under Domiciliary Hospitalization 11 AYUSH Treatment Covered up to Sum Insured 12 Ambulance Cover including App-based Cab cover# Covered up to Rs.",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "f) List of specific diseases/procedures is as under: a) Cataract b) Stones in biliary and urinary systems c) Hernia / Hydrocele d) Hysterectomy for any benign disorder",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 11,
+          "printed_page": 11,
+          "quote": "Robotic surgeries VIII. Stereotactic radio surgeries IX.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "care-health-care-plus-plan-care-health-plus-care-plus",
+      "policy_id": "qi_care_health_care_plus_plan_care_health_plus_care_plus",
+      "insurer": "Care Health",
+      "name": "Care Plus Plan (Care Health Plus / Care Plus)",
+      "variant": null,
+      "status": "active",
+      "uin": "CHIHLIP22047V012122",
+      "source_url": "https://cms.careinsurance.com/cms/public/uploads/download_center/care-plus---cis.pdf?rv=0.49348300",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause (i Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 17,
+          "printed_page": 16,
+          "quote": "Expenses related to the treatment of a pre- existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 4 Exclusions a",
+          "pdf_page": 17,
+          "printed_page": 16,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage, as may be the case after the date of inception of the first policy with the Company.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited to stay …",
+          "unit": "text",
+          "section": "Clause ii Single Private AC Room If the Policy Schedule sta",
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited to stay in a Single AC Private Room.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause 3.1.9 Benefit",
+          "pdf_page": 10,
+          "printed_page": 9,
+          "quote": "3.1.9 Benefit : AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to sum insured as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause 4 Cataract pre-Existing diseases",
+          "pdf_page": 18,
+          "printed_page": 17,
+          "quote": "Cataract pre-Existing diseases, then the longer of the two waiting periods shall apply.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Robotic surgeries L. Stem cell therapy: Hematopoietic stem cells for bone marrow transplant for haematological conditions to be covered.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; room depends on plan"
+    },
+    {
+      "id": "care-health-care-freedom",
+      "policy_id": "qi_care_health_care_freedom_plan",
+      "insurer": "Care Health",
+      "name": "Care Freedom",
+      "variant": null,
+      "status": "active",
+      "uin": "CHIHLIP26052V032526",
+      "source_url": "https://cms.careinsurance.com/cms/public/uploads/download_center/care_freedom_customer_information_sheet.pdf?rv=0.49333100",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause vii If an Insured Person is suffering from any of the",
+          "pdf_page": 13,
+          "printed_page": 12,
+          "quote": "or Pre-existing Disease shall not be covered until the completion of 24 months of continuous insurance coverage with the Company from the first Policy Period Start Date. (c) 30-Day waiting period – code – Excl03 (i) Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": "Room Category 2 = Single Private Room with A.C.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Room Category 2 = Single Private Room with A.C.",
+          "note": null,
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause 3.1.10 Benefit",
+          "pdf_page": 11,
+          "printed_page": 10,
+          "quote": "3.1.10 Benefit 10: AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause i Treatment of Cataract ii",
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Treatment of Cataract ii. Treatment of Total Knee Replacement iii.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": 8,
+          "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months; single private room"
+    },
+    {
+      "id": "care-health-care-joy-plan-joy-today-joy-tomorrow-maternity-care-joy",
+      "policy_id": "qi_care_health_care_joy_plan_joy_today_joy_tomorrow_maternity_care_joy",
+      "insurer": "Care Health",
+      "name": "Care Joy Plan - Joy Today / Joy Tomorrow (maternity / Care Joy)",
+      "variant": null,
+      "status": "active",
+      "uin": "RHIHLIP21373V022021",
+      "source_url": "https://cms.careinsurance.com/cms/public/uploads/download_center/joy-(maternity-insurance-product)---policy-t&c-(effective-from-01-october-2020).pdf?rv=0.88151900",
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause (i Pre-existing Disease (Code-Excl01)",
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause (ii Specific Waiting Period (Code-Excl02)",
+          "pdf_page": 9,
+          "printed_page": 8,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with the Company.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": "If the Insured Person is admitted in a room where the Room Category is other than Single Private Room with A.C., then the Policyholder shall bear the ratable proportion of the total Associate Medical Expenses (including surcharge or taxes …",
+          "unit": "text",
+          "section": "Clause (i Room Category",
+          "pdf_page": 7,
+          "printed_page": 6,
+          "quote": "If the Insured Person is admitted in a room where the Room Category is other than Single Private Room with A.C., then the Policyholder shall bear the ratable proportion of the total Associate Medical Expenses (including surcharge or taxes thereon) in the proportion of the difference between the",
+          "note": null,
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered up to the sum insured.",
+          "unit": "text",
+          "section": "Clause 3.7 Benefit",
+          "pdf_page": 8,
+          "printed_page": 7,
+          "quote": "Benefit 7 : AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": 8,
+          "quote": "Cataract; V. Dilatation and Curettage",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause i Bronchi",
+          "pdf_page": 7,
+          "printed_page": 6,
+          "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months; single private room"
+    },
+    {
+      "id": "care-health-care-heart",
+      "policy_id": "qi_care_health_care_heart_plan",
+      "insurer": "Care Health",
+      "name": "Care Heart",
+      "variant": null,
+      "status": "active",
+      "uin": "CHIHLIP26053V032526",
+      "source_url": "https://cms.careinsurance.com/cms/public/uploads/download_center/care-heart-(health-insurance-product)---prospectus-cum-sales-literature.pdf?rv=0.79070300",
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause (i Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 18,
+          "printed_page": 17,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room C a t e g o r y i …",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 11,
+          "printed_page": 10,
+          "quote": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room C a t e g o r y i n c a s e o f Hospitalization of the Insured Person payable",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
+          "unit": "text",
+          "section": "Clause 3.1.3 Benefit",
+          "pdf_page": 13,
+          "printed_page": 12,
+          "quote": "3.1.3 Benefit 3: AYUSH Treatments: The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to theSum Insured specified in the Policy Schedule, towards in-patient Medical Expenses incurred with respect to the Insured Person's Medical treatment undergone at any",
+          "note": null,
+          "stated": true
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause i Bronchi",
+          "pdf_page": 12,
+          "printed_page": 11,
+          "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months; room depends on plan"
+    },
+    {
+      "id": "star-health-cardiac-care",
+      "policy_id": "qi_star_health_cardiac_care_insurance_policy",
+      "insurer": "Star Health",
+      "name": "Cardiac Care",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP18006V021819",
+      "source_url": null,
+      "facts": {
+        "ped_wait_months": {
+          "value": 48,
+          "unit": "months",
+          "section": null,
+          "pdf_page": 6,
+          "printed_page": 6,
+          "quote": "A waiting period of 48 consecutive months of continuous coverage from the inception of this policy will apply in respect of pre-existing diseases as deﬁned in the policy.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "No specified-disease waiting clause found in this wording.",
+          "stated": false
+        },
+        "room_rent": {
+          "value": "Room, Boarding and Nursing Expenses all inclusive as provided by the Hospital / Nursing Home up to 2% of the sum insured, subject to a maximum of Rs.5,000/- per day B.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 3,
+          "printed_page": 3,
+          "quote": "Room, Boarding and Nursing Expenses all inclusive as provided by the Hospital / Nursing Home up to 2% of the sum insured, subject to a maximum of Rs.5,000/- per day B.",
+          "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "depends",
+          "source_kind": "prose"
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 6,
+          "printed_page": 6,
+          "quote": "Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Prolapse of intervertebral disc (other than caused by accident), Varicose veins",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 48 months; room depends on plan"
+    },
+    {
+      "id": "star-health-cancer-care-platinum",
+      "policy_id": "qi_star_health_cancer_care_platinum_insurance_policy",
+      "insurer": "Star Health",
+      "name": "Cancer Care Platinum",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP22031V022122",
+      "source_url": null,
+      "facts": {
+        "ped_wait_months": {
+          "value": 30,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 6,
+          "printed_page": 6,
+          "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry 30 months of continuous coverage after the date of inception of the ﬁrst policy with insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Clause 2 Speci (Code-Excl02)",
+          "pdf_page": 6,
+          "printed_page": 6,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the ﬁrst policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: ₹30,000 per eye (the limit rises with the sum insured — see the table), as written in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 5,
+          "printed_page": 5,
+          "quote": "cells for bone marrow transplant for haematological conditions Up to 50% of the SI Basic Sum Insured (Rs.) Limit of Cataract Surgery (Rs.) 5,00,000/- 30,000/- per eye per person and not exceeding 40,000/- per person per policy period 7,50,000/- and 10,00,000/- 40,000/- per eye per person and not",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 5,
+          "printed_page": 5,
+          "quote": "of the SI Immunotheraphy-Monoclonal Antibody to be given as injection Intra Vitreal injections 50,000 65,000 75,000 Robotic surgeries 2,50,000 2,75,000 3,00,000 Stereotactic radio surgeries 2,00,000 2,15,000 2,25,000 Bronchical Thermoplast Covered up to Sum Insured Vaporisation of the prostate",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 30 months"
+    },
+    {
+      "id": "star-health-medi-classic",
+      "policy_id": "qi_star_health_medi_classic_insurance_policy",
+      "insurer": "Star Health",
+      "name": "Medi Classic",
+      "variant": null,
+      "status": "active",
+      "uin": "SHAHLIP26047V092526",
+      "source_url": null,
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 1 Pre-Existing Diseases (Code-Excl01)",
+          "pdf_page": 21,
+          "printed_page": 20,
+          "quote": "\u0007Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the ﬁrst Policy with insurer B.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 21,
+          "printed_page": 20,
+          "quote": "to the treatment of the following listed Conditions, surgeries/ treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the ﬁrst Policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract has its own limit: ₹20,000 per eye (the limit rises with the sum insured — see the table), as written in this clause.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 9,
+          "printed_page": 8,
+          "quote": "Basic Sum Insured(Rs.) Limit for Cataract Surgery(Rs.) up to Rs.2,00,000/- 12,000/- per person, per Policy Period Rs.3,00,000/- to Rs.7,50,000/- 20,000/- per eye per person and not exceeding 30,000/- per person per Policy Period Rs.10,00,000/- and Rs.15,00,000/- 30,000/- per eye per person and not",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "unit": "text",
+          "section": null,
+          "pdf_page": 10,
+          "printed_page": 9,
+          "quote": "75,000/- 15,00,000/- 1,75,000/- 1,25,000/- 4,00,000/- 2,50,000/- 5,00,000/- 1,00,000/- Basic Sum Insured (Rs.) Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplasty Vaporisation of the prostate (Green laser treatment or holmium laser treatment) IONM- (Intra Operative Neuro",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "niva-bupa-health-companion-family-floater",
+      "policy_id": "qi_niva_bupa_health_companion_family_floater",
+      "insurer": "Niva Bupa",
+      "name": "Health Companion Family Floater",
+      "variant": null,
+      "status": "active",
+      "uin": "NBHHLIP26051V092526",
+      "source_url": null,
+      "facts": {
+        "ped_wait_months": {
+          "value": 36,
+          "unit": "months",
+          "section": "Clause 6 Exclusions (Code-Excl01)",
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "unit": "text",
+          "section": "Clause ii Cataract",
+          "pdf_page": 16,
+          "printed_page": null,
+          "quote": "Cataract, Glaucoma and other disorders of lens, disorders of Retina, iii.",
+          "note": null,
+          "stated": true
+        },
+        "robotic_surgery": {
+          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "unit": "text",
+          "section": "Clause ix Bro",
+          "pdf_page": 13,
+          "printed_page": null,
+          "quote": "Robotic surgeries viii. Stereotactic radio surgeries ix.",
+          "note": null,
+          "stated": true,
+          "source_kind": "prose"
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 36 months"
+    },
+    {
+      "id": "icici-lombard-complete-health-insurance-health-advantedge",
+      "policy_id": "qi_icici_lombard_complete_health_insurance_health_advantedge",
+      "insurer": "ICICI Lombard",
+      "name": "Complete Health Insurance (Health AdvantEdge)",
+      "variant": null,
+      "status": "active",
+      "uin": "ICIHLIP22206V022122",
+      "source_url": null,
+      "facts": {
+        "ped_wait_months": {
+          "value": 24,
+          "unit": "months",
+          "section": "Code-Excl01",
+          "pdf_page": 33,
+          "printed_page": 32,
+          "quote": "a) Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 48/36/24 months of continuous coverage after the date of inception of the first policy with insurer as selected by the Insurer.",
+          "note": null,
+          "stated": true
+        },
+        "specified_disease_wait_months": {
+          "value": 12,
+          "unit": "months",
+          "section": "Code-Excl02",
+          "pdf_page": 33,
+          "printed_page": 32,
+          "quote": "to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24/12 months of continuous coverage after the date of inception of the first policy with us.",
+          "note": null,
+          "stated": true
+        },
+        "room_rent": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Room rent is set in the Policy Schedule; the wording gives no per-day figure.",
+          "stated": false
+        },
+        "entry_age_max": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in this wording. See the prospectus.",
+          "stated": false
+        },
+        "ayush": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "AYUSH cover is not written in this wording.",
+          "stated": false
+        },
+        "cataract": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Cataract is not written in this wording.",
+          "stated": false
+        },
+        "robotic_surgery": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Robotic surgery is not written in this wording.",
+          "stated": false
+        },
+        "premium_inr": {
+          "value": null,
+          "unit": null,
+          "pdf_page": null,
+          "printed_page": null,
+          "quote": null,
+          "note": "Not stated in policy wordings. See the rate card.",
+          "stated": false
+        }
+      },
+      "differentiator": "PED 24 months"
     }
   ]
 }

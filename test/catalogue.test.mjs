@@ -33,6 +33,11 @@ const norm = (s) =>
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "");
 
+const NUMWORD = {
+  1: ["one"], 2: ["two"], 3: ["three"], 4: ["four"], 5: ["five"], 12: ["twelve"],
+  24: ["twentyfour"], 36: ["thirtysix"], 48: ["fortyeight"],
+};
+
 const docs = {};
 for (const [id, d] of Object.entries(cat.documents)) {
   const f = path.join(pagesDir, d.source.replace(/\.pdf$/, ".json"));
@@ -92,10 +97,15 @@ for (const p of cat.products) {
       `quote not found: "${f.quote.slice(0, 80)}..."`
     );
 
-    /* a numeric fact must have its own number in its own quote */
+    /* a numeric fact must have its own number in its own quote —
+       as digits, spelled out, or (for months) as whole years */
     if (typeof f.value === "number") {
+      const q = norm(f.quote);
+      const spelled = (NUMWORD[f.value] || []).some((w) => q.includes(w));
+      const years = f.unit === "months" && f.value % 12 === 0 &&
+        [String(f.value / 12) + "year", ...(NUMWORD[f.value / 12] || []).map((w) => w + "year")].some((w) => q.includes(w));
       check(
-        norm(f.quote).includes(String(f.value)),
+        q.includes(String(f.value)) || spelled || years,
         `${p.id}.${key}: the value ${f.value} appears in its own quote`
       );
     }
