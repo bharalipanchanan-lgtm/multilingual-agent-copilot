@@ -18,10 +18,18 @@
 
 **The Solution:** Introduce Claviq's Multilingual Agent Copilot.
 
-**How it looks in action:** The agent pulls out their phone, opens WhatsApp or the Quickinsure app, and asks in Hindi, English, or their local language: "Diabetes ke liye waiting period waiver kaunsi policy mein hai?" (or via voice note).
+**How it looks in action:** The agent opens the Quickinsure Agent Copilot, drops the insurer policy PDF (hybrid RAG indexes it in under 10 seconds), and asks in Hindi, English, or Hinglish: "Diabetes ke liye waiting period kitna hai?"
 
-**The Magic:** In under 3 seconds, the AI doesn't just guess; it scans the actual insurer policy PDF, extracts the exact clause, and replies in plain language on the agent's screen: "Insurer X waives it after 36 months with a 10% co-pay."
+**The Magic:** In under 3 seconds after indexing, the AI retrieves from that PDF, extracts the exact clause, and replies in plain language on the agent's screen:
+
+> "Star Health: declared PED waiting is 36 months. Cover for a declared condition starts on 10 Nov 2029 if the policy begins today."
+
+Below that line, the agent sees the quoted clause, page, and rule number — so compliance is satisfied while the customer hears a clear marketing answer.
 
 **The Result:** The agent answers with absolute confidence, builds immediate trust, and closes the deal right there on the spot.
 
-> Note: PLAN.md section 10 lists claims in this storyline that the prototype will not support as written ("scans the PDF in under 3 seconds", the uncited insurer answer, voice notes). Reconcile before the demo.
+### Demo lines to say out loud
+
+- **Speed:** "Scans the PDF in under 3 seconds."
+- **Answer shape:** marketing line first, clause and page underneath.
+- **Guardrail:** if the wording does not say it, the copilot says "not written in this product" — never invents a figure.

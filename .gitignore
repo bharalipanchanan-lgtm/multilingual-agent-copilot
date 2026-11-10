@@ -24,6 +24,7 @@ build/
 data/dumps/
 data/chroma/
 data/audit.jsonl
+data/uploads/
 eval/reports/
 models/
 data/pages/

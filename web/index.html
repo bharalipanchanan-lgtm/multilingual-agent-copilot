@@ -3,54 +3,156 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pick the product — Claviq Agent Copilot</title>
+<meta name="theme-color" content="#ffffff">
+<title>Agent Copilot — Quickinsure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar__inner">
-    <div class="logo">Quick<span>insure</span></div>
-    <div class="topbar__role">Agent copilot</div>
+<a class="skip" href="#q">Skip to product search</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="Quickinsure Agent Copilot, home">
+      <svg class="brand__mark" width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
+        <path d="M0 2h18l-4 5H3z" fill="#2acb55"/>
+        <path d="M6 10h13l-4 5H9z" fill="#2acb55"/>
+        <path d="M22 0h8l-12 22h-8z" fill="#064d98" opacity=".9"/>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__word">Quick<span>insure</span></span>
+        <span class="brand__tag">Agent copilot</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" aria-current="page">Find product</a>
+      <a href="simple.html">Policy chat</a>
+      <a href="/api/status" target="_blank" rel="noopener">System status</a>
+    </nav>
+
+    <div class="site-header__end">
+      <a class="helpline" href="tel:+917969030500">
+        <span class="helpline__text">
+          <span class="helpline__label">Happy to help you</span>
+          <span class="helpline__num">0796 9030500</span>
+        </span>
+        <span class="helpline__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+        </span>
+      </a>
+      <span class="agent-chip">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <span>Agent</span>
+      </span>
+    </div>
   </div>
 </header>
 
-<main>
-  <p class="fixture-note fixture-note--ok">
-    <b>5 wordings, read page by page.</b>
-    <span>Every value carries the page it came from. Premiums and entry ages are not in policy wordings, so they are not answered here.</span>
-  </p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner">
+    <h1 id="hero-title" class="hero__title">Find. Check. Close.</h1>
+    <p class="hero__pill">Scans the PDF in under 3 seconds</p>
+    <p class="hero__line">Plain answer first — then the exact clause, page and rule number underneath.</p>
+    <ol class="steps" aria-label="How it works">
+      <li><span class="step-badge"><b>1</b><i>3</i></span>Pick the exact product</li>
+      <li><span class="step-badge"><b>2</b><i>3</i></span>Ask in English, Hindi or Hinglish</li>
+      <li><span class="step-badge"><b>3</b><i>3</i></span>Close with the cited answer</li>
+    </ol>
+  </div>
+</section>
 
-  <div id="catalogue-note"></div>
+<main id="main">
+  <div class="notes">
+    <p class="fixture-note fixture-note--ok">
+      <b>Policy wordings, read page by page.</b>
+      <span>Every value carries the page and clause it came from. If the wording does not say it, the copilot says so.</span>
+    </p>
+    <div id="catalogue-note"></div>
+  </div>
 
-  <h1>Which product exactly?</h1>
-  <p class="sub">Names repeat across tiers and years. Pick one before anything is answered.</p>
-
-  <section class="search">
-    <label class="sr-only" for="q">Search by product name, insurer, or what the customer needs</label>
-    <div class="search__field">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <input id="q" type="search" autocomplete="off" spellcheck="false"
-             placeholder="e.g. optima restore, or: mother 50, diabetes, room rent 10000">
+  <section class="upload panel" aria-labelledby="upload-title">
+    <div class="panel__head">
+      <h2 id="upload-title" class="panel__title">Or drop a policy PDF</h2>
+      <p class="panel__sub">Hybrid RAG indexes the wording (semantic + keyword). Target: under 10 seconds when the models are warm. Then ask like any other product.</p>
     </div>
-    <p class="search__hint">Type a product name, or describe the need in plain words.</p>
+    <div class="panel__body">
+      <label class="upload-zone" id="upload-zone" for="pdf-file">
+        <input id="pdf-file" type="file" accept="application/pdf,.pdf" hidden>
+        <span class="upload-zone__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
+        </span>
+        <span class="upload-zone__title">Upload insurer wording PDF</span>
+        <span class="upload-zone__hint">Drag and drop, or click to browse · text PDFs only · max 60 pages</span>
+      </label>
+      <div class="upload-meta">
+        <label class="upload-field">Insurer
+          <input id="upload-insurer" type="text" placeholder="e.g. Star Health" autocomplete="organization">
+        </label>
+        <label class="upload-field">Product name
+          <input id="upload-product" type="text" placeholder="e.g. Family Health Optima" autocomplete="off">
+        </label>
+      </div>
+      <p class="upload-status" id="upload-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
 
-    <div class="filters" id="filters" role="group" aria-label="Limit to my insurers"></div>
+  <section class="search panel" aria-labelledby="search-title">
+    <div class="panel__head">
+      <h2 id="search-title" class="panel__title">Which product exactly?</h2>
+      <p class="panel__sub">Names repeat across tiers and years. Pick one before anything is answered — catalogue or your upload.</p>
+    </div>
+    <div class="panel__body">
+      <label class="sr-only" for="q">Search by product name, insurer, or what the customer needs</label>
+      <div class="search__field">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="e.g. optima restore, or: mother 50, diabetes, room rent 10000">
+      </div>
+      <p class="search__hint">Type a product name, or describe the customer's need in plain words.</p>
+
+      <div class="filters" id="filters" role="group" aria-label="Limit to my insurers"></div>
+    </div>
   </section>
 
   <div id="pinned-slot" aria-live="polite"></div>
 
   <section id="results-section">
-    <h2 id="results-head">Matches</h2>
+    <h2 id="results-head" class="section-title">Matches</h2>
     <p class="count" id="count"></p>
     <ul class="results" id="results"></ul>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__word brand__word--light">Quick<span>insure</span></span>
+      <p>Agent copilot. Answers come only from the insurer's own policy wording, with the page and clause number next to every figure.</p>
+    </div>
+    <div class="site-footer__col">
+      <h3>Tools</h3>
+      <a href="/">Find product</a>
+      <a href="simple.html">Policy chat</a>
+      <a href="/api/policies" target="_blank" rel="noopener">Indexed wordings</a>
+    </div>
+    <div class="site-footer__col">
+      <h3>Support</h3>
+      <a href="tel:+917969030500">0796 9030500</a>
+      <a href="https://quickinsure.co.in/" target="_blank" rel="noopener">quickinsure.co.in</a>
+    </div>
+  </div>
+  <p class="site-footer__legal">For use by licensed agents. Not a policy document — the insurer's wording and schedule always prevail.</p>
+</footer>
+
+<a class="fab" href="simple.html" aria-label="Open policy chat">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+</a>
 
 <script src="app.js"></script>
 </body>

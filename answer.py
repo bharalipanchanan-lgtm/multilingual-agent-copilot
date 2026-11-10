@@ -93,6 +93,7 @@ You are given numbered clauses from the policy wording. Rules:
    Never conclude that something does not exist just because no clause mentions it.
 5. Write 2 to 4 short sentences an agent can say to a customer. Include conditions and exceptions that change the answer.
    For a named disease, check every clause: if it appears in a specific waiting period list AND the pre-existing disease rule could apply, state both periods and when each applies.
+   If the named disease (for example diabetes) is NOT listed in a specific waiting list, answer from the general Pre-Existing Disease (PED) waiting period and say it applies when that condition was present before the policy. Do not reply NOT_STATED only because the disease name is missing from the clause text.
    Ignore retrieved clauses that are about unrelated benefits (such as wellness points, reward scores or fitness discounts) when the question is about waiting periods, room rent or coverage limits.
 6. Clauses under an "Exclusions" part list what the policy does NOT pay for. A treatment listed there is not covered (unless the clause itself states an exception).
    Clauses under a "Definition" part only define words; they do not by themselves grant cover.
@@ -225,10 +226,33 @@ def card(c: dict, n: int, answer: str, question: str) -> dict:
 
 # ---------- pipeline ----------
 
+def _expand_query(question: str) -> str:
+    """Hybrid RAG: add English policy terms so Hinglish agent questions still hit the clause."""
+    ql = question.lower()
+    extras: list[str] = []
+    if any(w in ql for w in ("waiting", "intezaar", "ped", "diabetes", "sugar", "pre-existing", "preexisting", "bp", "hypertension")):
+        extras.append("pre-existing disease PED waiting period Code Excl")
+    if any(w in ql for w in ("room", "rent", "kamra", "icu", "bed")):
+        extras.append("room rent limit ICU charges")
+    if any(w in ql for w in ("entry", "umar", "age", "senior")):
+        extras.append("maximum entry age years")
+    if any(w in ql for w in ("cataract", "motiyabind")):
+        extras.append("cataract sub-limit waiting")
+    if any(w in ql for w in ("ayush", "ayurveda", "homeopathy")):
+        extras.append("AYUSH treatment inpatient")
+    if any(w in ql for w in ("robotic", "robot", "surgery")):
+        extras.append("robotic surgery modern treatment")
+    if not extras:
+        return question
+    return f"{question}\n{' '.join(extras)}"
+
+
 def _retrieve(question: str, policy_id: str) -> list[dict]:
     from retrieve import expand_sections, keyword_hits, search
-    hits = search(question, policy_id, RETRIEVE_K)
-    kw = keyword_hits(question, policy_id, {h["id"] for h in hits})
+    q = _expand_query(question)
+    hits = search(q, policy_id, RETRIEVE_K)
+    # keyword pass uses the original agent words plus the English expansions
+    kw = keyword_hits(q, policy_id, {h["id"] for h in hits})
     for k in kw:
         k["score"] = hits[0]["score"] if hits else 0.5
     hits = hits[:1] + kw + hits[1:]  # keyword matches right after the best semantic hit
@@ -293,6 +317,27 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
               "retrieval_ms": t_ret}
 
     if answer.startswith("NOT_STATED") or not answer:
+        # Small models sometimes refuse a named-disease waiting question even when the
+        # general PED clause answers it. Recover with a grounded extractive reply.
+        ql = question.lower()
+        waiting_q = any(w in ql for w in ("waiting", "intezaar", "ped", "diabetes", "sugar", "pre-existing", "preexisting"))
+        ped_hits = [
+            c for c in clauses
+            if re.search(r"pre[- ]?existing|PED|excluded until", c.get("text", "") + " " + (c.get("section") or ""), re.I)
+        ]
+        if waiting_q and ped_hits:
+            ans, cards = _extractive(
+                question,
+                lang,
+                ped_hits,
+                note={
+                    "en": "From the pre-existing disease waiting period in this wording:",
+                    "hi": "इस पॉलिसी की पूर्व-विद्यमान बीमारी प्रतीक्षा अवधि से:",
+                    "hinglish": "Is policy ke pre-existing disease waiting period se:",
+                }[lang],
+            )
+            yield {"type": "final", "status": "answered", "answer": ans, "citations": cards, **common}
+            return
         yield {"type": "final", "status": "not_stated", "answer": NOT_STATED[lang], "citations": [], **common}
         return
 

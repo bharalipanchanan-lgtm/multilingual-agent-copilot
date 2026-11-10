@@ -237,7 +237,18 @@ const state = {
   query: "",
   selected: null,
   hasPainted: false,
+  uploading: false,
 };
+
+function rememberProduct(p) {
+  const i = state.products.findIndex((x) => x.id === p.id);
+  if (i >= 0) state.products[i] = p;
+  else state.products.unshift(p);
+  state.byId.set(p.id, p);
+  if (p.insurer && !state.insurers.includes(p.insurer)) {
+    state.insurers = [...state.insurers, p.insurer].sort();
+  }
+}
 
 /* ── helpers ─────────────────────────────────────────────── */
 
@@ -282,6 +293,10 @@ function rank() {
   if (qt.length) list = list.filter((r) => r.s > 0);
 
   list.sort((a, b) => {
+    // agent's own uploads float to the top so the new PDF is findable
+    const upA = a.p.uploaded || a.p.source === "upload" ? 1 : 0;
+    const upB = b.p.uploaded || b.p.source === "upload" ? 1 : 0;
+    if (upA !== upB) return upB - upA;
     // agent's own insurers first — feature 2
     const mineA = state.myInsurers.has(a.p.insurer) ? 1 : 0;
     const mineB = state.myInsurers.has(b.p.insurer) ? 1 : 0;
@@ -415,7 +430,10 @@ function card(p) {
 
   const btn = document.createElement("button");
   btn.type = "button";
-  btn.className = "card" + (p.status === "withdrawn" ? " card--withdrawn" : "");
+  btn.className =
+    "card" +
+    (p.status === "withdrawn" ? " card--withdrawn" : "") +
+    (p.uploaded || p.source === "upload" ? " card--upload" : "");
   btn.addEventListener("click", () => select(p.id));
 
   btn.append(textNode("span", "card__insurer", p.insurer));
@@ -424,6 +442,9 @@ function card(p) {
   if (p.variant) {
     name.append(" ");
     name.append(textNode("span", "card__variant", p.variant));
+  }
+  if (p.uploaded || p.source === "upload") {
+    name.append(textNode("span", "badge-upload", "Your upload"));
   }
   btn.append(name);
 
@@ -456,10 +477,22 @@ function pinnedView(p) {
   const box = textNode("section", "pinned");
   box.setAttribute("aria-label", "Selected product");
 
-  box.append(textNode("p", "pinned__label", "Answering about"));
+  box.append(
+    textNode(
+      "p",
+      "pinned__label",
+      p.uploaded || p.source === "upload"
+        ? "Answering about your upload"
+        : "Answering about"
+    )
+  );
 
   const head = textNode("div", "pinned__head");
-  head.append(textNode("h2", "pinned__name", `${p.insurer} ${fullName(p)}`));
+  const pinnedName = textNode("h2", "pinned__name", `${p.insurer} ${fullName(p)}`);
+  if (p.uploaded || p.source === "upload") {
+    pinnedName.append(textNode("span", "badge-upload", "Your upload"));
+  }
+  head.append(pinnedName);
 
   const change = textNode("button", "pinned__change", "Change product");
   change.type = "button";
@@ -572,11 +605,13 @@ function fastAnswer(p, intentId) {
   if (!f.stated) return { kind: "refusal", reason: "not-in-wording", detail: f.note };
 
   const cite = citePage(f);
+  const who = p.insurer;
   if (key === "ped_wait_months") {
     return {
       kind: "fast",
-      lead: `${f.value} months`,
-      note: `Cover for a declared pre-existing condition starts on ${waitEndDate(
+      /* Pitch Act III: marketing line first, clause + page underneath. */
+      lead: `${who}: declared PED waiting is ${f.value} months.`,
+      note: `Cover for a declared condition starts on ${waitEndDate(
         f.value
       )} if the policy begins today.`,
       cite,
@@ -584,9 +619,29 @@ function fastAnswer(p, intentId) {
       quote: f.quote,
     };
   }
+  if (key === "room_rent") {
+    return {
+      kind: "fast",
+      lead: `${who}: room rent — ${f.value}.`,
+      note: f.note || "",
+      cite,
+      section: f.section || null,
+      quote: f.quote,
+    };
+  }
+  if (key === "entry_age_max") {
+    return {
+      kind: "fast",
+      lead: `${who}: maximum entry age is ${f.value}.`,
+      note: f.note || "",
+      cite,
+      section: f.section || null,
+      quote: f.quote,
+    };
+  }
   return {
     kind: "fast",
-    lead: String(f.value),
+    lead: `${who}: ${f.value}.`,
     note: f.note || "",
     cite,
     section: f.section || null,
@@ -716,7 +771,14 @@ function copilotTurn(p, result, ms) {
           `A figure in the draft (${(ev.unsupported_numbers || []).join(", ")}) did not appear in the clause it cited. Showing the clauses verbatim instead.`));
         bubble.append(warn);
       }
-      bubble.append(textNode("p", "bubble__answer", ev.answer || ""));
+      const raw = (ev.answer || "").trim();
+      const firstStop = raw.search(/[.!?\n]/);
+      const market =
+        firstStop > 12 && firstStop < 180 ? raw.slice(0, firstStop + 1).trim() : raw.split("\n")[0];
+      const rest =
+        market && raw.startsWith(market) ? raw.slice(market.length).trim() : "";
+      if (market) bubble.append(textNode("p", "bubble__market", market));
+      if (rest) bubble.append(textNode("p", "bubble__answer", rest));
       for (const c of ev.citations || []) {
         const card = textNode("div", "clause");
         const ref = textNode("p", "clause__ref");
@@ -738,26 +800,30 @@ function copilotTurn(p, result, ms) {
     const src = [ev.backend, ev.top_score != null ? `top score ${ev.top_score}` : null]
       .filter(Boolean).join(" · ");
     if (src) bubble.append(textNode("p", "bubble__src", src));
+    const scanMs = ev.first_token_ms ?? ev.ms;
     bubble.append(textNode("p", "latency",
-      `Answered in ${ev.ms} ms${ev.first_token_ms ? `, first word ${ev.first_token_ms} ms` : ""}`));
+      scanMs != null && scanMs < 3000
+        ? `Scanned the PDF in under 3 seconds (${scanMs} ms)`
+        : `Scanned the PDF · ${ev.ms} ms${ev.first_token_ms ? `, first word ${ev.first_token_ms} ms` : ""}`));
     li.append(bubble);
     return li;
   }
 
   if (result.kind === "fast") {
-    bubble.append(textNode("p", "bubble__lead bubble__lead--num", result.lead));
+    bubble.append(textNode("p", "bubble__market", result.lead));
     if (result.note) bubble.append(textNode("p", "bubble__src", result.note));
-    const verifiedLine = [
-      `Verified against ${pageLabel(result.cite)}`,
-      result.section ? result.section : null,
-      "of the wording.",
-    ].filter(Boolean).join(" · ");
-    bubble.append(textNode("p", "bubble__src", verifiedLine));
-    if (result.quote) {
-      bubble.append(textNode("blockquote", "clause__quote", `“${result.quote}”`));
-    }
+    /* Clause + page sit under the marketing line — pitch Act III shape. */
+    const clause = {
+      cite: result.cite,
+      section: result.section,
+      quote: result.quote,
+    };
+    bubble.append(clauseCard(clause, p));
   } else if (result.kind === "cited") {
-    bubble.append(clauseCard(result.clause, p));
+    bubble.append(
+      textNode("p", "bubble__market", `${p.insurer}: ${result.clause.plain}.`)
+    );
+    bubble.append(clauseCard({ ...result.clause, plain: null }, p));
   } else {
     const box = textNode("div", "refusal");
     if (result.reason === "out-of-scope") {
@@ -788,7 +854,15 @@ function copilotTurn(p, result, ms) {
     bubble.append(box);
   }
 
-  bubble.append(textNode("p", "latency", `Answered in ${ms} ms`));
+  bubble.append(
+    textNode(
+      "p",
+      "latency",
+      ms < 3000
+        ? `Scanned the PDF in under 3 seconds (${ms} ms)`
+        : `Scanned the PDF · ${ms} ms`
+    )
+  );
   li.append(bubble);
   return li;
 }
@@ -1207,6 +1281,105 @@ el.q.addEventListener("input", () => {
   render();
 });
 
+/* ── agent PDF upload → hybrid RAG ───────────────────────── */
+
+function setUploadStatus(text, kind) {
+  const s = document.getElementById("upload-status");
+  if (!s) return;
+  s.className = "upload-status" + (kind ? ` upload-status--${kind}` : "");
+  s.replaceChildren();
+  if (!text) return;
+  if (kind === "ok") {
+    const b = textNode("b", null, "Ready. ");
+    s.append(b);
+    s.append(document.createTextNode(text));
+  } else {
+    s.textContent = text;
+  }
+}
+
+async function uploadPdf(file) {
+  if (!file || state.uploading) return;
+  if (!/\.pdf$/i.test(file.name)) {
+    setUploadStatus("Upload a PDF policy wording.", "err");
+    return;
+  }
+  state.uploading = true;
+  const zone = document.getElementById("upload-zone");
+  if (zone) zone.setAttribute("aria-busy", "true");
+  const t0 = Date.now();
+  const tick = setInterval(() => {
+    const s = Math.round((Date.now() - t0) / 1000);
+    setUploadStatus(
+      `Scanning ${file.name} into hybrid RAG… ${s}s (large PDFs can take up to a minute on CPU)`,
+      "busy"
+    );
+  }, 500);
+  setUploadStatus(`Scanning ${file.name} into hybrid RAG… 0s`, "busy");
+
+  const fd = new FormData();
+  fd.append("file", file, file.name);
+  const insurer = (document.getElementById("upload-insurer")?.value || "").trim();
+  const product = (document.getElementById("upload-product")?.value || "").trim();
+  if (insurer) fd.append("insurer", insurer);
+  if (product) fd.append("product", product);
+
+  try {
+    const res = await fetch("/api/upload", { method: "POST", body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const detail = data.detail;
+      throw new Error(
+        typeof detail === "string"
+          ? detail
+          : Array.isArray(detail)
+            ? detail.map((d) => d.msg || JSON.stringify(d)).join("; ")
+            : data.message || res.statusText
+      );
+    }
+    const p = data.product;
+    if (!p?.id) throw new Error("Upload succeeded but no product card came back.");
+    rememberProduct(p);
+    buildFilters();
+    const speed = data.under_10s
+      ? `Scanned in under 10 seconds (${data.ms} ms).`
+      : `Indexed in ${(data.ms / 1000).toFixed(1)}s (${data.n_pages} pages).`;
+    setUploadStatus(
+      `${speed} ${data.n_chunks} clauses ready — ask waiting period, room rent, or any hard clause.`,
+      "ok"
+    );
+    select(p.id);
+  } catch (err) {
+    setUploadStatus(String(err.message || err), "err");
+  } finally {
+    clearInterval(tick);
+    state.uploading = false;
+    if (zone) zone.removeAttribute("aria-busy");
+    const input = document.getElementById("pdf-file");
+    if (input) input.value = "";
+  }
+}
+
+(function wireUpload() {
+  const input = document.getElementById("pdf-file");
+  const zone = document.getElementById("upload-zone");
+  if (!input || !zone) return;
+  input.addEventListener("change", () => {
+    if (input.files?.[0]) uploadPdf(input.files[0]);
+  });
+  zone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    zone.classList.add("upload-zone--drag");
+  });
+  zone.addEventListener("dragleave", () => zone.classList.remove("upload-zone--drag"));
+  zone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    zone.classList.remove("upload-zone--drag");
+    const f = e.dataTransfer?.files?.[0];
+    if (f) uploadPdf(f);
+  });
+})();
+
 /* ── boot ────────────────────────────────────────────────── */
 
 const getJSON = (url) =>
@@ -1215,11 +1388,15 @@ const getJSON = (url) =>
     return r.json();
   });
 
-Promise.all([getJSON(CATALOGUE_URL), getJSON(CLOSE_KIT_URL)])
-  .then(([json, cl]) => {
+Promise.all([
+  getJSON(CATALOGUE_URL),
+  getJSON(CLOSE_KIT_URL),
+  getJSON("/api/uploads").catch(() => []),
+])
+  .then(([json, cl, uploads]) => {
     state.closeKit = cl.close_kit;
     state.documents = json.documents;
-    state.products = json.products;
+    state.products = [...(uploads || []), ...json.products];
     state.byId = new Map(state.products.map((p) => [p.id, p]));
     state.insurers = [...new Set(state.products.map((p) => p.insurer))].sort();
     loadProfile();

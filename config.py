@@ -8,7 +8,15 @@ os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 ROOT = Path(__file__).parent
 POLICY_DIR = ROOT / "data" / "policies"
 MANIFEST = POLICY_DIR / "manifest.csv"
+UPLOAD_DIR = ROOT / "data" / "uploads"
+UPLOAD_REGISTRY = UPLOAD_DIR / "registry.json"
 CHROMA_DIR = ROOT / "data" / "chroma"
+# Soft cap so an agent upload stays inside the "under 10 seconds" pitch window
+UPLOAD_MAX_PAGES = int(os.environ.get("COPILOT_UPLOAD_MAX_PAGES") or 60)
+UPLOAD_MAX_MB = int(os.environ.get("COPILOT_UPLOAD_MAX_MB") or 25)
+# Cap embed load on CPU — long wordings still answer via hybrid search over these chunks
+UPLOAD_MAX_CHUNKS = int(os.environ.get("COPILOT_UPLOAD_MAX_CHUNKS") or 90)
+UPLOAD_EMBED_CHARS = int(os.environ.get("COPILOT_UPLOAD_EMBED_CHARS") or 480)
 GOLD_DIR = ROOT / "eval" / "gold"
 REPORT_DIR = ROOT / "eval" / "reports"
 QUESTIONS = ROOT / "eval" / "questions.yaml"

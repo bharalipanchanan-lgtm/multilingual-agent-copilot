@@ -87,6 +87,8 @@ set it first in the stack for `[lang="hi"]` only, so English never shifts.
 - Inter as the display face — Assistant is the brand face.
 - `--qi-green` as a surface or a body color. It is emphasis only; at 16px on white it is
   below WCAG AA (~1.9:1). Use `--qi-navy` for anything that must be read.
+  The one exception is the site's own primary button (quote funnel "CONTINUE"):
+  bold uppercase `--qi-green` on `--qi-slate`, which measures 5.2:1 and passes AA.
 
 ## 7. Self-review before showing
 

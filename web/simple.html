@@ -3,87 +3,180 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claviq Agent Copilot</title>
+<title>Policy chat — Quickinsure Agent Copilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --header: #075e54; --header-text: #ffffff; --accent: #25d366; --bg: #ece5dd;
-    --me: #dcf8c6; --bot: #ffffff; --text: #111b21; --muted: #667781; --card: #f5f7f6;
-    --card-border: #d4dbd8; --ok: #1f8a4c; --warn: #b26a00; --stop: #b3261e; --chip: #ffffff;
+    --navy: #064d98; --slate: #2a3f55; --slate-2: #1f3042; --green: #2acb55;
+    --ink: #333333; --ink-strong: #101010; --muted: #6b6b6b; --line: #e3e3e3; --line-strong: #bfb9b9;
+    --surface: #ffffff; --surface-2: #f6f6f6; --tint: #f2f7fd; --tint-line: #cfe0f2;
+    --ok: #17703a; --warn: #9a3412; --stop: #b3261e;
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Devanagari", sans-serif;
-         background: #d1d7db; color: var(--text); display: flex; justify-content: center; }
-  .app { width: 100%; max-width: 480px; height: 100vh; display: flex; flex-direction: column; background: var(--bg);
-         box-shadow: 0 0 24px rgba(0,0,0,.15); }
-  header { background: var(--header); color: var(--header-text); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); display: grid; place-items: center;
-            font-weight: 700; color: #073b33; flex: none; }
-  .title { flex: 1; min-width: 0; }
-  .title b { display: block; font-size: 16px; }
-  .title small { opacity: .85; font-size: 12px; }
-  select { margin-top: 4px; max-width: 100%; font-size: 13px; border-radius: 6px; border: 0; padding: 3px 6px; }
-  #chat { flex: 1; overflow-y: auto; padding: 12px 10px 4px; }
-  .msg { max-width: 88%; margin: 6px 0; padding: 8px 10px 6px; border-radius: 8px; line-height: 1.4; font-size: 15px;
-         box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; word-wrap: break-word; }
-  .me { background: var(--me); margin-left: auto; border-top-right-radius: 0; }
-  .bot { background: var(--bot); border-top-left-radius: 0; }
-  .meta { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: right; white-space: normal; }
-  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-bottom: 6px; white-space: normal; }
-  .b-ok { background: #e3f4ea; color: var(--ok); } .b-warn { background: #fff1db; color: var(--warn); }
+  body { font-family: Assistant, "Noto Sans Devanagari", system-ui, "Segoe UI", sans-serif; font-size: 16px;
+         background: var(--surface-2); color: var(--ink); display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+  :focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+  .site-header { flex: none; background: var(--surface); box-shadow: 0 0 16px rgba(0,0,0,.15); position: relative; z-index: 2; }
+  .site-header__inner { max-width: 1140px; height: 72px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 28px; }
+  .brand { display: flex; align-items: center; gap: 4px; text-decoration: none; }
+  .brand svg { margin-top: -10px; }
+  .brand__text { display: flex; flex-direction: column; line-height: 1; }
+  .brand__word { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; color: var(--slate); }
+  .brand__word span { color: var(--green); }
+  .brand__tag { align-self: flex-end; margin-top: 2px; font-size: 12px; font-weight: 600; color: var(--slate); }
+  .nav { display: flex; height: 100%; }
+  .nav a { display: flex; align-items: center; padding: 0 14px; font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: none;
+           border-top: 3px solid transparent; border-bottom: 3px solid transparent; }
+  .nav a:hover { color: var(--navy); }
+  .nav a[aria-current="page"] { color: var(--navy); border-bottom-color: var(--green); }
+  .status { margin-left: auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+
+  .app { flex: 1; min-height: 0; width: 100%; max-width: 860px; margin: 20px auto; display: flex; flex-direction: column;
+         background: var(--surface); border-radius: 15px; box-shadow: 0 3px 6px rgba(0,0,0,.1); overflow: hidden; }
+  .app__head { flex: none; background: var(--surface-2); border-bottom: 1px solid var(--line); padding: 16px 22px;
+               display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .app__head h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--ink-strong); }
+  .app__head label { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--ink); }
+  select { font: inherit; font-size: 15px; font-weight: 600; color: var(--navy); max-width: 340px; height: 42px; padding: 0 36px 0 12px;
+           border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); cursor: pointer; }
+  select:focus { outline: 0; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,77,152,.14); }
+
+  #chat { flex: 1; overflow-y: auto; padding: 18px 22px 8px; }
+  .msg { max-width: 82%; margin: 8px 0; padding: 11px 15px 9px; border-radius: 15px; line-height: 1.55; font-size: 15.5px;
+         white-space: pre-wrap; word-wrap: break-word; }
+  .me { background: var(--slate); color: #fff; margin-left: auto; border-bottom-right-radius: 4px; }
+  .bot { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+  .meta { font-size: 11.5px; color: var(--muted); margin-top: 6px; text-align: right; white-space: normal; }
+  .badge { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+           padding: 3px 10px; border-radius: 28px; margin-bottom: 6px; white-space: normal; }
+  .b-ok { background: #dff6e6; color: var(--ok); } .b-warn { background: #fff4ed; color: var(--warn); }
   .b-stop { background: #fde7e5; color: var(--stop); }
-  .cards { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
-  .cardc { background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--header);
-           border-radius: 6px; padding: 7px 9px; font-size: 13px; }
-  .cardc .hd { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
-  .cardc .hd b { color: var(--text); }
-  .cardc q { font-style: italic; }
-  .cardc a { color: var(--header); font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .cardc details { margin-top: 4px; } .cardc summary { cursor: pointer; color: var(--muted); font-size: 12px; }
-  .cardc .full { font-size: 12px; color: #333; margin-top: 4px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
-  table.cmp { border-collapse: collapse; font-size: 12px; margin-top: 6px; width: 100%; white-space: normal; }
-  table.cmp th, table.cmp td { border: 1px solid var(--card-border); padding: 4px 6px; text-align: left; vertical-align: top; }
-  table.cmp th { background: var(--card); }
-  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px; }
-  .chip { flex: none; background: var(--chip); border: 1px solid var(--card-border); border-radius: 16px; padding: 5px 10px;
-          font-size: 13px; cursor: pointer; }
-  form { display: flex; gap: 8px; padding: 8px 10px 12px; }
-  textarea { flex: 1; resize: none; border: 0; border-radius: 20px; padding: 10px 14px; font: inherit; font-size: 15px; height: 42px; }
-  button.send { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--header); color: #fff; font-size: 18px; cursor: pointer; }
-  button.send:disabled { opacity: .5; }
+  .cards { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; white-space: normal; }
+  .cardc { background: var(--tint); border: 1px solid var(--tint-line); border-left: 4px solid var(--navy);
+           border-radius: 4px; padding: 10px 12px; font-size: 14px; line-height: 1.6; }
+  .cardc .hd { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 4px;
+               text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+  .cardc .hd b { color: var(--navy); }
+  .cardc q { font-style: normal; color: var(--ink-strong); }
+  .cardc a { color: var(--navy); font-weight: 700; text-decoration: none; white-space: nowrap; border-bottom: 1px solid #9ec5ee; }
+  .cardc a:hover { border-bottom-color: var(--navy); }
+  .cardc details { margin-top: 6px; } .cardc summary { cursor: pointer; color: var(--navy); font-size: 12.5px; font-weight: 600; }
+  .cardc .full { font-size: 13px; color: var(--ink); margin-top: 6px; max-height: 200px; overflow: auto; white-space: pre-wrap; }
+  table.cmp { border-collapse: collapse; font-size: 13px; margin-top: 8px; width: 100%; white-space: normal; }
+  table.cmp th, table.cmp td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+  table.cmp th { background: var(--surface-2); color: var(--ink-strong); }
+  .chips { flex: none; display: flex; gap: 8px; overflow-x: auto; padding: 10px 22px; border-top: 1px solid var(--line); scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; background: var(--surface-2); border: 1px solid transparent; border-radius: 28px; padding: 8px 15px;
+          font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color 140ms, background 140ms; }
+  .chip:hover { background: var(--tint); border-color: var(--navy); color: var(--navy); }
+  form { flex: none; display: flex; gap: 10px; padding: 6px 22px 18px; }
+  textarea { flex: 1; resize: none; border: 1px solid var(--line-strong); border-radius: 4px; padding: 13px 16px; font: inherit;
+             font-size: 16px; height: 50px; }
+  textarea:focus { outline: 0; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,77,152,.14); }
+  button.send { flex: none; height: 50px; padding: 0 26px; border: 0; border-radius: 4px; background: var(--slate); color: var(--green);
+                font: inherit; font-size: 17px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; cursor: pointer;
+                transition: background 140ms; }
+  button.send:hover { background: var(--slate-2); }
+  button.send:disabled { background: var(--line-strong); color: #fff; cursor: not-allowed; }
   .typing { color: var(--muted); font-style: italic; }
-  .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: #e1ece9;
-         color: var(--header); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
-  .cardc.hl { box-shadow: 0 0 0 2px var(--accent); }
-  details.how { margin-top: 6px; font-size: 12px; color: var(--muted); white-space: normal; }
-  details.how summary { cursor: pointer; }
+  .ref { display: inline-block; min-width: 20px; padding: 0 6px; margin: 0 1px; border-radius: 10px; background: var(--tint);
+         border: 1px solid var(--tint-line); color: var(--navy); font-size: 11px; font-weight: 700; text-align: center;
+         cursor: pointer; vertical-align: 1px; }
+  .cardc.hl { box-shadow: 0 0 0 2px var(--green); }
+  details.how { margin-top: 8px; font-size: 12.5px; color: var(--muted); white-space: normal; }
+  details.how summary { cursor: pointer; color: var(--navy); font-weight: 600; }
   details.how ul { margin: 4px 0 0 16px; padding: 0; }
-  .sys { text-align: center; margin: 8px auto; font-size: 12px; color: #54656f; background: #fff8c4; padding: 4px 10px;
-         border-radius: 6px; max-width: 92%; white-space: normal; }
+  .sys { margin: 4px auto 10px; font-size: 14px; color: var(--muted); background: var(--surface); border: 1px solid var(--line);
+         border-left: 4px solid var(--green); padding: 10px 14px; border-radius: 7px; white-space: normal; }
+  .sys--upload { border-left-color: var(--navy); color: var(--ink); }
+  .sys--err { border-left-color: var(--stop); color: var(--stop); }
+
+  .upload-bar { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 22px;
+                border-bottom: 1px solid var(--line); background: var(--surface); }
+  .upload-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1.5px dashed var(--line-strong);
+                border-radius: 28px; background: var(--surface-2); color: var(--navy); font: inherit; font-size: 14px; font-weight: 700;
+                cursor: pointer; transition: border-color 140ms, background 140ms; }
+  .upload-btn:hover, .upload-btn--drag { border-color: var(--navy); background: var(--tint); }
+  .upload-btn:disabled { opacity: .6; cursor: wait; }
+  .upload-hint { font-size: 13.5px; color: var(--muted); flex: 1; min-width: 180px; }
+  .upload-hint b { color: var(--ink-strong); }
+  option.upload-opt { font-weight: 700; }
+
+  .attach { flex: none; width: 50px; height: 50px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface);
+            color: var(--navy); cursor: pointer; display: grid; place-items: center; }
+  .attach:hover { background: var(--tint); border-color: var(--navy); }
+  .attach:disabled { opacity: .5; cursor: wait; }
+
+  @media (max-width: 720px) {
+    .nav { display: none; }
+    .site-header__inner { height: 64px; padding: 0 16px; }
+    .brand__word { font-size: 23px; }
+    .app { margin: 0; border-radius: 0; }
+    .app__head, #chat, .chips, form, .upload-bar { padding-left: 14px; padding-right: 14px; }
+    .app__head label { margin-left: 0; width: 100%; }
+    select { flex: 1; max-width: none; }
+    .msg { max-width: 92%; }
+    button.send { padding: 0 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 1ms !important; } }
 </style>
 </head>
 <body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="Quickinsure Agent Copilot, home">
+      <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
+        <path d="M0 2h18l-4 5H3z" fill="#2acb55"/>
+        <path d="M6 10h13l-4 5H9z" fill="#2acb55"/>
+        <path d="M22 0h8l-12 22h-8z" fill="#064d98" opacity=".9"/>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__word">Quick<span>insure</span></span>
+        <span class="brand__tag">Agent copilot</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Find product</a>
+      <a href="simple.html" aria-current="page">Policy chat</a>
+    </nav>
+    <span class="status" id="status">connecting...</span>
+  </div>
+</header>
 <div class="app">
-  <header>
-    <div class="avatar">C</div>
-    <div class="title">
-      <b>Claviq Agent Copilot</b>
-      <small id="status">connecting...</small><br>
-      <select id="policy" aria-label="Policy"></select>
-    </div>
-  </header>
+  <div class="app__head">
+    <h1>Policy chat</h1>
+    <label>Policy <select id="policy" aria-label="Policy"></select></label>
+  </div>
+  <div class="upload-bar">
+    <input id="pdf-file" type="file" accept="application/pdf,.pdf" hidden>
+    <button type="button" class="upload-btn" id="upload-btn" aria-controls="pdf-file">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
+      Upload PDF
+    </button>
+    <span class="upload-hint" id="upload-hint">Drop a wording PDF — hybrid RAG indexes it (under 10s when warm), then ask against that document.</span>
+  </div>
   <div id="chat">
-    <div class="sys">Answers come only from the selected policy wording, with the clause and page. If the policy does not say, the copilot says so.</div>
+    <div class="sys">Pick a catalogue policy or upload a PDF. Answers come only from that wording, with the clause and page. If it is not written, the copilot says so.</div>
   </div>
   <div class="chips" id="chips"></div>
   <form id="f">
+    <button type="button" class="attach" id="attach" title="Upload policy PDF" aria-label="Upload policy PDF">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21.4 11.6 12 21a5 5 0 0 1-7-7l9.9-9.9a3.5 3.5 0 0 1 5 5L10 18"/><path d="m15 7-7.5 7.5"/></svg>
+    </button>
     <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
-    <button class="send" id="send" type="submit" aria-label="Send">&#10148;</button>
+    <button class="send" id="send" type="submit">Ask</button>
   </form>
 </div>
 <script>
 const $ = s => document.querySelector(s);
 const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send"), policySel = $("#policy");
+const pdfInput = $("#pdf-file"), uploadBtn = $("#upload-btn"), attachBtn = $("#attach"), uploadHint = $("#upload-hint");
+let uploading = false;
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
@@ -115,18 +208,48 @@ function howPanel(ev, meta) {
   if (ev.status === "answered" && ev.backend !== "extractive") items.push("Every figure in the answer was found in the cited clause text");
   if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
   if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
-  items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
+  items.push(`Answered by: ${ev.backend || "-"} · hybrid RAG over the selected wording`);
   return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
 }
 let BID = 0;
 function scroll() { chat.scrollTop = chat.scrollHeight; }
 function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; chat.appendChild(d); scroll(); return d; }
+function addSys(html, kind) {
+  const d = document.createElement("div");
+  d.className = "sys" + (kind ? ` sys--${kind}` : "");
+  d.innerHTML = html;
+  chat.appendChild(d);
+  scroll();
+  return d;
+}
+
+function fillPolicies(pols, selectId) {
+  const uploads = pols.filter(p => p.source === "upload" || String(p.policy_id || "").startsWith("upload_"));
+  const catalogue = pols.filter(p => !(p.source === "upload" || String(p.policy_id || "").startsWith("upload_")));
+  let html = "";
+  if (uploads.length) {
+    html += `<optgroup label="Your uploads">` +
+      uploads.map(p => `<option class="upload-opt" value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)}) · upload</option>`).join("") +
+      `</optgroup>`;
+  }
+  if (catalogue.length) {
+    html += `<optgroup label="Catalogue">` +
+      catalogue.map(p => `<option value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)})</option>`).join("") +
+      `</optgroup>`;
+  }
+  policySel.innerHTML = html || "<option>no policies</option>";
+  if (selectId && [...policySel.options].some(o => o.value === selectId)) policySel.value = selectId;
+}
+
+async function refreshPolicies(selectId) {
+  const pols = await (await fetch("/api/policies")).json();
+  fillPolicies(pols, selectId);
+  return pols;
+}
 
 async function init() {
-  try {
-    const pols = await (await fetch("/api/policies")).json();
-    policySel.innerHTML = pols.map(p => `<option value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)})</option>`).join("");
-  } catch (e) { policySel.innerHTML = "<option>no policies</option>"; }
+  try { await refreshPolicies(); }
+  catch (e) { policySel.innerHTML = "<option>no policies</option>"; }
   $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
   document.querySelectorAll(".chip").forEach(c => c.onclick = () => { qEl.value = c.textContent; ask(); });
   pollStatus();
@@ -157,9 +280,88 @@ function renderTable(t) {
   return `<table class="cmp">${head}${rows}</table>`;
 }
 
+async function uploadPdf(file) {
+  if (!file || uploading) return;
+  if (!/\.pdf$/i.test(file.name)) {
+    addSys("Upload a PDF policy wording.", "err");
+    return;
+  }
+  uploading = true;
+  uploadBtn.disabled = true;
+  attachBtn.disabled = true;
+  const t0 = Date.now();
+  const tick = setInterval(() => {
+    const s = Math.round((Date.now() - t0) / 1000);
+    uploadHint.innerHTML = `<b>Scanning… ${s}s</b> — still working (CPU embed can take a bit on long PDFs)`;
+  }, 500);
+  uploadHint.innerHTML = "<b>Scanning PDF into hybrid RAG… 0s</b>";
+  addSys(`Uploading <b>${esc(file.name)}</b> — indexing clauses…`, "upload");
+  const fd = new FormData();
+  fd.append("file", file, file.name);
+  fd.append("insurer", "Uploaded");
+  fd.append("product", file.name.replace(/\.pdf$/i, "").replace(/[_-]+/g, " "));
+  try {
+    const res = await fetch("/api/upload", { method: "POST", body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const detail = data.detail;
+      throw new Error(
+        typeof detail === "string"
+          ? detail
+          : Array.isArray(detail)
+            ? detail.map((d) => d.msg || JSON.stringify(d)).join("; ")
+            : data.message || res.statusText
+      );
+    }
+    await refreshPolicies(data.policy_id);
+    const speed = data.under_10s
+      ? `under 10 seconds (${data.ms} ms)`
+      : `${(data.ms / 1000).toFixed(1)}s`;
+    uploadHint.innerHTML = `<b>Ready.</b> ${esc(data.product?.name || data.policy_id)} · ${data.n_pages} pages · ${data.n_chunks} clauses · ${speed}`;
+    addSys(
+      `<b>PDF indexed.</b> ${esc(String(data.n_pages))} pages → ${esc(String(data.n_chunks))} clauses in ${esc(String(data.ms))} ms. ` +
+      `Selected <b>${esc(data.product?.name || data.policy_id)}</b>. Ask in English, Hindi or Hinglish — answers cite page and clause.`,
+      "upload"
+    );
+    qEl.focus();
+  } catch (err) {
+    uploadHint.textContent = "Upload failed — try a text PDF under 60 pages.";
+    addSys(esc(err.message || String(err)), "err");
+  } finally {
+    clearInterval(tick);
+    uploading = false;
+    uploadBtn.disabled = false;
+    attachBtn.disabled = false;
+    pdfInput.value = "";
+  }
+}
+
+function openPicker() { if (!uploading) pdfInput.click(); }
+uploadBtn.addEventListener("click", openPicker);
+attachBtn.addEventListener("click", openPicker);
+pdfInput.addEventListener("change", () => { if (pdfInput.files?.[0]) uploadPdf(pdfInput.files[0]); });
+
+["dragover", "dragleave", "drop"].forEach(evt => {
+  document.addEventListener(evt, e => {
+    if (!e.dataTransfer || ![...e.dataTransfer.types].includes("Files")) return;
+    e.preventDefault();
+    if (evt === "dragover") uploadBtn.classList.add("upload-btn--drag");
+    if (evt === "dragleave") uploadBtn.classList.remove("upload-btn--drag");
+    if (evt === "drop") {
+      uploadBtn.classList.remove("upload-btn--drag");
+      const f = e.dataTransfer.files?.[0];
+      if (f) uploadPdf(f);
+    }
+  });
+});
+
 async function ask() {
   const question = qEl.value.trim();
   if (!question) return;
+  if (!policySel.value) {
+    addSys("Pick a catalogue policy or upload a PDF first.", "err");
+    return;
+  }
   qEl.value = ""; sendBtn.disabled = true;
   add("me", esc(question));
   const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
@@ -170,6 +372,7 @@ async function ask() {
   try {
     const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
                                          body: JSON.stringify({question, policy_id: policyId}) });
+    if (!resp.ok) throw new Error(`/api/ask returned ${resp.status}`);
     const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
@@ -179,14 +382,20 @@ async function ask() {
         const line = buf.slice(0, i).replace(/^data: /, ""); buf = buf.slice(i + 2);
         if (!line.trim()) continue;
         const ev = JSON.parse(line);
-        if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
+        if (ev.type === "meta") {
+          meta = ev;
+          if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading clauses with hybrid RAG...</span>`;
+        }
         if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
         if (ev.type === "final") {
           const [cls, label] = BADGE[ev.status] || BADGE.error;
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
+          const scan = (ev.first_token_ms ?? ev.ms) < 3000
+            ? `Scanned the PDF in under 3 seconds · ${secs}s total`
+            : `${secs}s`;
           bubble.innerHTML = `<span class="badge ${cls}">${label}</span><br>${withRefs(ev.answer, id)}` +
             renderTable(ev.table) + renderCards(ev.citations, policyId, id) + howPanel(ev, meta) +
-            `<div class="meta">${secs}s</div>`;
+            `<div class="meta">${scan}</div>`;
           bubble.querySelectorAll(".ref").forEach(r => r.onclick = () => {
             const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);
             if (el) { el.scrollIntoView({behavior: "smooth", block: "center"}); el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1500); }
