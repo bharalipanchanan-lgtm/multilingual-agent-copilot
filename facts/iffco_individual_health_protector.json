@@ -185,22 +185,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The extracts do not contain information about the minimum and maximum entry age for an adult or children.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "sum_insured_options",
    "value": "The extracts provided do not contain information about the sum insured options (lowest and highest) for the Health Protector (Individual) policy.",
    "status": "not_stated",
@@ -369,6 +353,19 @@
     "cataract": null,
     "modern_treatment": "50% of Sum Insured"
    },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Extraction failed: The read operation timed out",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {},
    "verified": false,
    "verified_by": null,
    "verified_on": null

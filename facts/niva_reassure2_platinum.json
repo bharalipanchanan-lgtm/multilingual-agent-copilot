@@ -66,24 +66,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The provided extracts do not specify the exact room rent limit or the specific room categories covered by the base plan.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "other",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity expenses including childbirth are covered under the policy, with a specific waiting period of up to 48 months from the inception of the first policy.",
    "status": "stated",
@@ -137,22 +119,6 @@
    "numbers": {
     "percent_per_year": null,
     "max_percent": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -277,29 +243,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "The co-payment ranges from 0% to 30% depending on the sum insured and number of adults, and does not apply to Annual Health Check-up, Live Healthy, Second Medical Opinion, Shared Accommodation Cash, e-consultation, Personal Accident, and Hospital Daily Cash benefits.",
-   "status": "stated",
-   "needs_extra_care": false,
-   "evidence": [
-    {
-     "page": 16,
-     "quote": "Co-Payment: It is the percentage of admissible claim amount You would have to bear, Rest we will pay. Note: Co-payment will NOT apply to Annual Health Check-up, Live Healthy, Second Medical Opinion, Shared Accommodation Cash, e-consultation, Personal Accident, Hospital Daily Cash benefits.",
-     "clause": "4.19. Co-Payment:"
-    }
-   ],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": "rates vary by sum insured and age"
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "sum_insured_options",
    "value": "The base sum insured options shown in the policy tables are 10 Lakh. The ReAssureX and ReAssure+ add-on benefits can increase the total claim payout up to 15 Lakh.",
    "status": "unclear",
@@ -330,6 +273,69 @@
    "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
    "numbers": {
     "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The extracts mention that discount eligibility requires the insured to be 18 years and above, but do not specify a maximum entry age for adults or children.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": 18,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "For the base plan, you can choose between a Single Private Room and a Sharing Room. If you choose a room higher than the eligible room category specified in your Policy Schedule, the insurer will pay only a pro-rated portion of the total associated medical expenses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 27,
+     "quote": "If you opt for a Hospital room which is higher than the eligible room category as specified in your Policy Schedule, then We will pay only a pro-rated portion of the total Associated Medical Expenses",
+     "clause": "4.21, 4"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "category",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": "Single Private Room and a Sharing Room"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Co-payment is an optional benefit (clause 4.19, listed under Optional Benefit); it applies only if chosen. The wording does not print the percentages.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "Co-Payment: It is the percentage of admissible claim amount You would have to bear, Rest we will pay.",
+     "clause": "4.19"
+    }
+   ],
+   "note": "Corrected in the second 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": false,
+    "condition": "optional benefit, only if chosen"
    },
    "verified": false,
    "verified_by": null,

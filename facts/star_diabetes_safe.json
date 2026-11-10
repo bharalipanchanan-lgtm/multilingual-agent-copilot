@@ -49,41 +49,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The policy extracts do not specify the room rent limit or room category covered for the base plan, or whether it changes by sum insured or plan.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "copay",
-   "value": "The extracts do not state any co-payment that applies based on age, zone, non-network, or voluntary terms.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity coverage is excluded under Code Excl 18, but it does not apply if the insured person has continuous coverage for more than twelve months, and the waiting period applies to the enhanced sum insured.",
    "status": "stated",
@@ -138,19 +103,6 @@
     "percent_per_year": null,
     "max_percent": null
    },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {},
    "verified": false,
    "verified_by": null,
    "verified_on": null
@@ -353,6 +305,57 @@
     "months_max": 12,
     "diabetes_months": 12,
     "diabetes_overrides_ped": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The minimum and maximum entry age for an adult and children are not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
    },
    "verified": false,
    "verified_by": null,

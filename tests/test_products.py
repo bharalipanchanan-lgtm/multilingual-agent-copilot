@@ -225,3 +225,39 @@ def test_lettered_list_items_stay_in_the_text():
              "A. Uterine Artery Embolization and HIFU", "B. Balloon Sinuplasty", "G. Robotic surgeries", "H. Stereotactic radio surgeries"]
     text = " ".join(c["text"] for c in build_chunks([lines]))
     assert "Robotic surgeries" in text and "Balloon Sinuplasty" in text
+
+
+# ---------------------------------------------------------------- facts from the product web page
+
+def test_web_fact_fills_only_what_the_wording_leaves_out():
+    from fact_table import web_facts
+    from fit import products
+    prods = {p["policy_id"]: p for p in products()}
+    from fact_table import load_facts
+    pdf = {(f["policy_id"], r["attribute"]): r for f in load_facts() for r in f["rows"] if r["plan"] == "ALL"}
+    for pid, attrs in web_facts().items():
+        for a in attrs:
+            r = prods[pid]["rows"][a]
+            # a fact the wording states always wins over the web page
+            assert bool(r.get("web")) is (pdf.get((pid, a), {}).get("status") != "stated"), (pid, a)
+    assert prods["royal_multiplier"]["rows"]["entry_age"].get("web") is None      # stated in the wording
+    assert prods["hdfc_optima_restore"]["rows"]["entry_age"].get("web") is True    # wording silent
+
+
+def test_web_fact_is_labelled_in_the_fit_and_cited_by_url():
+    out = fit_answer("Mother is 50, has diabetes, wants room rent more than 10,000", "en", today=dt.date(2026, 11, 10))
+    web = [c for c in out["citations"] if c.get("url")]
+    assert web and all(c["page"] is None and "joinditto.in" in c["url"] and "web page" in c["section"] for c in web)
+    assert "from the product web page" in out["answer"] and "joinditto.in" in out["answer"]
+
+
+def test_quick_answer_says_the_wording_is_silent_before_the_web_value():
+    from quick import quick_answer
+    r = quick_answer("age limit kya hai", "hdfc_optima_restore", "en")
+    assert "not written in this product's policy document" in r["answer"] and "18 to 65" in r["answer"]
+    assert r["citations"][0]["url"] and r["citations"][0]["page"] is None
+
+
+def test_optional_co_pay_is_not_a_caution():
+    r = check(prod(copay={"percent": None, "mandatory": False, "condition": "optional benefit, only if chosen"}), P)
+    assert any("no compulsory co-pay" in g for g in r["good"])

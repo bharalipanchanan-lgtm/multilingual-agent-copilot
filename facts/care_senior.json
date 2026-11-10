@@ -96,23 +96,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "The co-payment details are conflicting: extract 2 states 20% co-payment for non-Annexure IV hospitals for Optional Cover 10 Personal Accident, while extract 3 and 6 state a 20% co-payment option for insured persons aged 61 or more. The exact co-payment percentage and when it applies is unclear due to conflicting information.",
-   "status": "unclear",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": 20,
-    "mandatory": null,
-    "condition": "if treatment is availed in hospitals other than those listed in Annexure IV"
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity expenses are covered up to 24 months since inception for all insured persons aged 18 years or above under floater cover, but voluntary medical termination of pregnancy during the first 12 weeks from conception is not admissible.",
    "status": "stated",
@@ -341,12 +324,35 @@
   },
   {
    "plan": "ALL",
+   "attribute": "copay",
+   "value": "A co-payment of 20% per claim applies when the age of the Insured Person or eldest Insured Person is 61 years or more, and this is in addition to any other co-payment that may be applicable under the Policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "the Company provides an option to Insured Person / Policyholder to choose for co-payment option of 20% per claim (over & above any other co-payment, if any) which applies to such Insured Person or all Insured Persons (in case of Floater)",
+     "clause": "General Conditions: 2"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": false,
+    "condition": "age of Insured Person or eldest Insured Person (in case of Floater) is 61 years or more"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
    "attribute": "entry_age",
    "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
    "status": "not_stated",
    "needs_extra_care": true,
    "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "note": "Corrected in the second 2026-11-10 review against the PDF; not yet verified by a person.",
    "numbers": {},
    "verified": false,
    "verified_by": null,

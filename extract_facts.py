@@ -107,7 +107,36 @@ def extracts(policy_id: str, attribute: str) -> list[dict]:
             if h["id"] not in seen:
                 seen.add(h["id"])
                 hits.append(h)
-    return expand_sections(hits, max_extra=2)[:9]
+    hits = expand_sections(hits, max_extra=2)[:9]
+    if attribute in SCAN:  # a rule in a table or schedule often ranks low: scan every chunk for its words
+        for h in scan(policy_id, attribute):
+            if h["id"] not in seen:
+                seen.add(h["id"])
+                hits.append(h)
+    return hits[:16]
+
+
+# words that name the fact; every chunk of the document that has them is read, best first
+SCAN = {
+    "room_rent": r"room rent|room category|single private|private (?:a/?c )?room|accommodation|shared room|room type|single occupancy",
+    "copay": r"co-?pay(?:ment)?",
+    "entry_age": r"entry age|age at entry|minimum age|maximum age|age of entry|eligib\w+|years? (?:and|to) \d+ years|91 days",
+}
+
+
+def scan(policy_id: str, attribute: str, limit: int = 7) -> list[dict]:
+    from retrieve import _load
+    _, col = _load()
+    res = col.get(where={"policy_id": policy_id}, include=["documents", "metadatas"])
+    rx = re.compile(SCAN[attribute], re.I)
+    scored = []
+    for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"]):
+        n = len(rx.findall(doc))
+        if n:
+            figures = len(re.findall(r"\d+\s*(?:%|years?|lakh|lac|days|rs|inr|₹)", doc, re.I))
+            scored.append((n * 2 + min(figures, 6), {"id": cid, "text": doc, "score": None, **meta}))
+    scored.sort(key=lambda x: -x[0])
+    return [h for _, h in scored[:limit]]
 
 
 def ask(gen, policy: dict, attribute: str, hits: list[dict]) -> dict:

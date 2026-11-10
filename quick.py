@@ -9,7 +9,7 @@ line for cataract is found and quoted. Premium is refused earlier (answer.route)
 """
 import re
 
-from fact_table import ATTRIBUTES, load_facts, manifest
+from fact_table import ATTRIBUTES, load_facts, manifest, web_row
 
 # topic -> fact attributes it answers, and the words that name it
 TOPICS = [
@@ -35,6 +35,12 @@ TEXT = {
     "not_written": {"en": "{label}: this is not written in this product's document.",
                     "hinglish": "{label}: yeh is product ke document mein likha nahi hai.",
                     "hi": "{label}: यह इस प्रोडक्ट के दस्तावेज़ में लिखा नहीं है।"},
+    "web": {"en": "{label}: not written in this product's policy document. The product web page says: {value} [{n}]",
+            "hinglish": "{label}: is product ke policy document mein likha nahi hai. Product web page ke hisaab se: {value} [{n}]",
+            "hi": "{label}: यह इस प्रोडक्ट के पॉलिसी दस्तावेज़ में लिखा नहीं है। प्रोडक्ट वेब पेज के अनुसार: {value} [{n}]"},
+    "web_note": {"en": "The web page line is from joinditto.in, not the insurer's wording; confirm it with the insurer.",
+                 "hinglish": "Web page wali line joinditto.in se hai, insurer ki wording se nahi; insurer se confirm karein.",
+                 "hi": "वेब पेज वाली पंक्ति joinditto.in से है, बीमा कंपनी की वर्डिंग से नहीं; बीमा कंपनी से पक्का करें।"},
     "draft": {"en": "From the fact table (a draft, not yet checked by a person; the line is checked against the PDF).",
               "hinglish": "Fact table se (draft, kisi ne abhi check nahi kiya; line PDF se match ki gayi hai).",
               "hi": "फैक्ट टेबल से (ड्राफ्ट, किसी व्यक्ति ने अभी जाँचा नहीं; पंक्ति PDF से मिलाई गई है)।"},
@@ -71,13 +77,21 @@ def quick_answer(question: str, policy_id: str, lang: str) -> dict | None:
         return None
     rows = {r["attribute"]: r for r in f["rows"] if r["plan"] == "ALL"}
     plan_rows = [r for r in f["rows"] if r["plan"] != "ALL" and r["attribute"] in attrs]
-    if plan_rows or any(a not in rows or rows[a]["status"] == "unclear" for a in attrs):
+    web = {a: w for a in attrs if (a not in rows or rows[a]["status"] != "stated") and (w := web_row(policy_id, a))}
+    if plan_rows or any((a not in rows or rows[a]["status"] == "unclear") and a not in web for a in attrs):
         return None  # plan specific or unclear: the full clause search answers it
     off = int(manifest()[policy_id].get("page_offset") or 0)
     lines, cites = [], []
     for a in attrs:
-        r = rows[a]
         label = ATTRIBUTES[a]
+        if a in web:
+            e = web[a]["evidence"][0]
+            cites.append({"n": len(cites) + 1, "policy_id": policy_id, "product": f["product"], "section": f"{label} (product web page)",
+                          "page": None, "printed_page": None, "url": e["url"], "read_on": e["read_on"], "quote": e["quote"],
+                          "text": web[a]["value"]})
+            lines.append(TEXT["web"][lang].format(label=label, value=web[a]["value"], n=len(cites)))
+            continue
+        r = rows[a]
         if r["status"] == "not_stated":
             lines.append(TEXT["not_written"][lang].format(label=label))
             continue
@@ -86,7 +100,9 @@ def quick_answer(question: str, policy_id: str, lang: str) -> dict | None:
                       "section": e.get("clause") or label, "page": e["page"], "printed_page": e["page"] - off,
                       "quote": e["quote"], "text": r["value"]})
         lines.append(f"{label}: {r['value']} [{len(cites)}]")
-    verified = all(rows[a]["verified"] for a in attrs)
-    if cites:  # a "not written" answer shows no line, so it does not claim one was checked
+    verified = all(rows[a]["verified"] for a in attrs if a not in web)
+    if web:
+        lines.append(TEXT["web_note"][lang])
+    if len(cites) > len(web):  # a "not written" answer shows no line, so it does not claim one was checked
         lines.append(TEXT["verified" if verified else "draft"][lang])
     return {"status": "answered", "answer": "\n".join(lines), "citations": cites, "quick": True}

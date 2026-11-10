@@ -707,22 +707,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The extracts conflict on the minimum entry age for adults, with extract 1 stating there is no minimum or maximum entry age for new policyholders, while extract 2 states the member must be 18 years of age or older.",
-   "status": "unclear",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "restoration_reload",
    "value": "The sum insured is automatically restored to its original limit during the same policy period if a single claim (other than the first) equals or exceeds the total of the sum insured and cumulative bonus, subject to conditions on full exhaustion and claim eligibility.",
    "status": "stated",
@@ -760,6 +744,58 @@
     "min_rupees": 200000,
     "max_rupees": 50000000
    },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "For treatment in non-network hospitals, the Premium plan has a 10% co-payment, the Elite plan has a 5% co-payment, and the Royal plan has no co-payment, provided there is no in-network hospital available in the area or it is an emergency.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. The model's quote was not found verbatim in the PDF, so the value needs reading by hand.",
+   "numbers": {
+    "percent": 5,
+    "mandatory": true,
+    "condition": "Treatment in Non-Network Hospitals"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "There is no minimum or maximum entry age for new policyholders.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 52,
+     "quote": "There is no Minimum or Maximum entry age for new policyholders.",
+     "clause": "5.31 ENTRY AGE"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Room rent differs by plan; the 50% or 100% figure is an optional paid enhancement. Read the plan table.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the second 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
    "verified": false,
    "verified_by": null,
    "verified_on": null

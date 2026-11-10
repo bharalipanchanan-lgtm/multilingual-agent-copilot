@@ -39,24 +39,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity delivery expenses are covered under the Super Star Policy with a 24-month waiting period from the date of first commencement of the optional cover, while subsequent deliveries have no waiting period specified in the policy schedule.",
    "status": "stated",
@@ -116,22 +98,6 @@
    "numbers": {
     "percent_per_year": 50,
     "max_percent": 100
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The extracts contain conflicting information about the maximum entry age for an adult. Extract 1 states coverage is available up to age 56, while Extract 2 states entry age is from 18 to 65 years.",
-   "status": "unclear",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": 18,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -344,6 +310,46 @@
    "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "numbers": {
     "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Extract 1 states the entry age is up to 50 years with weightage given as per members, while Extract 2 states the entry age for Personal Accident Cover is from 18 years to 65 years (with renewal up to 75 years). These conflict on the maximum entry age for an adult.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room rent limit or category covered is Single Private AC Room, Shared Room, or General Ward, and can be modified to these options.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "the Insured shall have an option to modify the room rent eligibility to Single Private AC Room / Shared Room / General Ward.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "category",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": "Single Private AC Room / Shared Room / General Ward"
    },
    "verified": false,
    "verified_by": null,

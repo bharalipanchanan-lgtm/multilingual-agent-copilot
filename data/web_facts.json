@@ -1,0 +1,357 @@
+{
+ "source": "joinditto.in product pages",
+ "read_on": "2026-11-10",
+ "note": "Used only where the policy wording does not state the fact. Not a policy document: no page number, not verified by a person.",
+ "facts": {
+  "abhi_activ_one_vip": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Activ One VIP lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/aditya-birla/activ-one-vip/"
+   }
+  },
+  "abhi_activ_one_max": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Activ One MAX lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/aditya-birla/activ-one-max/"
+   }
+  },
+  "acko_platinum_health": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Platinum Health lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/acko/platinum-health/"
+   },
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months to 24 years.",
+    "url": "https://joinditto.in/health-insurance/acko/platinum-health/"
+   }
+  },
+  "bajaj_hcs_vital": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Health Care Supreme Vital lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/bajaj-general/health-care-supreme-vital/"
+   },
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/bajaj-general/health-care-supreme-vital/"
+   },
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. Health Care Supreme Vital is made available for those aged 18 years and above. There isn’t a maximum age restriction on entry. For dependent children, the inclusive age ranges from 90 days to 25 years.",
+    "url": "https://joinditto.in/health-insurance/bajaj-general/health-care-supreme-vital/"
+   }
+  },
+  "care_supreme": {
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months to 24 years.",
+    "url": "https://joinditto.in/health-insurance/care/care-supreme/"
+   }
+  },
+  "care_senior": {
+   "entry_age": {
+    "value": "Adults from 61 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 61,
+     "adult_max_years": null
+    },
+    "quote": "Yes. Care Senior is made available for those aged 61 years and above.",
+    "url": "https://joinditto.in/health-insurance/care/care-senior/"
+   }
+  },
+  "digit_double_wallet": {
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Double Wallet is made available for those aged between 18 years and 65 years. However, it provides coverage for dependent children from the age of 3 months.",
+    "url": "https://joinditto.in/health-insurance/digit/double-wallet/"
+   }
+  },
+  "hdfc_optima_restore": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Optima Restore lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/hdfc-ergo/optima-restore/"
+   },
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Optima Restore is made available for those aged between 18 years and 65 years. For dependent children, the age limit ranges between 91 days and 25 years.",
+    "url": "https://joinditto.in/health-insurance/hdfc-ergo/optima-restore/"
+   }
+  },
+  "hdfc_optima_secure": {
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/hdfc-ergo/optima-secure/"
+   }
+  },
+  "hdfc_optima_senior": {
+   "room_rent": {
+    "value": "Room up to a shared room",
+    "numbers": {
+     "kind": "category",
+     "category": "shared room"
+    },
+    "quote": "Yes. Optima Senior only lets you stay in a shared room. If you still want to pick a better room, then be ready to pay a lot more when the final bill shows up.",
+    "url": "https://joinditto.in/health-insurance/hdfc-ergo/optima-senior/"
+   },
+   "entry_age": {
+    "value": "Adults from 61 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 61,
+     "adult_max_years": null
+    },
+    "quote": "Yes. Optima Senior is made available for those aged between 61 Years and No Limit. Yes. Optima Senior is made available for those aged 61 years and above.",
+    "url": "https://joinditto.in/health-insurance/hdfc-ergo/optima-senior/"
+   }
+  },
+  "icici_elevate": {
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. Elevate is made available for those aged between 18 years and 125. Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months to 30 years.",
+    "url": "https://joinditto.in/health-insurance/icici-lombard/elevate/"
+   }
+  },
+  "iffco_individual_health_protector": {
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Individual Health Protector is made available for those aged between 18 years and 65 years. However, it provides coverage for dependent children from day 91.",
+    "url": "https://joinditto.in/health-insurance/iffco-tokio/individual-health-protector/"
+   }
+  },
+  "newindia_premier_mediclaim": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Premier Mediclaim Plan lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/new-india-assurance/premier-mediclaim/"
+   },
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/new-india-assurance/premier-mediclaim/"
+   },
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Premier Mediclaim Plan is made available for those aged between 18 years and 65 years. However, it provides coverage for dependent children from the age of 3 months to 25 years.",
+    "url": "https://joinditto.in/health-insurance/new-india-assurance/premier-mediclaim/"
+   }
+  },
+  "niva_reassure": {
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/niva-bupa/reassure/"
+   },
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. ReAssure is made available for those aged between 18 years and No Limit. Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months to 30 years.",
+    "url": "https://joinditto.in/health-insurance/niva-bupa/reassure/"
+   }
+  },
+  "niva_reassure2_platinum": {
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. ReAssure 2.0 Platinum+ is made available for those aged between 18 years and No Limit. Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months in a family floater plan.",
+    "url": "https://joinditto.in/health-insurance/niva-bupa/reassure-2-platinum/"
+   }
+  },
+  "star_diabetes_safe": {
+   "room_rent": {
+    "value": "Room up to a single private room",
+    "numbers": {
+     "kind": "category",
+     "category": "single private room"
+    },
+    "quote": "Yes. Diabetes Safe lets you stay in a single private room, shared space, or the general ward. In case your room exceeds the limit, you’d have to share costs with the insurer.",
+    "url": "https://joinditto.in/health-insurance/star-health/diabetes-safe/"
+   },
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/star-health/diabetes-safe/"
+   },
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Diabetes Safe is made available for those aged between 18 years and 65 years. who have Type 1 and 2 Diabetes Mellitus.",
+    "url": "https://joinditto.in/health-insurance/star-health/diabetes-safe/"
+   }
+  },
+  "star_health_premier": {
+   "entry_age": {
+    "value": "Adults from 50 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 50,
+     "adult_max_years": null
+    },
+    "quote": "Yes.  Star Health Premier is made for individuals aged 50 years and above. However, it provides coverage for dependent children from the age of 91 days to 25 years.",
+    "url": "https://joinditto.in/health-insurance/star-health/health-premier/"
+   }
+  },
+  "star_super_star": {
+   "entry_age": {
+    "value": "Adults from 18 years, no upper entry age",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": null
+    },
+    "quote": "Yes. This policy has an entry age of 18 years with no exit age. However, it provides coverage for dependent children from the age of 3 months to 25 years.",
+    "url": "https://joinditto.in/health-insurance/star-health/super-star/"
+   }
+  },
+  "star_super_surplus_gold": {
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/star-health/super-surplus-gold/"
+   },
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Super Surplus Gold is made available for those aged between 18 years and 65 years. However, it provides coverage for dependent children from the age of 3 months to 25 years.",
+    "url": "https://joinditto.in/health-insurance/star-health/super-surplus-gold/"
+   }
+  },
+  "tata_elder_care": {
+   "room_rent": {
+    "value": "Room up to a single private room",
+    "numbers": {
+     "kind": "category",
+     "category": "single private room"
+    },
+    "quote": "Yes. Elder Care lets you stay in a single private room, shared space, or the general ward. In case your room exceeds the limit, you’d have to share costs with the insurer.",
+    "url": "https://joinditto.in/health-insurance/tata-aig/elder-care/"
+   },
+   "entry_age": {
+    "value": "Adults 65 to 85 years",
+    "numbers": {
+     "adult_min_years": 65,
+     "adult_max_years": 85
+    },
+    "quote": "Yes. Elder Care is made available for those aged between 65 years and 85 years.",
+    "url": "https://joinditto.in/health-insurance/tata-aig/elder-care/"
+   }
+  },
+  "tata_medicare_premier": {
+   "room_rent": {
+    "value": "No room rent limit",
+    "numbers": {
+     "kind": "no_limit"
+    },
+    "quote": "No. Medicare Premier lets you stay in any room available in the hospital - Single Private Room, Share Room, Deluxe Room, etc.",
+    "url": "https://joinditto.in/health-insurance/tata-aig/medicare-premier/"
+   },
+   "copay": {
+    "value": "No co-payment",
+    "numbers": {
+     "percent": 0,
+     "mandatory": false
+    },
+    "quote": "The insurer will bear the entire cost of treatment (up to the sum insured). You won't have to pay a single penny. Meaning this policy has no co-payment.",
+    "url": "https://joinditto.in/health-insurance/tata-aig/medicare-premier/"
+   },
+   "entry_age": {
+    "value": "Adults 18 to 65 years",
+    "numbers": {
+     "adult_min_years": 18,
+     "adult_max_years": 65
+    },
+    "quote": "Yes. Medicare Premier is made available for those aged between 18 years and 65 years. However, it provides coverage for dependent children from the age of 3 months to 25 years.",
+    "url": "https://joinditto.in/health-insurance/tata-aig/medicare-premier/"
+   }
+  }
+ }
+}

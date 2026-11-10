@@ -45,41 +45,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The room rent limit or room category covered is not stated in the provided extracts.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "copay",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity expenses are covered after a waiting period of thirty-six months of continuous coverage, with a limit of Rs. 50,000 for Plan A and Rs. 1,00,000 for Plan B.",
    "status": "stated",
@@ -133,22 +98,6 @@
    "numbers": {
     "percent_per_year": null,
     "max_percent": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The extracts do not specify the minimum and maximum entry age for an adult under this policy.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -344,6 +293,57 @@
    "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "numbers": {
     "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The provided extracts do not contain any information about co-payment clauses, including any requirements based on age, zone, non-network, or voluntary participation.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room rent limit or room category covered is not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
    },
    "verified": false,
    "verified_by": null,

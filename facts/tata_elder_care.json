@@ -60,24 +60,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The policy does not explicitly state a room rent limit or room category covered for the base plan, nor does it clarify if it changes by sum insured or plan.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "copay",
    "value": "The policy has a mandatory co-payment of 20% on all claims under sections B1, B2, B3, B7, B8, B12, B15, and B16. The co-payment is mandatory and applies to the admissible claim amount of each and every claim.",
    "status": "stated",
@@ -342,12 +324,33 @@
   {
    "plan": "ALL",
    "attribute": "entry_age",
-   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "value": "The provided extracts do not state the minimum and maximum entry age for an adult or children.",
    "status": "not_stated",
    "needs_extra_care": true,
    "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {},
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The policy does not specify the room rent limit or room category covered for the base plan; it only defines what a Single Private Room is, and mentions that room rent limits are specified in the policy schedule for AYUSH benefits, but the schedule details are not provided in these extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "other",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

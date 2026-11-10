@@ -90,23 +90,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "The policy states a mandatory 10% co-payment per claim in extract 1, and a flat 20% co-payment per consultation for out-patient treatment at network hospitals in extract 2. However, extract 6 introduces a separate co-payment for the Optional Cover 18 for insured persons aged 61 years or above, which is not clearly reconciled with the other co-payment terms.",
-   "status": "unclear",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": 10,
-    "mandatory": true,
-    "condition": "age 61 years or above"
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity cover is available under the policy with a waiting period of 24 months from the inception of the first policy with the company. This benefit is only available under Floater cover 3.",
    "status": "stated",
@@ -362,6 +345,29 @@
    "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
    "numbers": {
     "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "A mandatory Co-Payment of 10% per Claim applies on the renewed Policy, which will be in addition to any other co-payment (if any) applicable in the Policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 14,
+     "quote": "A mandatory Co-Payment of 10% per Claim is applicable, which will be in addition to any other co-payment (if any) applicable in the Policy.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 10,
+    "mandatory": true,
+    "condition": "on the renewed Policy"
    },
    "verified": false,
    "verified_by": null,

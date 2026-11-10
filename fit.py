@@ -24,7 +24,7 @@ import datetime as dt
 import re
 import sys
 
-from fact_table import load_facts, manifest
+from fact_table import load_facts, manifest, web_row
 
 # ------------------------------------------------------------------ reading the customer
 
@@ -159,6 +159,12 @@ def products() -> list[dict]:
         for x in f["rows"]:
             if base and x["plan"].upper() == base.upper() and x["attribute"] not in rows:
                 rows[x["attribute"]] = {**x, "value": f"{x['value']} ({base.title()} plan)"}
+        # the wording is silent on this fact: fall back to the product web page, marked as such
+        for a in ("room_rent", "copay", "entry_age"):
+            if a not in rows or rows[a]["status"] != "stated":
+                w = web_row(f["policy_id"], a)
+                if w:
+                    rows[a] = w
         prod = r["product"].lower()
         short = re.sub(r"^The |\s+(General Insurance|Health Insurance|Insurance Company|Insurance|Assurance Company|and Allied Insurance)$", "",
                        r["insurer"]).replace(" and Allied", "")
@@ -181,8 +187,18 @@ def evidence(prod: dict, attribute: str) -> dict | None:
     if not r or r["status"] != "stated" or not r["evidence"]:
         return None
     e = r["evidence"][0]
+    if r.get("web"):
+        return {"attribute": attribute, "value": r["value"], "page": None, "printed_page": None, "url": e["url"],
+                "read_on": e.get("read_on"), "quote": e["quote"], "clause": None, "verified": False}
     return {"attribute": attribute, "value": r["value"], "page": e["page"], "printed_page": e["page"] - prod["offset"],
             "quote": e["quote"], "clause": e.get("clause"), "verified": r["verified"]}
+
+
+WEB_NOTE = " (from the product web page, not the wording)"
+
+
+def is_web(prod: dict, attribute: str) -> bool:
+    return bool((prod["rows"].get(attribute) or {}).get("web"))
 
 
 # ------------------------------------------------------------------ checking one product
@@ -256,15 +272,17 @@ def check(prod: dict, p: dict) -> dict:
     if ea:
         used.add("entry_age")
     if age is not None:
+        src = WEB_NOTE if is_web(prod, "entry_age") else ""
         if lo and age < lo:
-            fails.append(f"takes new customers from {lo} years only")
+            fails.append(f"takes new customers from {lo} years only{src}")
         elif hi and age > hi:
-            fails.append(f"takes new customers only up to {hi} years")
+            fails.append(f"takes new customers only up to {hi} years{src}")
         elif not ea:
             cautions.append("entry age is not in the fact table; confirm the customer can join")
             gaps.append("entry age")
         elif not hi:
-            cautions.append("the wording states no upper entry age; confirm with the insurer")
+            cautions.append(("the product page states no upper entry age" if src else "the wording states no upper entry age")
+                            + "; confirm with the insurer")
     si = p["sum_insured"]
     sio = num(prod, "sum_insured_options")
     if si and sio.get("max_rupees") and si > float(sio["max_rupees"]):
@@ -283,6 +301,8 @@ def check(prod: dict, p: dict) -> dict:
             score += 3 * max(0.0, 1 - wait / 48)
             good.append(f"{p['conditions'][0]} covered after {wait:g} months")
     res, s, reading, cond = room_check(prod, p["room_rent"], p["private_room"], si)
+    if res != "unknown" and is_web(prod, "room_rent"):
+        reading += WEB_NOTE
     weight += 2 if (p["room_rent"] or p["private_room"]) else 1
     if res == "fail":
         fails.append(reading)
@@ -301,11 +321,15 @@ def check(prod: dict, p: dict) -> dict:
     if cp:
         used.add("copay")
         pct = _months(cp.get("percent"))
-        if pct is None:
+        src = WEB_NOTE if is_web(prod, "copay") else ""
+        if pct is None and cp.get("mandatory") is False:
+            score += 1.2
+            good.append(f"no compulsory co-pay ({cp.get('condition') or 'only if chosen'})")
+        elif pct is None:
             cautions.append("co-pay " + (cp.get("condition") or "depends on the plan; read the clause"))
         elif pct == 0:
             score += 1.5
-            good.append("no co-pay")
+            good.append("no co-pay" + src)
         elif cp.get("mandatory") is False:
             score += 1.2
             good.append(f"no compulsory co-pay ({pct:g}% {cp.get('condition') or 'if chosen'})")
@@ -447,7 +471,7 @@ TEXT = {
            "not_fit": "Why the others do not fit:", "more": "and {n} more for the same reasons", "fits_but": "fits, but {why}",
            "date": "{cond} cover starts {date} with {name}, if the policy starts {start} and is renewed without a break.",
            "today": " (today; tell me the start date if it is different)",
-           "caution": "Check: {c}.", "unverified": "Fact values are drafts not yet checked by a person; the quotes below are checked against the PDF.",
+           "caution": "Check: {c}.", "unverified": "Fact values are drafts not yet checked by a person; the quotes below are checked against the PDF.", "web": "Lines marked 'from the product web page' come from joinditto.in (read {date}), not the policy wording: confirm them with the insurer.",
            "premium": "Premium is not in the policy documents, so it is not used here. Get the insurer's quote.",
            "coverage": "{k} of {n} loaded products have fact rows and were checked.",
            "one_fit": "{name} fits this customer. Why: {why}.", "one_nofit": "{name} does not fit this customer: {why}.",
@@ -457,7 +481,7 @@ TEXT = {
                  "not_fit": "Baaki kyun fit nahi:", "more": "aur {n} isi wajah se", "fits_but": "fit hai, lekin {why}",
                  "date": "{name} mein {cond} cover {date} se shuru hoga, agar policy {start} se shuru ho aur bina break renew ho.",
                  "today": " (aaj; alag date ho to bataiye)",
-                 "caution": "Check karein: {c}.", "unverified": "Fact values draft hain, kisi ne abhi check nahi kiye; neeche ke quotes PDF se match kiye gaye hain.",
+                 "caution": "Check karein: {c}.", "unverified": "Fact values draft hain, kisi ne abhi check nahi kiye; neeche ke quotes PDF se match kiye gaye hain.", "web": "'From the product web page' wali lines joinditto.in se hain ({date} ko padhi), policy wording se nahi: insurer se confirm karein.",
                  "premium": "Premium policy document mein nahi hota, isliye yahan use nahi kiya. Insurer ka quote lijiye.",
                  "coverage": "{n} loaded products mein se {k} ke fact rows hain aur check kiye gaye.",
                  "one_fit": "{name} is customer ke liye fit hai. Kyunki: {why}.", "one_nofit": "{name} is customer ke liye fit nahi: {why}.",
@@ -467,7 +491,7 @@ TEXT = {
            "not_fit": "बाकी क्यों फिट नहीं:", "more": "और {n} इसी कारण से", "fits_but": "फिट है, लेकिन {why}",
            "date": "{name} में {cond} कवर {date} से शुरू होगा, अगर पॉलिसी {start} से शुरू हो और बिना रुकावट रिन्यू हो।",
            "today": " (आज; अलग तारीख हो तो बताइए)",
-           "caution": "जाँचें: {c}।", "unverified": "फैक्ट मान ड्राफ्ट हैं, किसी व्यक्ति ने अभी जाँचे नहीं; नीचे के उद्धरण PDF से मिलाए गए हैं।",
+           "caution": "जाँचें: {c}।", "unverified": "फैक्ट मान ड्राफ्ट हैं, किसी व्यक्ति ने अभी जाँचे नहीं; नीचे के उद्धरण PDF से मिलाए गए हैं।", "web": "'from the product web page' वाली बातें joinditto.in से हैं ({date} को पढ़ी गईं), पॉलिसी वर्डिंग से नहीं: बीमा कंपनी से पक्का करें।",
            "premium": "प्रीमियम पॉलिसी दस्तावेज़ में नहीं होता, इसलिए यहाँ इस्तेमाल नहीं हुआ। बीमा कंपनी का कोटेशन लीजिए।",
            "coverage": "{n} लोड किए गए प्रोडक्ट में से {k} की फैक्ट पंक्तियाँ हैं और जाँची गईं।",
            "one_fit": "{name} इस ग्राहक के लिए फिट है। क्यों: {why}।", "one_nofit": "{name} इस ग्राहक के लिए फिट नहीं: {why}।",
@@ -509,8 +533,9 @@ def _cites(results: list[dict], prods: dict) -> list[dict]:
     for r in results:
         for e in r["facts"]:
             cites.append({"n": len(cites) + 1, "policy_id": r["policy_id"], "product": r["label"],
-                          "section": f"{r['label']}: {e['attribute'].replace('_', ' ')}" + (f" (clause {e['clause']})" if e.get("clause") else ""),
-                          "page": e["page"], "printed_page": e["printed_page"], "quote": e["quote"], "text": e["value"]})
+                          "section": f"{r['label']}: {e['attribute'].replace('_', ' ')}" + (f" (clause {e['clause']})" if e.get("clause") else "") + (" (product web page)" if e.get("url") else ""),
+                          "page": e["page"], "printed_page": e["printed_page"], "quote": e["quote"], "text": e["value"],
+                          **({"url": e["url"], "read_on": e.get("read_on")} if e.get("url") else {})})
     return cites
 
 
@@ -574,6 +599,10 @@ def fit_answer(question: str, lang: str = "en", policy_id: str | None = None, to
     if p["premium"]:
         lines.append(w["premium"])
     lines.append(w["unverified"])
+    shown = [r for r in results if r["fits"]][:2] if not policy_id else results
+    web = [e for r in shown for e in r["facts"] if e.get("url")]
+    if web:
+        lines.append(w["web"].format(date=fmt_date(dt.date.fromisoformat(web[0]["read_on"])) if web[0].get("read_on") else "recently"))
     if not policy_id and len(prods) < total:
         lines.append(w["coverage"].format(k=len(prods), n=total))
     lines.append(w["advice"])

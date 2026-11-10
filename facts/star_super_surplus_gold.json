@@ -84,23 +84,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity is covered up to Rs. 50,000 per policy period (with a maximum of 2 deliveries) and up to Rs. 1,50,000 in the entire lifetime of the insured person, subject to a 12-month waiting period.",
    "status": "stated",
@@ -155,19 +138,6 @@
     "percent_per_year": null,
     "max_percent": null
    },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {},
    "verified": false,
    "verified_by": null,
    "verified_on": null
@@ -333,6 +303,39 @@
    "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
    "numbers": {
     "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The provided extracts do not contain any information regarding the co-payment that applies to this insurance policy, including details about age, zone, non-network, or voluntary conditions.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The minimum and maximum entry age for an adult is not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,

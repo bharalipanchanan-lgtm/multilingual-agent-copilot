@@ -39,47 +39,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The base plan covers room rent charges up to a Single Private AC room.",
-   "status": "stated",
-   "needs_extra_care": false,
-   "evidence": [
-    {
-     "page": 32,
-     "quote": "i. Room Rent charges up to Single Private AC room;",
-     "clause": "A. To Modify the room rent eligibility to any room"
-    }
-   ],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": "Single Private AC room"
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "copay",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "The extracts do not provide a clear answer on whether maternity (childbirth) is covered and its waiting period for the general maternity benefit. Some extracts mention specific waiting periods for surrogacy (36 months) or oocyte retrieval (3 years), but there is no clear statement about a general maternity cover waiting period or whether standard maternity is covered.",
    "status": "not_stated",
@@ -317,13 +276,61 @@
   },
   {
    "plan": "ALL",
+   "attribute": "copay",
+   "value": "A voluntary co-payment of 20% applies to all claims in case the treatment is taken in a hospital which is not included in the 'Preferred Provider Network' List, and this cover must be opted for a period of 2 continuous policy years.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 30,
+     "quote": "A co-payment of 20% will be applicable on each and every claim in case the treatment is taken in a hospital which is not included in the",
+     "clause": "AYUSH"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": false,
+    "condition": "treatment is taken in a hospital which is not included in the 'Preferred Provider Network' List"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
    "attribute": "entry_age",
-   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus). The age 65 in the draft is for the BeFit add-on.",
+   "value": "The minimum and maximum entry age for an adult is not stated in the provided extracts.",
    "status": "not_stated",
    "needs_extra_care": true,
    "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {},
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Room rent up to a Single Private AC room",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 32,
+     "quote": "i. Room Rent charges up to Single Private AC room;",
+     "clause": null
+    }
+   ],
+   "note": "Corrected in the second 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {
+    "kind": "category",
+    "category": "Single Private AC room"
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

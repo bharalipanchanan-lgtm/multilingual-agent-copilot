@@ -49,23 +49,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity (childbirth) is covered under the policy, but the waiting period for it is not clearly stated in the provided extracts. While extract 3 explicitly covers treatment arising from pregnancy and childbirth, extract 1 lists specific waiting periods for various diseases and conditions, but maternity is not explicitly listed among the conditions with a defined waiting period.",
    "status": "unclear",
@@ -113,22 +96,6 @@
    "numbers": {
     "percent_per_year": 5,
     "max_percent": 50
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -350,6 +317,39 @@
    "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
    "numbers": {
     "kind": "percent_si"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The minimum and maximum entry age for an adult is not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,

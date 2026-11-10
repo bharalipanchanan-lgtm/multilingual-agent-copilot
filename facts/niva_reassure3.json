@@ -39,23 +39,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "The policy documents provide conflicting information about the co-payment percentage. Extract 1 states a flat 20% co-payment for reimbursement claims, while Extracts 2, 3, 5, and 7 list co-payment options ranging from 0% to 50% depending on the plan and benefits.",
-   "status": "unclear",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "The provided extracts do not mention maternity (childbirth) coverage or its waiting period.",
    "status": "not_stated",
@@ -278,24 +261,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "sublimits",
    "value": "Modern treatments are covered up to INR 1 lac for Classic and Select plans, while Elite and Black plans cover them up to the Sum Insured.",
    "status": "stated",
@@ -325,6 +290,53 @@
    "evidence": [],
    "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "A 20% co-payment applies to reimbursement claims when the conditions defined in the policy terms and conditions are not fulfilled. Co-payment options for the Borderless and Borderless for Specified Illnesses plans include 0%, 20%, 30%, 40%, and 50%.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "A 20% co-payment will be applicable on the admissible claim amount if the conditions defined as per the policy terms and conditions are not fulfilled.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": false,
+    "condition": "if the conditions defined as per the policy terms and conditions are not fulfilled"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room rent limit or room category covered varies by plan. For the base plan with 5 and 10 Lacs sum insured, Classic covers General Room and Twin Sharing (excluding Deluxe/Suite), while Elite and Black cover all rooms except Deluxe/Suite and any room covered respectively. The Elite plan covers all room categories except Deluxe and Suite, and the Black plan covers any room.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "Room Type, Covered up to Sum Insured. (Co-Pay if room category is breached)",
+     "clause": "Room Type, Covered up to Sum Insured. (Co-Pay if room category is breached)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "category",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": "General Room, Twin Sharing, Deluxe/Suite"
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

@@ -45,41 +45,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "The policy does not state the specific room rent limit or room category covered for the base plan.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "copay",
-   "value": "The co-payment percentage is specified in the policy schedule, but the exact percentage is not stated in the extracts.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": true,
-    "condition": "after the assessment of the claim amount by us"
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity (childbirth) is not covered under this policy.",
    "status": "not_stated",
@@ -133,22 +98,6 @@
    "numbers": {
     "percent_per_year": null,
     "max_percent": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The policy document does not specify the minimum or maximum entry age for adults or children.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -331,6 +280,63 @@
    "evidence": [],
    "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "A compulsory co-payment percentage applies to the final claim amount when a claim is made for hospitalization outside of the preferred provider network, and the percentage is specified in the policy schedule. The co-payment percentage also applies when the insured fails to notify the insurer within 48 hours of hospitalization or before discharge.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "If you make a claim for hospitalization outside of our preferred provider network, we will charge a compulsory co-payment percentage of the final claim amount.",
+     "clause": "3.3.5 Preferred Providers Network"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": true,
+    "condition": "hospitalization outside of our preferred provider network or failure to notify within 48 hours of hospitalization or before discharge"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room rent limit or specific room category covered is not stated in the provided extracts. The policy mentions room categories like Deluxe AC, Private/Single AC, Twin sharing AC, Non-AC sharing, or general ward, but does not specify the monetary limit per day or the exact room category covered in the base plan.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

@@ -90,23 +90,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "copay",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": null,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity (childbirth) is excluded from coverage, and no waiting period is stated for it in the provided extracts.",
    "status": "not_stated",
@@ -339,13 +322,39 @@
   },
   {
    "plan": "ALL",
+   "attribute": "copay",
+   "value": "A 20% co-payment applies when the Smart Select optional benefit is opted and treatment is taken at hospitals other than those listed in Annexure III; a 10% co-payment applies when the True Connect optional benefit is opted and treatment is taken directly at a hospital without first consulting the network of empaneled independent Medical Practitioners, except in emergencies.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 23,
+     "quote": "If the Insured Person takes Medical Treatment in hospitals other than those listed in Annexure – III to the Policy Terms and Conditions, then the Policyholder/Insured Person shall bear a Co-Payment of 20% on each and every Claim arising in such regard, which will be in addition to any other co-payment (if any) applicable in the Policy.",
+     "clause": "3.2.1 Smart Select"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": false,
+    "condition": "Smart Select optional benefit opted and treatment at non-listed hospitals"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
    "attribute": "entry_age",
-   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "value": "Not stated in the document",
    "status": "not_stated",
    "needs_extra_care": true,
    "evidence": [],
-   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
-   "numbers": {},
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

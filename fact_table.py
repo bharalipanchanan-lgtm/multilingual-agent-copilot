@@ -89,6 +89,30 @@ def _legacy_to_rows(f: dict) -> list[dict]:
     return rows
 
 
+WEB_FACTS = MANIFEST.parent.parent / "web_facts.json"
+
+
+@lru_cache(maxsize=1)
+def web_facts() -> dict:
+    """Facts read from product web pages (joinditto.in), for use only where the wording is silent.
+    {policy_id: {attribute: {value, numbers, quote, url}}}, plus the date they were read."""
+    if not WEB_FACTS.exists():
+        return {}
+    d = json.load(open(WEB_FACTS, encoding="utf-8"))
+    return {pid: {a: {**v, "read_on": d.get("read_on"), "site": d.get("source")} for a, v in attrs.items()}
+            for pid, attrs in d.get("facts", {}).items()}
+
+
+def web_row(policy_id: str, attribute: str) -> dict | None:
+    """A fact-table style row from the web facts, marked web=True, with a URL instead of a page."""
+    w = web_facts().get(policy_id, {}).get(attribute)
+    if not w:
+        return None
+    return {"plan": "ALL", "attribute": attribute, "value": w["value"], "status": "stated", "web": True,
+            "numbers": w["numbers"], "verified": False,
+            "evidence": [{"page": None, "quote": w["quote"], "url": w["url"], "read_on": w["read_on"]}]}
+
+
 def load_facts() -> list[dict]:
     """Every policy's facts as {policy_id, insurer, product, legacy, rows}."""
     out = []

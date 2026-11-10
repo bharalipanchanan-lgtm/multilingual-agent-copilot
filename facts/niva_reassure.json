@@ -66,41 +66,6 @@
   },
   {
    "plan": "ALL",
-   "attribute": "room_rent",
-   "value": "Not stated in the document",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "kind": "no_limit",
-    "percent_of_si": null,
-    "rupees_per_day": null,
-    "category": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "copay",
-   "value": "The policy mentions co-payment in Section 7.4 d but does not specify the percentage or conditions for age, zone, non-network, or voluntary co-payment.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "percent": null,
-    "mandatory": false,
-    "condition": null
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
    "attribute": "maternity",
    "value": "Maternity expenses are covered under the policy, and they are subject to a 24-month waiting period from the inception of the first policy, with coverage commencing from the third policy year provided there is continuous insurance without any break.",
    "status": "stated",
@@ -154,22 +119,6 @@
    "numbers": {
     "percent_per_year": 50,
     "max_percent": 100
-   },
-   "verified": false,
-   "verified_by": null,
-   "verified_on": null
-  },
-  {
-   "plan": "ALL",
-   "attribute": "entry_age",
-   "value": "The provided extracts do not state the minimum and maximum entry age for an adult or children under the Niva Bupa Health Insurance ReAssure policy.",
-   "status": "not_stated",
-   "needs_extra_care": true,
-   "evidence": [],
-   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
-   "numbers": {
-    "adult_min_years": null,
-    "adult_max_years": null
    },
    "verified": false,
    "verified_by": null,
@@ -348,6 +297,63 @@
    "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
    "numbers": {
     "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The co-payment is 0% for the first 3000 and 5% for 3001-4500, 15% for 4501-6000, 20% for 6001-7500, and 30% for >=7501.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. The model's quote was not found verbatim in the PDF, so the value needs reading by hand.",
+   "numbers": {
+    "percent": 0,
+    "mandatory": false,
+    "condition": "Up to 3000"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The policy covers Room Rent as part of the Inpatient Care benefits, and the Product Benefit Table in Annexure I shows that the Room Rent limit is not explicitly stated and appears to be covered up to the Sum Insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "Room boarding and nursing charges during Hospitalization as charged by the Hospital where the Insured Person availed medical treatment",
+     "clause": "4.1. Inpatient Care"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
    },
    "verified": false,
    "verified_by": null,

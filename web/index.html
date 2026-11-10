@@ -568,7 +568,8 @@ function renderCards(cites, policyId, id, head = "") {
   return `<div class="cards">${head ? `<span class="lbl">${esc(head)}</span>` : ""}` + cites.map(c => `
     <div class="cardc" id="c${id}-${c.n}">
       <div class="hd"><span>[${c.n}] <b>${esc(c.section)}</b></span>
-        <a href="/pdf/${esc(c.policy_id || policyId)}#page=${c.page}" target="_blank">Page ${esc(c.printed_page)} &#8599;</a></div>
+        ${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener" title="Not the policy wording${c.read_on ? `; read ${esc(c.read_on)}` : ""}">Web page &#8599;</a>`
+                : `<a href="/pdf/${esc(c.policy_id || policyId)}#page=${c.page}" target="_blank">Page ${esc(c.printed_page)} &#8599;</a>`}</div>
       <q>${esc(c.quote)}</q>
       ${c.text && c.text !== c.quote ? `<details><summary>Full clause</summary><div class="full">${esc(c.text)}</div></details>` : ""}
     </div>`).join("") + `</div>`;
@@ -691,7 +692,7 @@ async function ask(text, held = false) {
             renderFit(ev.fit, id) + renderRanking(ev.ranking) + renderTable(ev.table) +
             ((ev.ranking || ev.fit) && ev.citations && ev.citations.length
               ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted lines from the policies</summary>${renderCards(ev.citations, policyId, id)}</details>`
-              : renderCards(ev.citations, policyId, id, plain || ev.quick ? "Exact line from the policy" : "")) +
+              : renderCards(ev.citations, policyId, id, plain || ev.quick ? ((ev.citations || []).every(c => c.url) ? "Line from the product web page (not the policy)" : "Exact line from the policy") : "")) +
             optionButtons((ev.options || []).slice(0, ev.which_product ? 8 : SHOWN_IN_CHAT)) +
             actionButtons(ev.actions) +
             (["selected", "choose_policy", "greeting"].includes(ev.status) ? "" : howPanel(ev, meta)) +
