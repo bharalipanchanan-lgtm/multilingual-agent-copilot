@@ -1,6 +1,6 @@
 {
   "_provenance": {
-    "built_from": "49 policy wordings (PDF) in data/policies/",
+    "built_from": "48 policy wordings (PDF) in data/policies/",
     "extracted_by": "ingest/extract.py",
     "verified_by": "Automated quote-on-page check (test/catalogue.test.mjs)",
     "verified_on": "2026-11-10",
@@ -53,15 +53,9 @@
     },
     "icici-elevate": {
       "source": "6-icici-elevate.pdf",
-      "pdf_pages": 3,
+      "pdf_pages": 117,
       "page_offset": 0,
-      "uin": "ICIHLIP25048V012425"
-    },
-    "max-life-smart-secure-plus": {
-      "source": "7-max-life-smart-secure-plus.pdf",
-      "pdf_pages": 3,
-      "page_offset": 0,
-      "uin": "MAXHLIP24019V022324"
+      "uin": "ICIHLIP27062V072627"
     },
     "national-mediclaim": {
       "source": "National_Mediclaim_Policy.pdf",
@@ -307,7 +301,7 @@
   "catalogue": {
     "updated_on": "2026-11-10",
     "review_every_days": 90,
-    "source": "49 insurer policy wordings + plan variants, verified page by page."
+    "source": "48 insurer policy wordings + plan variants, verified page by page."
   },
   "products": [
     {
@@ -357,7 +351,7 @@
           "section": "Clause II.4 (AYUSH Treatment)",
           "pdf_page": 10,
           "printed_page": 9,
-          "quote": "AYUSH Treatment: Inpatient Hospitalizations Expenses incurred on treatment under Ayurveda, Unani, Siddha and Homeopathy systems of medicines in a AYUSH Hospital is payable up to the Sum Insured.",
+          "quote": "Ayurveda, Unani, Siddha and Homeopathy is payable up to the Sum Insured.",
           "note": null,
           "stated": true
         },
@@ -367,7 +361,7 @@
           "section": "Clause II.3 (Cataract Table)",
           "pdf_page": 10,
           "printed_page": 9,
-          "quote": "Expenses incurred on treatment of Cataract is subject to the limit as per the following table",
+          "quote": "Cataract is subject to the limit as per the following table Limit per Policy Period (in Rs.) Sum Insured (Rs.) Limit per eye (in Rs.) 1,00,000/- Up to 12,000/- per eye, per Policy Period",
           "note": "24-month specified disease waiting period also applies under Code Excl 02 (page 28).",
           "stated": true
         },
@@ -400,6 +394,53 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
+      },
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 34,
+            "printed_page": 33,
+            "quote": "Duly completed claim form, and surgeons, g."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 33,
+            "printed_page": 32,
+            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 34,
+            "printed_page": 33,
+            "quote": "\u0007Discharge Summary in original from 1 Reimbursement of hospitalization, day care and pre hospitalization"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 39,
+            "printed_page": 38,
+            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), health data add family members."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 34,
+            "printed_page": 33,
+            "quote": "\u0007NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code n."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 19,
+            "printed_page": 18,
+            "quote": "\u0007 The second opinion should be only for medical reasons and not for medico-legal purposes."
+          }
+        ],
+        "initial_wait": null
       }
     },
     {
@@ -482,7 +523,76 @@
       },
       "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
       "withdrawn_on": null,
-      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324.",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly Completed claim form, b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "KYC documents (in all claims above Rs."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "MLC / FIR Copy – in Accident cases only, k."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 21,
+            "printed_page": 21,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be insured under the Policy."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 16,
+          "printed_page": 16,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-optima-super-secure",
@@ -556,7 +666,76 @@
       },
       "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
       "withdrawn_on": null,
-      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324.",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly Completed claim form, b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "KYC documents (in all claims above Rs."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "MLC / FIR Copy – in Accident cases only, k."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 21,
+            "printed_page": 21,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be insured under the Policy."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 16,
+          "printed_page": 16,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-optima-suraksha",
@@ -630,7 +809,76 @@
       },
       "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
       "withdrawn_on": null,
-      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324."
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP24092V032324.",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly Completed claim form, b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "KYC documents (in all claims above Rs."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Invoice with payment receipt and implant stickers for all implants used during Surgeries e.g."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "MLC / FIR Copy – in Accident cases only, k."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 21,
+            "printed_page": 21,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be insured under the Policy."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 16,
+          "printed_page": 16,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-supreme",
@@ -719,6 +967,57 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
+      },
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "Duly filled and signed Claim form by the Insured Person"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "Copy of Photo ID of Insured Person"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "Original bills, receipts and discharge summary from the Hospital/Medical Practitioner"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 27,
+            "printed_page": 26,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "Original pathological/diagnostic test reports/radiology reports and payment receipts"
+          },
+          {
+            "key": "prescription",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or Care Supreme- CHIHLIP23128V012223 28 However"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "MLC/FIR report, Post Mortem Report if applicable and conducted"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 17,
+          "printed_page": 16,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
       }
     },
     {
@@ -799,6 +1098,63 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
+      },
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Documents required with claim form: Hospital / Medical records:"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "KYC documents"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Original Discharge summary with first and subsequent consultation papers."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Laboratory investigation reports with supporting prescriptions."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "Cancelled cheque IMPORTANT: All documents MUST be submitted at the earliest possible time."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 25,
+            "printed_page": null,
+            "quote": "MLC/First Information Report (FIR) (in accident cases)."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 16,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
       }
     },
     {
@@ -866,7 +1222,7 @@
           "section": "Section 3.1.ii Item XVIII (Code-Excl02)",
           "pdf_page": 35,
           "printed_page": 35,
-          "quote": "XVIII. Cataract (avrana Shukla), Retinal detachment, Glaucoma (abhishyandha)",
+          "quote": "Cataract (avrana Shukla), Retinal detachment, Glaucoma (abhishyandha)",
           "note": null,
           "stated": true
         },
@@ -887,87 +1243,102 @@
           "quote": null,
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
+        }
+      },
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements m."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 50,
+            "printed_page": 50,
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "Provided that any recommendation under this policy shall not be valid for any medico legal purposes."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 47,
+            "printed_page": 47,
+            "quote": "shall cancel Your application and refund/ release the amount subject to deduction of the PrePolicy Check up charges, as applicable."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 34,
+          "printed_page": 34,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
         }
       }
     },
     {
       "id": "icici-elevate",
       "policy_id": "icici_elevate",
-      "insurer": "ICICI Lombard (ICC)",
+      "insurer": "ICICI Lombard",
       "name": "Elevate",
       "variant": null,
       "status": "active",
-      "uin": "ICIHLIP25048V012425",
-      "differentiator": "PED wait 24 months; Single Private A/C Room or any room up to SI with no proportionate deduction",
+      "uin": "ICIHLIP27062V072627",
+      "differentiator": "PED 36 months; single private room",
       "facts": {
         "ped_wait_months": {
-          "value": 24,
+          "value": 36,
           "unit": "months",
-          "section": "Clause 3.1 (Code Excl 01)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
-          "note": null,
-          "stated": true
+          "pdf_page": 88,
+          "printed_page": 88,
+          "quote": "Treatment of a Pre-existing Disease and its direct complications, until the expiry of 36 months of continuous coverage after the date of inception of the first Policy with Us.",
+          "note": "An optional cover can cut this to 24 or 12 months if opted at inception (PDF page 61).",
+          "stated": true,
+          "section": "Standard Exclusion 1 Pre-Existing Diseases (Code-Excl01)"
         },
         "specified_disease_wait_months": {
           "value": 24,
           "unit": "months",
-          "section": "Clause 3.2 (Code Excl 02)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Expenses related to the treatment of the listed conditions, including Cataract, hernia, benign prostatic hypertrophy and joint replacement, shall be excluded until the expiry of 24 months of continuous coverage.",
+          "pdf_page": 88,
+          "printed_page": 88,
+          "quote": "Treatment of the below-listed conditions and surgeries/treatments, until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
           "note": null,
-          "stated": true
+          "stated": true,
+          "section": "Standard Exclusion 2 Specified Disease / Procedure Waiting Period (Code-Excl02)"
         },
         "room_rent": {
-          "value": "Single Private A/C Room or any room category up to Sum Insured; ICU at actuals",
+          "value": "Room Rent up to a Single Private AC room",
           "unit": "text",
-          "section": "Clause 2.1 (In-Patient Hospitalization & Room Rent)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Room Rent and ICU Charges: Single Private A/C Room or any room category up to Sum Insured; ICU charges at actuals up to Sum Insured with no proportionate deduction.",
-          "note": null,
-          "stated": true
-        },
-        "ayush": {
-          "value": "Covered up to 100% of Sum Insured in a registered AYUSH Hospital",
-          "unit": "text",
-          "section": "Clause 2.3 (AYUSH Benefit)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.3: Inpatient hospitalization expenses incurred for AYUSH Treatment in a registered AYUSH Hospital are covered up to 100% of Sum Insured.",
-          "note": null,
-          "stated": true
-        },
-        "robotic_surgery": {
-          "value": "Covered up to 100% of Base Sum Insured in a network hospital",
-          "unit": "text",
-          "section": "Clause 2.2(G) (Modern Treatments & Robotic Surgery)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.2(G): Robotic surgeries and computer-assisted navigation procedures are covered up to 100% of Base Sum Insured in a network hospital.",
-          "note": null,
-          "stated": true
-        },
-        "cataract": {
-          "value": "Covered up to Sum Insured with no sub-limit after 24-month waiting period",
-          "unit": "text",
-          "section": "Clause 3.2 (Code Excl 02)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Cataract is covered up to Sum Insured with no sub-limit after the 24 months waiting period.",
-          "note": null,
-          "stated": true
-        },
-        "premium_inr": {
-          "value": null,
-          "unit": null,
-          "pdf_page": null,
-          "printed_page": null,
-          "quote": null,
-          "note": "Not stated in policy wordings. See the rate card.",
-          "stated": false
+          "section": "Basic Cover 1 In-patient Treatment, i. Room Rent",
+          "pdf_page": 12,
+          "printed_page": 12,
+          "quote": "1. In-patient Treatment We will cover the Medical Expenses incurred in respect of Your Hospitalization:: i. Room Rent up to a Single Private AC room;",
+          "note": "The Room Modifier optional cover (PDF page 62) can change this to any room, twin sharing or a % of Sum Insured cap.",
+          "stated": true,
+          "max_per_day": null,
+          "room_class": "no_cap",
+          "source_kind": "prose"
         },
         "entry_age_max": {
           "value": null,
@@ -977,89 +1348,37 @@
           "quote": null,
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
-        }
-      }
-    },
-    {
-      "id": "max-life-smart-secure-plus",
-      "policy_id": "max_life_smart_secure_plus",
-      "insurer": "Max Life",
-      "name": "Smart Health Rider",
-      "variant": null,
-      "status": "active",
-      "uin": "MAXHLIP24019V022324",
-      "differentiator": "Room rent up to Rs 15,000/day; entry age up to 65 years; PED wait 36 months",
-      "facts": {
-        "ped_wait_months": {
-          "value": 36,
-          "unit": "months",
-          "section": "Clause 3.1 (Code Excl 01)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Clause 3.1 Pre-Existing Diseases (Code Excl 01): Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy.",
-          "note": null,
-          "stated": true
-        },
-        "specified_disease_wait_months": {
-          "value": 24,
-          "unit": "months",
-          "section": "Clause 3.2 (Code Excl 02)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Clause 3.2 Specified Disease Waiting Period (Code Excl 02): Expenses related to specified diseases including Cataract, hernia and sinusitis shall be excluded until the expiry of 24 months of continuous coverage.",
-          "note": null,
-          "stated": true
-        },
-        "room_rent": {
-          "value": "Single Standard A/C Room up to Rs 15,000 per day; ICU at actuals",
-          "max_per_day": 15000,
-          "unit": "inr-day",
-          "section": "Clause 2.1 (Room Rent)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.1 Room Rent: Single Standard A/C Room up to Rs 15,000 per day; ICU charges paid at actuals up to Base Sum Insured.",
-          "note": null,
-          "stated": true
         },
         "ayush": {
-          "value": "Covered up to 100% of Sum Insured in a government or NABH-accredited AYUSH Hospital",
+          "value": "AYUSH in-patient treatment is covered at a Government Recognized AYUSH Hospital or AYUSH Day Care Centre.",
           "unit": "text",
-          "section": "Clause 2.2 (AYUSH Treatment)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.2 AYUSH Treatment: Inpatient hospitalization in a government or NABH-accredited AYUSH Hospital is covered up to 100% of Sum Insured.",
-          "note": null,
-          "stated": true
-        },
-        "robotic_surgery": {
-          "value": "Payable up to 50% of Sum Insured per policy year",
-          "unit": "text",
-          "section": "Clause 2.3 (Robotic Surgeries)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.3 Robotic Surgeries: Modern treatment including Robotic surgeries is payable up to 50% of Sum Insured per policy year.",
+          "section": "Basic Cover 6 In Patient AYUSH Hospitalization",
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "6. In Patient AYUSH Hospitalization We will cover the Medical Expenses incurred in respect of Your Hospitalisation for the AYUSH Treatment at a Government Recognized AYUSH Hospital or AYUSH Day Care Centre.",
           "note": null,
           "stated": true
         },
         "cataract": {
-          "value": "Payable up to Rs 40,000 per eye after 24-month specified waiting period",
+          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause 2.4 (Cataract Limit)",
-          "pdf_page": 2,
-          "printed_page": 2,
-          "quote": "Clause 2.4 Cataract Limit: Cataract surgery is payable up to Rs 40,000 per eye after the specified waiting period.",
-          "note": null,
+          "section": "Code-Excl02 list, item ix (Cataracts)",
+          "pdf_page": 89,
+          "printed_page": 89,
+          "quote": "viii. Surgery on ears / tonsils / adenoids / paranasal sinuses. ix. Cataracts.",
+          "note": "A ₹30,000 per eye sub-limit applies only with the Vital Essence add-on (PDF page 70).",
           "stated": true
         },
-        "entry_age_max": {
-          "value": 65,
-          "unit": "years",
-          "section": "Clause 3.4 (Entry Age Limit)",
-          "pdf_page": 3,
-          "printed_page": 3,
-          "quote": "Clause 3.4 Entry Age Limit: Minimum entry age is 18 years and maximum entry age is 65 years at policy inception.",
+        "robotic_surgery": {
+          "value": "Robotic surgery is covered as a listed Technological Advancement treatment, up to the Sum Insured and the Policy's sub-limits.",
+          "unit": "text",
+          "section": "Basic Cover 3 Technological Advancements and Treatments, item 7 (Robotic surgeries)",
+          "pdf_page": 14,
+          "printed_page": 14,
+          "quote": "Balloon Sinuplasty Oral Chemotherapy Robotic surgeries Stereotactic radio Surgeries",
           "note": null,
-          "stated": true
+          "stated": true,
+          "source_kind": "prose"
         },
         "premium_inr": {
           "value": null,
@@ -1069,6 +1388,58 @@
           "quote": null,
           "note": "Not stated in policy wordings. See the rate card.",
           "stated": false
+        }
+      },
+      "source_url": "https://www.icicilombard.com/docs/default-source/default-document-library/elevate.pdf",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 83,
+            "printed_page": 83,
+            "quote": "Claim form duly filled and signed Certificate by treating medical practitioner duly attested"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 105,
+            "printed_page": 105,
+            "quote": "said health card, or You can seek pre-authorization by providing Your Policy number and ID proof to the Hospital who can co-ordinate with Our claim team to provide a Cashless Facility."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 83,
+            "printed_page": 83,
+            "quote": "Discharge summary where applicable (in case of hospitalisation) f."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 106,
+            "printed_page": 106,
+            "quote": "b) Original bills, receipts, and discharge certificate/ card from the Hospital/ Medical Practitioner."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 65,
+            "printed_page": 65,
+            "quote": "registrations and health insurance) and Digital health records (Store all diagnostics, lab reports & vitals online at one place) on their digital platform Available Available Available"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "The Illnesses have been disclosed by You or detected during pre-policy medical examination, and accepted by Us at the inception of the Policy and mentioned in the Policy Schedule."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 83,
+            "printed_page": 83,
+            "quote": "filled and signed Certificate by treating medical practitioner duly attested Current and past consultation papers All histology/cytology/FNAC/Biopsy/Immuno-chemistry reports, X-ray, CT Scan, MRI, PET"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 90,
+          "printed_page": 90,
+          "quote": "within 30 days from the first Policy start date, except covered claims arising due to an Accident"
         }
       }
     },
@@ -1143,6 +1514,45 @@
           "note": "Not stated in this wording. See the prospectus.",
           "stated": false
         }
+      },
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 10,
+            "printed_page": 7,
+            "quote": "Completed claim form ii."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 10,
+            "printed_page": 7,
+            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/ summary from the hospital etc."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 10,
+            "printed_page": 7,
+            "quote": "Original bills, payment receipts, medical history of the patient recorded, discharge certificate/"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 11,
+            "printed_page": 8,
+            "quote": "On receipt of the final document(s) or investigation report (if any), as the case may be, the company shall within a period of 30 days offer a"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 17,
+            "printed_page": 14,
+            "quote": "BOX Not Payable MORTUARY CHARGES Payable upto 24 hrs, shifting charges not payable MEDICO LEGAL CASE CHARGES Not Payable (MLC CHARGES) EXTERNAL DURABLE DEVICES WALKING AIDS CHARGES Not"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 7,
+          "printed_page": 4,
+          "quote": "during the first 30 days from the inception of the first policy"
+        }
       }
     },
     {
@@ -1178,7 +1588,7 @@
         "room_rent": {
           "value": "- Up to 1% of Sum Insured per day (Excluding Cumulative Bonus)  Gold Plan and Platinum Plan - Sum Insured 3 lacs to 7.5 lacs- maximum eligible room is Single Private Air-Conditioned room - Sum Insured 10 Lacs and above - eligible for any …",
           "unit": "text",
-          "section": "Clause i Room rent and Boarding expenses as provided by th",
+          "section": "Clause i Room rent and Boarding expenses",
           "pdf_page": 7,
           "printed_page": null,
           "quote": "- Up to 1% of Sum Insured per day (Excluding Cumulative Bonus)  Gold Plan and Platinum Plan - Sum Insured 3 lacs to 7.5 lacs- maximum eligible room is Single Private Air-Conditioned room - Sum Insured 10 Lacs and above - eligible for any room category ii.",
@@ -1219,10 +1629,10 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Annexure III: Modern Treatment Methods and Advancement in Technologies, item G (Robotic surgeries)",
           "pdf_page": 31,
           "printed_page": null,
-          "quote": "D Oral chemotherapy E Immunotherapy- Monoclonal Antibody to be given as injection F Intra vitreal injections G Robotic surgeries H Stereotactic radio surgeries I Bronchical Thermoplasty J Vaporisation of the prostrate (Green laser treatment or holmium laser treatment) K IONM -(Intra Operative Neuro",
+          "quote": "Oral chemotherapy Immunotherapy- Monoclonal Antibody to be given as injection Intra vitreal injections Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplasty",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -1237,7 +1647,46 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 23,
+            "printed_page": null,
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 23,
+            "printed_page": null,
+            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 22,
+            "printed_page": null,
+            "quote": "that We are liable under Section C1-In- Patient Hospitalization Treatment above and the original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 23,
+            "printed_page": null,
+            "quote": " Original/Attested copies of Investigation Reports against Investigations done."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 23,
+            "printed_page": null,
+            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies of"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 13,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "generali-central-health-absolute",
@@ -1297,19 +1746,19 @@
           "stated": false
         },
         "cataract": {
-          "value": "Cataract has its own limit: ₹75,000 per eye, as written in this clause.",
+          "value": "Cataract has its own limit: 10% of SI, up to ₹75,000 per eye on the first plan column (₹1,50,000 and ₹2,00,000 per eye on the higher plan columns), as written in this table.",
           "unit": "text",
-          "section": null,
+          "section": "Benefit table, Sub Limits row (Cataract)",
           "pdf_page": 53,
           "printed_page": null,
-          "quote": "Compulsory Co-Pay - 20% Co-Payment Where Entry Age Is 61years And Above Applicable Applicable Applicable Sub Limits Cataract 10% Of SI, Maximum Of ₹ 75,000/- Per Eye.",
+          "quote": "Sub Limits Cataract 10% Of SI, 10% Of SI, Maximum Of ₹ Maximum Of ₹ 1, 75,000/- Per Eye. 50,000/- Per Eye.",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause 5 Immunotherapy- Monoclonal Antibody t",
+          "section": "Modern treatments list, item 7) Robotic surgeries",
           "pdf_page": 36,
           "printed_page": null,
           "quote": "4) Oral chemotherapy 5) Immunotherapy- Monoclonal Antibody to be given as injection 6) Intra vitreal injections 7) Robotic surgeries 8) Stereotactic radio surgeries 9) Bronchical Thermoplasty 10) Vaporisation of the prostrate (Green laser treatment or holmium laser treatment) 11) IONM - (Intra",
@@ -1327,7 +1776,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months"
+      "differentiator": "PED 24 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "The claim form specified by Us duly completed and signed by the claimant or a family member"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "Copy of proposer`s photo ID proof & address proof 13."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "The original Hospital discharge card/ summary"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 34,
+            "printed_page": null,
+            "quote": "The original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "All original laboratory and diagnostic test reports such as X-Ray, E.C.G, USG, MRI Scan, Haemogram, etc 10."
+          },
+          {
+            "key": "prescription",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "First prescription from the Medical Practitioner"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 35,
+            "printed_page": null,
+            "quote": "NEFT Form with photocopy of cancelled cheque with printed name of proposer 14."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 30,
+            "printed_page": null,
+            "quote": "4.2.1.2 Cost Of Pre-Insurance Medical Examination We will reimburse 100% of the cost of any pre-insurance medical examination"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 24,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-ergo-optima-secure-v06-2024-25-wording",
@@ -1362,7 +1868,7 @@
         "room_rent": {
           "value": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
           "unit": "text",
-          "section": null,
+          "section": "Section B-1.1 Hospitalization Expenses, 1.1.1 a (Room Rent)",
           "pdf_page": 11,
           "printed_page": null,
           "quote": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
@@ -1384,7 +1890,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Section B-1.4 AYUSH Treatment",
           "pdf_page": 12,
           "printed_page": null,
           "quote": "AYUSH Treatment The Company shall indemnify the Medical Expenses incurred by the Insured Person only for Inpatient Care under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy systems of medicines during each Policy Year up to the Sub-limit specified against this Cover in the Policy",
@@ -1394,7 +1900,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Section C.1.b Specified Disease/Procedure waiting period (Code-Excl02), list vi",
           "pdf_page": 29,
           "printed_page": null,
           "quote": "Rhinitis Perineal Abscesses Perianal Abscesses Skin tumors Cataract and other disorders of lens and Retina Fissure/fistula in anus, Haemorrhoids including Gout and rheumatism Tonsillitis",
@@ -1423,7 +1929,76 @@
       "differentiator": "PED 36 months; room at actuals",
       "replaced_by": "hdfc-ergo-optima-secure-v08-2025-26-wording",
       "withdrawn_on": null,
-      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP25041V062425."
+      "stop_reason": "Revised wording UIN HDFHLIP26058V082526 replaces UIN HDFHLIP25041V062425.",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "Duly Completed claim form, b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "Photo ID and Age Proof, c."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 44,
+            "printed_page": null,
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "MLC / FIR Copy – in Accident cases only, HDFC ERGO General Insurance Company Limited."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 40,
+            "printed_page": null,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the pre-Policy medical examination of the persons proposed to be insured under the Policy."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 30,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "iffco-tokio-individual-health-protector",
@@ -1480,7 +2055,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": "Clause 3 For the purpose of determining the sub-limits of",
+          "section": "Clause 3 (sub-limits for Room / Boarding / nursing and AYUSH hospitalization)",
           "pdf_page": 15,
           "printed_page": 15,
           "quote": "For the purpose of determining the sub-limits of expenses for Room/ Boarding/ nursing charges and AYUSH hospitalization expenses including pre- hospitalization and post-hospitalization and domiciliary hospitalization as detailed under item (1), (4) & (5) of “What is covered” above, the specified",
@@ -1490,7 +2065,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause (i Cataract",
+          "section": "f) List of specific diseases/procedures, item (i) Cataract",
           "pdf_page": 14,
           "printed_page": 14,
           "quote": "f) List of specific diseases/procedures (i) Cataract, Benign Prostatic Hypertrophy, Hysterectomy for Menorrhagia or Fibromyoma (ii) Hernia, Hydrocele, Congenital Internal Disease.",
@@ -1500,10 +2075,10 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 4 Modern Treatment Methods and Advancement in Technologies, item G (Robotic surgeries)",
           "pdf_page": 22,
           "printed_page": 22,
-          "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
+          "quote": "Intra vitreal injections Robotic surgeries Stereotactic radio surgeries Bronchial Thermoplasty",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -1518,7 +2093,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "b) A written statement of the claim will be required and a claim form will have to be completed."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "Copy of Photo ID / Proof iii."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "Discharge Summary (Photo Copy in case of claim for Pre/Post Hospitalization only) iv."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "Investigation Reports with supporting prescriptions vii."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "Pharmacy Bills (Original Only)with supporting prescriptions ix."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 25,
+            "printed_page": 25,
+            "quote": "on the medical records submitted  The opinion is only for medical reasons and not for medico-legal purposes  Any liability due to any errors or omission or consequences of any action"
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "All previous treatment papers related to Ailment of last 4 years."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 13,
+          "printed_page": 13,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "liberty-general-healthprime-connect",
@@ -1533,11 +2159,11 @@
         "ped_wait_months": {
           "value": 36,
           "unit": "months",
-          "section": "Clause vi Pre-existing disease/s as on commencement date of",
+          "section": "Standard Exclusion 1 (Pre-Existing Diseases, Code-Excl01)",
           "pdf_page": 33,
           "printed_page": 33,
-          "quote": "Pre-existing disease/s as on commencement date of the first Policy with us and any complications arising from the same shall not be covered until 36 months of continuous coverage have elapsed, since inception of your first Policy with Us & with this benefit. vii. Any payments under this benefit will only be made in India, in Indian Rupees and on reimbursement basis.",
-          "note": null,
+          "quote": "Expenses related to the treatment of a Pre-Existing Disease LED) and its direct complications shall be excluded as pet the Plan mentioned in the Policy schedule i.e.unti1 the expiry of 36 months of 24 months of continuous coverage after the date of inception of the first policy with Us.",
+          "note": "36 or 24 months, as per the plan in the Policy Schedule; 36 is used here as the longer case.",
           "stated": true
         },
         "specified_disease_wait_months": {
@@ -1561,7 +2187,7 @@
         "entry_age_max": {
           "value": 65,
           "unit": "years",
-          "section": "Clause 1 Entry Age Minimum entry Age",
+          "section": "Clause 1 Entry Age",
           "pdf_page": 47,
           "printed_page": 47,
           "quote": "Child -S1 days Maximum entry Age: 65 Years 2 Dependent child/children: covered with Us under Family Floater shall have the option to continue renewal by migrating to a suitable policy at the end of the specified exit age.",
@@ -1581,20 +2207,20 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause 1 Cataract Calculus diseases of Gall bladder and Ui",
+          "section": "List of specific diseases/procedures, Sr. 1 (First Year column)",
           "pdf_page": 34,
           "printed_page": 34,
-          "quote": "Cataract Calculus diseases of Gall bladder and Uiogenital system Surgical Treatment of Obesity 2.",
+          "quote": "Sr. First Year (12 months) Two Year (24 months) Three Year (36 months) No Waiting Period Waiting Period Waiting Period 1. Cataract",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "value": "Covered up to 50% of Sum Insured, as a listed modern treatment (item G, Robotic surgeries).",
           "unit": "text",
-          "section": null,
+          "section": "Clause 25 Coverage for Modern Treatments, item G (Robotic surgeries)",
           "pdf_page": 25,
           "printed_page": 25,
-          "quote": "Robotic surgeries H. Steteotactic radio sutgeties",
+          "quote": "25. Coverage for Modern Treatments: The following procedures will be covered (wherever medically indicated) either as in patient or as part of domiciliary hospitalization or as day cafe treatment in a hospital upto 50% of Sum Insured, specified in the policy schedule, during the policy period:",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -1609,7 +2235,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; entry up to 65"
+      "differentiator": "PED 36 months; entry up to 65",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 48,
+            "printed_page": 48,
+            "quote": "Claim form – https://www.libertyinsurance.in/customer-support/download-forms.html iv."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Photo ID and Address proof of policy holder and patient 16."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Original Detailed Discharge Summary / Day care summary ffom the hospital."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Original payment Receipt of the hospital bill with receipt number First Consultation letted and subsequent"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 45,
+            "printed_page": 45,
+            "quote": "Medical Ptactitionet, recording observations and administration of drugs and therapies, Investigation reports and shall allow the Company to inspect such record."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Original cancelled cheque with payee name printed on the cheque."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 51,
+            "printed_page": 51,
+            "quote": "Copy of the First Information Report from Police Department / Copy of the Medico-Legal Certificate."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 47,
+            "printed_page": 47,
+            "quote": "the Health status is adverse, as revealed in the proposal form or as evidenced in the pre policy check-up may be accepted as per the board approved underwriting policy of the Company with an"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 35,
+          "printed_page": 35,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same ate covered"
+        }
+      }
     },
     {
       "id": "magma-hdi-onehealth",
@@ -1644,7 +2327,7 @@
         "room_rent": {
           "value": "payment of Room Rent and other boarding charges, and Qualified Nurses’ charges incurred at the Hospital shall be as per “Single private AC room category.",
           "unit": "text",
-          "section": "Clause 89 Reimbursement of payment of Room Rent and other b",
+          "section": "Room Rent and boarding charges (Single private AC room category)",
           "pdf_page": 15,
           "printed_page": null,
           "quote": "payment of Room Rent and other boarding charges, and Qualified Nurses’ charges incurred at the Hospital shall be as per “Single private AC room category.",
@@ -1666,7 +2349,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": "Clause 3.2.3 Any Alternative Treatment except for the Benefits",
+          "section": "Exclusion 3.2.3 (AYUSH covered only under Section 2.8 Inpatient AYUSH)",
           "pdf_page": 48,
           "printed_page": null,
           "quote": "3.2.3) Any Alternative Treatment except for the Benefits under Section 2.8 (Inpatient AYUSH Treatment) 3.2.4) Charges related to a Hospital stay not expressly mentioned as being covered.",
@@ -1676,7 +2359,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause 3 Hernia",
+          "section": "Specified disease waiting list, item 1 (Cataract)",
           "pdf_page": 45,
           "printed_page": null,
           "quote": "Cataract 2. Stones in biliary and urinary systems 3.",
@@ -1686,7 +2369,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Section 2.13 Modern treatment Procedures",
           "pdf_page": 19,
           "printed_page": null,
           "quote": "Robotic surgeries • Stereotactic radio surgeries",
@@ -1704,7 +2387,46 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; single private room"
+      "differentiator": "PED 36 months; single private room",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 60,
+            "printed_page": null,
+            "quote": "The claim form along with the attending Medical Practitioner’s certificate duly filled and signed in"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 57,
+            "printed_page": null,
+            "quote": "record containing all relevant and accurate medical records like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 61,
+            "printed_page": null,
+            "quote": "Bill/Payment receipt confirming cost of buying or renting any of “Durable Medical Equipment” listed."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 57,
+            "printed_page": null,
+            "quote": "like in-patient records, Discharge summary, medical certificates, medical prescriptions, diagnostic reports and reports confirming the need for treatment (if any) and shall allow Us or our"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 38,
+            "printed_page": null,
+            "quote": "the diseases/illnesses/conditions has been detected during Pre-policy medical examination and have been accepted by Us."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 46,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "manipalcigna-prohealth-prime",
@@ -1737,12 +2459,12 @@
           "stated": true
         },
         "room_rent": {
-          "value": "₹12.5 Lacs, ₹15 Lacs, ₹20 Lacs, ₹25 Lacs, ₹30 Lacs, ₹40 Lacs, ₹50 Lacs, ₹100 Lacs Inpatient Hospitalization (When you are hospitalized) Room Rent: Covered up to Single Private AC Room For ICU - Covered up to Sum Insured This benefit shall …",
+          "value": "Covered up to a Single Private AC Room; ICU covered up to Sum Insured.",
           "unit": "text",
-          "section": null,
+          "section": "Annexure II: Your Coverage Details, Basic Cover",
           "pdf_page": 75,
           "printed_page": null,
-          "quote": "₹12.5 Lacs, ₹15 Lacs, ₹20 Lacs, ₹25 Lacs, ₹30 Lacs, ₹40 Lacs, ₹50 Lacs, ₹100 Lacs Inpatient Hospitalization (When you are hospitalized) Room Rent: Covered up to Single Private AC Room For ICU - Covered up to Sum Insured This benefit shall also offer the below covers up to the limits mentioned: a.",
+          "quote": "Room Rent: Covered up to Single Private AC Room For ICU - Covered up to Sum Insured",
           "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
           "stated": true,
           "max_per_day": null,
@@ -1761,7 +2483,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": "Clause iii Restored amount All Claims under this benefit can",
+          "section": "Section D.I.9 AYUSH Treatment",
           "pdf_page": 17,
           "printed_page": null,
           "quote": "D.I.9 AYUSH Treatment We will indemnify the Medical Expenses incurred during the Policy Year, up to the Sum Insured as specified in the Policy Schedule, of an Insured Person in case of Medically Necessary Treatment taken during In-patient Hospitalization for AYUSH Treatment for an Illness or Injury",
@@ -1771,7 +2493,7 @@
         "cataract": {
           "value": "Cataract has its own limit: ₹50,000 per eye, as written in this clause.",
           "unit": "text",
-          "section": "Clause 3 Surgeries for benign Prostate Hypertrophy",
+          "section": "Sub-limits by Base Sum Insured, Treatment of Cataract (Per Eye)",
           "pdf_page": 36,
           "printed_page": null,
           "quote": "Surgical treatment of stones of renal system ₹50,000 ₹65,000 Treatment of Cataract (Per Eye) ₹20,000 ₹30,000 Treatment of Total Knee replacement (Per knee) ₹80,000 ₹1,00,000 Treatment for breakage of bones ₹2,00,000 ₹2,50,000 Wherever the above mentioned sub-limits are applied, co-payment for the",
@@ -1781,7 +2503,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause i Bronchi",
+          "section": "Modern treatments, item g (Robotic surgeries)",
           "pdf_page": 14,
           "printed_page": null,
           "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
@@ -1799,7 +2521,66 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 61,
+            "printed_page": null,
+            "quote": "Completed claim forms and processing documents must be furnished to Us within the stipulated timelines for"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 56,
+            "printed_page": null,
+            "quote": "Default zone of cover will be based on Proposer’s city-location pin code as mentioned in KYC document."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 63,
+            "printed_page": null,
+            "quote": "forward a final request for authorization for any residual amount to us along with the discharge summary and the billing format in accordance with the process described at G.I.4.(a) above."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 64,
+            "printed_page": null,
+            "quote": "Original Hospital Main Bill and break-up Bill"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 64,
+            "printed_page": null,
+            "quote": "Original Investigation Reports, X Ray, MRI, CT Films, HPE"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 64,
+            "printed_page": null,
+            "quote": "Original Pharmacy Bills"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 64,
+            "printed_page": null,
+            "quote": "Cancelled cheque for NEFT payment ManipalCigna ProHealth Prime | Protect Plan and Advantage Plan | Terms"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 64,
+            "printed_page": null,
+            "quote": "MLC/FIR Report/Post-Mortem Report (if applicable and conducted) We may call for any additional"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 61,
+            "printed_page": null,
+            "quote": "Pre-Policy medical check up Where a pre-policy medical check-up has been undertaken by the proposed Insured"
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "new-india-assurance-yuva-bharat-health",
@@ -1870,7 +2651,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause 3.5 L U",
+          "section": "Clause 3.12.7 Robotic surgeries",
           "pdf_page": 18,
           "printed_page": 18,
           "quote": "2.5 L 3.12.7 Robotic surgeries Upto Rs.",
@@ -1888,7 +2669,28 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months"
+      "differentiator": "PED 24 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "discharge",
+            "pdf_page": 35,
+            "printed_page": 35,
+            "quote": "Bill, Receipt and Discharge certificate / card from the Hospital."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 11,
+            "printed_page": 11,
+            "quote": "interaction with participating healthcare providers, and allows to receive digital lab reports, prescription and diagnosis seamlessly from a verified healthcare professionals and"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 26,
+          "printed_page": 26,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "niva-bupa-reassure-3-0",
@@ -1950,7 +2752,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause iii Hyperplasia o",
+          "section": "f. List of specific diseases/procedures, item ii (Cataract, glaucoma and retinal detachment)",
           "pdf_page": 30,
           "printed_page": null,
           "quote": "Cataract, glaucoma and retinal detachment iii.",
@@ -1960,7 +2762,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause 9 Deep Br",
+          "section": "Modern treatments, item 7 (Robotic surgeries)",
           "pdf_page": 7,
           "printed_page": null,
           "quote": "Robotic surgeries 8. Stereotactic radio Surgeries 9.",
@@ -1978,7 +2780,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Documents required with claim form: Hospital / Medical records:"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "KYC documents"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Original Discharge summary with first and subsequent consultation papers."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Laboratory investigation reports with supporting prescriptions."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "Cancelled cheque IMPORTANT:"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "MLC/First Information Report (FIR) (in accident cases)."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 31,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "oriental-insurance-happy-family-floater",
@@ -2021,10 +2880,10 @@
         "entry_age_max": {
           "value": 65,
           "unit": "years",
-          "section": "Clause xix Maximum Entry Age",
-          "pdf_page": 12,
+          "section": "Clause 5.28 (Entry Age)",
+          "pdf_page": 37,
           "printed_page": null,
-          "quote": "Maximum Entry Age 65yearsfor all members 65years for all members 65 years for all members 65 years for all members xx.",
+          "quote": "5.28 ENTRY AGE: Maximum Entry Age under the Policy is 65years for all members.",
           "note": null,
           "stated": true
         },
@@ -2049,10 +2908,10 @@
         "robotic_surgery": {
           "value": "Robotic surgery is covered with a limit of 10% as written.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 3.1.15 Advanced Treatments, item G (Robotic surgeries)",
           "pdf_page": 18,
           "printed_page": null,
-          "quote": "Robotic surgeries Per policy period 10% of SI, subject to maximum INR 1,00,000.* Per policy period 10% of SI, subject to maximum INR 2,00,000.* *(The sub limit is on the cost incurred due to modern treatment methods of robotics and associated expenses and this amount is over and above the limit for",
+          "quote": "Per policy period 10% of SI, subject to maximum INR 1,00,000.* maximum INR 2,00,000.* G. Robotic surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -2067,7 +2926,40 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; entry up to 65"
+      "differentiator": "PED 36 months; entry up to 65",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 33,
+            "printed_page": null,
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the Company / TPA within 15 days of"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 33,
+            "printed_page": null,
+            "quote": " Original bills, all receipts and discharge certificate / card from the Hospital."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 33,
+            "printed_page": null,
+            "quote": "Final claim along with original Bills/ Cash memos/reports, claim form and documents as listed below should be submitted to the"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 33,
+            "printed_page": null,
+            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 24,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "sbi-general-arogya-supreme",
@@ -2082,7 +2974,7 @@
         "ped_wait_months": {
           "value": 36,
           "unit": "months",
-          "section": null,
+          "section": "III) Pre-Existing Diseases (Code-Excl01)",
           "pdf_page": 15,
           "printed_page": null,
           "quote": "a) Expenses related to the treatment of a Pre-Existing Diseases (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy with Us.",
@@ -2100,12 +2992,12 @@
           "stated": true
         },
         "room_rent": {
-          "value": "At actuals up to Sum Insured a) Room rent and boarding expenses as provided by the Hospital/Nursing home subject to below limits",
+          "value": "Depends on the option chosen: 1% of base Sum Insured, or a Single private AC room, or at actuals up to Sum Insured.",
           "unit": "text",
-          "section": null,
+          "section": "Section C.1 In-patient Hospitalization Treatment, a) Room rent",
           "pdf_page": 9,
           "printed_page": null,
-          "quote": "At actuals up to Sum Insured a) Room rent and boarding expenses as provided by the Hospital/Nursing home subject to below limits",
+          "quote": "a) Room rent and boarding expenses as provided by the Hospital/Nursing home subject to below limits • 1% of base Sum Insured (excluding cumulative / enhanced cumulative bonus) OR • Single private Air-Conditioned room OR • At actuals up to Sum Insured",
           "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
           "stated": true,
           "max_per_day": null,
@@ -2133,20 +3025,20 @@
         "cataract": {
           "value": "Cataract has its own limit: Rs 50,000 per eye, as written in this clause.",
           "unit": "text",
-          "section": "Clause 9 Pre-Hospitalization Cover We will pay Medical Exp",
+          "section": "Cataract Treatment",
           "pdf_page": 10,
           "printed_page": null,
-          "quote": "Pre-Hospitalization Cover We will pay Medical Expenses of Rs 50,000/- or Rs 1,00,000/- incurred for treatment of Cataract as specified in the Policy Schedule, per eye including cost of lens during Policy Year, subject to claim admissible under the Policy.",
+          "quote": "We will pay Medical Expenses of Rs 50,000/- or Rs 1,00,000/incurred for treatment of Cataract as specified in the Policy Schedule, per eye including cost of lens during Policy Year, subject to claim admissible under the Policy.",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause x Vaporisation of the Prostrate",
+          "section": "Modern treatments, item vii (Robotic Surgeries)",
           "pdf_page": 10,
           "printed_page": null,
-          "quote": "Robotic Surgeries x. Vaporisation of the Prostrate (Green laser treatment or holmium laser treatment) xi.",
+          "quote": "vii. Robotic Surgeries viii. Stereotactic Radio Surgeries ix. Bronchical Thermoplasty",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -2161,7 +3053,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "Claim Form / PreAuthorization Request form 10."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "CKYC Form and KYC Documents Process for I."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "Certified copy of Hospital discharge Summary 3."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "Certified copy of first hospital consultation & first diagnostic report 3."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "Certified copy of final hospital bill, pharmacy bills, Investigation labs bills 4."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "Beneficiary bank account / NEFT details: Cancelled cheque or copy of first page of bank passbook showing account"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 12,
+            "printed_page": null,
+            "quote": "under this benefit shall be limited to the covered Illness and not be valid for any medico legal purposes."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 15,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy Commencement Date shall be excluded excepts claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "star-health-smart-health-pro",
@@ -2223,7 +3166,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause 1 Treatment of Cataract and diseases of the anterio",
+          "section": "Specified disease list, item 1 (Treatment of Cataract)",
           "pdf_page": 7,
           "printed_page": 7,
           "quote": "Treatment of Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Benign diseases of the breast.",
@@ -2233,7 +3176,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 14 Coverage for Modern Treatment, item g (Robotic surgeries)",
           "pdf_page": 3,
           "printed_page": 3,
           "quote": "d) Oral Chemotherapy e) Immunotherapy- Monoclonal Antibody to be given as injection f) Intra Vitreal injections g) Robotic surgeries h) Stereotactic radio surgeries i) Bronchical Thermoplasty j) Vaporisation of the prostate (Green laser treatment or holmium laser treatment) k) IONM-(Intra Operative",
@@ -2251,7 +3194,48 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 8,
+            "printed_page": 8,
+            "quote": "Duly completed claim form, and b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 8,
+            "printed_page": 8,
+            "quote": "KYC (Identity proof with Address) of the proposer, as per AML guidelines."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 8,
+            "printed_page": 8,
+            "quote": "Discharge Summary from the hospital."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 6,
+            "printed_page": 6,
+            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), track health data add family members."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 8,
+            "printed_page": 8,
+            "quote": "NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code j."
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "tata-aig-medicare-plus",
@@ -2312,7 +3296,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3 Exclusions, List of Specific Diseases/procedures, item XXIII (Cataract)",
           "pdf_page": 10,
           "printed_page": null,
           "quote": "Cataract XXIV. Retinal detachment XXV.",
@@ -2338,7 +3322,40 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "r claim form, duIly completed Ou11 a."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof andphotograph) requirements."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 20,
+            "printed_page": null,
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Imandatory NEFT (to I I 1• enable direct credit of claim amount in bank account) and KYC (recent"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 11,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "universal-sompo-complete-healthcare",
@@ -2391,7 +3408,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Section C9 AYUSH Benefit",
           "pdf_page": 4,
           "printed_page": 4,
           "quote": "AYUSH Benefit The Medical Expenses incurred for an In-patient treatment taken under Ayurveda, Unani, Sidha or Homeopathy provided that: Our maximum liability will be limited to the amounts specified in the Policy Schedule If We accept any claim under this benefit, then We will not make any payment",
@@ -2401,7 +3418,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Section E.2 Specific Waiting Period (Code-Excl02)",
           "pdf_page": 29,
           "printed_page": 29,
           "quote": "cataract; fissure/fistula in anus, hemorrhoids, pilonidal sinus, gastric and duodenal ulcers",
@@ -2409,12 +3426,12 @@
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is covered with a limit of 10% as written.",
+          "value": "Robotic surgery: up to 50% of Sum Insured, maximum Rs 5,00,000.",
           "unit": "text",
-          "section": "Clause 6 Deep Brai",
+          "section": "Modern treatment sub-limit table, item 7 (Robotic Surgeries)",
           "pdf_page": 2,
           "printed_page": 2,
-          "quote": "Sinuplasty 10% of SI and maximum upto Rs 200,000 6 Deep Brain stimulation 50% of SI and maximum upto Rs 500,000 7 Robotic Surgeries 50% of SI and maximum upto Rs 500,000 8 Stereotactic radio surgeries 20% of SI and maximum upto Rs 250,000 9 Bronchial Thermoplasty 50% of SI and maximum upto Rs",
+          "quote": "7 Robotic Surgeries 50% of SI and maximum upto Rs 500,000",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -2429,7 +3446,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "Fill in Reimbursement Claim Form and submit all original documents to our below mention office for reimbursement."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "Valid Photo ID Proof of the patient."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "Original Discharge Card from the hospital, Indoor Case Papers."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "Original hospital bill and receipts."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "All original medical Investigation reports (viz."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "NEFT details and Personalized cancelled cheque/ Passbook copy in the name of proposer for"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "MLC (Medico Legal Certificate) / FIR (First Information report)."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "All treatment papers of current ailment including previous treatment papers if any."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 29,
+          "printed_page": 29,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "zuno-health-insurance",
@@ -2473,7 +3547,7 @@
         "entry_age_max": {
           "value": "No upper limit",
           "unit": "text",
-          "section": null,
+          "section": "Clause 4 (eligibility and maximum age of entry)",
           "pdf_page": 6,
           "printed_page": 6,
           "quote": "is renewal of policy, for platinum variant there will be no maximum entry age limit.",
@@ -2483,7 +3557,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": "Clause 7 Benefit",
+          "section": "Benefit 7: AYUSH",
           "pdf_page": 8,
           "printed_page": 8,
           "quote": "7 Benefit 7: AYUSH The Company will Indemnify the Policy Holder/Insured Person, the Reasonable and Customary Charges, up to the amount specified against this Benefit, for Medical Expenses incurred on the Insured Person’s Medically Necessary and Medically Advised Inpatient Hospitalization during the",
@@ -2493,7 +3567,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause v Dilatation and curettage vi",
+          "section": "Specified disease list, item iv (Cataract)",
           "pdf_page": 12,
           "printed_page": 12,
           "quote": "Cataract v. Dilatation and curettage vi.",
@@ -2519,7 +3593,40 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; no max entry age"
+      "differentiator": "PED 36 months; no max entry age",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 22,
+            "printed_page": 22,
+            "quote": "Forthwith file/submit a claim form in accordance with ‘claim procedure’ clause as provided in the policy."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Original detailed discharge summary / day care summary from the hospital."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Original payment receipt of the hospital bill with receipt number 6."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 23,
+            "printed_page": 23,
+            "quote": "Copy of the first information report from police department / copy of the medico-legal certificate."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 11,
+          "printed_page": 11,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "zurich-kotak-health-premier",
@@ -2581,7 +3688,7 @@
         "cataract": {
           "value": "Cataract has its own limit: ₹100,000 per eye, as written in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3.3 Specified disease/procedure waiting period (Code-Excl02)",
           "pdf_page": 27,
           "printed_page": 27,
           "quote": "*Our maximum liability for any Claim for an Insured Person’s cataract treatment shall be 10% of the Base Sum Insured up to a maximum of INR 100,000 per eye for each Policy Year of the Policy Period.",
@@ -2607,7 +3714,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months"
+      "differentiator": "PED 24 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 34,
+            "printed_page": 34,
+            "quote": "of Reimbursement is within 15 days from the date of receipt of claim along with claim form (and necessary documents)."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "(v) Photo ID (vi) Address proof, and photo to comply with KYC norms If the foregoing information is"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 35,
+            "printed_page": 35,
+            "quote": "(b) Hospital discharge summary"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 35,
+            "printed_page": 35,
+            "quote": "(d) Original bills and receipts from the Hospital/Medical Practitioner"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 33,
+            "printed_page": 33,
+            "quote": "All prescriptions, medical investigation reports etc."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 43,
+            "printed_page": 43,
+            "quote": "Claim Form Investigation Payment Receipt Original Investigation Report Original Pharmacy Bills Original Pharmacy Prescription Copy of Discharge Summary All Claims for"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 35,
+            "printed_page": 35,
+            "quote": "(j) FIR (if done) or MLC (if conducted) for Accident cases"
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 43,
+            "printed_page": 43,
+            "quote": "Consultation Paper stating the presenting complaints with duration, past medical history with duration, treatment and medication advised."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 26,
+          "printed_page": 26,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-ergo-optima-secure-v08-2025-26-wording",
@@ -2642,7 +3806,7 @@
         "room_rent": {
           "value": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
           "unit": "text",
-          "section": null,
+          "section": "Section B-1.1 Hospitalization Expenses, 1.1.1 a (Room Rent)",
           "pdf_page": 11,
           "printed_page": null,
           "quote": "Room rent limit shall be ‘At Actuals’ unless otherwise specified in the Policy Schedule.",
@@ -2665,7 +3829,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Section B-1.4 AYUSH Treatment",
           "pdf_page": 12,
           "printed_page": null,
           "quote": "AYUSH Treatment The Company shall indemnify the Medical Expenses incurred by the Insured Person only for Inpatient Care under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy systems",
@@ -2675,7 +3839,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Section C.1.b Specified Disease/Procedure waiting period (Code-Excl02), list vi",
           "pdf_page": 31,
           "printed_page": null,
           "quote": "Rhinitis Perineal Abscesses Perianal Abscesses Skin tumors Cataract and other disorders of lens and Retina Fissure/fistula in anus, Haemorrhoids including Gout and rheumatism Tonsillitis",
@@ -2701,7 +3865,76 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room at actuals; no max entry age"
+      "differentiator": "PED 36 months; room at actuals; no max entry age",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "Duly Completed claim form, b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "Photo ID and Age Proof, c."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, e."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "Final Hospital bill with all original deposit and final payment receipt and refund receipt(s), if advance amount refunded, f."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, j."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "Duly filled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "MLC / FIR Copy – in Accident cases only, k."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 43,
+            "printed_page": null,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the prePolicy medical examination of the persons proposed to be insured under the Policy."
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 51,
+            "printed_page": null,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 32,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-health-ultimate-care",
@@ -2736,7 +3969,7 @@
         "room_rent": {
           "value": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited for …",
           "unit": "text",
-          "section": "Clause i Single Private AC Room If the Policy Schedule sta",
+          "section": "Room Category, i) Single Private AC Room",
           "pdf_page": 39,
           "printed_page": 38,
           "quote": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited for stay in a Single Private AC Room.",
@@ -2758,10 +3991,10 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": null,
+          "section": "Base Benefits, (vi) AYUSH Treatment",
           "pdf_page": 23,
           "printed_page": 22,
-          "quote": "(vi) AYUSH Treatment The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH Hospitals or",
+          "quote": "AYUSH Treatment The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH Hospitals or",
           "note": null,
           "stated": true
         },
@@ -2777,7 +4010,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Base Benefits, (iii) Advance Technology Methods, item G (Robotic surgeries)",
           "pdf_page": 22,
           "printed_page": 21,
           "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
@@ -2795,7 +4028,48 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 94,
+            "printed_page": 93,
+            "quote": "Duly filled and signed Claim form by the Insured Person"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 94,
+            "printed_page": 93,
+            "quote": "Copy of Photo ID and address proof of Insured Person"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 57,
+            "printed_page": 56,
+            "quote": "is Medical, Insured needs to produce a Medical Certificate and a discharge summary from the Medical Practitioner attending the patient."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 91,
+            "printed_page": 90,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 95,
+            "printed_page": 94,
+            "quote": "Original pathological/diagnostic test reports/radiology reports and payment receipts"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 95,
+            "printed_page": 94,
+            "quote": "MLC/FIR report, Post Mortem Report if applicable and conducted"
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "niva-bupa-aspire",
@@ -2867,10 +4141,10 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause 9 Deep Br",
+          "section": "Modern treatments, item 7 (Robotic surgeries)",
           "pdf_page": 6,
           "printed_page": null,
-          "quote": "Robotic surgeries 8. Stereotactic radio Surgeries 9.",
+          "quote": "7. Robotic surgeries 8. Stereotactic radio Surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -2885,7 +4159,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Documents required with claim form: Hospital / Medical records:"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "KYC documents"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Original Discharge summary with first and subsequent consultation papers."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Laboratory investigation reports with supporting prescriptions."
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Original Final Hospital bill with detailed break-up and payment receipt (including pharmacy bills)."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Cancelled cheque IMPORTANT:"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "MLC/First Information Report (FIR) (in accident cases)."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 18,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "niva-bupa-health-premia",
@@ -2957,7 +4288,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is covered with a limit of INR 1 Lac as written.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3.25 Modern Treatments, special condition for robotic surgeries",
           "pdf_page": 23,
           "printed_page": null,
           "quote": "Special condition applicable for robotic surgeries: A limit of maximum INR 1 Lac will apply to all robotic surgeries, except the following: i.",
@@ -2975,7 +4306,48 @@
           "stated": false
         }
       },
-      "differentiator": "PED 48 months"
+      "differentiator": "PED 48 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 53,
+            "printed_page": null,
+            "quote": "Claim form duly completed and signed by the claimant."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 52,
+            "printed_page": null,
+            "quote": "the Insured Person at the time of inception of the Policy (if available) supported with KYC document"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 54,
+            "printed_page": null,
+            "quote": "Original discharge summary."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 54,
+            "printed_page": null,
+            "quote": "Original bills of pharmacy/medicines purchased, or of any other investigation done outside Hospital"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 54,
+            "printed_page": null,
+            "quote": "Cancelled cheque/ bank statement / copy of passbook mentioning account holder's name, IFSC code and"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Opinion under this Beneﬁt shall be limited to deﬁned criteria and not be valid for any medico legal purposes."
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "tata-aig-medicare",
@@ -3062,7 +4434,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 34,
+            "printed_page": null,
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person.We, upon receipt of a"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 34,
+            "printed_page": null,
+            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 33,
+            "printed_page": null,
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 34,
+            "printed_page": null,
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 34,
+            "printed_page": null,
+            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 18,
+            "printed_page": null,
+            "quote": "Provided that any recommendation under this Policy shall not be valid for any medico legal purposes."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 30,
+            "printed_page": null,
+            "quote": "application and refund the premium paid within next 10 days subject to deduction of the Pre-Policy Check up charges, as applicable."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 20,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "tata-aig-health-supercharge",
@@ -3128,20 +4551,20 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3 Exclusions, List of Specific disease/conditions/treatments, item XVIII",
           "pdf_page": 30,
           "printed_page": null,
-          "quote": "Cataract, Retinal detachment, Glaucoma XIX.",
+          "quote": "Cataract, Retinal detachment, Glaucoma Congenital Internal Diseases",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
+          "value": "Robotic surgery has a mandatory sub-limit that rises with the sum insured: ₹1,25,000 on the lowest sum insured up to ₹5,00,000 on the highest (Geo Plan, Table I).",
           "unit": "text",
-          "section": "Clause 0 Balloon Sinuplasty/ FESS",
+          "section": "Table I: Mandatory Sub-Limits for Geo Plan, Robotic surgeries row",
           "pdf_page": 51,
           "printed_page": null,
-          "quote": "150,00 225,00 300,000 0 0 0 lmmunotherapy- Monoclonal 125,000 175,00 250,00 375,00 500,000 Antibody all forms 0 0 0 Robotic surgeries 125,000 175,00 250,00 375,00 500,000 0 0 0 Stem cell therapy for Hematopoietic stem cells for bone marrow 125,000 175,00 250,00 375,00 500,000 transplant for",
+          "quote": "Robotic surgeries 125,000 500,000 0 0 0 Stem cell therapy",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -3156,7 +4579,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 45,
+            "printed_page": null,
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 46,
+            "printed_page": null,
+            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 45,
+            "printed_page": null,
+            "quote": "If the cashless is approved, the original bills and evidence of treatment in respect of the same shall be left with the Network"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 45,
+            "printed_page": null,
+            "quote": "All medical reports, case histories, investigation reports, indoor case papers/ treatment papers (in reimbursement cases, if available), discharge"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 46,
+            "printed_page": null,
+            "quote": "Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 46,
+            "printed_page": null,
+            "quote": "Copy of MLC (Medico legal case) records, if carried out and FIR (First information report), if registered, in case"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 41,
+            "printed_page": null,
+            "quote": "application and refund the premium paid within next 10 days subject to deduction of the Pre-Policy Check up charges, as applicable."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 31,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-ergo-optima-restore",
@@ -3209,7 +4683,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "In-patient Treatment, Note pertaining specifically to AYUSH Treatments",
           "pdf_page": 11,
           "printed_page": 11,
           "quote": "Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In- patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
@@ -3244,7 +4718,52 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "i) Our claim form, duly completed and signed for on behalf of the Insured Person."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate g."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, diagnostic"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 38,
+            "printed_page": 38,
+            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "hdfc-ergo-energy-health",
@@ -3259,7 +4778,7 @@
         "ped_wait_months": {
           "value": 24,
           "unit": "months",
-          "section": "Clause ii For which Medical advice or treatment was recomme",
+          "section": "Pre-existing Diseases (Code-Excl01), a)",
           "pdf_page": 19,
           "printed_page": 19,
           "quote": "a) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with insurer.",
@@ -3297,10 +4816,10 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "In-patient Treatment, Note pertaining specifically to AYUSH Treatments",
           "pdf_page": 9,
           "printed_page": 9,
-          "quote": "and other devices or equipment if implanted internally during a Surgical Procedure Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
+          "quote": "Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under",
           "note": null,
           "stated": true
         },
@@ -3337,7 +4856,7 @@
           "section": null,
           "pdf_page": 19,
           "printed_page": 19,
-          "quote": "Any condition or illness, complication or ailment arising out of or connected to the below mentioned conditions shall not be considered as part of this waiting period. a. Type 2 Diabetes Mellitus b. Impaired Fasting Glucose (IFG) c. Impaired Glucose Tolerance (IGT) d. Type 1 Diabetes e. Hypertension",
+          "quote": "Any condition or illness, complication or ailment arising out of or connected to the below mentioned conditions shall not be considered as part of this waiting period. 2. a. Type 2 Diabetes Mellitus b. Impaired Fasting Glucose (IFG) c. Impaired Glucose Tolerance (IGT) d. Type 1 Diabetes e. Hypertension",
           "note": "Other pre-existing illnesses still follow the normal PED wait.",
           "stated": true,
           "months": 0,
@@ -3348,7 +4867,48 @@
           "source_kind": "prose"
         }
       },
-      "differentiator": "no PED wait for diabetes / BP; PED 24 months"
+      "differentiator": "no PED wait for diabetes / BP; PED 24 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 31,
+            "printed_page": 31,
+            "quote": "i) Our claim form, duly completed and signed for on behalf of the Insured Person."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address proof and photograph) requirements xiv)Legal heir certificate 8."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "ERGO General Insurance Company Limited Policy Wording Energy ii) Original Bills (including but not limited to pharmacy purchase bill, consultation bill, and diagnostic"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "including but not limited to all medical reports, case histories/indoor case papers, investigation reports, treatment papers, discharge summaries."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "accident xiii) Regulatory requirements as amended from time to time, currently mandatory NEFT (to enable direct credit of claim amount in bank account) and KYC (recent ID/Address"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "or TPA xi) Stickers and invoice of implants used during surgery xii) Copy of MLC (Medico legal case) records and FIR (First information report), in case of claims arising out of an"
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "hdfc-ergo-optima-senior",
@@ -3401,7 +4961,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": "Clause 7 C-I",
+          "section": "In-Patient Treatment, Note pertaining specifically to AYUSH Treatments",
           "pdf_page": 7,
           "printed_page": null,
           "quote": "In-Patient Treatment Note pertaining specifically to AYUSH Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under 'In-patient treatment' cover if undertaken in an AYUSH Hospital.",
@@ -3436,7 +4996,40 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 22,
+            "printed_page": null,
+            "quote": "i) ii) Our claim form, duly completed and signed for on behalf of the Insured Person."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 22,
+            "printed_page": null,
+            "quote": "v) Discharge Summary, with Date of admission and discharge, clinical history, past history, procedure details"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 22,
+            "printed_page": null,
+            "quote": "Original bills with detailed breakup of charges (including but not limited to pharmacy purchase bill"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 22,
+            "printed_page": null,
+            "quote": "iv) All reports, including but not limited to all medical reports, case histories, investigation reports, treatment papers, discharge summaries."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 9,
+          "printed_page": null,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "star-health-comprehensive",
@@ -3498,7 +5091,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 2 Specified disease / procedure waiting period (Code-Excl02), list item i",
           "pdf_page": 30,
           "printed_page": 29,
           "quote": "\u0007Treatment of Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Benign diseases of the breast ii.",
@@ -3506,12 +5099,12 @@
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "value": "Robotic surgery has its own limit that rises with the sum insured (₹2,50,000 at ₹5 lakh sum insured), per the modern-treatment sub-limit table on this page.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 4 Coverage for Modern Treatments (sub-limit table)",
           "pdf_page": 10,
           "printed_page": 9,
-          "quote": "Sum Insured (Rs.) Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplasty Vaporisation of the prostate (Green laser treatment or holmium laser treatment) IONM-(Intra Operative Neuro Monitoring) Stem cell theraphy: Hematopoietic stem cells for bone marrow transplant for haematological",
+          "quote": "Sum Insured on Individual Basis: Limit per person, per Policy Period for each treatment / procedure Sum Insured on Floater Basis: Limit per Policy Period for each treatment / procedure Rs. 5,00,000/- 2,50,000/-",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -3526,7 +5119,64 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 38,
+            "printed_page": 37,
+            "quote": "for Duly completed claim form, and b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 37,
+            "printed_page": 36,
+            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines Documents for"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 38,
+            "printed_page": 37,
+            "quote": "\u0007Discharge Summary in original from the hospital d."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 43,
+            "printed_page": 42,
+            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), track health data add family members."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 38,
+            "printed_page": 37,
+            "quote": "\u0007 NEFT name, Bank Account No., Name of the Bank, IFSC code Customer Certificate from Government"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 38,
+            "printed_page": 37,
+            "quote": "FIR (wherever required) d."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 30,
+            "printed_page": 29,
+            "quote": "The Insured Person has to undergo pre-acceptance medical screening at Company’s nominated center."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 32,
+          "printed_page": 31,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered B"
+        }
+      }
     },
     {
       "id": "star-health-young-star",
@@ -3595,9 +5245,9 @@
           "stated": false
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "value": "Robotic surgery has its own limit that rises with the sum insured, per the modern-treatment sub-limit table on this page (not the full sum insured).",
           "unit": "text",
-          "section": null,
+          "section": "Clause 4 Coverage for Modern Treatments (sub-limit table)",
           "pdf_page": 9,
           "printed_page": 9,
           "quote": "Sum Insured ( Rs.) Robotic Surgeries Stereotactic Radio Surgeries Bronchical Thermoplasty Vaporasation of the Prostate (Green Laser Treatment or Holmium Laser Treatment) IONM-( Intra Operative Neuro Monitoring) Stem Cell therapy: Hematopoietic stem cells for bone marrow transplant for",
@@ -3615,7 +5265,52 @@
           "stated": false
         }
       },
-      "differentiator": "PED 12 months"
+      "differentiator": "PED 12 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 27,
+            "printed_page": 27,
+            "quote": "Duly completed claim form, and Reimbursement of hospitalization, day care and pre hospitalization expenses Claim"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 27,
+            "printed_page": 27,
+            "quote": "\u0007 KYC (Identity proof with Address) of the proposer, as per AMLGuidelines In non-network"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 27,
+            "printed_page": 27,
+            "quote": "\u0007Discharge Summary in original from the hospital d."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 32,
+            "printed_page": 32,
+            "quote": "\u0007 The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 19,
+            "printed_page": 19,
+            "quote": "Using this portal, Insured can store their health documents (prescriptions, lab reports, discharge summaries etc.), track health data add family members."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 28,
+            "printed_page": 28,
+            "quote": "\u0007NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code n."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 23,
+          "printed_page": 23,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered B"
+        }
+      }
     },
     {
       "id": "aditya-birla-health-activ-one",
@@ -3647,12 +5342,12 @@
           "stated": true
         },
         "room_rent": {
-          "value": "(up to Base Sum Insured) 100% of Base Sum Insured per year, up to 500% of Base Sum Insured (up to Max of INR 3 Crores under this beneﬁt) Room Rent ICU Charges Road Ambulance Cover (per hospitalization) Day Care Treatments Modern Procedures …",
+          "value": "Actuals up to Sum Insured (no room-rent cap).",
           "unit": "text",
-          "section": null,
+          "section": "Annexure III - Product Benefit Table, Room Rent",
           "pdf_page": 46,
           "printed_page": null,
-          "quote": "(up to Base Sum Insured) 100% of Base Sum Insured per year, up to 500% of Base Sum Insured (up to Max of INR 3 Crores under this beneﬁt) Room Rent ICU Charges Road Ambulance Cover (per hospitalization) Day Care Treatments Modern Procedures / Treatments HIV / AIDS and STD Cover Mental Illness",
+          "quote": "Room Rent Actuals up to Sum Insured ICU Charges Actuals up to Sum Insured",
           "note": "A share of the sum insured per day — the rupee figure depends on the sum insured chosen.",
           "stated": true,
           "max_per_day": null,
@@ -3671,30 +5366,30 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": null,
+          "section": "Annexure III - Product Benefit Table, AYUSH Treatment",
           "pdf_page": 46,
           "printed_page": null,
-          "quote": "Expenses (up to Sum Insured) Claim Protect (Non-Medical Expense Waiver) Domiciliar Hospitalization Home Health Care AYUSH Treatment Organ Donor Expenses Annual Health Check-up Super Reload (Unlimited Reﬁll) Super Credit (Increases Irrespective of Claim) Hospitalization Treatment Entr Age (Adult)",
+          "quote": "AYUSH Treatment Actuals up to Sum Insured",
           "note": null,
           "stated": true
         },
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "1.2 Specified disease / procedure Waiting Period (Code-Excl02), Eye",
           "pdf_page": 10,
           "printed_page": null,
-          "quote": "Illness Cataract Glaucoma Refractive Error Correction Sinusitis Rhinitis Tonsillitis & Adenitis Tympanitis & Non Traumatic Perforation Deviated Nasal Septum Otitis Media Adenoiditis Mastoiditis",
+          "quote": "Body System Illness Treatment / Surgery Eye Cataract Cataract Surgery Glaucoma Glaucoma Surgery",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Section C.1.1.1 e (Modern Procedures / Treatments)",
           "pdf_page": 29,
           "printed_page": null,
-          "quote": "Chemotherapy Intra Vitreal Injections Vaporisation of the Prostrate (Green laser treatment or holmium laser treatment) Robotic Surgeries Bronchial Thermoplasty Stem Cell Therapy: Hematopoietic Stem Cells for Bone Marrow Transplant for Haematological Conditions Stereotactic Radio Surgeries IONM -",
+          "quote": "Balloon Sinuplasty Oral Chemotherapy Robotic Surgeries Stereotactic Radio Surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -3709,7 +5404,72 @@
           "stated": false
         }
       },
-      "differentiator": "room 100% of SI/day"
+      "differentiator": "room 100% of SI/day",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Duly Completed claim form, ii."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Photo ID and Age Proof, iii."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Discharge Card / Day Care Summary / Transfer Summary, v."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Final Hospital bill with all original deposit and ﬁnal payment receipt and refund receipt(s), if advance amount refunded, vi."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "All diagnostic reports (including imaging and laboratory) along with prescription by Medical Practitioner and"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "All medicine / pharmacy bills along with prescription by Medical Practitioner, x."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "Duly ﬁlled NEFT form with cancelled blank cheque (with IFSC code, A/C number, and name mentioned on"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "MLC / FIR Copy – in Accident cases only, xi."
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 19,
+            "printed_page": null,
+            "quote": "the health status, habits and lifestyle, past medical records, and the results of the Pre-Policy medical examination of the persons proposed to be insured under the Policy b) Loadings shall be applied from"
+          },
+          {
+            "key": "medical_records",
+            "pdf_page": 21,
+            "printed_page": null,
+            "quote": "All previous consultation papers indicating history and treatment details for current Illness and advice for current"
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "digit-go-digit-health-care-plus",
@@ -3796,7 +5556,60 @@
           "stated": false
         }
       },
-      "differentiator": "Policy wording on file"
+      "differentiator": "Policy wording on file",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 24,
+            "printed_page": null,
+            "quote": "Please note KYC documents (Photo ID card) shall be required at the premium refund to the Insured Member"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11"
+          },
+          {
+            "key": "pharmacy",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply) and"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 27,
+            "printed_page": null,
+            "quote": "applicable) √ × √ × 19 *KYC (Photo ID card, If applicable) √ √ √ √ 20 Bank Details with Cancelled Cheque (If applicable) √ √ √ √ Note: There are times when you or any other person who could"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "√ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 MLC/FIR Report (If applicable) √ × √ × Sr."
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "royal-sundaram-next-gen-health",
@@ -3849,17 +5662,17 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": "Clause 9 Organ Donor Expenses Covered up to Sum Insured",
+          "section": "Benefit table, item 11 AYUSH Treatment",
           "pdf_page": 40,
           "printed_page": 40,
-          "quote": "Medical Expenses are payable up to 30 days and 60 days respectively under Domiciliary Hospitalization 11 AYUSH Treatment Covered up to Sum Insured 12 Ambulance Cover including App-based Cab cover# Covered up to Rs.",
+          "quote": "11 AYUSH Treatment Covered up to Sum Insured",
           "note": null,
           "stated": true
         },
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Specified disease waiting period (Code-Excl02), f) list item a) Cataract",
           "pdf_page": 15,
           "printed_page": 15,
           "quote": "f) List of specific diseases/procedures is as under: a) Cataract b) Stones in biliary and urinary systems c) Hernia / Hydrocele d) Hysterectomy for any benign disorder",
@@ -3869,10 +5682,10 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Modern Treatments, item VII (Robotic surgeries)",
           "pdf_page": 11,
           "printed_page": 11,
-          "quote": "Robotic surgeries VIII. Stereotactic radio surgeries IX.",
+          "quote": "Intra vitreal injection Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplastic",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -3887,7 +5700,46 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 29,
+            "printed_page": 29,
+            "quote": "The insured shall submit the claim form along with attending physician’s certificate duly filled and signed in all respects with"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 29,
+            "printed_page": 29,
+            "quote": "Discharge summary (detailed) describing the nature of the complaints and its duration, treatment given"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 29,
+            "printed_page": 29,
+            "quote": "Hospital Final Bill and advance and final hospital payment receipts, in Original."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 29,
+            "printed_page": 29,
+            "quote": "Cancelled cheque leaf in the name of the proposer clearing showing the IFSC code and account holder’s"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 29,
+            "printed_page": 29,
+            "quote": "and nature of injury/Accident in case of claims arising out of injury (in the absence of FIR) 10."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 15,
+          "printed_page": 15,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-health-care-plus-plan-care-health-plus-care-plus",
@@ -3922,7 +5774,7 @@
         "room_rent": {
           "value": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited to stay …",
           "unit": "text",
-          "section": "Clause ii Single Private AC Room If the Policy Schedule sta",
+          "section": "Room Category, ii) Single Private AC Room",
           "pdf_page": 8,
           "printed_page": 7,
           "quote": "Single Private AC Room If the Policy Schedule states ‘Single Private AC Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited to stay in a Single AC Private Room.",
@@ -3944,30 +5796,30 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": "Clause 3.1.9 Benefit",
+          "section": "Section 3.1.9 Benefit: AYUSH Treatments",
           "pdf_page": 10,
           "printed_page": 9,
-          "quote": "3.1.9 Benefit : AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to sum insured as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH",
+          "quote": "Benefit : AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to sum insured as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person’s medical treatment undergone at any AYUSH",
           "note": null,
           "stated": true
         },
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": "Clause 4 Cataract pre-Existing diseases",
+          "section": "Specified illness waiting list, item 4 (Cataract)",
           "pdf_page": 18,
           "printed_page": 17,
-          "quote": "Cataract pre-Existing diseases, then the longer of the two waiting periods shall apply.",
+          "quote": "3. Benign Prostatic Hypertrophy 4. Cataract 5. Dilatation and Curettage",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "Modern treatments, item G (Robotic surgeries)",
           "pdf_page": 8,
           "printed_page": 7,
-          "quote": "Robotic surgeries L. Stem cell therapy: Hematopoietic stem cells for bone marrow transplant for haematological conditions to be covered.",
+          "quote": "F. Intra vitreal injections G. Robotic surgeries H. Stereotactic radio surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -3982,7 +5834,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; room depends on plan"
+      "differentiator": "PED 36 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Duly filled and signed Claim form by the Insured Person"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Copy of Photo ID and address proof of Insured Person"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Original numbered bills receipts and discharge summary from the Hospital/Medical Practitioner"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 25,
+            "printed_page": 24,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 14,
+            "printed_page": 13,
+            "quote": "- If the result of any one test is not within the normal range as specified in the lab report, Insured earns 150 reward points - If two or more test results are not within the normal"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 27,
+            "printed_page": 26,
+            "quote": "MLC/FIR report, Post Mortem Report if applicable and conducted"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 22,
+            "printed_page": 21,
+            "quote": "of Policy cancellation is exercised by the Policyholder, then the expenses such as pre-policy medical examination etc."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 18,
+          "printed_page": 17,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-health-care-freedom",
@@ -3997,10 +5900,10 @@
         "ped_wait_months": {
           "value": 24,
           "unit": "months",
-          "section": "Clause vii If an Insured Person is suffering from any of the",
-          "pdf_page": 13,
-          "printed_page": 12,
-          "quote": "or Pre-existing Disease shall not be covered until the completion of 24 months of continuous insurance coverage with the Company from the first Policy Period Start Date. (c) 30-Day waiting period – code – Excl03 (i) Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+          "section": "Pre-existing Disease, Code-Excl01",
+          "pdf_page": 12,
+          "printed_page": 11,
+          "quote": "Pre-existing Disease – code – Excl01: i. Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with insurer.",
           "note": null,
           "stated": true
         },
@@ -4016,7 +5919,7 @@
         "room_rent": {
           "value": "Room Category 2 = Single Private Room with A.C.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3.1.1 Room Category",
           "pdf_page": 8,
           "printed_page": 7,
           "quote": "Room Category 2 = Single Private Room with A.C.",
@@ -4038,27 +5941,27 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": "Clause 3.1.10 Benefit",
+          "section": "Section 3.1.10 Benefit 10: AYUSH Treatments",
           "pdf_page": 11,
           "printed_page": 10,
-          "quote": "3.1.10 Benefit 10: AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH",
+          "quote": "Benefit 10: AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH",
           "note": null,
           "stated": true
         },
         "cataract": {
-          "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
+          "value": "Paid up to the cataract amount set in the Policy Schedule (named ailment sub-limit).",
           "unit": "text",
-          "section": "Clause i Treatment of Cataract ii",
+          "section": "Benefit 1 c) Conditions for payment of Medical Expenses, (iii) Named Ailments / Procedures, item i (Treatment of Cataract)",
           "pdf_page": 8,
           "printed_page": 7,
-          "quote": "Treatment of Cataract ii. Treatment of Total Knee Replacement iii.",
-          "note": null,
+          "quote": "The Company will indemnify the Insured Person for Expenses incurred in respect of the below mentioned Ailments / Procedures up to the amount specified against each and every Ailment / Procedure mentioned in the Policy Schedule in a Policy Year",
+          "note": "The rupee amount is printed in the Policy Schedule, not in this wording.",
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": null,
+          "section": "(a) Advance Technology Methods, item G (Robotic surgeries)",
           "pdf_page": 9,
           "printed_page": 8,
           "quote": "Robotic surgeries H. Stereotactic radio surgeries I.",
@@ -4076,7 +5979,52 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months; single private room"
+      "differentiator": "PED 24 months; single private room",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 21,
+            "printed_page": 20,
+            "quote": "(i) Duly completed and signed Claim form, in original"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 21,
+            "printed_page": 20,
+            "quote": "(iv) Original numbered bills/ receipts and discharge card from the Hospital/Medical Practitioner"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 21,
+            "printed_page": 20,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 21,
+            "printed_page": 20,
+            "quote": "(vi) Original pathological/diagnostic test reports/radiology reports and payment Policyholder's or Insured Person's duty at the time of"
+          },
+          {
+            "key": "prescription",
+            "pdf_page": 21,
+            "printed_page": 20,
+            "quote": "(iii) Medical Practitioner's prescription advising drugs/diagnostic tests/consultation"
+          },
+          {
+            "key": "pre_policy_check",
+            "pdf_page": 18,
+            "printed_page": 17,
+            "quote": "of Policy cancellation is exercised by the Policyholder, then the expenses such as prepolicy medical examination etc."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 13,
+          "printed_page": 12,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-health-care-joy-plan-joy-today-joy-tomorrow-maternity-care-joy",
@@ -4111,7 +6059,7 @@
         "room_rent": {
           "value": "If the Insured Person is admitted in a room where the Room Category is other than Single Private Room with A.C., then the Policyholder shall bear the ratable proportion of the total Associate Medical Expenses (including surcharge or taxes …",
           "unit": "text",
-          "section": "Clause (i Room Category",
+          "section": "(i) Room Category",
           "pdf_page": 7,
           "printed_page": 6,
           "quote": "If the Insured Person is admitted in a room where the Room Category is other than Single Private Room with A.C., then the Policyholder shall bear the ratable proportion of the total Associate Medical Expenses (including surcharge or taxes thereon) in the proportion of the difference between the",
@@ -4133,7 +6081,7 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered up to the sum insured.",
           "unit": "text",
-          "section": "Clause 3.7 Benefit",
+          "section": "Section 3.7 Benefit 7: AYUSH Treatments",
           "pdf_page": 8,
           "printed_page": 7,
           "quote": "Benefit 7 : AYUSH Treatments The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH",
@@ -4143,17 +6091,17 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Specified illness waiting list, item IV (Cataract)",
           "pdf_page": 9,
           "printed_page": 8,
-          "quote": "Cataract; V. Dilatation and Curettage",
+          "quote": "III. Benign Prostatic Hypertrophy; IV. Cataract;",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause i Bronchi",
+          "section": "Advance Technology Methods, item g (Robotic surgeries)",
           "pdf_page": 7,
           "printed_page": 6,
           "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
@@ -4171,7 +6119,46 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months; single private room"
+      "differentiator": "PED 36 months; single private room",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 16,
+            "printed_page": 15,
+            "quote": "(i) Duly completed and signed Claim form, in original"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 17,
+            "printed_page": 16,
+            "quote": "(iv) Original bills, receipts and discharge card from the Hospital / Medical Practitioner"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 16,
+            "printed_page": 15,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 17,
+            "printed_page": 16,
+            "quote": "(vi) Original pathological / diagnostic test reports / radiology reports and payment receipts"
+          },
+          {
+            "key": "prescription",
+            "pdf_page": 16,
+            "printed_page": 15,
+            "quote": "(iii) Medical Practitioner's prescription advising drugs / JOY - UIN:"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 9,
+          "printed_page": 8,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "care-health-care-heart",
@@ -4203,9 +6190,9 @@
           "stated": false
         },
         "room_rent": {
-          "value": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room C a t e g o r y i …",
+          "value": "Room category is set in the Policy Schedule — for example a Single Private Room; above it, proportionate deduction applies.",
           "unit": "text",
-          "section": null,
+          "section": "Section 3.1.1 Benefit 1, i) In-patient Care (Room Rent / Room Category)",
           "pdf_page": 11,
           "printed_page": 10,
           "quote": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room C a t e g o r y i n c a s e o f Hospitalization of the Insured Person payable",
@@ -4227,10 +6214,10 @@
         "ayush": {
           "value": "AYUSH in-patient treatment is covered, subject to the conditions in this clause.",
           "unit": "text",
-          "section": "Clause 3.1.3 Benefit",
+          "section": "Section 3.1.3 Benefit 3: AYUSH Treatments",
           "pdf_page": 13,
           "printed_page": 12,
-          "quote": "3.1.3 Benefit 3: AYUSH Treatments: The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to theSum Insured specified in the Policy Schedule, towards in-patient Medical Expenses incurred with respect to the Insured Person's Medical treatment undergone at any",
+          "quote": "Benefit 3: AYUSH Treatments: The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to theSum Insured specified in the Policy Schedule, towards in-patient Medical Expenses incurred with respect to the Insured Person's Medical treatment undergone at any",
           "note": null,
           "stated": true
         },
@@ -4246,7 +6233,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause i Bronchi",
+          "section": "Advance Technology Methods, item g (Robotic surgeries)",
           "pdf_page": 12,
           "printed_page": 11,
           "quote": "Robotic surgeries h. Stereotactic radio surgeries i.",
@@ -4264,7 +6251,58 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months; room depends on plan"
+      "differentiator": "PED 24 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 31,
+            "printed_page": 30,
+            "quote": "Duly filled and signed Claim form by the Insured Person"
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 31,
+            "printed_page": 30,
+            "quote": "Copy of Photo ID and address proof of Insured Person"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 31,
+            "printed_page": 30,
+            "quote": "and Benefit under which the Claim is being made Original numbered bills/ receipts and discharge summary from the Hospital/Medical Practitioner"
+          },
+          {
+            "key": "bills",
+            "pdf_page": 29,
+            "printed_page": 28,
+            "quote": "All original bills and evidence of treatment for the Medical Expenses incurred in respect of the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 31,
+            "printed_page": 30,
+            "quote": "Original pathological/diagnostic test reports/radiology reports and payment receipts"
+          },
+          {
+            "key": "prescription",
+            "pdf_page": 31,
+            "printed_page": 30,
+            "quote": "Medical Practitioner's prescription advising drugs or diagnostic tests or consultations"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 17,
+            "printed_page": 16,
+            "quote": "Benefit (vii) Any Second Opinion provided under this Benefit shall not be valid for any medico-legal purposes."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 19,
+          "printed_page": 18,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "star-health-cardiac-care",
@@ -4279,7 +6317,7 @@
         "ped_wait_months": {
           "value": 48,
           "unit": "months",
-          "section": null,
+          "section": "Clause 5.C Waiting Period for Section 1 (pre-existing diseases)",
           "pdf_page": 6,
           "printed_page": 6,
           "quote": "A waiting period of 48 consecutive months of continuous coverage from the inception of this policy will apply in respect of pre-existing diseases as deﬁned in the policy.",
@@ -4296,9 +6334,9 @@
           "stated": false
         },
         "room_rent": {
-          "value": "Room, Boarding and Nursing Expenses all inclusive as provided by the Hospital / Nursing Home up to 2% of the sum insured, subject to a maximum of Rs.5,000/- per day B.",
+          "value": "Up to 2% of the sum insured, maximum Rs.5,000 per day (room, boarding and nursing).",
           "unit": "text",
-          "section": null,
+          "section": "Coverage Section 1, A (Room, Boarding and Nursing Expenses)",
           "pdf_page": 3,
           "printed_page": 3,
           "quote": "Room, Boarding and Nursing Expenses all inclusive as provided by the Hospital / Nursing Home up to 2% of the sum insured, subject to a maximum of Rs.5,000/- per day B.",
@@ -4329,7 +6367,7 @@
         "cataract": {
           "value": "Cataract is in the listed-illness waiting list; no separate money limit is written for it.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 5.B Waiting Period for Section 1, item I",
           "pdf_page": 6,
           "printed_page": 6,
           "quote": "Cataract and diseases of the anterior and posterior chamber of the Eye, Diseases of ENT, Diseases related to Thyroid, Prolapse of intervertebral disc (other than caused by accident), Varicose veins",
@@ -4355,7 +6393,42 @@
           "stated": false
         }
       },
-      "differentiator": "PED 48 months; room depends on plan"
+      "differentiator": "PED 48 months; room depends on plan",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 2,
+            "printed_page": 2,
+            "quote": "non Cancellation disclosure of material fact as declared in the proposal form and/or claim form at the tim e of claim and non co-operation of the insured by sending the Insured 30 days"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "Discharge Summary from the hospital in original d."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 8,
+            "printed_page": 8,
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "Police Investigation report (wherever required) e."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "First Information Report in-case of Road Trafﬁc Accident i."
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "star-health-cancer-care-platinum",
@@ -4417,20 +6490,20 @@
         "cataract": {
           "value": "Cataract has its own limit: ₹30,000 per eye (the limit rises with the sum insured — see the table), as written in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Clause h) Cataract treatment",
           "pdf_page": 5,
           "printed_page": 5,
-          "quote": "cells for bone marrow transplant for haematological conditions Up to 50% of the SI Basic Sum Insured (Rs.) Limit of Cataract Surgery (Rs.) 5,00,000/- 30,000/- per eye per person and not exceeding 40,000/- per person per policy period 7,50,000/- and 10,00,000/- 40,000/- per eye per person and not",
+          "quote": "Cataract treatment: The company will pay the expenses incurred for treatment of cataract up to the limits mentioned below; Basic Sum Insured (Rs.) 5,00,000/7,50,000/- and 10,00,000/- i) Limit of Cataract Surgery (Rs.) 30,000/- per eye per person and not exceeding 40,000/- per person per policy period",
           "note": null,
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "value": "Robotic surgery has its own limit by sum insured: ₹2,50,000 / ₹2,75,000 / ₹3,00,000, as written in this table.",
           "unit": "text",
-          "section": null,
+          "section": "Clause m) Coverage for Modern treatment",
           "pdf_page": 5,
           "printed_page": 5,
-          "quote": "of the SI Immunotheraphy-Monoclonal Antibody to be given as injection Intra Vitreal injections 50,000 65,000 75,000 Robotic surgeries 2,50,000 2,75,000 3,00,000 Stereotactic radio surgeries 2,00,000 2,15,000 2,25,000 Bronchical Thermoplast Covered up to Sum Insured Vaporisation of the prostate",
+          "quote": "Robotic surgeries 2,50,000 2,75,000 3,00,000 Stereotactic radio surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -4445,7 +6518,48 @@
           "stated": false
         }
       },
-      "differentiator": "PED 30 months"
+      "differentiator": "PED 30 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 7,
+            "printed_page": 7,
+            "quote": "Duly completed claim form, and b."
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 7,
+            "printed_page": 7,
+            "quote": "Discharge Summary from the hospital in original d."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 9,
+            "printed_page": 9,
+            "quote": "The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall also give the"
+          },
+          {
+            "key": "reports",
+            "pdf_page": 7,
+            "printed_page": 7,
+            "quote": "Clinical, radiological, histological, pathological, histopathological and laboratory reports in support Note: Call the 24 hour help-line for assistance-1800 425 2255 / 1800 102"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 7,
+            "printed_page": 7,
+            "quote": "NEFT details F."
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 5,
+            "printed_page": 5,
+            "quote": "records submitted · The second opinion should be only for medical reasons and not for medico-legal purposes · Any liability due to any errors or omission or consequences of any action"
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "star-health-medi-classic",
@@ -4507,7 +6621,7 @@
         "cataract": {
           "value": "Cataract has its own limit: ₹20,000 per eye (the limit rises with the sum insured — see the table), as written in this clause.",
           "unit": "text",
-          "section": null,
+          "section": "Clause 3 (Cataract limits table)",
           "pdf_page": 9,
           "printed_page": 8,
           "quote": "Basic Sum Insured(Rs.) Limit for Cataract Surgery(Rs.) up to Rs.2,00,000/- 12,000/- per person, per Policy Period Rs.3,00,000/- to Rs.7,50,000/- 20,000/- per eye per person and not exceeding 30,000/- per person per Policy Period Rs.10,00,000/- and Rs.15,00,000/- 30,000/- per eye per person and not",
@@ -4515,12 +6629,12 @@
           "stated": true
         },
         "robotic_surgery": {
-          "value": "Robotic surgery is covered up to the sum insured as written.",
+          "value": "Robotic surgery has its own limit that rises with the sum insured, per the modern-treatment sub-limit table on this page (not the full sum insured).",
           "unit": "text",
-          "section": null,
+          "section": "Clause 5 Coverage for Modern Treatments (sub-limit table)",
           "pdf_page": 10,
           "printed_page": 9,
-          "quote": "75,000/- 15,00,000/- 1,75,000/- 1,25,000/- 4,00,000/- 2,50,000/- 5,00,000/- 1,00,000/- Basic Sum Insured (Rs.) Robotic surgeries Stereotactic radio surgeries Bronchical Thermoplasty Vaporisation of the prostate (Green laser treatment or holmium laser treatment) IONM- (Intra Operative Neuro",
+          "quote": "Basic Sum Insured (Rs.) Robotic surgeries Stereotactic radio surgeries",
           "note": null,
           "stated": true,
           "source_kind": "prose"
@@ -4535,7 +6649,42 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "Duly completed claim form, and b."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 25,
+            "printed_page": 24,
+            "quote": "\u0007KYC (Identity proof with Address) of the proposer, as per AML Guidelines In non-network"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "\u0007Discharge Summary in original from the hospital d."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 30,
+            "printed_page": 29,
+            "quote": "\u0007The Insured Person/s shall obtain and furnish the Company with all original bills, receipts and other documents upon which a claim is based and shall Medi Classic"
+          },
+          {
+            "key": "bank",
+            "pdf_page": 26,
+            "printed_page": 25,
+            "quote": "\u0007 NEFT documents viz., Customer name, Bank Account No., Name of the Bank, IFSC code n."
+          }
+        ],
+        "initial_wait": null
+      }
     },
     {
       "id": "niva-bupa-health-companion-family-floater",
@@ -4607,7 +6756,7 @@
         "robotic_surgery": {
           "value": "Robotic surgery is named under modern treatments in this wording; read the clause for its limit.",
           "unit": "text",
-          "section": "Clause ix Bro",
+          "section": "Modern treatments, item vii (Robotic surgeries)",
           "pdf_page": 13,
           "printed_page": null,
           "quote": "Robotic surgeries viii. Stereotactic radio surgeries ix.",
@@ -4625,7 +6774,52 @@
           "stated": false
         }
       },
-      "differentiator": "PED 36 months"
+      "differentiator": "PED 36 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Claim form duly completed and signed by the claimant."
+          },
+          {
+            "key": "kyc",
+            "pdf_page": 26,
+            "printed_page": null,
+            "quote": "the Insured Person at the time of inception of the Policy(if available) supported with KYC document"
+          },
+          {
+            "key": "discharge",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Original discharge summary."
+          },
+          {
+            "key": "bills",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Original final bill from Hospital with detailed break-up and paid receipt."
+          },
+          {
+            "key": "bank",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "Cancelled cheque/ bank statement / copy of passbook mentioning account holder’s name, IFSC code and"
+          },
+          {
+            "key": "fir_mlc",
+            "pdf_page": 28,
+            "printed_page": null,
+            "quote": "For Medico-legal cases(MLC) or in case of Accident i."
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 16,
+          "printed_page": null,
+          "quote": "within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered"
+        }
+      }
     },
     {
       "id": "icici-lombard-complete-health-insurance-health-advantedge",
@@ -4712,7 +6906,28 @@
           "stated": false
         }
       },
-      "differentiator": "PED 24 months"
+      "differentiator": "PED 24 months",
+      "close_kit": {
+        "papers": [
+          {
+            "key": "claim_form",
+            "pdf_page": 49,
+            "printed_page": 48,
+            "quote": "a) Forthwith file/submit a claim form in accordance with \"Claim Procedure\" clause."
+          },
+          {
+            "key": "reports",
+            "pdf_page": 18,
+            "printed_page": 17,
+            "quote": "- In-network diagnostics on submission of diagnostic reports -In-network Physiotherapy on submission of consultation papers This benefit is subject"
+          }
+        ],
+        "initial_wait": {
+          "pdf_page": 34,
+          "printed_page": 33,
+          "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered"
+        }
+      }
     }
   ]
 }

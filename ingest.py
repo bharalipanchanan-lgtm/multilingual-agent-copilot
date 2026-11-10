@@ -8,6 +8,7 @@ from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
 from config import CHROMA_DIR, COLLECTION, EMBED_MODEL, MANIFEST, POLICY_DIR, device
+from answer import drop_cached
 from parse import parse_pdf
 
 
@@ -44,6 +45,7 @@ def main():
             continue
 
         col.delete(where={"policy_id": r["policy_id"]})
+        drop_cached(r["policy_id"])
         embed_in = [f"{r['product']} | {c.get('part', '')} | {c['section']}\n{c['text']}" for c in chunks]
         vecs = model.encode(embed_in, batch_size=16, normalize_embeddings=True,
                             show_progress_bar=False).tolist()

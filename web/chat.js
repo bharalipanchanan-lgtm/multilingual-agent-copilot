@@ -94,12 +94,8 @@ function uploadAsProduct(u) {
 }
 
 async function loadData() {
-  const [cat, fx] = await Promise.all([
-    fetch("data/catalogue.json", { cache: "no-cache" }).then((r) => r.json()),
-    fetch("data/clauses.fixture.json").then((r) => r.json()).catch(() => ({})),
-  ]);
+  const cat = await fetch("data/catalogue.json", { cache: "no-cache" }).then((r) => r.json());
   S.products = cat.products;
-  S.kit = fx.close_kit || null;
   try {
     const pols = await (await fetch("/api/policies")).json();
     for (const u of pols.filter((p) => p.source === "upload" || String(p.policy_id || "").startsWith("upload_"))) {
@@ -243,7 +239,7 @@ function rankLabel(rank, lang) {
 }
 
 function pitchHtml(p, lang) {
-  const k = C.closeKit(p, S.kit, S.need, lang);
+  const k = C.closeKit(p, S.need, lang);
   const id = ++BID;
   const L = k.labels;
   return `<div class="pitch" hidden>
@@ -254,8 +250,7 @@ function pitchHtml(p, lang) {
     <div class="kit"><p class="kit__t">${esc(L.wait)}</p>${k.waitEnd
       ? `<p><b>${esc(k.waitEnd.date)}</b> — ${k.waitEnd.months} months. <span class="cite">${esc(k.waitEnd.cite)}</span></p>`
       : `<p>${lang === "en" ? "Not written in this product." : lang === "hi" ? "इस प्रॉडक्ट में नहीं लिखा।" : "Is product mein nahi likha."}</p>`}</div>
-    <div class="kit"><p class="kit__t">${esc(L.papers)}</p><ul>${k.papers.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></div>
-    <div class="kit kit--warn"><p class="kit__t">${esc(L.dont)}</p><ul>${k.dont.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></div>
+    ${kitLists(k, L, lang)}
   </div>`;
 }
 
@@ -263,7 +258,7 @@ function recCard(a, rank, best, need, lang) {
   const p = a.product;
   const ped = p.facts?.ped_wait_months;
   const end = ped?.stated ? C.waitEndDate(ped.value) : null;
-  const L = C.closeKit(p, S.kit, need, lang).labels;
+  const L = C.closeKit(p, need, lang).labels;
   const showDate = end && (need.conditions.includes("diabetes") || need.conditions.length);
   const dateLine = showDate
     ? (lang === "hi"
@@ -307,7 +302,7 @@ function needFirst(need) {
     ? { en: `its wording lifts the pre-existing wait for ${r.watch.carvedFor}`, hi: `इसकी वर्डिंग में ${r.watch.carvedFor} का PED वेट नहीं`, hinglish: `iski wording mein ${r.watch.carvedFor} ka PED wait nahi` }[lang]
     : { en: `${r.watch?.pedMonths}-month wait`, hi: `${r.watch?.pedMonths} महीने वेट`, hinglish: `${r.watch?.pedMonths} months wait` }[lang];
   const watch = wp
-    ? `<div class="watch"><p><b>${lang === "hi" ? "यह भी देखें" : lang === "hinglish" ? "Yeh bhi check karo" : "Also check"}: ${esc(C.label(wp))}</b> — ${esc(watchWhy)}.
+    ? `<div class="watch"><p><b>${lang === "hi" ? "यह भी देखें (रैंक नहीं)" : lang === "hinglish" ? "Yeh bhi check karo (not ranked)" : "Also check (not ranked)"}: ${esc(C.label(wp))}</b> — ${esc(watchWhy)}.
         ${esc(lang === "hi" ? "पर इसकी वर्डिंग में एंट्री उम्र नहीं लिखी — prospectus से उम्र कन्फ़र्म करें, फिर बेचें।"
           : lang === "hinglish" ? "Par wording mein entry age likhi nahi — prospectus se age confirm karo, phir becho."
             : `But its wording does not state the entry age — confirm age ${need.age} in the prospectus before you sell it.`)}</p>
@@ -342,8 +337,8 @@ function answer(p, text) {
       return add("bot", `<span class="badge b-ok">Fast answer</span><p class="lead">Premium: ₹${esc(Number(f.value).toLocaleString("en-IN"))}.</p><div class="meta">${ms(t0)} ms</div>`);
     }
     return add("bot", `${stopNote}<span class="badge b-warn">Not written in this product</span>
-      <p class="lead">Premium is not written in the ${esc(C.fullName(p))} wording.</p>
-      <p class="small">Quote it from the insurer rate card after the health check — never from memory.</p><div class="meta">Answered in ${ms(t0)} ms</div>`);
+      <p class="lead">Premium is not written in the ${esc(C.fullName(p).replace(/\s+wording$/i, ""))} wording.</p>
+      <p class="small">Money is not compared in this tool. The premium comes from the insurer rate card after the health check — never from memory.</p><div class="meta">Answered in ${ms(t0)} ms</div>`);
   }
   if (intent?.kind === "fast" && !C.isUpload(p)) {
     const a = C.simpleAnswer(p, intent.id);
@@ -431,7 +426,7 @@ function renderCards(cites, policyId, id) {
 function closeKitMsg(p) {
   if (p.status === "withdrawn") return stoppedNotice(p);
   const lang = S.lang || "en";
-  const k = C.closeKit(p, S.kit, S.need, lang);
+  const k = C.closeKit(p, S.need, lang);
   const id = ++BID;
   const L = k.labels;
   return add("bot rich", `<p class="kit__h">${esc(L.pitch)} · ${esc(C.fullName(p))}</p>
@@ -442,8 +437,15 @@ function closeKitMsg(p) {
     <div class="kit"><p class="kit__t">${esc(L.wait)}</p>${k.waitEnd
       ? `<p><b>${esc(k.waitEnd.date)}</b> — ${k.waitEnd.months} months. <span class="cite">${esc(k.waitEnd.cite)}</span></p>`
       : `<p>${lang === "en" ? "Not written in this product." : "Is product mein nahi likha."}</p>`}</div>
-    <div class="kit"><p class="kit__t">${esc(L.papers)}</p><ul>${k.papers.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></div>
-    <div class="kit kit--warn"><p class="kit__t">${esc(L.dont)}</p><ul>${k.dont.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></div>`);
+    ${kitLists(k, L, lang)}`);
+}
+
+/* papers and do-not-promise lines, each with the page of this product's wording it came from */
+function kitLists(k, L, lang) {
+  const li = (d) => `<li${d.quote ? ` title="${esc(d.quote)}"` : ""}>${esc(d.text)}${d.cite ? ` <span class="cite">${esc(d.cite)}</span>` : ""}</li>`;
+  const none = lang === "en" ? "This wording does not list claim papers — ask the insurer." : lang === "hi" ? "इस वर्डिंग में क्लेम के कागज़ नहीं लिखे — इंश्योरर से पूछें।" : "Is wording mein claim papers likhe nahi — insurer se poochho.";
+  return `<div class="kit"><p class="kit__t">${esc(L.papers)}</p>${k.papers.length ? `<ul>${k.papers.map(li).join("")}</ul>` : `<p class="small">${esc(none)}</p>`}</div>
+    <div class="kit kit--warn"><p class="kit__t">${esc(L.dont)}</p><ul>${k.dont.map(li).join("")}</ul></div>`;
 }
 
 chat.addEventListener("click", async (e) => {

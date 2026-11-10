@@ -13,12 +13,64 @@ Pipeline
 ask_stream() yields events so the API can stream tokens:
   {"type": "meta", ...} {"type": "token", "text": ...} {"type": "final", ...}
 """
+import json
 import re
+import threading
 import time
 from typing import Iterator
 
-from config import CLAUSE_CHARS, MAX_CLAUSES, NEIGHBOURS, RETRIEVE_K
+from config import CLAUSE_CHARS, MAX_CLAUSES, NEIGHBOURS, RETRIEVE_K, ROOT
 from generate import ExtractiveGenerator, Generator, get_generator
+
+# Generation runs at temperature 0, so a stored final is the answer the model would give again.
+# ingest.py drops a policy's entries when it re-indexes that wording.
+CACHE_PATH = ROOT / "data" / "answer_cache.json"
+_CACHE_LOCK = threading.Lock()
+_CACHE: dict | None = None
+
+
+def _cache_key(question: str, policy_id: str, backend: str) -> str:
+    q = re.sub(r"[^a-z0-9\u0900-\u097f]+", " ", question.lower()).strip()
+    return f"{backend}|{policy_id}|{q}"
+
+
+def _cache_load() -> dict:
+    global _CACHE
+    if _CACHE is None:
+        try:
+            _CACHE = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _CACHE = {}
+    return _CACHE
+
+
+def cached_final(question: str, policy_id: str, backend: str) -> dict | None:
+    with _CACHE_LOCK:
+        hit = _cache_load().get(_cache_key(question, policy_id, backend))
+    return dict(hit, cached=True) if hit else None
+
+
+def _cache_put(question: str, policy_id: str, backend: str, final: dict) -> None:
+    if final.get("status") not in ("answered", "not_stated", "blocked", "refused"):
+        return
+    with _CACHE_LOCK:
+        cache = _cache_load()
+        cache[_cache_key(question, policy_id, backend)] = final
+        tmp = CACHE_PATH.with_suffix(".tmp")
+        tmp.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(CACHE_PATH)
+
+
+def drop_cached(policy_id: str) -> int:
+    """Forget every stored answer for one policy (its index changed)."""
+    with _CACHE_LOCK:
+        cache = _cache_load()
+        gone = [k for k in cache if k.split("|", 2)[1] == policy_id]
+        for k in gone:
+            del cache[k]
+        if gone:
+            CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+    return len(gone)
 
 MIN_SCORE = 0.40  # lowest answerable top score was 0.458 in eval_retrieval; traps overlap, so the LLM and router also gate
 
@@ -272,8 +324,21 @@ def _extractive(question, lang, clauses, note=None) -> tuple[str, list[dict]]:
 
 
 def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> Iterator[dict]:
-    t0 = time.time()
     gen = gen or get_generator()
+    t0 = time.time()
+    hit = cached_final(question, policy_id, gen.name)
+    if hit:
+        yield {"type": "meta", "lang": hit.get("lang"), "route": "cache", "backend": gen.name}
+        yield {**hit, "ms": int((time.time() - t0) * 1000)}
+        return
+    for ev in _ask_stream(question, policy_id, gen):
+        if ev["type"] == "final":
+            _cache_put(question, policy_id, gen.name, ev)
+        yield ev
+
+
+def _ask_stream(question: str, policy_id: str, gen: Generator) -> Iterator[dict]:
+    t0 = time.time()
     lang = detect_lang(question)
     r = route(question)
     yield {"type": "meta", "lang": lang, "route": r, "backend": gen.name}

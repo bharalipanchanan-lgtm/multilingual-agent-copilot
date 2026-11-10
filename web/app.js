@@ -12,7 +12,6 @@
    `stated: false` means the wording does not answer it — premiums and
    entry-age limits are never in a wording, so they are null on purpose. */
 const CATALOGUE_URL = "data/catalogue.json";
-const CLOSE_KIT_URL = "data/clauses.fixture.json"; // sales copy only, still fixture
 const MAX_SHOWN = 3;
 
 /* page to cite to the agent: the printed number when the document has
@@ -157,7 +156,7 @@ function assess(p, need) {
         wins.push(`Within budget at ₹${f.premium_inr.value.toLocaleString("en-IN")}`);
       }
     } else {
-      cannotCheck.push("Premium is not in the wording — check the rate card");
+      cannotCheck.push("Money not compared — premium comes from the insurer rate card after the health check, never from the wording");
     }
   }
 
@@ -192,6 +191,7 @@ function assess(p, need) {
     wins,
     cannotCheck,
     score,
+    ageUnknown,
     eligible: fails.length === 0,
   };
 }
@@ -220,9 +220,10 @@ function recommend(need) {
 function whyBest(a) {
   if (a.wins.length) return a.wins.join(". ") + ".";
   const ped = a.product.facts.ped_wait_months;
-  return ped?.stated
-    ? `Shortest pre-existing waiting period of the eligible set at ${ped.value} months.`
-    : "Eligible, but the wording states no waiting period to rank on.";
+  if (!ped?.stated) return "Eligible, but the wording states no waiting period to rank on.";
+  return a.ageUnknown
+    ? `Shortest pre-existing wait at ${ped.value} months, but entry age is not written in the wording — confirm it from the prospectus first.`
+    : `Shortest wait among plans where entry age is confirmed from the wording — ${ped.value} months.`;
 }
 
 const el = {
@@ -237,7 +238,6 @@ const el = {
 const state = {
   products: [],
   clauses: {},
-  closeKit: null,
   thread: [],
   byId: new Map(),
   insurers: [],
@@ -924,17 +924,22 @@ Shall I start the proposal?`;
   wa.append(copy);
   kit.append(wa);
 
+  /* papers and promises come from this product's own wording, with the page each line is on */
+  const k = window.QPCore.closeKit(p, null, "en");
+  const item = (d) => textNode("li", null, d.cite ? `${d.text} (${d.cite})` : d.text);
+
   const docs = textNode("div", "kit__block");
-  docs.append(textNode("p", "kit__title", "Papers to collect"));
+  docs.append(textNode("p", "kit__title", k.labels.papers));
   const ul = document.createElement("ul");
-  for (const d of state.closeKit.documents) ul.append(textNode("li", null, d));
+  for (const d of k.papers) ul.append(item(d));
+  if (!k.papers.length) ul.append(textNode("li", null, "This wording does not list claim papers — ask the insurer."));
   docs.append(ul);
   kit.append(docs);
 
   const warn = textNode("div", "kit__block kit__block--warn");
-  warn.append(textNode("p", "kit__title", "Do not promise"));
+  warn.append(textNode("p", "kit__title", k.labels.dont));
   const ul2 = document.createElement("ul");
-  for (const d of state.closeKit.never_promise) ul2.append(textNode("li", null, d));
+  for (const d of k.dont) ul2.append(item(d));
   warn.append(ul2);
   kit.append(warn);
 
@@ -1397,11 +1402,9 @@ const getJSON = (url) =>
 
 Promise.all([
   getJSON(CATALOGUE_URL),
-  getJSON(CLOSE_KIT_URL),
   getJSON("/api/uploads").catch(() => []),
 ])
-  .then(([json, cl, uploads]) => {
-    state.closeKit = cl.close_kit;
+  .then(([json, uploads]) => {
     state.documents = json.documents;
     state.products = [...(uploads || []), ...json.products];
     state.byId = new Map(state.products.map((p) => [p.id, p]));

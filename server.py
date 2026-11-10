@@ -17,6 +17,7 @@ import json
 import queue
 import threading
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
@@ -157,10 +158,44 @@ async def upload(
     }
 
 
+def _audit(req: Ask, ev: dict) -> None:
+    try:
+        log_path = ROOT / "data" / "audit.jsonl"
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(log_path, "a", encoding="utf-8") as lf:
+            lf.write(json.dumps({
+                "ts": datetime.now(timezone.utc).isoformat(),
+                "policy_id": req.policy_id,
+                "question": req.question.strip(),
+                "status": ev.get("status"),
+                "backend": ev.get("backend"),
+                "ms": ev.get("ms"),
+                "cached": bool(ev.get("cached")),
+                "citations": [
+                    {"page": c.get("page"), "printed_page": c.get("printed_page"), "section": c.get("section")}
+                    for c in (ev.get("citations") or [])
+                ],
+            }, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 @app.post("/api/ask")
 def ask(req: Ask):
     if not req.question.strip():
         raise HTTPException(400, "empty question")
+    sse = lambda ev: f"data: {json.dumps(ev, ensure_ascii=False)}\n\n"
+    headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+
+    if GEN["gen"]:
+        from answer import cached_final
+        hit = cached_final(req.question.strip(), req.policy_id, GEN["gen"].name)
+        if hit:
+            hit["ms"] = 0
+            _audit(req, hit)
+            meta = {"type": "meta", "lang": hit.get("lang"), "route": "cache", "backend": GEN["gen"].name}
+            return StreamingResponse(iter([sse(meta), sse(hit)]), media_type="text/event-stream", headers=headers)
+
     q: queue.Queue = queue.Queue()
     done = object()
 
@@ -169,24 +204,7 @@ def ask(req: Ask):
         try:
             for ev in ask_stream(req.question.strip(), req.policy_id, GEN["gen"] or get_generator()):
                 if ev.get("type") == "final":
-                    try:
-                        log_path = ROOT / "data" / "audit.jsonl"
-                        log_path.parent.mkdir(parents=True, exist_ok=True)
-                        with open(log_path, "a", encoding="utf-8") as lf:
-                            lf.write(json.dumps({
-                                "ts": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
-                                "policy_id": req.policy_id,
-                                "question": req.question.strip(),
-                                "status": ev.get("status"),
-                                "backend": ev.get("backend"),
-                                "ms": ev.get("ms"),
-                                "citations": [
-                                    {"page": c.get("page"), "printed_page": c.get("printed_page"), "section": c.get("section")}
-                                    for c in (ev.get("citations") or [])
-                                ],
-                            }, ensure_ascii=False) + "\n")
-                    except Exception:
-                        pass
+                    _audit(req, ev)
                 q.put(ev)
         except Exception as e:
             q.put({"type": "final", "status": "error", "answer": f"Something went wrong: {e}", "citations": []})
@@ -200,10 +218,9 @@ def ask(req: Ask):
             ev = q.get()
             if ev is done:
                 break
-            yield f"data: {json.dumps(ev, ensure_ascii=False)}\n\n"
+            yield sse(ev)
 
-    return StreamingResponse(events(), media_type="text/event-stream",
-                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+    return StreamingResponse(events(), media_type="text/event-stream", headers=headers)
 
 
 @app.get("/api/compare")

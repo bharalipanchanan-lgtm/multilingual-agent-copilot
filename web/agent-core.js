@@ -179,6 +179,11 @@
           hi: `इस प्लान की वर्डिंग में ${w.carvedFor} का PED वेट नहीं है — शुरू से कवर।`,
           hinglish: `Is plan ki wording mein ${w.carvedFor} ka PED wait nahi hai — start se cover.` }[lang]
       : null;
+    const ageOnly = r.best?.qualified
+      ? { en: `Ranked only plans where entry age is confirmed from the wording. A plan with a shorter wait is shown below as not ranked — its wording does not state the entry age.`,
+          hi: `सिर्फ वही प्लान रैंक किए जिनकी वर्डिंग में एंट्री उम्र कन्फ़र्म है। कम वेट वाला एक प्लान नीचे "रैंक नहीं" दिखाया है — उसकी वर्डिंग में एंट्री उम्र नहीं लिखी।`,
+          hinglish: `Sirf wahi plans rank kiye jinki wording mein entry age confirm hai. Kam wait wala ek plan neeche "not ranked" dikhaya hai — uski wording mein entry age likhi nahi.` }[lang]
+      : null;
     const diabetes = need.conditions.includes("diabetes");
     const knee = need.conditions.includes("knee / joint pain");
 
@@ -199,11 +204,12 @@
               ? `I kept only plans whose pre-existing wait is ${fmtMonths(need.pedMaxMonths)} or less.`
               : `I ranked the plans that fit the need you described.`,
         `Best: ${label(best)}${ped?.stated ? ` — pre-existing wait ${ped.value} months${end ? `, cover from ${end}` : ""}` : ""}.`,
+        ageOnly,
       ];
       if (second) lines.push(`Second: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} months wait` : ""}.`);
       if (third) lines.push(`Third: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} months wait` : ""}.`);
       if (knee) lines.push(`Knee / joint pain already diagnosed waits like any pre-existing condition; joint replacement may have its own listed-illness wait.`);
-      if (r.cannotPremium) lines.push(`Premium is not written in any policy wording — quote it from the insurer rate card after the health check.`);
+      if (r.cannotPremium) lines.push(`Money was not compared. Premium is never written in a policy wording — the insurer sets it from its rate card after the health check${need.budgetMax != null ? `, so the ${rupees(need.budgetMax)} budget was not checked` : ""}. These plans are ranked on waiting period and cover only.`);
       if (need.roomRentMin != null) lines.push(`Room rent of ${rupees(need.roomRentMin)}+ was checked where the wording states it.`);
       return lines.filter(Boolean);
     }
@@ -217,11 +223,12 @@
             ? `डायबिटीज पहले से है, इसलिए PED वेटिंग सबसे ज़रूरी चेक है।`
             : `आपकी ज़रूरत के हिसाब से प्लान छांटे हैं।`,
         `सबसे अच्छा: ${label(best)}${ped?.stated ? ` — PED वेट ${ped.value} महीने${end ? `, कवर ${end} से` : ""}` : ""}।`,
+        ageOnly,
       ];
       if (second) lines.push(`दूसरा: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} महीने वेट` : ""}।`);
       if (third) lines.push(`तीसरा: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} महीने वेट` : ""}।`);
       if (knee) lines.push(`घुटने का दर्द अगर पहले से है तो PED वेट ही लगेगी; जॉइंट रिप्लेसमेंट की अलग लिस्टेड वेट भी हो सकती है।`);
-      if (r.cannotPremium) lines.push(`प्रीमियम किसी भी पॉलिसी वर्डिंग में नहीं लिखा — हेल्थ चेक के बाद रेट कार्ड से बताएँ।`);
+      if (r.cannotPremium) lines.push(`पैसे की तुलना नहीं की गई। प्रीमियम किसी पॉलिसी वर्डिंग में नहीं होता — इंश्योरर हेल्थ चेक के बाद रेट कार्ड से तय करता है${need.budgetMax != null ? `, इसलिए ${rupees(need.budgetMax)} का बजट चेक नहीं हुआ` : ""}। रैंकिंग सिर्फ वेटिंग पीरियड और कवर पर है।`);
       return lines.filter(Boolean);
     }
 
@@ -234,11 +241,12 @@
           ? `Diabetes pehle se hai, isliye PED waiting sabse important check hai.`
           : `Aapki zarurat ke hisaab se plans chhante hain.`,
       `Sabse behtar: ${label(best)}${ped?.stated ? ` — PED wait ${ped.value} months${end ? `, cover ${end} se start` : ""}` : ""}.`,
+      ageOnly,
     ];
     if (second) lines.push(`Doosra: ${label(second)}${r.second.pedMonths ? ` — ${r.second.pedMonths} months wait` : ""}.`);
     if (third) lines.push(`Teesra: ${label(third)}${r.third.pedMonths ? ` — ${r.third.pedMonths} months wait` : ""}.`);
     if (knee) lines.push(`Ghutne ka dard agar pehle se hai toh PED wait hi lagti hai; joint replacement ki alag listed wait bhi ho sakti hai.`);
-    if (r.cannotPremium) lines.push(`Premium kisi bhi wording mein likha nahi hai — health check ke baad rate card se quote dena.`);
+    if (r.cannotPremium) lines.push(`Paisa compare nahi kiya. Premium kisi bhi wording mein nahi hota — insurer health check ke baad rate card se batata hai${need.budgetMax != null ? `, isliye ${rupees(need.budgetMax)} ka budget check nahi hua` : ""}. Ranking sirf waiting period aur cover par hai.`);
     if (need.roomRentMin != null) lines.push(`Room rent ${rupees(need.roomRentMin)}+ jahan wording mein likha hai, wahan check kiya.`);
     return lines.filter(Boolean);
   }
@@ -336,6 +344,8 @@
           !(need.age != null && need.age > 40 && YOUTH_NAME.test(`${a.product.name} ${a.product.variant || ""}`)))
         .sort((a, b) => a.pedMonths - b.pedMonths || (a.carved ? -1 : 0))[0] || null
       : null;
+    /* a shorter wait exists among plans we could not age-check: the headline may only claim "shortest" among the confirmed ones */
+    if (best) best.qualified = !best.ageUnknown && ok.some((a) => a.ageUnknown && a.pedMonths < best.pedMonths);
     const top = new Set([best, second, third, watch].filter(Boolean));
 
     /* one line for every other product; identical reasons are grouped */
@@ -344,7 +354,7 @@
     for (const a of assessed) {
       if (top.has(a)) continue;
       if (!a.eligible) push(a.fails[0], a.product);
-      else if (best && a.ageUnknown && !best.ageUnknown) push(`Entry age is not written in the wording — cannot confirm age ${need.age} is accepted`, a.product);
+      else if (best && a.ageUnknown && !best.ageUnknown) push(`Not ranked — entry age is not written in the wording, so age ${need.age} cannot be confirmed`, a.product);
       else if (best && a.pedMonths > best.pedMonths) push(`${a.pedMonths}-month PED wait — ${a.pedMonths - best.pedMonths} months longer than the best`, a.product);
       else push("Fits too, but ranks lower on the same wait", a.product);
     }
@@ -359,13 +369,17 @@
     const roomWin = a.wins.find((w) => w.startsWith("Room"))?.replace(/\.+$/, "");
     if (a.carved) return `Built for this: the wording lifts the pre-existing wait for ${a.carvedFor} — covered from the start${roomWin ? `; ${roomWin.toLowerCase()}` : ""}.`;
     if (rank === 1) {
-      const base = ped?.stated ? `Shortest pre-existing wait of the plans that fit — ${ped.value} months` : "Fits every check that the wording can answer";
+      const base = !ped?.stated ? "Fits every check that the wording can answer"
+        : a.qualified ? `Shortest wait among plans where entry age is confirmed from the wording — ${ped.value} months`
+          : a.ageUnknown ? `Shortest pre-existing wait of the plans that fit — ${ped.value} months, but its entry age is not written in the wording: confirm it from the prospectus first`
+            : `Shortest pre-existing wait of the plans that fit — ${ped.value} months`;
       return roomWin ? `${base}; ${roomWin.toLowerCase()}.` : `${base}.`;
     }
     const parts = (p.differentiator || "").split(";").map((s) => s.trim().replace(/\.$/, "")).filter(Boolean);
     const extra = parts.find((s) => !/\bped\b|pre-existing/i.test(s)) || parts[0] || "";
     if (ped?.stated && best && best.pedMonths === ped.value) return `Same ${ped.value}-month wait${extra ? ` — ${extra}` : ""}.`;
-    return ped?.stated ? `Next shortest wait at ${ped.value} months.` : "Fits, but the wording states no wait to rank on.";
+    if (!ped?.stated) return "Fits, but the wording states no wait to rank on.";
+    return best?.qualified ? `Next shortest confirmed-age wait at ${ped.value} months.` : `Next shortest wait at ${ped.value} months.`;
   }
 
   function conditionLines(p, need) {
@@ -514,12 +528,86 @@
     const f = p.facts?.[HARD_FIELD[intentId]];
     if (!f) return null;
     if (!f.stated) return { notWritten: true, note: f.note };
-    return { quote: f.quote, cite: citePage(f), section: f.section || null, plain: f.value, note: f.note || null, table: f.source_kind === "table" };
+    const sd = p.facts?.specified_disease_wait_months;
+    const plain = /listed-illness waiting list/i.test(String(f.value)) && sd?.stated
+      ? `${String(f.value).replace(/\.$/, "")} — it waits ${sd.value} months from the first policy start (${pageLabel(citePage(sd))}).`
+      : f.value;
+    return { quote: f.quote, cite: citePage(f), section: f.section || null, plain, note: f.note || null, table: f.source_kind === "table" };
   }
 
   /* ── feature 5: close the sale ───────────────────────────────────────── */
 
-  function closeKit(p, kit, need, lang = "en") {
+  /* papers the wording itself names (ingest/build_kit.py); labels only, the line and page come from the wording */
+  const PAPER = {
+    claim_form: { en: "Claim form, filled and signed", hi: "भरा और साइन किया हुआ क्लेम फॉर्म", hinglish: "Claim form, bhara aur sign kiya hua" },
+    kyc: { en: "Photo ID / KYC of the insured person", hi: "बीमित व्यक्ति का फोटो ID / KYC", hinglish: "Insured ka photo ID / KYC" },
+    discharge: { en: "Discharge summary from the hospital", hi: "अस्पताल की डिस्चार्ज समरी", hinglish: "Hospital ki discharge summary" },
+    bills: { en: "Original hospital bills and receipts", hi: "अस्पताल के ओरिजिनल बिल और रसीदें", hinglish: "Hospital ke original bills aur receipts" },
+    reports: { en: "Investigation / diagnostic test reports", hi: "जांच / डायग्नोस्टिक रिपोर्ट", hinglish: "Test / diagnostic reports" },
+    prescription: { en: "Doctor's prescription", hi: "डॉक्टर का प्रिस्क्रिप्शन", hinglish: "Doctor ka prescription" },
+    pharmacy: { en: "Pharmacy bills", hi: "दवा के बिल", hinglish: "Pharmacy / dawai ke bills" },
+    bank: { en: "Bank details / cancelled cheque for the claim payment", hi: "क्लेम पेमेंट के लिए बैंक डिटेल / कैंसल चेक", hinglish: "Claim payment ke liye bank details / cancelled cheque" },
+    fir_mlc: { en: "FIR or medico-legal certificate (accident claims)", hi: "FIR या मेडिको-लीगल सर्टिफिकेट (एक्सीडेंट क्लेम)", hinglish: "FIR ya medico-legal certificate (accident claim)" },
+    pre_policy_check: { en: "Pre-policy medical check-up, if the insurer asks for it (at proposal)", hi: "प्री-पॉलिसी मेडिकल चेक-अप, अगर इंश्योरर माँगे (प्रपोज़ल पर)", hinglish: "Pre-policy medical check-up, agar insurer maange (proposal par)" },
+    medical_records: { en: "Previous medical / treatment records", hi: "पुराने मेडिकल / इलाज के रिकॉर्ड", hinglish: "Purane medical / treatment records" },
+    prev_policy: { en: "Previous policy copy (portability)", hi: "पिछली पॉलिसी की कॉपी (पोर्टेबिलिटी)", hinglish: "Pichhli policy ki copy (portability)" },
+  };
+
+  const hasAmount = (f) => f?.stated && /\d/.test(String(f.value));
+
+  /* "do not promise" lines, each from one of this product's verified facts */
+  function dontLines(p, w, end, condWord, conds, L) {
+    const f = p.facts || {};
+    const out = [];
+    const t = (en, hi, hinglish) => (L === "hi" ? hi : L === "hinglish" ? hinglish : en);
+    const add = (fact, text) => out.push({ text, cite: fact ? pageLabel(citePage(fact)) : null });
+    const ped = f.ped_wait_months;
+    if (w?.carved) {
+      add(w.fact, t(`Never say any pre-existing illness other than ${w.carvedFor} is covered from day one.`,
+        `${w.carvedFor} के अलावा कोई भी पुरानी बीमारी पहले दिन से कवर न बताएँ।`,
+        `${w.carvedFor} ke alawa koi bhi purani bimari day one se cover mat bolo.`));
+    } else if (ped?.stated) {
+      add(ped, t(`Do not say a pre-existing illness is covered before ${ped.value} months of continuous cover.`,
+        `${ped.value} महीने के लगातार कवर से पहले पुरानी बीमारी कवर मत बताएँ।`,
+        `${ped.value} months continuous cover se pehle purani bimari cover mat bolo.`));
+    }
+    if (conds.length && end && !w?.carved) {
+      add(w?.fact, t(`Do not say ${condWord} is covered before ${end}.`, `${end} से पहले ${condWord} कवर मत बोलें।`, `${end} se pehle ${condWord} cover mat bolo.`));
+    }
+    const iw = p.close_kit?.initial_wait;
+    if (iw) {
+      add(iw, t("Do not promise cover for an illness (not an accident) in the first 30 days.",
+        "पहले 30 दिन में बीमारी (एक्सीडेंट नहीं) के कवर का वादा न करें।",
+        "Pehle 30 din mein bimari (accident nahi) ke cover ka promise mat karo."));
+    }
+    const sd = f.specified_disease_wait_months;
+    if (sd?.stated) {
+      const knee = conds.includes("knee / joint pain");
+      add(sd, t(`Do not promise the listed illnesses and surgeries in this wording${knee ? " (joint replacement included, if listed)" : ""} before ${sd.value} months.`,
+        `इस वर्डिंग में लिस्टेड बीमारियाँ और सर्जरी ${sd.value} महीने से पहले कवर न बताएँ।`,
+        `Is wording ki listed bimariyan aur surgery ${sd.value} months se pehle cover mat bolo.`));
+    }
+    const room = f.room_rent;
+    if (!room?.stated || ["depends", "si_band", "pct_si", "schedule"].includes(room.room_class) || typeof room.max_per_day === "number") {
+      add(room?.stated ? room : null, t(`Do not promise a room category — room rent here: ${room?.stated ? room.value : "set by the policy schedule"}.`,
+        `रूम कैटेगरी का वादा न करें — यहाँ रूम रेंट: ${room?.stated ? room.value : "पॉलिसी शेड्यूल के हिसाब से"}।`,
+        `Room category ka promise mat karo — yahan room rent: ${room?.stated ? room.value : "policy schedule ke hisaab se"}.`));
+    }
+    if (f.copay?.stated) add(f.copay, t(`Do not say there is no co-pay — ${f.copay.value}.`, `को-पे नहीं है, ऐसा न कहें — ${f.copay.value}।`, `Co-pay nahi hai, aisa mat bolo — ${f.copay.value}.`));
+    if (hasAmount(f.cataract)) add(f.cataract, t(`Do not promise the full cataract bill — ${f.cataract.value}`, `मोतियाबिंद का पूरा बिल कवर न बताएँ — ${f.cataract.value}`, `Cataract ka poora bill cover mat bolo — ${f.cataract.value}`));
+    if (hasAmount(f.robotic_surgery)) add(f.robotic_surgery, t(`Do not promise the full robotic surgery bill — ${f.robotic_surgery.value}`, `रोबोटिक सर्जरी का पूरा बिल कवर न बताएँ — ${f.robotic_surgery.value}`, `Robotic surgery ka poora bill cover mat bolo — ${f.robotic_surgery.value}`));
+    if (f.entry_age_max?.stated && typeof f.entry_age_max.value === "number") {
+      add(f.entry_age_max, t(`Do not sign up anyone older than ${f.entry_age_max.value} at entry.`, `${f.entry_age_max.value} साल से ज़्यादा उम्र वाले को एंट्री न दें।`, `${f.entry_age_max.value} saal se zyada umar wale ko entry mat do.`));
+    }
+    if (!f.premium_inr?.stated) {
+      add(null, t("Do not quote a premium — it is not in this wording; it comes from the insurer rate card after the health check.",
+        "प्रीमियम मत बताएँ — यह इस वर्डिंग में नहीं है; हेल्थ चेक के बाद इंश्योरर के रेट कार्ड से आता है।",
+        "Premium mat batao — yeh is wording mein nahi hai; health check ke baad insurer ke rate card se aata hai."));
+    }
+    return out;
+  }
+
+  function closeKit(p, need, lang = "en") {
     const w = waitFor(p, need);
     const ped = w ? { value: w.months } : null;
     const end = w ? waitEndDate(w.months) : null;
@@ -531,6 +619,8 @@
     const conds = need?.conditions || [];
     const condWord = conds.includes("diabetes") ? "diabetes" : conds[0] || (lang === "en" ? "a declared illness" : "declared illness");
     const L = lang === "hi" ? "hi" : lang === "hinglish" ? "hinglish" : "en";
+    const papers = (p.close_kit?.papers || []).map((x) => ({ text: (PAPER[x.key] || {})[L] || x.key, cite: pageLabel(citePage(x)), quote: x.quote }));
+    const claimPapers = papers.filter((x, i) => p.close_kit?.papers[i].key !== "pre_policy_check").slice(0, 4).map((x) => x.text).join(", ");
 
     let say, wa;
     if (L === "en") {
@@ -546,9 +636,9 @@
         "• New illnesses: covered once the policy starts",
         end ? `• ${condWord[0].toUpperCase() + condWord.slice(1)}: covered from ${end}` : "• Pre-existing wait: confirming with the insurer",
         `• Room: ${roomLine}`,
-        "Please keep Aadhaar, PAN and the last 2 years of medical reports ready.",
+        claimPapers ? `For a claim, the policy asks for: ${claimPapers}.` : null,
         "Shall I start the proposal?",
-      ].join("\n");
+      ].filter(Boolean).join("\n");
     } else if (L === "hi") {
       say = [
         `${p.insurer} का ${fullName(p)} पॉलिसी शुरू होते ही ${who} की नई बीमारी कवर करता है।`,
@@ -562,9 +652,9 @@
         "• नई बीमारी: पॉलिसी शुरू होते ही कवर",
         end ? `• ${condWord}: ${end} से कवर` : "• PED वेट: इंश्योरर से कन्फ़र्म",
         `• रूम: ${roomLine}`,
-        "आधार, पैन और पिछले 2 साल के मेडिकल रिकॉर्ड तैयार रखें।",
+        claimPapers ? `क्लेम के लिए पॉलिसी में ये कागज़ माँगे गए हैं: ${claimPapers}।` : null,
         "प्रपोजल शुरू करें?",
-      ].join("\n");
+      ].filter(Boolean).join("\n");
     } else {
       say = [
         `${p.insurer} ka ${fullName(p)} policy start hote hi ${who} ki nayi bimari cover karta hai.`,
@@ -578,36 +668,18 @@
         "• Nayi bimari: policy start hote hi cover",
         end ? `• ${condWord}: ${end} se cover` : "• PED wait: insurer se confirm",
         `• Room: ${roomLine}`,
-        "Aadhaar, PAN aur last 2 years ke medical records ready rakhein.",
+        claimPapers ? `Claim ke liye policy mein yeh papers maange gaye hain: ${claimPapers}.` : null,
         "Proposal start karein?",
-      ].join("\n");
+      ].filter(Boolean).join("\n");
     }
 
-    const papers = [...(kit?.documents || [])];
-    if (conds.includes("diabetes")) papers.push(L === "hi" ? "नवीनतम शुगर रिपोर्ट (HbA1c / fasting) और वर्तमान दवा" : L === "hinglish" ? "Latest sugar reports (HbA1c / fasting) aur current prescription" : "Latest sugar reports (HbA1c / fasting) and current prescription");
-    if (conds.includes("knee / joint pain")) papers.push(L === "hi" ? "घुटने का X-ray या ऑर्थोपेडिक नोट्स, अगर हों" : L === "hinglish" ? "Knee X-ray ya orthopaedic notes, agar hain" : "Knee X-ray or orthopaedic consultation notes, if any");
-    if (conds.includes("high BP")) papers.push(L === "hi" ? "BP की दवा का प्रिस्क्रिप्शन" : "BP medication prescription");
-
-    const dont = (kit?.never_promise || []).map((line) => (w?.carved && /pre-existing condition is covered from day one/i.test(line)
-      ? (L === "hi" ? `${w.carvedFor} के अलावा कोई भी पुरानी बीमारी पहले दिन से कवर न बताएँ।`
-        : L === "hinglish" ? `${w.carvedFor} ke alawa koi bhi purani bimari day one se cover mat bolo.`
-          : `Never say any pre-existing illness other than ${w.carvedFor} is covered from day one.`)
-      : line));
-    if (conds.length && end) {
-      dont.push(L === "hi" ? `${end} से पहले ${condWord} कवर मत बोलें।` : L === "hinglish" ? `${end} se pehle ${condWord} cover mat bolo.` : `Do not say ${condWord} is covered before ${end}.`);
-    }
-    if (conds.includes("knee / joint pain")) {
-      dont.push(L === "hi" ? "वेटिंग में घुटने की सर्जरी या जॉइंट रिप्लेसमेंट कवर का वादा न करें।" : L === "hinglish" ? "Waiting mein knee surgery ya joint replacement cover ka promise mat karo." : "Do not promise knee surgery or joint replacement is covered during the waiting period.");
-    }
-    if (!room?.stated) {
-      dont.push(L === "hi" ? "शेड्यूल चेक किए बिना रूम कैटेगरी का वादा न करें।" : L === "hinglish" ? "Schedule check kiye bina room category ka promise mat karo." : "Do not promise a room category until the schedule is checked.");
-    }
+    const dont = dontLines(p, w, end, condWord, conds, L);
 
     const labels = L === "hi"
-      ? { say: "ग्राहक से यह कहें", wa: "WhatsApp मैसेज", wait: "वेटिंग खत्म", papers: "कागज़ात", dont: "यह वादा न करें", pitch: "कैसे पिच करें", pick: "यह चुनें" }
+      ? { say: "ग्राहक से यह कहें", wa: "WhatsApp मैसेज", wait: "वेटिंग खत्म", papers: "इस वर्डिंग में माँगे गए कागज़", dont: "यह वादा न करें", pitch: "कैसे पिच करें", pick: "यह चुनें" }
       : L === "hinglish"
-        ? { say: "Customer se yeh bolo", wa: "WhatsApp message", wait: "Waiting khatam", papers: "Papers chahiye", dont: "Yeh promise mat karo", pitch: "Kaise pitch karein", pick: "Yeh choose karein" }
-        : { say: "Say this to the customer", wa: "WhatsApp message", wait: "Waiting ends", papers: "Papers needed", dont: "Do not promise", pitch: "How to pitch", pick: "Pick this" };
+        ? { say: "Customer se yeh bolo", wa: "WhatsApp message", wait: "Waiting khatam", papers: "Is wording mein maange gaye papers", dont: "Yeh promise mat karo", pitch: "Kaise pitch karein", pick: "Yeh choose karein" }
+        : { say: "Say this to the customer", wa: "WhatsApp message", wait: "Waiting ends", papers: "Papers this wording asks for", dont: "Do not promise", pitch: "How to pitch", pick: "Pick this" };
 
     if (w?.carved) {
       say[1] = L === "hi" ? `${condWord}: वर्डिंग के अनुसार इसका PED वेट नहीं है — पॉलिसी शुरू होते ही कवर।`

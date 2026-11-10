@@ -137,11 +137,11 @@ check(
   true
 );
 
-/* Entry age check on Max Life (max 65 years) */
-const maxAgeOk = assess(byId["max-life-smart-secure-plus"], parseNeed("mother 50"));
-check("Max Life passes age 50<=65", maxAgeOk.eligible, true);
-const maxAgeFail = assess(byId["max-life-smart-secure-plus"], parseNeed("father 70"));
-check("Max Life rejects age 70>65", maxAgeFail.eligible, false);
+/* Entry age check on Liberty HealthPrime Connect (max 65 years) */
+const maxAgeOk = assess(byId["liberty-general-healthprime-connect"], parseNeed("mother 50"));
+check("Liberty passes age 50<=65", maxAgeOk.eligible, true);
+const maxAgeFail = assess(byId["liberty-general-healthprime-connect"], parseNeed("father 70"));
+check("Liberty rejects age 70>65", maxAgeFail.eligible, false);
 
 const nameOf = (a) => `${a.product.insurer} ${a.product.name}`;
 console.log(`\nbest:     ${nameOf(r.best)} (PED ${r.best.product.facts.ped_wait_months.value}mo)`);

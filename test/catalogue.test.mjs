@@ -112,6 +112,21 @@ for (const p of cat.products) {
   }
 }
 
+/* close kit: every paper and the initial-wait line must be on its cited page */
+for (const p of cat.products) {
+  const doc = docs[p.id];
+  if (!doc || !p.close_kit) continue;
+  const items = [...p.close_kit.papers, ...(p.close_kit.initial_wait ? [{ key: "initial_wait", ...p.close_kit.initial_wait }] : [])];
+  for (const it of items) {
+    quotes++;
+    check(
+      (doc.byPage.get(it.pdf_page) ?? "").includes(norm(it.quote)),
+      `${p.id}.close_kit.${it.key}: quote occurs on PDF page ${it.pdf_page}`,
+      `quote not found: "${it.quote.slice(0, 80)}..."`
+    );
+  }
+}
+
 /* printed page numbers must agree with the stated offset */
 for (const p of cat.products) {
   const off = docs[p.id]?.meta.page_offset;

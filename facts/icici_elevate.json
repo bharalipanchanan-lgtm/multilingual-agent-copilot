@@ -1,22 +1,22 @@
 {
   "policy_id": "icici_elevate",
-  "insurer": "ICICI Lombard (ICC)",
+  "insurer": "ICICI Lombard",
   "product": "ICICI Lombard Elevate",
-  "version": "ICIHLIP25048V012425",
+  "version": "ICIHLIP27062V072627",
   "verified": true,
-  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "verified_by": "full wording (117 pages) via ingest/extract.py + scripts/elevate_facts.py",
   "attributes": {
-    "ped_waiting": {"value": "24 months of continuous coverage", "clause": "3.1 (Code Excl 01)", "page": 3, "printed_page": 3},
-    "specific_waiting": {"value": "24 months of continuous coverage (cataract, hernia, BPH, joint replacement)", "clause": "3.2 (Code Excl 02)", "page": 3, "printed_page": 3},
-    "initial_waiting": {"value": "30 days initial waiting period (accidents excluded)", "clause": "3.3 (Code Excl 03)", "page": 3, "printed_page": 3},
-    "room_rent": {"value": "Single Private A/C Room or any room category up to Sum Insured; ICU at actuals with no proportionate deduction", "clause": "2.1", "page": 2, "printed_page": 2},
-    "copay": {"value": "No mandatory co-payment in base policy", "clause": "2.1", "page": 2, "printed_page": 2},
-    "maternity": {"value": "Covered after 24 months waiting period up to ₹1,00,000 per delivery", "clause": "3.4 (Code Excl 18)", "page": 3, "printed_page": 3},
-    "ayush": {"value": "Inpatient AYUSH treatment in a registered AYUSH Hospital covered up to 100% of Sum Insured", "clause": "2.3", "page": 2, "printed_page": 2},
-    "daycare": {"value": "Day care procedures and Robotic surgeries covered up to 100% of Base Sum Insured", "clause": "2.2", "page": 2, "printed_page": 2},
-    "pre_post": {"value": "60 days pre-hospitalisation and 180 days post-hospitalisation", "clause": "2.4", "page": 2, "printed_page": 2},
-    "ncb": {"value": "20% Cumulative Bonus per claim-free year up to 100% of Base Sum Insured", "clause": "2.5", "page": 2, "printed_page": 2},
-    "renewal": {"value": "30 days Grace Period for renewal with continuity benefits", "clause": "1.1 Def. 2", "page": 1, "printed_page": 1},
-    "sublimits": {"value": "No sub-limit on Cataract or Robotic surgery; Maternity up to ₹1,00,000", "clause": "2.2, 3.2, 3.4", "page": 2, "printed_page": 2}
+    "ped_waiting": {"value": "36 months of continuous coverage after the first policy start (an optional cover can cut this to 24 or 12 months)", "clause": "Standard Exclusion 1 (Code-Excl01)", "page": 88, "printed_page": 88},
+    "specific_waiting": {"value": "24 months of continuous coverage for the listed conditions and surgeries (includes cataract)", "clause": "Standard Exclusion 2 (Code-Excl02)", "page": 88, "printed_page": 88},
+    "initial_waiting": {"value": "30 days from the first policy start, except claims arising from an accident", "clause": "Standard Exclusion 4 30-day Waiting Period (Code-Excl03)", "page": 90, "printed_page": 90},
+    "room_rent": {"value": "Room Rent up to a Single Private AC room (the Room Modifier optional cover can change this)", "clause": "Basic Cover 1 In-patient Treatment, i. Room Rent", "page": 12, "printed_page": 12},
+    "copay": {"value": "Voluntary Co-Payment is an optional cover (Optional Cover 19); it applies only if chosen", "clause": "Optional Covers, note a", "page": 31, "printed_page": 31},
+    "maternity": {"value": "Optional add-on only: Maternity Benefit up to 10% of the Sum Insured", "clause": "Optional Cover, 5. Maternity Benefit", "page": 36, "printed_page": 36},
+    "ayush": {"value": "In-patient AYUSH treatment at a Government Recognized AYUSH Hospital or AYUSH Day Care Centre", "clause": "Basic Cover 6 In Patient AYUSH Hospitalization", "page": 15, "printed_page": 15},
+    "daycare": {"value": "Robotic surgeries covered as a listed Technological Advancement treatment, up to the Sum Insured and sub-limits", "clause": "Basic Cover 3 Technological Advancements and Treatments, item 7", "page": 14, "printed_page": 14},
+    "pre_post": {"value": "90 days pre-hospitalisation and 180 days post-hospitalisation", "clause": "Basic Cover, Pre- and Post-Hospitalization Medical Expenses", "page": 14, "printed_page": 14},
+    "ncb": {"value": "Loyalty Bonus of 20% for each policy year, up to 100% of the Sum Insured", "clause": "Loyalty Bonus", "page": 17, "printed_page": 17},
+    "renewal": {"value": "Grace period of 30 days (15 days for monthly premium) without loss of continuity", "clause": "Definition, Grace Period", "page": 4, "printed_page": 4},
+    "sublimits": {"value": "Cataract has no separate money limit in the base cover (the Vital Essence add-on sets ₹30,000); it waits 24 months", "clause": "Code-Excl02 list, item ix", "page": 89, "printed_page": 89}
   }
 }

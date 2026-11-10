@@ -5,8 +5,7 @@ National_Mediclaim_Policy.pdf,national_mediclaim,National Insurance,National Med
 3-care-supreme.pdf,care_supreme,Care Health,Care Supreme,1,1,(?m)^\s*Care Supreme-\s*CHIHLIP23128V012223\s*\d*\s*$
 4-niva-reassure-2.0.pdf,niva_reassure_2,Niva Bupa,ReAssure 2.0,,0,"(?m)^\s*ReAssure 2\.0_Policy Wordings\s*$|Product Name: ReAssure 2\.0, Product UIN: NBHHLIP26042V022526"
 5-tata-medicare-premier.pdf,tata_medicare_premier,TATA AIG,MediCare Premier,,0,(?m)^Page \d+ of \d+\s*$|No\.: \d+ • CIN: U85110MH2000PLC128425 • TATA AIG MediCare Premier UIN: TATHLIP26052V052526
-6-icici-elevate.pdf,icici_elevate,ICICI Lombard (ICC),ICICI Lombard Elevate,,0,(?m)^ICICI Lombard General Insurance Company Limited \(ICC\)\s*$
-7-max-life-smart-secure-plus.pdf,max_life_smart_secure_plus,Max Life,Max Life Smart Health Rider,,0,(?m)^Max Life Insurance Company Limited\s*$
+6-icici-elevate.pdf,icici_elevate,ICICI Lombard,ICICI Lombard Elevate,,0,(?m)^ICICI Lombard General Insurance Company Limited\s*$|IRDA Reg\. No\. 115[^\n]*|CIN: L67200MH2000PLC129408[^\n]*|^UIN:?\s*ICIHLIP27062V072627[^\n]*|^Mailing Address:[^\n]*|^Registered Office Address:[^\n]*|^Toll free no:[^\n]*|^Alternate no ?:[^\n]*|^E-mail: customersupport@icicilombard\.com[^\n]*|^Website ?: www\.icicilombard\.com[^\n]*
 02-bajaj-allianz-health-guard-plan.pdf,qi_bajaj_allianz_health_guard_plan,Bajaj Allianz,Health Guard,,0,
 06-generali-central-formerly-future-generali-health-absolute-plan.pdf,qi_generali_central_formerly_future_generali_health_absolute_plan,Generali Central,Health Absolute,,0,
 08-hdfc-ergo-optima-secure-plan.pdf,qi_hdfc_ergo_optima_secure_plan,HDFC ERGO,Optima Secure (V06 · 2024-25 wording),,0,

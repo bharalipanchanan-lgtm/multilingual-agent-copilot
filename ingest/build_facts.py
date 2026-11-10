@@ -89,13 +89,19 @@ HEAD_BAD = re.compile(r"^(?:Years?|Months?|Days?|Lakhs?|Lacs?|Crores?|Policy Wor
 
 
 def clause_label(text: str, pos: int) -> str | None:
-    win = text[max(0, pos - 220):pos + 60]
+    start = max(0, pos - 220)
+    win = text[start:pos + 60]
     code = None
     for m in CODE_RE.finditer(win):
         code = f"Code-Excl{int(m.group(1)):02d}"
     num = None
     for m in CLAUSE_RE.finditer(win):
+        # a list marker after the quote starts numbers the next item, not this one
+        if start + m.start(1) > pos + 2:
+            break
         head = re.split(r"\s*(?:Code\b|\(|:|–|—| - )", m.group(2))[0].strip(" -")
+        if m.end(2) - m.start(2) >= 48:
+            head = head.rsplit(" ", 1)[0]
         if HEAD_BAD.search(head) or HEAD_BAD.search(m.group(1) + " " + head):
             continue
         if len(head) >= 3:

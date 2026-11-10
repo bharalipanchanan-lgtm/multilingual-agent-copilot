@@ -46,9 +46,11 @@ def page_count(pdf: pathlib.Path) -> int:
 def _run(pdf: pathlib.Path, n: int, *flags: str) -> str:
     try:
         out = subprocess.run(
-            ["pdftotext", *flags, "-f", str(n), "-l", str(n), str(pdf), "-"],
+            ["pdftotext", "-enc", "UTF-8", *flags, "-f", str(n), "-l", str(n), str(pdf), "-"],
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             check=True,
         ).stdout
         return re.sub(r"\n{3,}", "\n\n", out).strip()
