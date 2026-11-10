@@ -45,13 +45,21 @@ const ms = (t0) => Math.max(1, Math.round(performance.now() - t0));
 const pdfLink = (p, cite) => (cite?.pdf ? `<a class="open" href="/pdf/${esc(C.policyIdOf(p))}#page=${cite.pdf}" target="_blank" rel="noopener">${esc(C.pageLabel(cite))} &#8599;</a>` : "");
 let BID = 0;
 
-function scroll() { chat.scrollTop = chat.scrollHeight; }
+/* long answers: put the start of the bot bubble at the top of the pane,
+   so the agent reads from the first line — never jump straight to the end */
+function reveal(el) {
+  if (!el) { chat.scrollTop = chat.scrollHeight; return; }
+  const go = () => { chat.scrollTop = Math.max(0, el.offsetTop - 4); };
+  requestAnimationFrame(() => { go(); setTimeout(go, 40); });
+}
 function add(cls, html) {
   const d = document.createElement("div");
   d.className = "msg " + cls;
   d.innerHTML = html;
   chat.appendChild(d);
-  scroll();
+  /* only pin bot answers; scrolling the user bubble first then the answer
+     mid-animation used to land past the first line of the result */
+  if (/\bbot\b/.test(cls)) reveal(d);
   return d;
 }
 function addSys(html, kind) {
@@ -59,7 +67,7 @@ function addSys(html, kind) {
   d.className = "sys" + (kind ? ` sys--${kind}` : "");
   d.innerHTML = html;
   chat.appendChild(d);
-  scroll();
+  reveal(d);
   return d;
 }
 function typing(text) {
@@ -384,7 +392,7 @@ async function askRag(p, question) {
         const line = buf.slice(0, i).replace(/^data: /, ""); buf = buf.slice(i + 2);
         if (!line.trim()) continue;
         let ev; try { ev = JSON.parse(line); } catch { continue; }
-        if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = `<div class="ans">${withRefs(streamed, id)}</div>`; scroll(); }
+        if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = `<div class="ans">${withRefs(streamed, id)}</div>`; }
         if (ev.type === "final") {
           const [cls, lbl] = BADGE[ev.status] || BADGE.error;
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
@@ -398,7 +406,7 @@ async function askRag(p, question) {
             const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);
             if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1500); }
           }));
-          scroll();
+          reveal(bubble);
         }
       }
     }
@@ -496,7 +504,7 @@ function send(raw) {
     if (matches.length === 1) return pick(matches[0].id, { pendingQ: intent ? text : null });
     return askWhich(matches, intent ? text : null);
   }
-  if (C.isNeed(need, !!S.selected)) { S.choices = null; return needFirst(need); }
+  if (C.isNeed(need, !!S.selected)) { S.choices = null; S.pending = null; return needFirst(need); }
   if (S.choices) {
     add("bot", `<p class="lead">Pick the exact product first — then I'll answer “${esc(text)}” for that one only.</p>`);
     return askWhich(S.choices, text);

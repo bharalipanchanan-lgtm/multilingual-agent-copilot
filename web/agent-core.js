@@ -48,16 +48,19 @@
     father: ["father", "dad", "papa", "pitaji", "pita", "पापा", "पिता"],
     wife: ["wife", "biwi", "patni", "पत्नी"],
     husband: ["husband", "pati", "पति"],
-    self: ["myself", "mujhe", "mere liye"],
+    son: ["son", "beta", "bete", "ladka", "बेटा"],
+    daughter: ["daughter", "beti", "ladki", "बेटी"],
+    self: ["myself", "mujhe", "mere liye", "khud"],
   };
   const CONDITION = {
     diabetes: ["diabetes", "diabetic", "sugar", "madhumeh", "शुगर", "मधुमेह", "डायबिटीज"],
     "high BP": ["bp", "b.p", "blood pressure", "hypertension", "बीपी"],
-    heart: ["heart", "cardiac", "dil ki", "हृदय"],
+    heart: ["heart", "cardiac", "dil ki", "dil ki bimari", "dil ki problem", "bypass", "हृदय"],
     "knee / joint pain": ["knee", "knees", "ghutna", "ghutne", "ghutno", "ghutnon", "joint", "joints", "jodon", "jodo", "arthritis", "gathiya", "घुटन", "जोड़"],
     thyroid: ["thyroid"],
-    asthma: ["asthma", "dama", "saans"],
+    asthma: ["asthma", "dama", "saans", "breathing"],
   };
+  const YOUTH_NAME = /young|yuva|youth|junior|activ one/i;
   const WAIT_WORDS = ["waiting", "wait", "ped", "pre existing", "pre-existing", "preexisting", "pehle se", "intezaar", "intezar", "वेटिंग"];
   const LOW_COST = ["sasta", "sasti", "saste", "cheap", "cheaper", "affordable", "low premium", "kam premium", "pese kam", "paise kam",
     "kam pese", "kam paise", "kam lage", "kam kharcha", "budget friendly", "पैसे कम", "सस्ता"];
@@ -158,8 +161,8 @@
     return "en";
   }
 
-  const WHO_EN = { mother: "your mother", father: "your father", wife: "your wife", husband: "your husband", self: "you" };
-  const WHO_HI = { mother: "mummy", father: "papa", wife: "aapki wife", husband: "aapke husband", self: "aap" };
+  const WHO_EN = { mother: "your mother", father: "your father", wife: "your wife", husband: "your husband", son: "your son", daughter: "your daughter", self: "you" };
+  const WHO_HI = { mother: "mummy", father: "papa", wife: "aapki wife", husband: "aapke husband", son: "beta", daughter: "beti", self: "aap" };
 
   /* first bubble: speak in the language they used, then the cards follow */
   function needAnswer(need, r, lang) {
@@ -326,9 +329,12 @@
     const best = ok[0] || null;
     const second = ok[1] || null;
     const third = ok[2] || null;
-    /* a much shorter wait whose age limit the wording does not state: name it, never rank it blind */
+    /* a much shorter wait whose age limit the wording does not state: name it, never rank it blind.
+       never float a youth-only sounding plan for a 40+ customer */
     const watch = best && !best.ageUnknown
-      ? ok.filter((a) => a.ageUnknown && a.pedMonths <= best.pedMonths - 12).sort((a, b) => a.pedMonths - b.pedMonths)[0] || null
+      ? ok.filter((a) => a.ageUnknown && a.pedMonths <= best.pedMonths - 12 &&
+          !(need.age != null && need.age > 40 && YOUTH_NAME.test(`${a.product.name} ${a.product.variant || ""}`)))
+        .sort((a, b) => a.pedMonths - b.pedMonths || (a.carved ? -1 : 0))[0] || null
       : null;
     const top = new Set([best, second, third, watch].filter(Boolean));
 
@@ -380,6 +386,16 @@
           ? `if already diagnosed, it waits like any PED; joint replacement also has a ${s.value}-month listed-illness wait`
           : "if already diagnosed, it is a pre-existing condition and waits the same; joint-replacement rules are not written here",
         cite: s?.stated ? pageLabel(citePage(s)) : null,
+      });
+    }
+    if (need.conditions.includes("heart") || need.conditions.includes("high BP")) {
+      out.push({
+        k: need.conditions.includes("heart") ? "Heart / BP" : "High BP",
+        v: w
+          ? (w.carved ? `wording lifts the wait for ${w.carvedFor} — covered from ${waitEndDate(w.months)}`
+            : `treated as a pre-existing condition — cover from ${waitEndDate(w.months)}`)
+          : "pre-existing wait is not written in this product",
+        cite: w ? pageLabel(citePage(w.fact)) : null,
       });
     }
     return out;
