@@ -1,4 +1,4 @@
-/* Claviq Agent Copilot — product picker.
+/* QuickPolicy by Claviq — product picker.
    Feature 1: never answer until the agent has named one exact product.
 
    Scope note: matching here is a literal token score over names and
@@ -747,9 +747,9 @@ function copilotTurn(p, result, ms) {
   if (result.kind === "pending") {
     const live = textNode("p", "bubble__lead");
     live.id = "live-answer";
-    live.textContent = result.text || "Searching the wording…";
+    live.textContent = result.text || "Reading the wording…";
     bubble.append(live);
-    bubble.append(textNode("p", "bubble__src", "Retrieving clauses with bge-m3."));
+    bubble.append(textNode("p", "bubble__src", "Matching your question to the cited clauses."));
     li.append(bubble);
     return li;
   }
@@ -760,15 +760,15 @@ function copilotTurn(p, result, ms) {
     if (ev.status === "not_stated" || ev.status === "refused") {
       const box = textNode("div", "refusal");
       box.append(textNode("b", null,
-        ev.status === "refused" ? "Not something this tool answers." : "This is not written in this product."));
+        ev.status === "refused" ? "Outside this wording." : "Not written in this product."));
       box.append(textNode("p", null, ev.answer || ""));
       bubble.append(box);
     } else {
       if (ev.status === "blocked") {
         const warn = textNode("div", "refusal");
-        warn.append(textNode("b", null, "Draft blocked. "));
+        warn.append(textNode("b", null, "Answer held. "));
         warn.append(textNode("p", null,
-          `A figure in the draft (${(ev.unsupported_numbers || []).join(", ")}) did not appear in the clause it cited. Showing the clauses verbatim instead.`));
+          `A figure (${(ev.unsupported_numbers || []).join(", ")}) was not found in the cited clause. Showing the clauses as written.`));
         bubble.append(warn);
       }
       const raw = (ev.answer || "").trim();
@@ -803,8 +803,8 @@ function copilotTurn(p, result, ms) {
     const scanMs = ev.first_token_ms ?? ev.ms;
     bubble.append(textNode("p", "latency",
       scanMs != null && scanMs < 3000
-        ? `Scanned the PDF in under 3 seconds (${scanMs} ms)`
-        : `Scanned the PDF · ${ev.ms} ms${ev.first_token_ms ? `, first word ${ev.first_token_ms} ms` : ""}`));
+        ? `Scanned the policies in under 3 seconds (${scanMs} ms)`
+        : `Scanned the policies · ${ev.ms} ms${ev.first_token_ms ? `, first word ${ev.first_token_ms} ms` : ""}`));
     li.append(bubble);
     return li;
   }
@@ -827,16 +827,16 @@ function copilotTurn(p, result, ms) {
   } else {
     const box = textNode("div", "refusal");
     if (result.reason === "out-of-scope") {
-      box.append(textNode("b", null, "Not something this tool answers."));
+      box.append(textNode("b", null, "Outside this wording."));
       box.append(
         textNode(
           "p",
           null,
-          "Premium depends on underwriting. Quote it from the rate sheet, never from here."
+          "Premium depends on underwriting. Quote it from the rate sheet, not from QuickPolicy."
         )
       );
     } else if (result.reason === "not-in-wording") {
-      box.append(textNode("b", null, "This is not written in this product."));
+      box.append(textNode("b", null, "Not written in this product."));
       box.append(
         textNode(
           "p",
@@ -859,8 +859,8 @@ function copilotTurn(p, result, ms) {
       "p",
       "latency",
       ms < 3000
-        ? `Scanned the PDF in under 3 seconds (${ms} ms)`
-        : `Scanned the PDF · ${ms} ms`
+        ? `Scanned the policies in under 3 seconds (${ms} ms)`
+        : `Scanned the policies · ${ms} ms`
     )
   );
   li.append(bubble);
@@ -1306,16 +1306,15 @@ async function uploadPdf(file) {
   }
   state.uploading = true;
   const zone = document.getElementById("upload-zone");
-  if (zone) zone.setAttribute("aria-busy", "true");
+  const drop = zone?.closest(".drop");
+  drop?.classList.remove("drop--done");
+  drop?.setAttribute("aria-busy", "true");
   const t0 = Date.now();
   const tick = setInterval(() => {
     const s = Math.round((Date.now() - t0) / 1000);
-    setUploadStatus(
-      `Scanning ${file.name} into hybrid RAG… ${s}s (large PDFs can take up to a minute on CPU)`,
-      "busy"
-    );
+    setUploadStatus(`Reading ${file.name}… ${s}s`, "busy");
   }, 500);
-  setUploadStatus(`Scanning ${file.name} into hybrid RAG… 0s`, "busy");
+  setUploadStatus(`Reading ${file.name}… 0s`, "busy");
 
   const fd = new FormData();
   fd.append("file", file, file.name);
@@ -1341,20 +1340,20 @@ async function uploadPdf(file) {
     if (!p?.id) throw new Error("Upload succeeded but no product card came back.");
     rememberProduct(p);
     buildFilters();
-    const speed = data.under_10s
-      ? `Scanned in under 10 seconds (${data.ms} ms).`
-      : `Indexed in ${(data.ms / 1000).toFixed(1)}s (${data.n_pages} pages).`;
     setUploadStatus(
-      `${speed} ${data.n_chunks} clauses ready — ask waiting period, room rent, or any hard clause.`,
+      `${p.name || file.name} · ${data.n_pages} pages · ${data.n_chunks} clauses in ${(data.ms / 1000).toFixed(1)}s`,
       "ok"
     );
+    drop?.classList.add("drop--done");
+    const title = zone?.querySelector(".drop__text b");
+    if (title) title.textContent = "Policy added";
     select(p.id);
   } catch (err) {
-    setUploadStatus(String(err.message || err), "err");
+    setUploadStatus(`Couldn't read it — ${err.message || err}`, "err");
   } finally {
     clearInterval(tick);
     state.uploading = false;
-    if (zone) zone.removeAttribute("aria-busy");
+    drop?.removeAttribute("aria-busy");
     const input = document.getElementById("pdf-file");
     if (input) input.value = "";
   }

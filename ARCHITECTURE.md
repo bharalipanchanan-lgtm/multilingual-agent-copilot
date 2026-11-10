@@ -1,4 +1,4 @@
-# System architecture: Claviq Agent Copilot (local prototype)
+# System architecture: QuickPolicy by Claviq (local prototype)
 
 An insurance agent asks about a health policy in English, Hindi or Hinglish. The copilot answers only from the policy wording, cites the clause and page, and says "not stated in the document" when the policy does not answer. The whole system runs on one MacBook Pro (M1 Pro, 16 GB) with no paid services and no network at run time.
 
@@ -30,7 +30,7 @@ flowchart LR
     end
 ```
 
-Documents are prepared offline and searched online. Nothing in the online path parses PDFs. That is why answer time is a few seconds, and it is why the demo should never claim that the system "scans the PDF".
+Documents are prepared offline and searched online. Nothing in the online ask path re-parses PDFs. That is why answer time is a few seconds. The public demo line is "scans the policies" (answer latency), not a claim that each question re-reads the file from scratch.
 
 ## 2. Components
 

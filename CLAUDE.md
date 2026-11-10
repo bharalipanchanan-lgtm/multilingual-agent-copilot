@@ -1,4 +1,4 @@
-# CLAUDE.md: Claviq Agent Copilot prototype
+# CLAUDE.md: QuickPolicy by Claviq prototype
 
 Read this first. It carries the context from the earlier chat so work can continue here without re-explaining.
 

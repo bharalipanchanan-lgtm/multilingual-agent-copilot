@@ -1,4 +1,4 @@
-/* Claviq Agent Copilot — Quickinsure skin
+/* QuickPolicy by Claviq — Quickinsure skin
    Tokens measured from quickinsure.co.in. See DESIGN.md. */
 
 :root {
@@ -336,74 +336,135 @@ h2 {
 
 /* ── search ──────────────────────────────────────────────── */
 
-.upload { margin-bottom: 18px; }
+/* ── slim PDF drop bar ────────────────────────────────────── */
 
-.upload-zone {
+.drop { position: relative; margin-bottom: 22px; }
+
+.drop__bar {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 28px 18px;
-  border: 1.5px dashed var(--qi-line-strong);
-  border-radius: var(--qi-r-row);
-  background: var(--qi-surface-2);
+  gap: 14px;
+  padding: 10px 10px 10px 12px;
+  border-radius: var(--qi-r-pill);
+  background: var(--qi-surface);
+  border: 1px solid var(--qi-line);
+  box-shadow: var(--qi-shadow);
   cursor: pointer;
-  text-align: center;
-  transition: border-color var(--qi-fast), background var(--qi-fast);
+  overflow: hidden;
+  transition: border-color var(--qi-fast), box-shadow var(--qi-lift), transform var(--qi-lift);
 }
-.upload-zone:hover,
-.upload-zone--drag {
+.drop__bar:hover { border-color: var(--qi-tint-line); box-shadow: var(--qi-shadow-lift); transform: translateY(-1px); }
+.drop__bar:focus-within { border-color: var(--qi-navy); }
+.drop__bar.upload-zone--drag {
   border-color: var(--qi-navy);
   background: var(--qi-tint);
+  box-shadow: 0 0 0 4px rgba(6, 77, 152, 0.12), var(--qi-shadow-lift);
+  transform: scale(1.01);
 }
-.upload-zone__icon { color: var(--qi-navy); margin-bottom: 4px; }
-.upload-zone__title { font-size: 17px; font-weight: 700; color: var(--qi-ink-strong); }
-.upload-zone__hint { font-size: 14px; color: var(--qi-muted); }
 
-.upload-meta {
+.drop__icon {
+  flex: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--qi-tint);
+  color: var(--qi-navy);
+  transition: background var(--qi-lift), color var(--qi-lift), transform var(--qi-lift);
 }
-.upload-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.drop__icon svg { grid-area: 1 / 1; transition: opacity var(--qi-fast), transform var(--qi-lift); }
+.drop__done { opacity: 0; transform: scale(0.4); }
+.drop__bar:hover .drop__icon { transform: rotate(-6deg) scale(1.05); }
+
+.drop__text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.drop__text b { font-size: 15.5px; color: var(--qi-ink-strong); }
+
+.drop__cta {
+  flex: none;
+  padding: 10px 18px;
+  border-radius: var(--qi-r-pill);
+  background: var(--qi-slate);
+  color: var(--qi-green);
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--qi-muted);
+  transition: background var(--qi-fast);
 }
-.upload-field input {
-  font: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: none;
-  letter-spacing: normal;
-  color: var(--qi-ink);
-  height: 46px;
-  padding: 0 12px;
-  border: 1px solid var(--qi-line-strong);
-  border-radius: var(--qi-r-input);
-}
-.upload-field input:focus {
-  outline: 0;
-  border-color: var(--qi-navy);
-  box-shadow: 0 0 0 3px rgba(6, 77, 152, 0.14);
+.drop__bar:hover .drop__cta { background: var(--qi-slate-2); }
+
+.drop__progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: var(--qi-green);
+  opacity: 0;
 }
 
 .upload-status {
-  margin: 14px 0 0;
-  font-size: 14.5px;
+  font-size: 13.5px;
   color: var(--qi-muted);
-  min-height: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.upload-status--ok { color: var(--qi-ink-strong); }
+.upload-status--ok { color: var(--qi-ink); }
 .upload-status--ok b { color: var(--qi-navy); }
 .upload-status--err { color: var(--qi-warn); }
 .upload-status--busy { color: var(--qi-navy); font-weight: 600; }
+
+/* busy: icon pulses, progress creeps */
+.drop[aria-busy="true"] .drop__icon { animation: drop-pulse 1.2s ease-in-out infinite; }
+.drop[aria-busy="true"] .drop__progress { opacity: 1; animation: drop-creep 9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.drop[aria-busy="true"] .drop__cta { opacity: 0.5; }
+@keyframes drop-pulse { 50% { box-shadow: 0 0 0 7px rgba(6, 77, 152, 0.1); } }
+@keyframes drop-creep { from { width: 0; } to { width: 88%; } }
+
+/* done: green tick morphs in */
+.drop--done .drop__icon { background: var(--qi-green); color: #fff; }
+.drop--done .drop__glyph { opacity: 0; transform: scale(0.4); }
+.drop--done .drop__done { opacity: 1; transform: none; }
+.drop--done .drop__progress { opacity: 1; width: 100%; transition: width 300ms ease-out, opacity 600ms 900ms; opacity: 0; }
+
+.drop__name {
+  position: absolute;
+  right: 22px;
+  top: calc(100% + 4px);
+  font-size: 12.5px;
+}
+.drop__name summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--qi-muted);
+  font-weight: 600;
+}
+.drop__name summary::-webkit-details-marker { display: none; }
+.drop__name summary::after { content: " +"; }
+.drop__name[open] summary::after { content: " −"; }
+.drop__name summary:hover { color: var(--qi-navy); }
+.drop__name[open] { position: static; margin: 10px 0 0; text-align: right; }
+.drop__fields { display: flex; gap: 8px; margin-top: 8px; }
+.drop__fields input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 14.5px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--qi-line);
+  border-radius: var(--qi-r-pill);
+  background: var(--qi-surface);
+}
+.drop__fields input:focus { outline: 0; border-color: var(--qi-navy); box-shadow: 0 0 0 3px rgba(6, 77, 152, 0.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .drop[aria-busy="true"] .drop__icon, .drop[aria-busy="true"] .drop__progress { animation: none; }
+}
 
 .card--upload { border-left-color: var(--qi-green); }
 .badge-upload {
@@ -423,7 +484,8 @@ h2 {
 .search { margin-bottom: 28px; }
 
 @media (max-width: 640px) {
-  .upload-meta { grid-template-columns: 1fr; }
+  .drop__cta { padding: 10px 14px; }
+  .drop__fields { flex-direction: column; }
 }
 
 .search__field {

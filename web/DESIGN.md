@@ -1,4 +1,4 @@
-# DESIGN.md — Claviq Agent Copilot (Quickinsure skin)
+# DESIGN.md — QuickPolicy by Claviq (Quickinsure skin)
 
 Tokens below were read from the computed styles of https://quickinsure.co.in on 2026-11-10.
 They are measured, not invented. Re-run the extraction if the site is restyled.

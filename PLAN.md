@@ -1,4 +1,4 @@
-# Claviq Agent Copilot: Prototype Build Plan
+# QuickPolicy by Claviq: Prototype Build Plan
 
 Status: draft for review. Nothing beyond Phase 0 is built yet.
 
@@ -140,7 +140,7 @@ Test set: 20 questions across 3 policies gives 60 cases, which is enough to catc
 
 ## 10. Pitch claims (how the demo says them)
 
-**"Scans the PDF in under 3 seconds."** Demo line for the agent experience. Internally the PDFs are indexed up front; at ask time the copilot retrieves the clause and answers. Fast facts (waiting, room rent, entry age) return in well under 3 seconds. Hard RAG questions stream so the first word arrives quickly; the UI still labels the turn as a PDF scan.
+**"Scans the policies in under 3 seconds."** Demo line for the agent experience. Internally the wordings are indexed up front; at ask time the copilot retrieves the clause and answers. Fast facts (waiting, room rent, entry age) return in well under 3 seconds. Hard RAG questions stream so the first word arrives quickly; the UI still labels the turn as scanning the policies.
 
 **Marketing line first, clause underneath.** The pitch example ("Insurer X: declared PED waiting is 36 months…") is the agent-facing lead. The quoted clause, page and rule number sit directly below so compliance can verify. Never invent a co-pay or figure that is not in the wording.
 

@@ -4,11 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<title>Agent Copilot — Quickinsure</title>
+<title>QuickPolicy by Claviq</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="avatar.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -16,21 +19,18 @@
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="brand" href="/" aria-label="Quickinsure Agent Copilot, home">
-      <svg class="brand__mark" width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
-        <path d="M0 2h18l-4 5H3z" fill="#2acb55"/>
-        <path d="M6 10h13l-4 5H9z" fill="#2acb55"/>
-        <path d="M22 0h8l-12 22h-8z" fill="#064d98" opacity=".9"/>
-      </svg>
+    <a class="brand" href="/" aria-label="QuickPolicy by Claviq, home">
+      <span class="brand__avatar" data-qpa="mark" data-qpa-track data-qpa-hop></span>
       <span class="brand__text">
-        <span class="brand__word">Quick<span>insure</span></span>
-        <span class="brand__tag">Agent copilot</span>
+        <span class="brand__word">Quick<span>Policy</span></span>
+        <span class="brand__tag">by Claviq</span>
       </span>
     </a>
 
     <nav class="site-nav" aria-label="Main">
       <a href="/" aria-current="page">Find product</a>
       <a href="simple.html">Policy chat</a>
+      <a href="/?guide" data-guide-open>Guide</a>
       <a href="/api/status" target="_blank" rel="noopener">System status</a>
     </nav>
 
@@ -55,8 +55,8 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__inner">
     <h1 id="hero-title" class="hero__title">Find. Check. Close.</h1>
-    <p class="hero__pill">Scans the PDF in under 3 seconds</p>
-    <p class="hero__line">Plain answer first — then the exact clause, page and rule number underneath.</p>
+    <p class="hero__pill">Scans the policies in under 3 seconds</p>
+    <p class="hero__line">QuickPolicy reads the wording and explains it in plain words — clause and page on every answer.</p>
     <ol class="steps" aria-label="How it works">
       <li><span class="step-badge"><b>1</b><i>3</i></span>Pick the exact product</li>
       <li><span class="step-badge"><b>2</b><i>3</i></span>Ask in English, Hindi or Hinglish</li>
@@ -68,36 +68,33 @@
 <main id="main">
   <div class="notes">
     <p class="fixture-note fixture-note--ok">
-      <b>Policy wordings, read page by page.</b>
-      <span>Every value carries the page and clause it came from. If the wording does not say it, the copilot says so.</span>
+      <b>Fine print, in plain words.</b>
+      <span>Answers only from the selected wording. Clause and page on every figure. If it is not written, QuickPolicy says so.</span>
     </p>
     <div id="catalogue-note"></div>
   </div>
 
-  <section class="upload panel" aria-labelledby="upload-title">
-    <div class="panel__head">
-      <h2 id="upload-title" class="panel__title">Or drop a policy PDF</h2>
-      <p class="panel__sub">Hybrid RAG indexes the wording (semantic + keyword). Target: under 10 seconds when the models are warm. Then ask like any other product.</p>
-    </div>
-    <div class="panel__body">
-      <label class="upload-zone" id="upload-zone" for="pdf-file">
-        <input id="pdf-file" type="file" accept="application/pdf,.pdf" hidden>
-        <span class="upload-zone__icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
-        </span>
-        <span class="upload-zone__title">Upload insurer wording PDF</span>
-        <span class="upload-zone__hint">Drag and drop, or click to browse · text PDFs only · max 60 pages</span>
-      </label>
-      <div class="upload-meta">
-        <label class="upload-field">Insurer
-          <input id="upload-insurer" type="text" placeholder="e.g. Star Health" autocomplete="organization">
-        </label>
-        <label class="upload-field">Product name
-          <input id="upload-product" type="text" placeholder="e.g. Family Health Optima" autocomplete="off">
-        </label>
+  <section class="drop" aria-label="Add a policy PDF">
+    <label class="drop__bar" id="upload-zone" for="pdf-file">
+      <input id="pdf-file" type="file" accept="application/pdf,.pdf" hidden>
+      <span class="drop__icon" aria-hidden="true">
+        <svg class="drop__glyph" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6"/><path d="m9.5 13.5 2.5-2.5 2.5 2.5"/></svg>
+        <svg class="drop__done" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>
+      </span>
+      <span class="drop__text">
+        <b>Have the policy PDF?</b>
+        <span class="upload-status" id="upload-status" role="status" aria-live="polite">Drop it here — QuickPolicy reads it in seconds.</span>
+      </span>
+      <span class="drop__cta">Add PDF</span>
+      <i class="drop__progress" aria-hidden="true"></i>
+    </label>
+    <details class="drop__name">
+      <summary>Name it</summary>
+      <div class="drop__fields">
+        <input id="upload-insurer" type="text" placeholder="Insurer" aria-label="Insurer" autocomplete="organization">
+        <input id="upload-product" type="text" placeholder="Product name" aria-label="Product name" autocomplete="off">
       </div>
-      <p class="upload-status" id="upload-status" role="status" aria-live="polite"></p>
-    </div>
+    </details>
   </section>
 
   <section class="search panel" aria-labelledby="search-title">
@@ -132,8 +129,8 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__brand">
-      <span class="brand__word brand__word--light">Quick<span>insure</span></span>
-      <p>Agent copilot. Answers come only from the insurer's own policy wording, with the page and clause number next to every figure.</p>
+      <span class="brand__word brand__word--light">Quick<span>Policy</span></span>
+      <p>by Claviq. Answers only from the insurer’s own wording — clause and page on every figure. Silent when the policy is silent.</p>
     </div>
     <div class="site-footer__col">
       <h3>Tools</h3>
@@ -150,10 +147,14 @@
   <p class="site-footer__legal">For use by licensed agents. Not a policy document — the insurer's wording and schedule always prevail.</p>
 </footer>
 
-<a class="fab" href="simple.html" aria-label="Open policy chat">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+<a class="fab fab--avatar" href="simple.html" aria-label="Open policy chat">
+  <span data-qpa="mark" data-qpa-track data-qpa-hop></span>
+  <span class="fab__ping" aria-hidden="true"></span>
 </a>
 
 <script src="app.js"></script>
+<script src="vendor/motion.js"></script>
+<script src="avatar.js"></script>
+<script src="guide.js"></script>
 </body>
 </html>
