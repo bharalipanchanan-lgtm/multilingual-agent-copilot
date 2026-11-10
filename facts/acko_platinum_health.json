@@ -1,0 +1,339 @@
+{
+ "format": 2,
+ "policy_id": "acko_platinum_health",
+ "insurer": "Acko General Insurance",
+ "product": "Acko Personal Health Policy (Platinum Health)",
+ "source": "acko_platinum_health.pdf, UIN ACKHLIP25035V022425",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The waiting periods for cataract and diabetes are not specified in the extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "There is a 30-day initial waiting period from the first policy commencement date, which applies to expenses related to any illness within 30 days except for claims arising due to an accident.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 32,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "section 4.1.3"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The policy does not state the specific room rent limit or room category covered for the base plan.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The co-payment percentage is specified in the policy schedule, but the exact percentage is not stated in the extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": true,
+    "condition": "after the assessment of the claim amount by us"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity (childbirth) is not covered under this policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": false,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered, but only for in-patient medical care expenses at AYUSH Hospitals or health care facilities. AYUSH day care treatment expenses are not covered under this policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 17,
+     "quote": "Any medical expense other than in-patient care AYUSH treatment expenses are not covered under this policy.",
+     "clause": "section 3.2.10 AYUSH Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The No Claim Bonus (NCB) Sum Insured is provided as a fixed percentage of the base sum insured for each claim-free year, with the maximum NCB Sum Insured not being more than the Base Sum Insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "The additional NCB Sum Insured we will provide in the subsequent year, will be a fixed percentage of the base sum insured of the current policy year.",
+     "clause": "3.3.3 No Claim Bonus Sum Insured"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": null,
+    "max_percent": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy document does not specify the minimum or maximum entry age for adults or children.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The extracts do not explicitly state the lowest and highest sum insured options available under the policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The sum insured is restored by 100% when the total base sum insured, inflation protect sum insured, and any NCB sum insured are used up in previous claims, making the restored amount available for use against any other claims apart from the illness for which a claim was already made in the current policy year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "The sum insured will be restored by 100% i.e. Rs. 25 lakhs. This Rs. 25 lakhs would be available for use against any claims apart from cardiac arrest.",
+     "clause": "3.3.2 Restore Sum Insured"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy extracts do not specify any sub-limits for cataract treatment or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered if undertaken in a hospital, nursing home, or day care centre. Out-patient treatments are not covered unless section 3.4.3 is in force.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "If anyone insured under the policy undertakes Day Care Treatment in a hospital / nursing home / day care centre, we will cover the expenses of the day care treatment.",
+     "clause": "3.2.3 Day Care Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy does not specify the exact number of pre-hospitalization and post-hospitalization days covered under the Acko Personal Health Policy (Platinum Health).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": null,
+    "post_days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The policy covers ICU charges during hospitalization as specified in the policy schedule, and if a higher room category or ICU charges are availed than the schedule limit, the insured must bear a proportional part of the total in-patient medical expenses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 14,
+     "quote": "we will cover the room rent charges for the room category and ICU charges during hospitalization stay as specified in the policy schedule.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "rupees"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage, after which no policy and claim shall be contestable by the insurer on grounds of non-disclosure.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "Moratorium Period means the period of sixty continuous months of coverage (including portability and migration) in health insurance policy upon completion of which no policy and claim shall be contestable by Us on grounds of non-disclosure",
+     "clause": "2.1 Standard Definitions"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "The extracts do not state whether inpatient mental illness treatment is covered.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Providers, where the insurance company pays the hospital directly before discharge, subject to pre-authorization and policy terms.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 49,
+     "quote": "The Insured Person can avail Cashless facility at the time of admission into any Network Provider by presenting the health card as provided by Us with this Policy",
+     "clause": "6.1.3 Cashless claims process"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "Set in the policy schedule; the wording does not give the number of months.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

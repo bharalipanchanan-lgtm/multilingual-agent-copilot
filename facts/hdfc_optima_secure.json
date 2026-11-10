@@ -1,0 +1,365 @@
+{
+ "format": 2,
+ "policy_id": "hdfc_optima_secure",
+ "insurer": "HDFC ERGO General Insurance",
+ "product": "my: Optima Secure",
+ "source": "hdfc_optima_secure.pdf, UIN HDFHLIP26058V082526",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The standard waiting period for pre-existing diseases is 36 months of continuous coverage, but it can be modified to 24 months or 12 months through optional covers.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 30,
+     "quote": "Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months (Unless specified otherwise in the Policy Schedule) of continuous coverage after the date of inception of the first policy with insurer.",
+     "clause": "SECTION C. WAITING PERIOD AND EXCLUSIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The specified disease/procedure waiting period is 24 months for listed conditions, but if a disease falls under both specified disease/procedure and pre-existing disease waiting periods, the longer of the two applies. Cataract and other disorders of lens and Retina are listed under specified diseases/procedures with a 24-month waiting period. Uncontrolled type 2 diabetes is listed under standard exclusions but the specific waiting period is not stated in the extracts provided.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 31,
+     "quote": "Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with us.",
+     "clause": "b. Specified Disease/Procedure waiting period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 24,
+    "cataract_months": 24,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "For pre-existing diseases, the waiting period is 36 months from the date of inception of the first policy with the insurer, unless specified otherwise in the Policy Schedule. For specified diseases/procedures, the waiting period is 24 months from the date of inception of the first policy, unless the longer waiting period for pre-existing diseases applies.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 30,
+     "quote": "Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months (Unless specified otherwise in the Policy Schedule) of continuous coverage after the date of inception of the first policy with insurer.",
+     "clause": "SECTION C. WAITING PERIOD AND EXCLUSIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The extracts conflict regarding the room rent limit for the Optima Secure plan, with extract 1 showing 800 per day max up to 4800 and extract 4 describing proportionate deduction when exceeding the category/limit in the Policy Schedule without specifying a fixed amount.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "rupees",
+    "percent_of_si": null,
+    "rupees_per_day": 800,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The provided extracts do not mention any co-payment percentage or conditions related to age, zone, non-network, or voluntary co-payment.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity is not covered under the policy, and there is no waiting period information provided for maternity benefits.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": false,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered, but the policy does not specify the coverage limit in the provided extracts.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "The Company shall indemnify the Medical Expenses incurred by the Insured Person only for Inpatient Care under Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy systems",
+     "clause": "1.4. AYUSH Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "For the Optima Secure plan, there is no cumulative bonus, as it is marked 'Not Covered' in the Cumulative Bonus table.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 64,
+     "quote": "Not Covered",
+     "clause": "1.8"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": null,
+    "max_percent": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The minimum entry age for an adult is 18 years and there is no limit on maximum entry age.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 44,
+     "quote": "The minimum entry age for an adult is 18 years and there is no limit on maximum entry age.",
+     "clause": "Section B-2.9 Global"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": 18,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The Automatic Restore Benefit adds 100% of the Base Sum Insured instantly when an admissible claim exhausts the Sum Insured, and this restored amount can be used for subsequent claims in the same policy year, including for the same illness or any other covered illness, by the same or other insured persons.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "The company shall instantly add 100% of the Base Sum Insured under this benefit in the event of an admissible claim during the Policy Year due to which Sum Insured was partially or completely exhausted.",
+     "clause": "2.6. Automatic Restore Benefit"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The extracts do not contain information about sub-limits on specific treatments, particularly cataract or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The pre-hospitalisation and post-hospitalisation days covered are not stated for the Optima Secure plan.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": null,
+    "post_days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "For the Optima Secure plan, ICU/ICCU expenses are covered up to 2% of the base sum insured per day.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 26,
+     "quote": "Modification of ICU / ICCU expenses coverage from At Actuals (as specified under Section B.1.1. – Hospitalization Expenses) to upto 2% of base sum insured per day",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "percent_si"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage (including portability and migration) after which no policy and claim shall be contestable by the insurer on grounds of non-disclosure, misrepresentation, except on grounds of established fraud. This period applies to the sums insured of the first policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 36,
+     "quote": "After completion of sixty continuous months of coverage (including portability and migration) in health insurance policy, no policy and claim shall be contestable by the insurer on grounds of non-disclosure, misrepresentation, except on grounds of established fraud.",
+     "clause": "SECTION D. GENERAL TERMS AND CLAUSES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "The extracts do not clearly state whether inpatient mental illness treatment is covered. Extract 2.1 mentions hospitalization for illness or injury, but does not specify mental illness. Extract 5 defines injury as accidental physical bodily harm excluding illness or disease, which could imply mental illness is excluded from injury coverage but does not address inpatient mental illness treatment specifically.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available within India at Company's Network Providers, and the complete list of Network Providers and empanelled service providers is available on the Company's website and can also be obtained by contacting the Company.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 50,
+     "quote": "Cashless facility can be availed only at Company's Network Provider. The complete list of Network Providers and empanelled service providers is available on Company's website and can also be obtained by contacting the Company.",
+     "clause": "1.5. Conditions for obtaining Cashless Facility within India"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The base sum insured options for the Optima Secure plan range from 5 lakhs to 200 lakhs, with specific options of 5, 7.5, 10, 15, 20, 25, 50, 75, 100, and 200 lakhs.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 61,
+     "quote": "5/10/15/20/25/50/ 100/200 Lakhs",
+     "clause": "PATNA"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": 500000,
+    "max_rupees": 20000000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day Care Treatment is covered under the policy as defined in Section A.11, and reimbursement claims for Day Care Treatment must be submitted within 30 days of discharge from the hospital in Section E.5.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "Def. 11. Day Care Treatment means those medical treatment, and/or surgical procedure which is i) undertaken under General or Local Anaesthesia in a hospital/day care centre in less than 24 hours because of technological advancement, and ii) which would have otherwise required hospitalization of more than 24 hours",
+     "clause": "SECTION A. DEFINITIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

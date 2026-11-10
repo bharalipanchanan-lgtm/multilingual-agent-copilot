@@ -74,7 +74,18 @@ The 7B is used when present, otherwise the 3B. The 3B made a dangerous error in 
 
 ## Loaded documents
 
-There are 17 documents. The first five (National, Oriental, United India, SBI, Royal Sundaram) have fact table rows and gold labels. Twelve full policy wordings, one per insurer, were added on 2026-11-08 from the policy wording links on joinditto.in product pages: HDFC ERGO my: Optima Secure, Aditya Birla Activ One, ICICI Lombard Elevate, Star Super Star, TATA AIG MediCare Premier, Care Supreme, Niva Bupa ReAssure 2.0, Bajaj Health Care Supreme, Acko Personal Health Policy, Digit Health Insurance Policy, New India Premier Mediclaim and IFFCO Tokio Health Protector. They are searchable and answerable, but they have no fact rows yet, so comparison and the best policy finder do not include them and say so. The ManipalCigna wording was dropped because its PDF text extracts as garbled characters.
+There were 17 documents on 2026-11-08 (29 since 2026-11-10, see above). The first five (National, Oriental, United India, SBI, Royal Sundaram) have fact table rows and gold labels. Twelve full policy wordings, one per insurer, were added on 2026-11-08 from the policy wording links on joinditto.in product pages: HDFC ERGO my: Optima Secure, Aditya Birla Activ One, ICICI Lombard Elevate, Star Super Star, TATA AIG MediCare Premier, Care Supreme, Niva Bupa ReAssure 2.0, Bajaj Health Care Supreme, Acko Personal Health Policy, Digit Health Insurance Policy, New India Premier Mediclaim and IFFCO Tokio Health Protector. They are searchable and answerable, but they have no fact rows yet, so comparison and the best policy finder do not include them and say so. The ManipalCigna wording was dropped because its PDF text extracts as garbled characters.
+
+## Look-alike products, stopped products, customer fit (2026-11-10)
+
+There are 29 documents. Naming only an insurer ("HDFC", "ReAssure", "Star Health") lists its products with one line on how each differs, and the copilot answers only after the agent picks one; it never mixes products. A product marked withdrawn in the manifest (status, replaced_by, status_source) is shown as stopped, every answer from it carries a warning naming the current product, and it is never shortlisted.
+
+Two ways in. Describe the customer ("Mother is 50, has diabetes, wants room rent more than 10,000") and fit.py checks every product on sale: entry age, the diabetes wait, room rent, sum insured, co-pay and the IRDAI claims figure. It shows the best and the second best with one line on why, one line per reason the others do not fit, the date the diabetes cover starts, and a sales kit: words to say, a WhatsApp message to copy, waiting end dates, papers and what not to promise. Name a product in the same message and only that product is checked.
+
+Simple questions (room rent, waiting period, age limit, co-pay, sum insured, bonus) are answered from the fact row with its exact line and page in milliseconds (quick.py). Anything more specific (cataract, robotic surgery, AYUSH) goes to the clause search, which answers in simple words first and shows the exact line, page and clause. When the document does not say, the answer is "This is not written in this product's policy document."
+
+    python fit.py "mother 50, diabetes, room rent above 10000"
+    python extract_facts.py --all          # draft fact rows (hosted model, quotes checked against the PDF)
 
 ## Adding a policy
 

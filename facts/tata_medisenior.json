@@ -1,0 +1,354 @@
+{
+ "format": 2,
+ "policy_id": "tata_medisenior",
+ "insurer": "TATA AIG General Insurance",
+ "product": "MediSenior",
+ "source": "tata_medisenior.pdf, UIN not printed",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "Expenses related to the treatment of a pre-existing Disease and its direct complications are excluded until the expiry of 48 months of continuous coverage after the date of inception of the first policy with us.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 48 months of continuous coverage after the date of inception of the first policy with us.",
+     "clause": "Pre-existing Diseases Waiting Period (Code- Excl01)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 48
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest waiting period for listed conditions is 48 months for pre-existing diseases, while specific listed conditions like cataract and diabetes have a 24-month waiting period unless covered under the pre-existing disease waiting period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 48,
+    "cataract_months": 24,
+    "diabetes_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period for illness-related treatment is 30 days from the first policy commencement date, except for claims arising due to an accident.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "30 Days Waiting Period (Code- Excl03): i. Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "C. General Exclusions"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The policy does not state a room rent limit or specify which room categories are covered.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "For Day Care Procedures, the co-payment is 15%. For other Illnesses/Surgeries admitted under Section I, the insured bears 30% of the claim amount.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "A Co-payment of 15% shall be applicable to all Day Care Procedures;",
+     "clause": "section A. Co-Payment applicable on accommodation Type"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 15,
+    "mandatory": true,
+    "condition": "Day Care Procedures"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity (childbirth) is excluded from coverage under this policy, and no waiting period is specified for it because it is not covered.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "xii) Maternity (Code- Excl18):",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": false,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "The provided extracts do not contain any information about whether AYUSH inpatient treatment is covered or up to what limit under this policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The policy offers a 5% non-cumulative no claim discount per claim-free policy year, and there is no maximum mentioned for this discount.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "No Claim Discount - A 5% non cumulative discount will be offered on the premium payable at each renewal under the Policy after every CLAIM FREE Policy Year",
+     "clause": "Section 3. Special terms and conditions"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 5,
+    "max_percent": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The extracts do not state whether the sum insured is restored or reloaded after it is used up, or how it is restored or reloaded.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy does not state any sub-limits on specific treatments such as cataract and modern treatments like robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered under the policy, as defined in Definition 11 and listed in Annexure I.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 25,
+     "quote": "Day Care Procedures will include following Day Care Surgeries & Day Care Treatments",
+     "clause": "Annexure I: Day Care Procedure"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy covers 30 days of pre-hospitalisation medical expenses and 60 days of post-hospitalisation medical expenses, both for the same condition as the hospitalisation.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "The Medical Expenses incurred in the 30 days immediately before the Insured Person was Hospitalised",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 30,
+    "post_days": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The policy text does not specify a separate limit for ICU charges; ICU treatment is included under the overall In-patient Treatment benefit.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": "no_limit",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is eight continuous years after policy completion, and the policy is not contestable during this period except for proven fraud and permanent exclusions.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "Moratorium Period no health insurance claim shall be contestable except for proven fraud and permanent exclusions specified in the policy contract.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient mental illness treatment is not explicitly stated as covered or excluded in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Hospitals for both planned and emergency treatments. For planned treatment, notice must be given at least 48 hours before, and for emergency treatment, notice must be given within 24 hours after the treatment.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "We will provide cashless service by making payment to the extent of Our liability directly to the Network Hospital. At least 48 hours before the planned treatment or Hospitalisation",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The sum insured options are Rs 200,000; Rs 300,000; and Rs 500,000 per insured person per policy year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 25,
+     "quote": "Rs 200, 000 ; Rs 300, 000 ; Rs 500, 000",
+     "clause": "SCHEDULE OF BENEFITS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "min_rupees": 200000,
+    "max_rupees": 500000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

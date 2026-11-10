@@ -1,0 +1,354 @@
+{
+ "format": 2,
+ "policy_id": "care_supreme",
+ "insurer": "Care Health Insurance",
+ "product": "Care Supreme",
+ "source": "care_supreme.pdf, UIN CHIHLIP27061V032627",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The base plan covers a Single Private AC Room or Twin Sharing Room as the maximum eligible room category for hospitalization, depending on what is specified in the Policy Schedule.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 24,
+     "quote": "Single Private AC Room If the Policy Schedule states 'Single Private AC Room' as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited for stay in a Single Private AC Room.",
+     "clause": "3.2.2 Room Rent Modification"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "category",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": "Single Private AC Room / Twin sharing room"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 36 months of continuous coverage after the date of inception of the first policy with the insurer, but it can be modified to a specific time period as mentioned in the Policy Schedule if the Optional Benefit is chosen, or reduced if there is prior continuous coverage under portability norms.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 34,
+     "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.",
+     "clause": "4.1. Standard Exclusions"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period is 30 days from the first policy commencement date, except for claims arising due to an accident.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 36,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "3.2.20 Health Management Program"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity (childbirth) is excluded from coverage, and no waiting period is stated for it in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": false,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH treatment is covered up to the Sum Insured for medical treatment at AYUSH hospitals or healthcare facilities for Ayurveda, Yoga, Naturopathy, Sidha, Unani, and Homeopathy, subject to conditions.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Benefit : AYUSH Treatment The Company will indemnify the Insured Person, through Cashless or Reimbursement Facility, up to the Sum Insured, as specified in the Policy Schedule, towards Medical Expenses incurred with respect to the Insured Person's medical treatment undergone at any AYUSH Hospitals or health care facilities for any of the listed AYUSH Treatments namely Ayurveda, Yoga, Naturopathy, Sidha , Unani and Homeopathy",
+     "clause": "Benefit : AYUSH Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "up to the Sum Insured, as specified in the Policy Schedule"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The base Sum Insured can be automatically re-instated unlimited times in a policy year after it is completely exhausted, subject to conditions including that the claim must be admissible under 'Hospitalization Expenses' and the recharged amount can be utilized for the same or different illnesses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 22,
+     "quote": "If a Claim is payable under the Policy, then the Company agrees to automatically make the re-instatement of up to the base Sum Insured unlimited times in a policy year which is valid for that Policy Year only",
+     "clause": "3.1.4 Benefit : Unlimited Automatic Recharge"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy text does not state specific sub-limits for cataract or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day Care Treatments are covered under the policy up to the Sum Insured, provided the treatment does not exceed 24 hours and was prescribed in writing by a Medical Practitioner.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "The Company will indemnify the Insured Person for Medical Expenses incurred on all Day Care Treatments through Cashless or Reimbursement Facility, maximum up to the Sum Insured",
+     "clause": "(ii) Benefit: Day Care Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "Pre-hospitalization is covered for 60 days prior to admission, and post-hospitalization is covered for 16 days after discharge.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 17,
+     "quote": "For a period of 60 days immediately prior to the Insured Person's date of admission to the Hospital",
+     "clause": "section L"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 60,
+    "post_days": 16
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU charges limit is 'No limit', which means there is no separate restriction on ICU charges incurred towards stay in ICU during Hospitalization.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "The eligible ICU Charges applicable for the Insured Person under the Policy is 'No limit', which means that there is no separate restriction on ICU Charges incurred towards stay in ICU during Hospitalization.",
+     "clause": "L. Stem cell therapy: Hematopoietic stem cells for bone marrow"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is five continuous years under the policy after which no look back is applied and claims are no longer contestable except for proven fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 46,
+     "quote": "After completion of five continuous years under the policy no look back to be applied. This period of five years is called as moratorium period.",
+     "clause": "5.12. Moratorium Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "The extracts do not state whether inpatient mental illness treatment is covered under this policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The Insured Person receives a flat 100% increase in the Sum Insured on a cumulative basis for each completed and continuous Policy Year, and the accrued Cumulative Bonus Super shall not exceed 500% of the Sum Insured available in the expiring or renewed Policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 27,
+     "quote": "The Insured Person would receive a flat 100% increase in the Sum Insured on a cumulative basis as a Cumulative Bonus Super (which is over & above the Sum Insured accrued as Cumulative Bonus), for each completed and continuous Policy Year.",
+     "clause": "3.2.10 Cumulative Bonus Super"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "percent_per_year": 100,
+    "max_percent": 500
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Providers, but requires pre-authorization approval and presentation of the Health card and valid photo ID.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 52,
+     "quote": "The Company extends Cashless Facility as a mode to indemnify the medical expenses incurred by the Insured Person at a Network Provider. For this purpose, the Insured Person will be issued a “Health card” at the time of Policy purchase, which has to be preserved and produced at any of the Network Providers in the event of Claim being made, to avail Cashless Facility.",
+     "clause": "6.1.2. Claim settlement - Facilities (a) Cashless Facility"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

@@ -1,0 +1,353 @@
+{
+ "format": 2,
+ "policy_id": "newindia_premier_mediclaim",
+ "insurer": "The New India Assurance Company",
+ "product": "New India Premier Mediclaim Policy",
+ "source": "newindia_premier_mediclaim.pdf, UIN NIAHLIP25048V042425",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The extracts conflict on waiting periods: extract 2 states 90 days for Diabetes Mellitus, while extract 3 lists Cataract under the 24 months waiting period without specifying its duration, and extract 1 mentions 36 months for pre-existing conditions but does not specify cataract or diabetes separately. The longest waiting period listed is 36 months for pre-existing conditions.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 36,
+    "cataract_months": 24,
+    "diabetes_months": 90
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "4.2 FIRST THIRTY DAYS WAITING PERIOD (Code- Excl03)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room rent limit or room category covered is not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity expenses are covered after a waiting period of thirty-six months of continuous coverage, with a limit of Rs. 50,000 for Plan A and Rs. 1,00,000 for Plan B.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 13,
+     "quote": "Maternity Expenses shall be covered after thirty-six months of Continuous Coverage in New India Premier Mediclaim Policy.",
+     "clause": "3.1.6 COVERAGE FOR MATERNITY & CHILD CARE"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered up to 100% of the Sum Insured during each policy year as specified in the policy schedule.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "We will provide coverage for Expenses incurred for Ayurveda, Yoga and Naturopathy, Unani, Siddha and Homeopathy system of medicines is covered up to 100% of the Sum Insured during each policy year as specified in the policy schedule.",
+     "clause": "3.1.2 AYUSH TREATMENTS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "100% of the Sum Insured during each policy year"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The extracts do not state the no claim/cumulative bonus amount per claim-free year or the maximum cumulative bonus percentage.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": null,
+    "max_percent": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The extracts do not specify the minimum and maximum entry age for an adult under this policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The extracts do not mention whether the sum insured is restored or reloaded after it is used up.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy has a sub-limit for cataract treatment of Rs. 75,000 for Plan A and Rs. 1,00,000 for Plan B, whichever is less, and a sub-limit for robotic surgeries of up to Rs. 5 Lakh per policy period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "Plan A Actual or Rs. 75,000, whichever is less Plan B Actual or Rs. 1,00,000, whichever is less",
+     "clause": "3.1.12 LIMIT ON PAYMENT OF CATARACT"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": "Plan A Actual or Rs. 75,000, whichever is less Plan B Actual or Rs. 1,00,000, whichever is less",
+    "modern_treatment": "Upto Rs. 5 Lakh"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered as part of inpatient or day care treatment in a hospital up to the limit specified against each procedure during the policy period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "The following procedures will be covered (wherever medically indicated) either as in patient or as part of day care treatment in a hospital up to the limit specified against each procedure during the policy period",
+     "clause": "3.1.17"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "Pre-hospitalisation medical expenses are covered up to 60 days before hospitalisation. Post-hospitalisation medical expenses are covered up to 90 days after discharge from the hospital.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "Pre-Hospitalisation Medical Expenses, upto sixty days",
+     "clause": "3.1.1 HOSPITALISATION EXPENSES Our liability for all claims"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 60,
+    "post_days": 90
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The provided extracts do not state any specific limit for ICU charges.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage, after which no policy and claim shall be contestable by the insurer on grounds of non-disclosure, mis-representation except on grounds of established fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 26,
+     "quote": "This period of sixty continuous months is called as Moratorium period. The moratorium would be applicable for the sums",
+     "clause": "MORATORIUM PERIOD"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient mental illness treatment is covered for Psychiatric and Psychosomatic disorders and Behavioural and Neuro Developmental Disorders, subject to waiting periods and sub-limits.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 17,
+     "quote": "All the Psychiatric and Psychosomatic disorders diagnosed for the first time during the Continuous Coverage under the New India Premier Mediclaim Policy will be covered up to 5% of Sum Insured.",
+     "clause": "3.2.1 COVER FOR PSYCHIATRIC AND PSYCHOSOMATIC DISORDERS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Providers, which are hospitals and day care centres that the Company/TPA has mutually agreed with, subject to pre-authorization approval.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "2.32 NETWORK PROVIDER: All such Hospitals, Day Care Centres or other providers that the Company/TPA has mutually agreed with, to provide services like Cashless access to Insured Person.",
+     "clause": "2.32 NETWORK PROVIDER: All such Hospitals, Day Care Centres or other providers that the Company/TPA has mutually agreed with, to provide services like Cashless access to Insured Person."
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "36 months of continuous coverage",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 17,
+     "quote": "shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us",
+     "clause": "4.1"
+    }
+   ],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

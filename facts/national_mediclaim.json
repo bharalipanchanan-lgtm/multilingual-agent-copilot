@@ -1,23 +1,359 @@
 {
-  "policy_id": "national_mediclaim",
-  "insurer": "National Insurance",
-  "product": "National Mediclaim Policy",
-  "version": "07/2014",
-  "verified": false,
-  "verified_by": null,
-  "note": "Pre-filled from the policy text by the build. A human must check every value against the PDF before it is shown as verified.",
-  "attributes": {
-    "ped_waiting": {"value": "48 months of continuous coverage", "clause": "4.1", "page": 7, "printed_page": 4},
-    "specific_waiting": {"value": "1 year (benign ENT, tonsillectomy etc.), 2 years (cataract, hernia, diabetes, hypertension and others), 4 years (joint replacement, osteoarthritis)", "clause": "4.3", "page": 8, "printed_page": 5},
-    "initial_waiting": {"value": "30 days, does not apply to accidents", "clause": "4.2", "page": 7, "printed_page": 4},
-    "room_rent": {"value": "1% of sum insured per day, max ₹5,000; ICU 2% per day, max ₹10,000; 25% of sum insured per illness", "clause": "2.1", "page": 4, "printed_page": 1},
-    "copay": {"value": null, "clause": null, "page": null, "printed_page": null},
-    "maternity": {"value": "Not covered (excluded, except ectopic pregnancy)", "clause": "4.7", "page": 8, "printed_page": 5},
-    "ayush": {"value": "Ayurveda and Homeopathy up to 20% of sum insured per illness; other alternative treatments excluded", "clause": "2.3 note, 4.15", "page": 4, "printed_page": 1},
-    "daycare": {"value": "Covered, 140 listed procedures (Appendix I)", "clause": "3.9, Appendix I", "page": 14, "printed_page": 11},
-    "pre_post": {"value": "30 days before, 60 days after", "clause": "3.24, 3.25", "page": 6, "printed_page": 3},
-    "ncb": {"value": "Cumulative bonus 5% per claim free year, max 50%; reduced by 5% after a claim", "clause": "2.4.1", "page": 5, "printed_page": 2},
-    "renewal": {"value": "By mutual consent; cannot be denied except for fraud, moral hazard, misrepresentation or non cooperation; 30 day grace period", "clause": "5.16", "page": 12, "printed_page": 9},
-    "sublimits": {"value": "Yes: room 25%, doctor fees 25%, others 50% of sum insured per illness; ambulance 1% max ₹2,000", "clause": "2.1 to 2.3", "page": 4, "printed_page": 1}
+ "format": 2,
+ "policy_id": "national_mediclaim",
+ "insurer": "National Insurance",
+ "product": "National Mediclaim Policy",
+ "source": "National_Mediclaim_Policy.pdf, UIN not printed; replaces the legacy (format 1) rows, which had no quotes",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 48 months of continuous coverage from the inception of the first policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "All pre-existing diseases when the cover incepts for the first time until 48 months of continuous coverage has elapsed.",
+     "clause": "section 4.1 Pre-existing diseases"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 48
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period from the first policy start is 30 days, during which any disease contracted by the insured person is not covered, except for injuries suffered in an accident that occurred after the inception of the first policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "Any disease contracted by the insured person during the first 30 days from the inception of the first policy.",
+     "clause": "4.2 First 30 days waiting period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity (childbirth) is covered under the policy, but the waiting period for it is not clearly stated in the provided extracts. While extract 3 explicitly covers treatment arising from pregnancy and childbirth, extract 1 lists specific waiting periods for various diseases and conditions, but maternity is not explicitly listed among the conditions with a defined waiting period.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered up to 20% of the sum insured for any one illness, but the extracts conflict because extract 1 explicitly excludes Ayurveda from alternative treatments while extract 2 includes Ayurveda in alternative treatments.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "20% of the sum insured for any one illness"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The cumulative bonus is 5% per claim-free year, with a maximum of 50% of the sum insured (excluding CB).",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "Sum insured (excluding CB) will be increased by 5% in respect of each claim free policy period (no claims are reported), provided the policy is continuously renewed with the company without a break subject to maximum of 50% of the sum insured (excluding CB) under the current policy period.",
+     "clause": "2.4.1 Cumulative bonus(CB)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 5,
+    "max_percent": 50
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The policy text does not explicitly state the lowest and highest sum insured options available for this plan.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The extracts do not state whether the sum insured is restored or reloaded after it is used up.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy text does not state any sub-limits for cataract or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered under the policy when they are listed day care procedures/surgeries taken in a hospital/day care centre (not outpatient department), or when they require less than 24 hours hospitalisation due to medical advancement and have prior approval from company/TPA.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "Day care procedures/surgeries (as listed in Appendix -I) where such treatment is taken by an insured person in a hospital/day care centre (but not the outpatient department of a hospital)",
+     "clause": "3.12 Hospitalisation means admission in a hospital as an inpatient for a minimum period of 24 consecutive hours except for specified procedure/ treatment, where such admission could be for a period of less than 24 consecutive hours. Relaxation to 24 hours minimum duration for hospitalisation is allowed in i. Day care procedures/surgeries (as listed in Appendix -I) where such treatment is taken by an insured person in a hospital/day care centre (but not the outpatient department of a hospital). ii. Any other surgeries/procedures (not listed in Appendix -I) which due to advancement of medical science require hospitalisation for less than 24 hours and for which prior approval from company/TPA is mandatory."
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy covers 30 days of pre-hospitalisation and 60 days of post-hospitalisation medical expenses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "Post hospitalisation means medical expenses incurred 60 days immediately after the insured person is discharged from hospital",
+     "clause": "3.25"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 30,
+    "post_days": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The policy has a 30-day grace period immediately following the premium due date during which a payment can be made to renew or continue the policy in force without loss of continuity benefits such as waiting period and coverage of pre-existing disease.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "3.10 Grace period means 30 days immediately following the premium due date during which a payment can be made to renew or continue the policy in force without loss of continuity benefits such as waiting period and coverage of pre-existing disease.",
+     "clause": "3.10 Grace period means 30 days immediately following"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Treatment for psychiatric and psychosomatic disorders is covered, but intentional self-inflicted injury and attempted suicide are excluded from coverage.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "Treatment for all psychiatric and psychosomatic disorders/diseases, intentional self-inflicted injury, attempted suicide.",
+     "clause": "4.10 Psychiatric disorder, intentional self inflicted injury"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available in network providers/PPN and is subject to pre-authorization by the TPA.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Treatment may be taken in a network provider/PPN and is subject to pre authorization by the TPA.",
+     "clause": "5.5.2 Procedure for Cashless claims"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest specific disease waiting period is 4 years for joint replacement due to degenerative conditions and age-related osteoarthritis and osteoporosis, cataract has a 2 year waiting period, and diabetes and related complications have a 2 year waiting period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "c. Hernia m. Hypertension and related complications d. Hydrocele n. Diabetes and related complications",
+     "clause": "4.3 Specific waiting period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 48,
+    "cataract_months": 24,
+    "diabetes_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The room charges are limited to 1% of the sum insured per day subject to a maximum of ₹5,000, and for ICU admission, 2% of the sum insured per day subject to a maximum of ₹10,000.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "If admitted in intensive care unit (ICU) - 2% of sum insured per day subject to maximum of",
+     "clause": "2.1 Room charges Room, boarding including nursing care"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "percent_si",
+    "percent_of_si": 1,
+    "rupees_per_day": 5000,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU charges limit is 2% of the sum insured per day subject to a maximum of ₹10,000.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "If admitted in intensive care unit (ICU) - 2% of sum insured per day subject to maximum of",
+     "clause": "2.1 Room charges Room, boarding including nursing care"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "percent_si"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
   }
+ ]
 }

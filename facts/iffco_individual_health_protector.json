@@ -1,0 +1,377 @@
+{
+ "format": 2,
+ "policy_id": "iffco_individual_health_protector",
+ "insurer": "IFFCO TOKIO General Insurance",
+ "product": "Health Protector (Individual)",
+ "source": "iffco_individual_health_protector.pdf, UIN IFFHLIP24012V052324",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 36 months of continuous coverage after the date of inception of the first policy with IFFCO TOKIO General Insurance.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 29,
+     "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.",
+     "clause": "E. EXCLUSIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest waiting period for a listed condition is 12 months, which applies to cataract and diabetes mellitus as they are listed conditions under the specific waiting period. Diabetes Mellitus also has a 90-day waiting period for diseases aggravated by it.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 29,
+     "quote": "Expenses related to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage",
+     "clause": "3. Specific Waiting Period: (Code- Excl02)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 36,
+    "cataract_months": 12,
+    "diabetes_months": 12
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date are excluded, except claims arising due to an accident, provided the same are covered.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 29,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "E. EXCLUSIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "For the base plan with sum insured below Rs. 5 lakhs, room rent is capped at 1.75% of the sum insured per day in class A cities and 1.50% in other cities, unless the 6% additional premium is paid to remove the capping.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "In respect of sum insured less than Rs.5(five) lakhs, room rent expenses subject to following limits: For Normal Room Rent Expenses: • In respect of class “A” cities, a limit of 1.75%(one and three fourth of a percent) of the sum insured on per day basis or actual, whichever is less.",
+     "clause": "(I) COVERAGE"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "percent_si",
+    "percent_of_si": 1.75,
+    "rupees_per_day": null,
+    "category": "Normal Room Rent Expenses"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The co-payment options available under the policy are 10%, 20%, or 25% as per the schedule, applied on each and every admissible claim.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 29,
+     "quote": "The following Co-pay options are available: 10%, 20% or 25% under the product. The Co-pay percentage as per the schedule, shall be applied on each and every admissible claim.",
+     "clause": "TERMS AND CONDITIONS UNDER WELLNESS SERVICES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 10,
+    "mandatory": true,
+    "condition": "as per schedule"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity expenses are covered after a 12-month waiting period, except for pre-natal and post-natal expenses which are excluded.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 29,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered",
+     "clause": "6. Rest Cure, rehabilitation and respite care- Code- Excl05"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 12
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered, and the limit is up to the Sum Insured of the insured person per policy period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "AYUSH expenses including pre-hospitalization and post hospitalization expenses up to the limit of the Sum Insured of the insured person per policy period.",
+     "clause": "(I) COVERAGE"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "Sum Insured of the insured person per policy period"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The cumulative bonus is accrued at 25% of the basic sum insured for the first claim-free year and by 10% at each subsequent claim-free year, subject to a maximum of 100% of the basic sum insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "The Cumulative Bonus shall be accrued at 25% (twenty-five percent) of the basic sum insured for the first claim-free renewal and by 10% (ten percent) at each subsequent renewal in respect of each claim free year of insurance for each insured person, subject to a maximum of 100% (one hundred percent) of basic sum insured of the expiring policy.",
+     "clause": "5. Cumulative bonus (CB): a)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 25,
+    "max_percent": 100
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The extracts do not contain information about the minimum and maximum entry age for an adult or children.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The extracts provided do not contain information about the sum insured options (lowest and highest) for the Health Protector (Individual) policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The sum insured is reinstated to the basic amount without any deduction of reinstatement premium for the first claim, but the reinstated sum insured cannot be used to pay the balance of the first claim and is only available for future claims occurring after reinstatement.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 17,
+     "quote": "Further, the sum insured under this policy shall be reinstated to Rs. 5L without any deduction of reinstatement premium. However, this re-instated SI cannot be used to pay the balance Rs.25,000 /-. The reinstated sum insured would, however, be available for any further claim occurring after the reinstatement.",
+     "clause": "SPECIAL CONDITIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments listed in Annexure C are covered even if the duration of hospitalization is less than 24 hours.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 21,
+     "quote": "Day care medical treatments listed in Annexure C – “List of Day Care Procedures” of the policy document, will be payable even if the duration of hospitalization is less than 24 (Twenty-four) hours.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "Pre-hospitalization medical expenses are covered up to 60 days prior to hospitalization, and post-hospitalization medical expenses are covered up to 90 days after hospitalization.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "Pre-Hospitalization Medical Expenses incurred up to 60 (Sixty) days prior to Hospitalization on disease/illness/injury sustained, which will be part of Hospitalization expenses claim.",
+     "clause": "ADDITIONAL BENEFITS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 60,
+    "post_days": 90
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU charges limit is 3% of the sum insured per day for class A cities or 2.5% for other cities, but a higher limit of no capping on ICU charges is available for an additional 6% premium payment, and the proportionate deduction does not apply to ICU charges.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "percent_si"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage after which no claim can be contested except for established fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 35,
+     "quote": "This period of sixty continuous months is called as moratorium period.",
+     "clause": "10. Moratorium Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless facility is available where the insurer makes payments directly to the network provider to the extent pre-authorization is approved.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "Cashless facility It means a facility extended by us to Insured person where the payments, of the costs of treatment undergone by insured person(s) in accordance with the policy terms and conditions, are directly made to the network provider by us to the extent pre-authorization approved.",
+     "clause": "DEFINITIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "Modern treatments such as robotic surgery are covered up to 50% of the sum insured as part of day care treatment or in-patient hospitalization.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "The following procedures will be covered (wherever medically indicated) either as in patient or as part of Domiciliary Hospitalization or as part of day care treatment in a hospital upto 50% of Sum Insured, during the policy period:",
+     "clause": "ADDITIONAL BENEFITS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": "50% of Sum Insured"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

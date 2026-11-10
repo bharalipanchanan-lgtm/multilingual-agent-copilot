@@ -1,19 +1,168 @@
 {
-  "about": "Insurer level figures used by the ranking (rank.py). Policy wordings do not contain these, so they come from the regulator. IRDAI no longer publishes an insurer-wise claim settlement ratio; the per insurer figure it does publish is the incurred claims ratio (ICR): claims incurred as a share of premium earned. ICR is not the share of claims an insurer pays. claim_settlement_ratio stays null until it is taken from an insurer's own public disclosure and checked by a person.",
-  "sources": {
-    "irdai_ar_2024_25": {
-      "title": "IRDAI Annual Report 2024-25, Statement 10: Incurred Claims Ratio of General and Health Insurers (within India), Health column",
-      "printed_page": 142,
-      "pdf_page": 166,
-      "url": "https://irdai.gov.in (Annual Report 2024-25); copy read from https://lifeinscouncil.org/component/IRDAI%20Annual%20Report%202024-25.pdf",
-      "note": "Health includes personal accident in IRDAI's statement. Read from the PDF on 2026-11-06."
-    }
-  },
-  "insurers": {
-    "National Insurance": {"icr_health": {"2023-24": 90.83, "2024-25": 96.05}, "claim_settlement_ratio": null, "source": "irdai_ar_2024_25", "verified": false},
-    "The Oriental Insurance Company": {"icr_health": {"2023-24": 101.96, "2024-25": 102.58}, "claim_settlement_ratio": null, "source": "irdai_ar_2024_25", "verified": false},
-    "United India Insurance": {"icr_health": {"2023-24": 109.23, "2024-25": 97.51}, "claim_settlement_ratio": null, "source": "irdai_ar_2024_25", "verified": false},
-    "SBI General Insurance": {"icr_health": {"2023-24": 87.86, "2024-25": 82.19}, "claim_settlement_ratio": null, "source": "irdai_ar_2024_25", "verified": false},
-    "Royal Sundaram General Insurance": {"icr_health": {"2023-24": 92.06, "2024-25": 95.56}, "claim_settlement_ratio": null, "source": "irdai_ar_2024_25", "verified": false}
+ "about": "Insurer level figures used by the ranking (rank.py). Policy wordings do not contain these, so they come from the regulator. IRDAI no longer publishes an insurer-wise claim settlement ratio; the per insurer figure it does publish is the incurred claims ratio (ICR): claims incurred as a share of premium earned. ICR is not the share of claims an insurer pays. claim_settlement_ratio stays null until it is taken from an insurer's own public disclosure and checked by a person.",
+ "sources": {
+  "irdai_ar_2024_25": {
+   "title": "IRDAI Annual Report 2024-25, Statement 10: Incurred Claims Ratio of General and Health Insurers (within India), Health column",
+   "printed_page": 142,
+   "pdf_page": 166,
+   "url": "https://irdai.gov.in (Annual Report 2024-25); copy read from https://lifeinscouncil.org/component/IRDAI%20Annual%20Report%202024-25.pdf",
+   "note": "Health includes personal accident in IRDAI's statement. Read from the PDF on 2026-11-06. The twelve other insurers were added from the same statement on 2026-11-10."
   }
+ },
+ "insurers": {
+  "National Insurance": {
+   "icr_health": {
+    "2023-24": 90.83,
+    "2024-25": 96.05
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "The Oriental Insurance Company": {
+   "icr_health": {
+    "2023-24": 101.96,
+    "2024-25": 102.58
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "United India Insurance": {
+   "icr_health": {
+    "2023-24": 109.23,
+    "2024-25": 97.51
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "SBI General Insurance": {
+   "icr_health": {
+    "2023-24": 87.86,
+    "2024-25": 82.19
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Royal Sundaram General Insurance": {
+   "icr_health": {
+    "2023-24": 92.06,
+    "2024-25": 95.56
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Acko General Insurance": {
+   "icr_health": {
+    "2023-24": 56.91,
+    "2024-25": 57.82
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Bajaj General Insurance": {
+   "icr_health": {
+    "2023-24": 84.96,
+    "2024-25": 87.31
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false,
+   "note": "Listed in the statement as Bajaj Allianz General Insurance Co. Ltd."
+  },
+  "Go Digit General Insurance": {
+   "icr_health": {
+    "2023-24": 93.87,
+    "2024-25": 83.78
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "HDFC ERGO General Insurance": {
+   "icr_health": {
+    "2023-24": 80.98,
+    "2024-25": 84.85
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "ICICI Lombard General Insurance": {
+   "icr_health": {
+    "2023-24": 78.85,
+    "2024-25": 82.24
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "IFFCO TOKIO General Insurance": {
+   "icr_health": {
+    "2023-24": 107.46,
+    "2024-25": 83.74
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "TATA AIG General Insurance": {
+   "icr_health": {
+    "2023-24": 77.94,
+    "2024-25": 76.24
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "The New India Assurance Company": {
+   "icr_health": {
+    "2023-24": 105.87,
+    "2024-25": 100.98
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Aditya Birla Health Insurance": {
+   "icr_health": {
+    "2023-24": 68.31,
+    "2024-25": 71.5
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Care Health Insurance": {
+   "icr_health": {
+    "2023-24": 57.69,
+    "2024-25": 64.53
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Niva Bupa Health Insurance": {
+   "icr_health": {
+    "2023-24": 59.02,
+    "2024-25": 61.22
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  },
+  "Star Health and Allied Insurance": {
+   "icr_health": {
+    "2023-24": 66.47,
+    "2024-25": 70.3
+   },
+   "claim_settlement_ratio": null,
+   "source": "irdai_ar_2024_25",
+   "verified": false
+  }
+ }
 }

@@ -48,17 +48,32 @@ def keyword_hits(query: str, policy_id: str, have: set[str], max_hits: int = 2) 
     _, col = _load()
     words = [w for w in re.findall(r"[A-Za-z]{5,}", query) if w.lower() not in STOP]
     out: list[dict] = []
-    for w in sorted(set(words), key=len, reverse=True)[:3]:
+    spare: list[dict] = []
+    def frequency(w):  # the rarer word in this policy picks the clause: "robotic" before "surgery"
+        return len(col.get(where={"policy_id": policy_id}, where_document={"$contains": w.lower()}, include=[])["ids"])
+    counted = [(frequency(w), w) for w in set(words)]
+    for _, w in sorted([c for c in counted if c[0]], key=lambda c: (c[0], -len(c[1])))[:3]:
         for form in {w.lower(), w.capitalize()}:
-            res = col.get(where={"policy_id": policy_id}, where_document={"$contains": form}, limit=4)
+            res = col.get(where={"policy_id": policy_id}, where_document={"$contains": form}, limit=6)
             for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"]):
-                # prefer numbered clauses over appendix lists and definitions
-                if cid in have or not (meta.get("section") or "")[:1].isdigit() or "means" in doc[:120]:
+                if cid in have or "means" in doc[:120]:
+                    continue
+                hit = {"id": cid, "text": doc, "score": None, "keyword": w, **meta}
+                # prefer numbered clauses over appendix lists; section labels are unreliable in some
+                # wordings (Care Supreme), so an unnumbered match is kept as a fallback
+                if not (meta.get("section") or "")[:1].isdigit():
+                    spare.append(hit)
                     continue
                 have.add(cid)
-                out.append({"id": cid, "text": doc, "score": None, "keyword": w, **meta})
+                out.append(hit)
                 if len(out) >= max_hits:
                     return out
+    for hit in spare:
+        if len(out) >= max_hits:
+            break
+        if hit["id"] not in have:
+            have.add(hit["id"])
+            out.append(hit)
     return out
 
 
@@ -71,12 +86,20 @@ def expand_sections(hits: list[dict], max_extra: int = 3) -> list[dict]:
     seen = {h["id"] for h in hits}
     out = list(hits)
     added = 0
-    for h in hits:
+    # a chunk found by a word of the question (a disease name) is the one most likely to need its context
+    for h in sorted(hits, key=lambda h: not h.get("keyword")):
         sec = h.get("section") or ""
-        if not sec[:1].isdigit() or added >= max_extra:
+        # numbered clauses ("4.3"), and HDFC style parts ("SECTION C. SPECIAL TERMS ...") whose waiting
+        # period tables span chunks; a table slice without its heading was read as an exclusion list
+        if not (sec[:1].isdigit() or sec.upper().startswith("SECTION ")) or added >= max_extra:
             continue
         res = col.get(where={"$and": [{"policy_id": h["policy_id"]}, {"section": sec}]})
-        for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"]):
+        items = list(zip(res["ids"], res["documents"], res["metadatas"]))
+        if not sec[:1].isdigit():
+            # a long part: only the chunks right before and after the hit (ids end in a running number)
+            n = int(h["id"].rsplit("-", 1)[1])
+            items = [it for it in items if abs(int(it[0].rsplit("-", 1)[1]) - n) == 1]
+        for cid, doc, meta in items:
             if cid in seen or added >= max_extra:
                 continue
             seen.add(cid)

@@ -1,0 +1,342 @@
+{
+ "format": 2,
+ "policy_id": "star_super_surplus_gold",
+ "insurer": "Star Health and Allied Insurance",
+ "product": "Super Surplus (Floater), top-up",
+ "source": "star_super_surplus_gold.pdf, UIN SHAHLIP22034V062122",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 36 months for the Silver Plan and 12 months for the Gold Plan, with the longer waiting period applying if a specified disease falls under both waiting periods.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The policy documents contain conflicting or unclear waiting period information for pre-existing diseases, with mentions of 12 months for Silver Plan and 36 months for Gold Plan, while also stating that the longer of the two waiting periods shall apply for pre-existing diseases.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 36,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The waiting period for listed conditions shall apply afresh from the date of such enhancement for an increase in the sum insured during the policy period, with the Proposer able to opt for additional sum insured 6 years before renewal or later for an Indemnity Health Insurance policy with continuity of preceding three policy periods.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "Waiting Periods as under shall apply afresh from the date of such enhancement",
+     "clause": "SPECIFIC CONDITIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "For the Silver Plan, the room, boarding, and nursing expenses are subject to a maximum of Rs.4,000/- per day and are considered in proportion to the room rent limit stated in the policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "subject to a maximum of Rs.4,000/- per day. Note: Hospitalisation expenses which vary based on the room rent occupied by the insured person will be considered in proportion to the room rent limit stated in the policy or actuals whichever is less.",
+     "clause": "II. COVERAGE - SILVER PLAN"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "rupees",
+    "percent_of_si": null,
+    "rupees_per_day": 4000,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity is covered up to Rs. 50,000 per policy period (with a maximum of 2 deliveries) and up to Rs. 1,50,000 in the entire lifetime of the insured person, subject to a 12-month waiting period.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Delivery Expenses: Expenses for a Delivery including Delivery by Caesarean section (including pre-natal, post-natal expenses and Lawful medical termination of Pregnancy) up-to Rs.50,000/- per policy period, subject to a maximum of 2 deliveries",
+     "clause": "section II. COVERAGE - SILVER PLAN"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 12
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered up to the sum insured, subject to prior approval from the company.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "treatment under Ayurveda, Unani, Sidha and Homeopathy systems of medicines in a or the services. AYUSH Hospital is payable up to the sum insured.",
+     "clause": "K. AYUSH Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "sum insured"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The extracts do not contain information about the no-claim or cumulative bonus percentage per claim-free year or the maximum cumulative bonus percentage.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": null,
+    "max_percent": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The sum insured options for the Silver Plan are 15,00,000 and 1,75,000, while the Gold Plan has sum insured options of 10,00,000 and 1,50,000.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "20,00,000 2,00,000 1,50,000 4,50,000 2,75,000 5,50,000 1,25,000 4,50,000 2,75,000 4,50,000",
+     "clause": "II. COVERAGE - SILVER PLAN"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "min_rupees": 1500000,
+    "max_rupees": 2000000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The provided extracts do not state whether the sum insured is restored or reloaded after it is used up, or how it is restored or reloaded.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy text does not provide clear sub-limits for cataract and modern treatments like robotic surgery; it only lists them under specific conditions and exclusions without stating defined sub-limits.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered under the policy, as evidenced by their inclusion in the definition and the exclusion clause.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "However this time limit will not apply for the day care treatments / procedures, where treatment is taken in the Hospital / Nursing Home and the Insured is discharged on the same day",
+     "clause": "STANDARD EXCLUSIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The pre-hospitalization coverage is 30 days, but there is a conflicting statement that it is 60 days, and the post-hospitalization coverage is stated as 60 days and also 90 days.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 30,
+    "post_days": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": "no_limit",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months after completion of coverage, and it applies to the sums insured of the first policy. If the sum insured is enhanced, the sixty continuous months would be applicable from the date of enhancement of sums insured only on the enhanced limits.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "The moratorium would be applicable for the sums insured of the first policy. Wherever, the sum insured is enhanced",
+     "clause": "SPECIFIC CONDITIONS"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient hospitalization for medical/surgical treatment is covered under the policy, including for mental illness, as it falls under the general hospitalization coverage.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "if such disease, illness or injury shall require the insured Person/s, upon the advice of a Physician/Medical Specialist / Medical Practitioner or of duly Qualified Surgeon to incur Hospitalization expenses for medical/surgical treatment at any Nursing Home / Hospital in India as an in-patient, the Company will pay to the Insured Person/s the amount of such expenses",
+     "clause": "III. COVERAGE - GOLD PLAN"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available only in networked hospitals, and in non-network hospitals, the insured must pay upfront and then seek reimbursement.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 6,
+     "quote": "In non-network hospitals payment must be made up-front and then reimbursement will be effected on submission of documents.",
+     "clause": "B. Documents for Cashless Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

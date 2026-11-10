@@ -153,7 +153,7 @@ def main():
 
         def copay():
             t = send("Is there any co-payment?")
-            check("Not stated in the document" in t, t[:160])
+            check(re.search(r"not written in this product|Not stated in the document", t, re.I), t[:160])
             check(not re.search(r"no co-?pay", t, re.I), "claims there is no co-pay")
         step("Co-pay answered as not stated", copay)
 
@@ -168,21 +168,25 @@ def main():
             check("Which policy document" in t or "Kaunsa" in t, f"tapping the header did not show the list: {t[:120]!r}")
             last = page.locator(".msg.bot").last
             check(last.locator(".opt").count() == 5, "no option buttons in the list")
-            t = send("", tap=lambda: last.locator(".opt", has_text="SBI").click())
-            check("SBI" in page.inner_text("#cur"), "header did not switch to SBI")
-            check("prospectus" in t, "no prospectus warning")
+            # SBI Retail is marked withdrawn, so it is no longer among the first five; Royal Sundaram is a brochure
+            t = send("", tap=lambda: last.locator(".opt", has_text="Royal Sundaram").click())
+            check("Royal Sundaram" in page.inner_text("#cur"), "header did not switch to Royal Sundaram")
+            check("brochure" in t, "no brochure warning")
             check("me" in page.locator(".msg").nth(-2).get_attribute("class"), "the tap did not show as the agent's message")
-        step("Tap header, tap SBI: switches with a prospectus warning", switch_by_tap)
+        step("Tap header, tap Royal Sundaram: switches with a brochure warning", switch_by_tap)
 
         def sbi_maternity():
+            t = send("SBI")
+            check("no longer sold" in t, f"SBI Retail is marked withdrawn but no warning: {t[:200]!r}")
             t = send("Is maternity covered?")
+            check("no longer sold" in t, "answer from a withdrawn product carries no warning")
             body = t.lower()
             check("not covered" in body or "excluded" in body or "does not" in body or "blocked" in body,
                   f"SBI maternity not answered as excluded: {t[:200]!r}")
             check(not re.search(r"maternity (expenses )?(is|are) covered", body), "says maternity is covered")
             href = page.locator(".msg.bot").last.locator(".cardc a").first.get_attribute("href")
             check(href and href.startswith("/pdf/sbi_retail_health#page="), f"card links to {href}")
-        step("SBI maternity: excluded, cites the SBI PDF", sbi_maternity)
+        step("SBI (withdrawn) warns; maternity excluded, cites the SBI PDF", sbi_maternity)
 
         def typo_switch():
             t = send("ab oriantal wali policy dekhni hai")
@@ -191,7 +195,7 @@ def main():
 
         def plan_question():
             t = send("ELITE plan mein maternity cover hai kya?")
-            check(any(b in t for b in ["Checked against the policy text", "Draft blocked", "Not stated"]), t[:160])
+            check(any(b in t for b in ["Checked against the policy text", "Draft blocked", "Not stated", "Not written", "Quick answer"]), t[:160])
             return t.splitlines()[1][:100] if "\n" in t else t[:100]
         step("Plan question on Oriental gets a checked answer", plan_question)
 
@@ -205,10 +209,11 @@ def main():
             t = send("Compare the diabetes waiting period across policies")
             check("From the policy fact table" in t, t[:160])
             n = page.locator(".msg.bot").last.locator("table.cmp tr").count() - 1
-            check(n == 5, f"comparison table has {n} policies")
-            check("fact table covers 5 of the" in t, "comparison does not say how many documents the fact table covers")
+            on_sale = sum(1 for p in page.request.get(URL.rstrip("/") + "/api/policies").json() if p["status"] != "withdrawn")
+            check(n == on_sale, f"comparison table has {n} policies, {on_sale} are on sale")
+            check("no longer sold" not in t, "a withdrawn product is in the comparison")
             check("Not yet verified" in t or "unverified" in t, "no unverified marker")
-        step("Comparison table covers all five policies, marked unverified", compare)
+        step("Comparison covers every product on sale, marked unverified", compare)
 
         def two_named():
             t = send("SBI ya United India, room rent kitna hai?")
@@ -241,6 +246,43 @@ def main():
             check(href and href.startswith("/pdf/oriental_sampoorna#page="), f"ranking evidence links to {href}")
             return first.splitlines()[1] if "\n" in first else first[:80]
         step("Best policy finder ranks on waiting periods and claims record, with evidence", shortlist)
+
+        def which_product():
+            t = send("HDFC")
+            check("Which exact product" in t, t[:160])
+            last = page.locator(".msg.bot").last
+            check(last.locator(".opt").count() == 3, "should offer the three HDFC products")
+            check(last.locator(".opt small.diff").count() == 3, "each product needs a line on how it differs")
+            t = send("", tap=lambda: last.locator(".opt", has_text="Optima Restore").click())
+            check("Optima Restore" in page.inner_text("#cur"), "did not switch to Optima Restore")
+        step("Insurer with look-alike products: asks which exact product, one line of difference each", which_product)
+
+        def quick():
+            t0 = time.time()
+            t = send("What is the waiting period?")
+            check("Quick answer from the fact table" in t, t[:160])
+            check(page.locator(".msg.bot").last.locator(".cardc").count() >= 1, "no exact line shown")
+            return f"{time.time() - t0:.1f}s in the browser"
+        step("Simple question: quick answer from the fact table with the exact line", quick)
+
+        def need_fit():
+            t = send("Mother is 50, has diabetes, wants room rent more than 10,000 a day")
+            check("against the customer" in t, t[:160])
+            last = page.locator(".msg.bot").last
+            n = last.locator(".fc").count()
+            check(1 <= n <= 2, f"{n} product cards; the best one or two are wanted")
+            check("BEST" in last.locator(".fc").first.inner_text().upper(), "no best product card")
+            check(last.locator(".fc").first.locator("li").count() >= 1, "best product has no reasons")
+            check("Diabetes cover starts" in t, "no date when diabetes cover starts")
+            check("products are not shown" in t, "no reasons for the others")
+            kit = last.locator("details.kit")
+            check(kit.count() == 1, "no sales kit")
+            k = kit.inner_text()
+            for part in ("Say to the customer", "WhatsApp message", "When the waiting ends", "Papers to keep ready", "Do not promise"):
+                check(part.lower() in k.lower(), f"sales kit lacks {part}")
+            check(not re.search(r"Rs\.?\s?[\d,]+\s*(premium|per year)", k, re.I), "sales kit quotes a premium")
+            return last.locator(".fc").first.locator(".nm").inner_text()
+        step("Customer need: best and second best, reasons, diabetes date and a sales kit", need_fit)
 
         def browse_documents():
             # one conversation, never a chat per policy; other documents are found by search

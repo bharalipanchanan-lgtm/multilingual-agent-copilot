@@ -44,3 +44,13 @@ Be honest about the current limits:
 4. Voice questions use Sarvam's cloud service (the only part that leaves the laptop, and only the audio clip). WhatsApp Business API is not part of this prototype.
 5. The shortlist is for the agent, not advice to the customer, and it cannot use premium. The claims record uses IRDAI's incurred claims ratio, because IRDAI no longer publishes a claim settlement ratio per insurer. Oriental scores highest on it, at 102.58%, which also means it paid out more in claims than it earned in premium; the card says so.
 6. Measured answer time on this laptop: about 5 seconds per answer (first words after 3 to 4.5 seconds). The first question after starting takes about 15 seconds, which is why the warm-up question matters.
+
+## Additions on 2026-11-10 (29 documents)
+
+1. Type "HDFC". The copilot lists Optima Secure, Optima Restore and Optima Senior with one line on how each differs, and answers only after one is picked. It never mixes products.
+2. Pick Optima Restore, ask "What is the waiting period?". The answer comes from the fact table in well under a second, with the exact line and page.
+3. Type "ReAssure 1.0". The copilot warns that it is no longer sold (source: joinditto.in) and names ReAssure 2.0. Ask "Is robotic surgery covered?": the answer carries the warning and the policy's own line "A limit of maximum INR 1 Lac will apply to all robotic surgeries".
+4. Type "Mother is 50, has diabetes, wants room rent more than 10,000 a day". The copilot checks 29 products, shows the best and second best with reasons, folds away why the others do not fit, says when diabetes cover starts, and opens the sales kit: words to say, a WhatsApp message to copy, waiting end dates, papers and what not to promise.
+5. Add a product name to the same need ("... Check Diabetes Safe") and only that product is checked.
+
+Say in the demo: fact values were drafted by a model and every quote was checked against the PDF, but no person has signed them off yet; entry ages are mostly in brochures, not wordings, so the copilot asks the agent to confirm age instead of guessing. Premium is still never quoted.

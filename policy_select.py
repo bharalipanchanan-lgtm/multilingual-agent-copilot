@@ -46,9 +46,9 @@ TEXT = {
         "hi": "आप कौन सा पॉलिसी दस्तावेज़ देखना चाहते हैं?",
     },
     "greet": {
-        "en": "Hello! I'm {agent}, your health insurance policy copilot. I answer only from the policy document, with the clause and page, and I say so when the document is silent.",
-        "hinglish": "Namaste! Main {agent} hoon, aapka health insurance policy copilot. Main sirf policy document se jawab deta hoon, clause aur page ke saath. Document mein na ho to saaf bata deta hoon.",
-        "hi": "नमस्ते! मैं {agent} हूँ, आपका हेल्थ इंश्योरेंस पॉलिसी कोपायलट। मैं केवल पॉलिसी दस्तावेज़ से, क्लॉज़ और पेज के साथ जवाब देता हूँ, और दस्तावेज़ में न हो तो साफ़ बता देता हूँ।",
+        "en": "Hello! I'm {agent}, your health insurance policy copilot. I answer only from the policy document, with the clause and page, and I say so when the document is silent.\nTwo ways to start: tell me the customer's need (for example 'mother 50, diabetes, room rent above 10,000') and I find the best products, or name the product and I check only that one.",
+        "hinglish": "Namaste! Main {agent} hoon, aapka health insurance policy copilot. Main sirf policy document se jawab deta hoon, clause aur page ke saath. Document mein na ho to saaf bata deta hoon.\nDo tareeke: customer ki zaroorat bataiye (jaise 'mummy 50 saal, diabetes, room rent 10,000 se upar') aur main best product dhoondhunga, ya product ka naam lijiye aur main sirf usi ko check karunga.",
+        "hi": "नमस्ते! मैं {agent} हूँ, आपका हेल्थ इंश्योरेंस पॉलिसी कोपायलट। मैं केवल पॉलिसी दस्तावेज़ से, क्लॉज़ और पेज के साथ जवाब देता हूँ, और दस्तावेज़ में न हो तो साफ़ बता देता हूँ।\nदो तरीके: ग्राहक की ज़रूरत बताइए (जैसे 'माँ 50 साल, डायबिटीज़, रूम रेंट 10,000 से ऊपर') और मैं सबसे अच्छे प्रोडक्ट ढूँढूँगा, या प्रोडक्ट का नाम लीजिए और मैं सिर्फ़ उसी को जाँचूँगा।",
     },
     "greet_again": {
         "en": "Hello again! I'm answering from {name}. Ask your question, or name another policy to switch.",
@@ -80,6 +80,26 @@ TEXT = {
         "hinglish": "Aapne ek se zyada policy ka naam liya. Kaunsi use karun?",
         "hi": "आपने एक से अधिक पॉलिसी का नाम लिया। मैं कौन सी इस्तेमाल करूँ?",
     },
+    "which_product": {
+        "en": "{insurer} has {n} products with similar names loaded. Which exact product do you mean?",
+        "hinglish": "{insurer} ke {n} milte-julte naam wale products loaded hain. Aap kaunsa product dekhna chahte hain?",
+        "hi": "{insurer} के {n} मिलते-जुलते नाम वाले प्रोडक्ट लोड हैं। आप ठीक कौन सा प्रोडक्ट देखना चाहते हैं?",
+    },
+    "which_hint": {
+        "en": "Tap one, or type its name. I answer from one product only, never a mix.",
+        "hinglish": "Ek chuniye ya uska naam likhiye. Main sirf ek product se jawab deta hoon, kabhi mila kar nahi.",
+        "hi": "एक चुनिए या उसका नाम लिखिए। मैं केवल एक प्रोडक्ट से जवाब देता हूँ, कभी मिलाकर नहीं।",
+    },
+    "stopped": {
+        "en": "Warning: {name} is no longer sold ({source}). Use it only for a customer who already holds it.",
+        "hinglish": "Dhyan dein: {name} ab nahi bika jaata ({source}). Ise sirf us customer ke liye dekhein jiske paas yeh pehle se hai.",
+        "hi": "ध्यान दें: {name} अब नहीं बेचा जाता ({source})। इसे केवल उस ग्राहक के लिए देखें जिसके पास यह पहले से है।",
+    },
+    "stopped_new": {
+        "en": "For a new sale, the current product is {new}. Say \"{label}\" to switch.",
+        "hinglish": "Nayi sale ke liye current product {new} hai. Badalne ke liye \"{label}\" likhiye.",
+        "hi": "नई बिक्री के लिए मौजूदा प्रोडक्ट {new} है। बदलने के लिए \"{label}\" लिखिए।",
+    },
     "not_loaded": {
         "en": "I do not have a {insurer} policy loaded, so I cannot answer from it. These are the policies I have:",
         "hinglish": "Mere paas {insurer} ki koi policy loaded nahi hai, isliye main usse jawab nahi de sakta. Yeh policies hain:",
@@ -97,11 +117,23 @@ def policies() -> list[dict]:
     for r in manifest().values():
         if not (POLICY_DIR / r["file"]).exists():
             continue
-        aliases = [a.strip().lower() for a in (r.get("aliases") or "").split(";") if a.strip()]
+        # aliases in the same form as the text they are matched against ("ReAssure 2.0" -> "reassure 2 0")
+        aliases = list(dict.fromkeys(_norm(a).strip() for a in (r.get("aliases") or "").split(";") if a.strip()))
         out.append({"n": len(out) + 1, "policy_id": r["policy_id"], "insurer": r["insurer"],
                     "product": r["product"], "name": display_name(r), "aliases": aliases,
-                    "label": r.get("label") or ""})
+                    "label": r.get("label") or "", "uin": r.get("uin") or "",
+                    "status": (r.get("status") or "active").strip(), "replaced_by": (r.get("replaced_by") or "").strip(),
+                    "status_source": r.get("status_source") or "", "differs": (r.get("differs") or "").strip()})
     return out
+
+
+def by_id(policy_id: str) -> dict | None:
+    return next((p for p in policies() if p["policy_id"] == policy_id), None)
+
+
+def withdrawn(policy_id: str) -> bool:
+    p = by_id(policy_id)
+    return bool(p and p["status"] == "withdrawn")
 
 
 def display_name(r: dict) -> str:
@@ -123,26 +155,47 @@ def _spans(text: str, alias: str) -> list[tuple[int, int]]:
 
 
 def mentioned(text: str) -> tuple[list[str], str]:
-    """Policy ids named in the text, and the text with those names removed."""
+    """Policy ids named in the text, and the text with those names removed.
+
+    An alias can belong to several products: "HDFC" or "Care" names every product of that insurer,
+    "Optima Secure" names one. Longer aliases are matched first. A name shared by several products
+    is narrowed by a more specific one in the same text ("HDFC Optima Restore" is one product), and
+    left as the whole family when nothing narrows it, so the copilot asks which exact product.
+    """
     t = _norm(text)
-    found, cut = [], t
+    cut = t
     pols = policies()
+    owners: dict[str, list[str]] = {}
     for p in pols:
-        # remove every alias of the policy ("Oriental Sampoorna Swasthya Suraksha" holds three)
-        for a in sorted(p["aliases"], key=len, reverse=True):
-            while _spans(cut, a):
-                if p["policy_id"] not in found:
-                    found.append(p["policy_id"])
-                cut = cut.replace(f" {a} ", " ")
-    if not found:  # close spelling, e.g. "oriantal", "sundram"; only words of 5+ letters
-        single = {a: p["policy_id"] for p in pols for a in p["aliases"] if " " not in a and len(a) >= 5}
+        for a in p["aliases"]:
+            owners.setdefault(a, []).append(p["policy_id"])
+    sets: list[list[str]] = []
+    for a in sorted(owners, key=len, reverse=True):
+        while _spans(cut, a):
+            if owners[a] not in sets:
+                sets.append(owners[a])
+            cut = cut.replace(f" {a} ", " ")
+    if not sets:  # close spelling, e.g. "oriantal", "sundram"; only words of 5+ letters
+        single = {a: ids for a, ids in owners.items() if " " not in a and len(a) >= 5}
         for w in cut.split():
             if len(w) >= 5 and w not in FILLER:
                 hit = difflib.get_close_matches(w, single, n=1, cutoff=0.84)
-                if hit and single[hit[0]] not in found:
-                    found.append(single[hit[0]])
+                if hit and single[hit[0]] not in sets:
+                    sets.append(single[hit[0]])
                     cut = cut.replace(f" {w} ", " ")
+    found: list[str] = []
+    for s_ in sets:
+        if any(set(o) < set(s_) for o in sets):  # a more specific name narrows this one
+            continue
+        found += [i for i in s_ if i not in found]
     return found, cut
+
+
+def one_family(ids: list[str]) -> bool:
+    """True when every id is a product of the same insurer: the agent named the insurer or a
+    shared product name, not two policies to choose between."""
+    ins = {p["insurer"] for p in policies() if p["policy_id"] in ids}
+    return len(ids) > 1 and len(ins) == 1
 
 
 def strip_names(text: str) -> str:
@@ -153,7 +206,8 @@ def strip_names(text: str) -> str:
     """
     out = text
     for a in sorted({a for p in policies() for a in p["aliases"]}, key=len, reverse=True):
-        out = re.sub(rf"(?<![\wऀ-ॿ]){re.escape(a)}(?![\wऀ-ॿ])", " ", out, flags=re.I)
+        pat = r"[\W_]+".join(re.escape(w) for w in a.split())
+        out = re.sub(rf"(?<![\wऀ-ॿ]){pat}(?![\wऀ-ॿ])", " ", out, flags=re.I)
     out = re.sub(r"\b(?:policy|policies|insurance|health)\b(?=\s+(?:mein|me|ki|ka|ke|में|की|का|के)\b)", " ", out, flags=re.I)
     # leading connectors left behind ("ya", "mein", "में"); \b does not work after Devanagari vowel signs
     out = re.sub(r"^[\s,;:/-]*(?:(?:ya|or|aur|and|vs|या|और|mein|me|में|ki|ka|ke|की|का|के|wali|wala|वाली|वाला)"
@@ -191,15 +245,132 @@ def _label(p: dict) -> str:
 
 
 def options(only: list[str] | None = None) -> list[dict]:
-    return [{"n": p["n"], "policy_id": p["policy_id"], "name": p["name"], "label": _label(p)}
-            for p in policies() if not only or p["policy_id"] in only]
+    out = [{"n": p["n"], "policy_id": p["policy_id"], "name": p["name"], "label": _label(p),
+            "status": p["status"], "replaced_by": p["replaced_by"]}
+           for p in policies() if not only or p["policy_id"] in only]
+    if only and len(out) > 1:
+        notes = differences([o["policy_id"] for o in out])
+        for o in out:
+            o["differs"] = notes.get(o["policy_id"], "")
+    # products still on sale first; a withdrawn one is shown last, marked, never as the default
+    return sorted(out, key=lambda o: (o["status"] == "withdrawn", o["n"]))
+
+
+# ------------------------------------------------------------------ telling look-alike products apart
+
+def _fact_numbers(policy_id: str) -> dict:
+    from fact_table import load_facts
+    for f in load_facts():
+        if f["policy_id"] == policy_id:
+            return {r["attribute"]: (r.get("numbers") or {}) for r in f["rows"]
+                    if r["plan"] == "ALL" and r["status"] == "stated"}
+    return {}
+
+
+def _lakh(n) -> str:
+    n = float(n)
+    return f"{n / 1e7:g} crore" if n >= 1e7 else f"{n / 1e5:g} lakh"
+
+
+def _features(p: dict) -> list[tuple[str, str]]:
+    """(feature, short text) pairs in priority order; the first ones that differ between sibling
+    products are shown next to each option."""
+    num = _fact_numbers(p["policy_id"])
+    prod = p["product"].lower()
+    out = []
+    if p["status"] == "withdrawn":
+        rep = by_id(p["replaced_by"]) if p["replaced_by"] else None
+        out.append(("status", "stopped" + (f", replaced by {_label(rep)}" if rep else "")))
+    if "top-up" in prod or "top up" in prod:
+        out.append(("kind", "top-up cover over a deductible"))
+    elif "brochure" in prod or "prospectus" in prod:
+        out.append(("kind", "brochure only" if "brochure" in prod else "prospectus only"))
+    age = num.get("entry_age", {})
+    lo, hi = age.get("adult_min_years"), age.get("adult_max_years")
+    if lo and lo >= 45:
+        out.append(("age", f"for ages {lo}+"))
+    elif hi:
+        out.append(("age", f"entry up to {hi} years"))
+    elif lo:
+        out.append(("age", f"adults from {lo} years"))
+    sp = num.get("specific_disease_waiting", {})
+    if sp.get("diabetes_overrides_ped") and sp.get("diabetes_months") is not None:
+        out.append(("diabetes", f"diabetes complications covered after {sp['diabetes_months']} months"))
+    if num.get("ped_waiting", {}).get("months"):
+        out.append(("ped", f"pre-existing disease wait {num['ped_waiting']['months']} months"))
+    rr = num.get("room_rent", {})
+    if rr.get("kind") == "no_limit":
+        out.append(("room", "no room rent limit"))
+    elif rr.get("kind") == "percent_si" and rr.get("percent_of_si"):
+        out.append(("room", f"room rent {rr['percent_of_si']:g}% of sum insured a day"))
+    elif rr.get("kind") == "rupees" and rr.get("rupees_per_day"):
+        out.append(("room", f"room rent up to Rs {rr['rupees_per_day']:,.0f} a day"))
+    elif rr.get("kind") == "category" and rr.get("category"):
+        out.append(("room", rr["category"].split("/")[0].strip().lower()))
+    cp = num.get("copay", {})
+    if cp.get("percent") == 0:
+        out.append(("copay", "no co-pay"))
+    elif cp.get("percent"):
+        out.append(("copay", f"{cp['percent']:g}% co-pay" + (f" {cp['condition']}" if cp.get("condition") and len(cp["condition"]) < 45 else "")))
+    if num.get("restoration_reload", {}).get("available"):
+        out.append(("restore", "sum insured restored after a claim"))
+    si = num.get("sum_insured_options", {})
+    if si.get("max_rupees"):
+        out.append(("si", f"cover up to {_lakh(si['max_rupees'])}"))
+    if p["uin"]:
+        out.append(("uin", f"UIN {p['uin']}"))
+    return out
+
+
+def differences(ids: list[str], most: int = 2) -> dict[str, str]:
+    """One short line per product saying how it differs from the others named with it.
+    The manifest "differs" column overrides; otherwise it is built from the fact table, so it
+    works for 500 products without writing each line by hand."""
+    pols = [p for p in policies() if p["policy_id"] in ids]
+    feats = {p["policy_id"]: dict(_features(p)) for p in pols}
+    keys = [k for k, _ in _features(pols[0])] + [k for p in pols for k, _ in _features(p)]
+    keys = list(dict.fromkeys(keys))
+    varying = [k for k in keys if len({feats[i].get(k) for i in feats}) > 1]
+    out = {}
+    for p in pols:
+        if p["differs"]:
+            out[p["policy_id"]] = p["differs"]
+            continue
+        mine = feats[p["policy_id"]]
+        # first what only this product has, then anything else that varies; the UIN only as a last resort
+        unique = [k for k in varying if k in mine and k != "uin" and all(feats[o].get(k) != mine[k] for o in feats if o != p["policy_id"])]
+        rest = [k for k in varying if k in mine and k not in unique and k != "uin"]
+        keys_ = (unique + rest)[:most] or (["uin"] if "uin" in mine else [])
+        out[p["policy_id"]] = "; ".join(mine[k] for k in keys_)
+    return out
 
 
 LIST_IN_MESSAGE = 5  # documents written out in a message; the rest are reached by name or the browser
 
 
 def option_lines(opts: list[dict]) -> str:
-    return "\n".join(f"{o['n']}. {o['name']}" for o in opts)
+    return "\n".join(f"{o['n']}. {o['name']}" + (f": {o['differs']}" if o.get("differs") else "") for o in opts)
+
+
+def stopped_note(policy_id: str, lang: str) -> str | None:
+    """The warning shown with every answer from a withdrawn product, naming the product that replaced it."""
+    p = by_id(policy_id)
+    if not p or p["status"] != "withdrawn":
+        return None
+    src = re.sub(r"^joinditto\.in[^:]*:\s*", "", p["status_source"]).strip() or "marked withdrawn in the manifest"
+    src = "source: joinditto.in" if "joinditto" in p["status_source"] else src
+    msg = TEXT["stopped"][lang].format(name=p["name"], source=src)
+    new = by_id(p["replaced_by"]) if p["replaced_by"] else None
+    if new:
+        msg += " " + TEXT["stopped_new"][lang].format(new=new["name"], label=_label(new))
+    return msg
+
+
+def which_product_message(lang: str, ids: list[str]) -> tuple[str, list[dict]]:
+    opts = options(ids)
+    ins = next(p["insurer"] for p in policies() if p["policy_id"] == ids[0])
+    head = TEXT["which_product"][lang].format(insurer=ins, n=len(opts))
+    return f"{head}\n{option_lines(opts)}\n{TEXT['which_hint'][lang]}", opts
 
 
 def selected_message(policy_id: str, lang: str) -> str:
@@ -208,6 +379,9 @@ def selected_message(policy_id: str, lang: str) -> str:
     kind = doc_kind(p["product"])
     if kind:
         msg += "\n" + TEXT["not_wording"][lang].format(kind=KIND[kind][lang])
+    stop = stopped_note(policy_id, lang)
+    if stop:
+        msg += "\n" + stop
     return msg
 
 

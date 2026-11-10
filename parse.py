@@ -64,6 +64,9 @@ def clause_label(line: str) -> str:
     return label[:70].rstrip(" ,;:(")
 
 
+LETTER_ITEM = re.compile(r"^[A-Z]\.\s")
+
+
 def paragraphs(lines: list[str], section: str, state: dict | None = None) -> tuple[list[tuple[str, str]], str]:
     """Split page lines into (section, text) paragraphs.
 
@@ -104,6 +107,13 @@ def paragraphs(lines: list[str], section: str, state: dict | None = None) -> tup
             flush()
             new_section(line[:70])
             state["appendix"] = True
+            continue
+        if LETTER_ITEM.match(line) and is_heading(line):
+            # "G. Robotic surgeries", "K. IONM": a short lettered line is a list item far more often
+            # than a heading. Read as a heading, its words became a section label and left the
+            # index, which took Care Supreme's whole list of modern treatments with it. It is kept
+            # as text in the current paragraph; citations use page and clause, not these labels.
+            cur.append(line)
             continue
         if is_heading(line) and not (state["appendix"] and not SUBCLAUSE_RE.match(line)):
             flush()

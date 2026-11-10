@@ -17,10 +17,13 @@
      "quote": "excluded until the expiry of 36 months, 24 months, and 12 (Below 45 years of age)"
     }
    ],
-   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months": 36
+   }
   },
   {
    "plan": "ELITE",
@@ -34,10 +37,13 @@
      "quote": "excluded until the expiry of 36 months, 24 months, and 12 (Below 45 years of age)"
     }
    ],
-   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months": 24
+   }
   },
   {
    "plan": "ROYAL",
@@ -55,10 +61,13 @@
      "quote": "1 year for Insured upto age of 45 Years & 2 Yrs for age above 45 Yrs"
     }
    ],
-   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4.",
+   "note": "Clause text prints '24 (<45age)' for Royal above 45, a typo; the benefit table says 2 years above 45. PED buyback options (reduce by 1, 2 or 3 years, extra premium, fresh policies only) exist under clause 3.2.4. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months": 24
+   }
   },
   {
    "plan": "ALL",
@@ -84,10 +93,14 @@
      "quote": "Waiting period for life style conditions namely, Hypertension, Diabetes, Cardiac conditions is not allowed for more than 90 days except if these diseases are pre-"
     }
    ],
-   "note": "Longer of the specific and PED waiting periods applies when both apply (clause 4.2 B). List has 26 numbered rows over pages 39 and 40; row 21 is missing from the extraction.",
+   "note": "Longer of the specific and PED waiting periods applies when both apply (clause 4.2 B). List has 26 numbered rows over pages 39 and 40; row 21 is missing from the extraction. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months_max": 24,
+    "cataract_months": 24
+   }
   },
   {
    "plan": "ALL",
@@ -105,10 +118,13 @@
      "quote": "This exclusion shall not, however, apply if the Insured Person has continuous coverage for more than twelve months"
     }
    ],
-   "note": "",
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "days": 30
+   }
   },
   {
    "plan": "ALL",
@@ -139,10 +155,14 @@
      "quote": "1 % of the Sum Insured per day"
     }
    ],
-   "note": "Room rent upgrade option (clause 3.2.3): increment of 50% or 100% available for Premium; Elite only up to 10 lakh sum insured; not applicable to Royal.",
+   "note": "Room rent upgrade option (clause 3.2.3): increment of 50% or 100% available for Premium; Elite only up to 10 lakh sum insured; not applicable to Royal. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "kind": "percent_si",
+    "percent_of_si": 1
+   }
   },
   {
    "plan": "ELITE",
@@ -156,10 +176,14 @@
      "quote": "Upto 10 lakhs : - 1% of the Sum Insured per day Above 10 lakhs : actual expenses incurred for the Sum Insured per day"
     }
    ],
-   "note": "",
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "kind": "percent_si",
+    "percent_of_si": 1
+   }
   },
   {
    "plan": "ROYAL",
@@ -173,10 +197,13 @@
      "quote": "Actual expenses incurred per day"
     }
    ],
-   "note": "",
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "kind": "no_limit"
+   }
   },
   {
    "plan": "PREMIUM",
@@ -241,10 +268,15 @@
      "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
     }
    ],
-   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "percent": 10,
+    "mandatory": false,
+    "condition": "only in a non-network hospital"
+   }
   },
   {
    "plan": "ELITE",
@@ -258,10 +290,15 @@
      "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
     }
    ],
-   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "percent": 5,
+    "mandatory": false,
+    "condition": "only in a non-network hospital"
+   }
   },
   {
    "plan": "ROYAL",
@@ -275,10 +312,15 @@
      "quote": "10% Co-Payment 5% Co-Payment Not Applicable"
     }
    ],
-   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm.",
+   "note": "The row applies only to treatment in non-network hospitals. A separate optional voluntary co-pay with premium discount of 7.5% or 15% exists (clause 3.2.2). No mandatory age based co-pay was found in the benefit table; confirm. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "percent": 0,
+    "mandatory": false,
+    "condition": null
+   }
   },
   {
    "plan": "PREMIUM",
@@ -659,6 +701,65 @@
     }
    ],
    "note": "Limit is shared with modern treatments (page 17 image, verify). Conditions: hospitalisation in a Mental Health Establishment on advice of a Mental Health Professional; alcohol and drug related conditions, mental retardation and psychotherapy not needing hospitalisation are excluded.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The extracts conflict on the minimum entry age for adults, with extract 1 stating there is no minimum or maximum entry age for new policyholders, while extract 2 states the member must be 18 years of age or older.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The sum insured is automatically restored to its original limit during the same policy period if a single claim (other than the first) equals or exceeds the total of the sum insured and cumulative bonus, subject to conditions on full exhaustion and claim eligibility.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 28,
+     "quote": "this benefit will restore the Basic sum insured to its original limit Under the Premium Plan, the opted Sum Insured (excluding any cumulative bonus) will be automatically restored if any single claim—other than the first—during the policy period is equal to or exceeds the total of the Sum Insured and the cumulative bonus accrued under the policy",
+     "clause": "3.1.17 RESTORATION OF SUM INSURED"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The sum insured options range from ₹2 lakhs to ₹500 lakhs, depending on the plan and policyholder type.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "2, 3, 4, 5, 6, 7, 8, 9 and",
+     "clause": "3.1 COVERAGE The benefits under this Policy are"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "min_rupees": 200000,
+    "max_rupees": 50000000
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

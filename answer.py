@@ -23,9 +23,9 @@ from generate import ExtractiveGenerator, Generator, get_generator
 MIN_SCORE = 0.40  # lowest answerable top score was 0.458 in eval_retrieval; traps overlap, so the LLM and router also gate
 
 NOT_STATED = {
-    "en": "This is not stated in the policy document.",
-    "hi": "यह जानकारी पॉलिसी दस्तावेज़ में नहीं दी गई है।",
-    "hinglish": "Yeh jaankari policy document mein nahi di gayi hai.",
+    "en": "This is not written in this product's policy document.",
+    "hi": "यह इस प्रोडक्ट के पॉलिसी दस्तावेज़ में लिखा नहीं है।",
+    "hinglish": "Yeh is product ke policy document mein likha nahi hai.",
 }
 OUT_OF_SCOPE = {
     "premium": {
@@ -85,7 +85,7 @@ ABSENCE_RE = re.compile(
     r"|\bno\s+(specific\s+)?(limit|information|details?|mention)\s+(is\s+)?(given|mentioned|specified|stated)\b"
     r"|\b(zikr|ullekh|mention|mentioned|jaankari|jankari)\s+nahi(n)?\b|उल्लेख नहीं|जानकारी नहीं दी"
     # Hinglish: "koi specific limit nahi di gayi hai", "kuch nahi bataya gaya", "likha nahi hai"
-    r"|\bnahi(n)?\s+(di|diya|dee|likhi|likha)\s+gay[aie]\b|\bnahi(n)?\s+bataya\s+gaya\b|\b(likha|likhi)\s+nahi(n)?\b"
+    r"|\bnahi(n)?\s+(di|diya|dee|likhi|likha)\s+gay[aie]\b|\bnahi(n)?\s+batay[ai]\s+gay[ai]\b|\b(likha|likhi)\s+nahi(n)?\b"
     r"|\bbaare\s+mein\s+(kuch|koi)\b.{0,40}\bnahi(n)?\b|नहीं बताया गया|नहीं दी गई", re.I)
 
 
@@ -124,12 +124,17 @@ You are given numbered clauses from the policy wording. Rules:
 3. Copy every number, percentage, amount and time period exactly as written in the clauses.
 4. If the clauses do not answer the question, reply with exactly: NOT_STATED
    Never conclude that something does not exist just because no clause mentions it.
-5. Write 2 to 4 short sentences an agent can say to a customer. Include conditions and exceptions that change the answer.
+5. Start with one short sentence in simple words that answers the question, the way an agent would say it to a customer.
+   Then add at most 2 short sentences with the conditions and exceptions that change the answer.
+   Any limit, sub-limit, co-payment or waiting period written in the clause you cite MUST be in the answer;
+   never say only "covered" when the clause caps the amount.
    For a named disease, check every clause: if it appears in a specific waiting period list AND the pre-existing disease rule could apply, state both periods and when each applies.
 6. Clauses under an "Exclusions" part list what the policy does NOT pay for. A treatment listed there is not covered (unless the clause itself states an exception).
    Clauses under a "Definition" part only define words; they do not by themselves grant cover.
    An appendix "List of Expenses Generally Excluded" is a list of non-medical items such as consumables, not the policy's main exclusions.
    A clause marked with an exclusion code such as "Code - Excl18" or "(Excl 18)" describes something the policy does NOT pay for, unless that clause says the exclusion does not apply.
+6b. If a clause names the treatment or disease asked about (for example in a list of modern treatments or waiting periods),
+   answer from that clause and cite it first; a general definition does not answer a question about a named treatment.
 7. Never use words like "lifetime", "guaranteed", "always", "all hospitals" or "no limit" unless that exact idea is written in a clause.
 9. Do not add examples, calculations or amounts worked out from a percentage. State only what the clauses say.
 10. Write in the language you are told to use. Keep terms like "waiting period", "sum insured" and "pre-existing disease" in English.
@@ -461,8 +466,43 @@ def ask_stream(question: str, policy_id: str, gen: Generator | None = None) -> I
                "citations": cards, **common}
         return
 
+    extra = missed_limit(question, answer, clauses)
+    if extra:
+        n, sent = extra
+        if n not in cited:
+            cited = sorted(cited + [n])
+        answer += f"\n{LIMIT_NOTE[lang]} “{sent}” [{n}]"
     cards = [card(clauses[i - 1], i, answer, question) for i in cited]
     yield {"type": "final", "status": "answered", "answer": answer, "citations": cards, **common}
+
+
+LIMIT_NOTE = {
+    "en": "The policy also sets this limit:",
+    "hi": "पॉलिसी में यह सीमा भी लिखी है:",
+    "hinglish": "Policy mein yeh limit bhi likhi hai:",
+}
+FIGURE_RE = re.compile(r"(?:INR|Rs\.?|₹)\s?[\d,]+|\d+(?:\.\d+)?\s*%|\b\d[\d,]*(?:\.\d+)?\s*(?:Lacs?|Lakhs?|lakhs?|lacs?)\b")
+
+
+def missed_limit(question: str, answer: str, clauses: list[dict]) -> tuple[int, str] | None:
+    """A sentence in the retrieved clauses that names what was asked about and carries an amount or
+    percentage the answer leaves out ("A limit of maximum INR 1 Lac will apply to all robotic
+    surgeries" when the answer says only "covered"). Returned verbatim so the agent sees the cap; the
+    model is told to include limits, but does not always."""
+    from retrieve import STOP
+    keys = {w.lower()[:6] for w in re.findall(r"[A-Za-z]{5,}", question) if w.lower() not in STOP}
+    if not keys:
+        return None
+    have = _numbers(re.sub(r"\[\d+\]", " ", answer))  # citation markers are not figures
+    for i, c in enumerate(clauses, 1):
+        for sent in re.split(r"(?<=[.;:])\s+", c["text"]):
+            low = sent.lower()
+            if len(sent) > 320 or not FIGURE_RE.search(sent) or not any(k in low for k in keys):
+                continue
+            figs = _numbers(" ".join(m.group(0) for m in FIGURE_RE.finditer(sent)))
+            if figs and not figs & have:
+                return i, sent.strip()
+    return None
 
 
 def ask(question: str, policy_id: str, gen: Generator | None = None) -> dict:

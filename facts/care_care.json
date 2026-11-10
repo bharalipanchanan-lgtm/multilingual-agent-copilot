@@ -1,0 +1,371 @@
+{
+ "format": 2,
+ "policy_id": "care_care",
+ "insurer": "Care Health Insurance",
+ "product": "Care (the policy named Care)",
+ "source": "care_care.pdf, UIN CHIHLIP25042V082425",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for claims related to pre-existing diseases is 36 months of continuous coverage, but if the insured person is continuously covered without any break as defined under the portability norms of the extant IRDAI (Health Insurance) Regulations, the waiting period would be reduced to the extent of prior coverage.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 23,
+     "quote": "period of 36 months for Claims related to Pre- existing diseases, to 24 months.",
+     "clause": "3.2.2 (a) (Worldwide In-Patient Cover (for"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest specific waiting period for any listed condition is 24 months for pre-existing diseases under the Optional Cover, but the extracts do not provide a single unified waiting period for all specific diseases, nor do they list a specific waiting period for cataract or diabetes.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period is 30 days from the first policy commencement date for worldwide in-patient cover.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 25,
+     "quote": "First 30-Day waiting Period – Code –",
+     "clause": "3.2.2 (a) (Worldwide In-Patient Cover (for)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The base plan covers a Single Private Room (upgradable to the next level) as the maximum eligible room category.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "The Policy Schedule states 'Single Private Room' as eligible Room Category",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "category",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": "Single Private Room"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The policy states a mandatory 10% co-payment per claim in extract 1, and a flat 20% co-payment per consultation for out-patient treatment at network hospitals in extract 2. However, extract 6 introduces a separate co-payment for the Optional Cover 18 for insured persons aged 61 years or above, which is not clearly reconciled with the other co-payment terms.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 10,
+    "mandatory": true,
+    "condition": "age 61 years or above"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity cover is available under the policy with a waiting period of 24 months from the inception of the first policy with the company. This benefit is only available under Floater cover 3.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "Claims will not be admissible for any expenses incurred for diagnosis / treatment related to any Maternity Expenses until 24 months since the inception of the first Policy with the company.",
+     "clause": "4.1 (b) and 4.2"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is not covered by the policy. The policy explicitly states that the Company is not responsible for any AYUSH Hospitals or health care facilities for any of the listed AYUSH Treatment namely Ayurveda, Yoga and Naturopathy, Sidha, Unani and Homeopathy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 13,
+     "quote": "The Company does not assume any Insured Person's medical treatment undergone at liability for and shall not be responsible for AYUSH Hospitals or health care facilities for any of the any actual or alleged errors, omissions or listed AYUSH Treatment namely Ayurveda, Yoga and",
+     "clause": "E. Immunotherapy- Monoclonal Antibody to be"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "covered": false,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The No Claims Bonus accrues at 10% flat on a cumulative basis for each completed and continuous policy year, and the maximum is 50% of the Base Sum Insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 14,
+     "quote": "At the end of each Policy Year, the Company will enhance the Base Sum Insured by 10% flat, on a cumulative basis, as a No Claims Bonus for each completed and continuous Policy Year",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 10,
+    "max_percent": 50
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The minimum entry age for an adult is 18 years, and there is no stated maximum entry age for adults in the provided extracts.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "Insured Persons who are of Age 18 years or above on the Policy Period Start Date",
+     "clause": "4.1 (b) and 4.2"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": 18,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": null,
+    "max_rupees": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The sum insured is automatically recharged when exhausted, with the recharge amount available for the balance policy period, as shown in the illustration where Claim 2 utilized 1,00,000 of the recharge sum insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "Recharge Sum Insured available for the balance policy period",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The extracts do not state any specific sub-limits on cataract or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day Care Treatment is covered under the policy if it is listed in the Annexure-I to Policy Terms & Conditions and the period of treatment does not exceed 24 hours.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "Day Care Treatment is listed as per the Annexure-I to Policy Terms & Conditions and period of treatment of the",
+     "clause": "null"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The extracts do not state the specific number of pre-hospitalisation or post-hospitalisation days covered under the policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": null,
+    "post_days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU Charges limit is 2% of the Sum Insured per day of Hospitalization if the Policy Schedule states 'up to 2% of the time of admission and the Sum Insured per day' as eligible ICU Charges, but if the eligible ICU Charges applicable for the Insured Person is 'No limit', there is no separate restriction on ICU Charges incurred towards stay in ICU during Hospitalization.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 24,
+     "quote": "If the eligible ICU Charges applicable for the Insured Person under the Policy is 'No limit', which means there is no separate restriction on ICU Charges incurred towards stay in ICU during Hospitalization.",
+     "clause": "3.2.2 (a) (Worldwide In-Patient Cover (for Emergency))"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is five continuous years under the policy, after which no look back is applied.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 31,
+     "quote": "under the policy no look back to be applied. This period Including the Premium Rates of five years is called as moratorium period.",
+     "clause": "5.1.14. Possibility of Revision of Terms of the Policy Including the Premium Rates"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient mental illness treatment is covered under the policy, as 'All Psychiatric or Psychosomatic Disorders' are listed under Benefit 5: Ambulance Cover.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 11,
+     "quote": "All Psychiatric or Psychosomatic Disorders; 3.1.5. Benefit 5: Organ Donor Cover",
+     "clause": "E. Immunotherapy- Monoclonal Antibody to be"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at any Network Provider, including outside India under Benefit 11 (Global coverage excluding USA), Benefit 14 (Care Anywhere), Optional Cover 1 (Global coverage – Total), and Optional Cover 2 (Travel Plus).",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 34,
+     "quote": "For an updated list of Network Providers and the extent of Cashless Facilities available at each Network Provider, the Insured Person may refer to the list of Network Providers available on the Company's website or at the call center.",
+     "clause": "Annexure VII, section (vii)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

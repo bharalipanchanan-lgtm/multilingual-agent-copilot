@@ -198,6 +198,7 @@ class APIGenerator(Generator):
         self.model_id = os.environ.get("COPILOT_LLM_MODEL") or c.get("model")
         self.extra = c.get("extra", {})
         self.name = f"api:{provider}:{self.model_id}"
+        self.max_tokens = 600
 
     def available(self):
         if not self.url or not self.model_id:
@@ -208,7 +209,7 @@ class APIGenerator(Generator):
 
     def stream(self, system, user):
         key = os.environ[self.key_env]
-        body = {"model": self.model_id, "stream": True, "temperature": 0, "max_tokens": 600,
+        body = {"model": self.model_id, "stream": True, "temperature": 0, "max_tokens": self.max_tokens,
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}], **self.extra}
         headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
         if self.provider == "sarvam":

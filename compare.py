@@ -72,7 +72,10 @@ def _cell_text(rows: list[dict], words) -> str:
 
 def compare_answer(question: str, lang: str = "en", only: list[str] | None = None) -> dict:
     """only: policy ids the agent named ("compare SBI and Oriental"); None compares every policy."""
-    facts = [f for f in load_facts() if not only or f["policy_id"] in only]
+    man = manifest()
+    # products no longer sold are compared only when the agent names them
+    facts = [f for f in load_facts() if (f["policy_id"] in only if only else
+             (man.get(f["policy_id"], {}).get("status") or "active") != "withdrawn")]
     keys = attrs_for(question)
     words = NOTE[lang]
     head, unverified = words[0], words[1]
@@ -83,11 +86,12 @@ def compare_answer(question: str, lang: str = "en", only: list[str] | None = Non
             "hi": "मैं इन बिंदुओं पर पॉलिसी की तुलना कर सकता हूँ: " + names + "।",
             "hinglish": "Main in points par policies compare kar sakta hoon: " + names + ".",
         }[lang], "citations": [], "table": None}
-    man = manifest()
     rows, cites, lines = [], [], [head]
     for f in facts:
         offset = int(man.get(f["policy_id"], {}).get("page_offset") or 0)
         name = f"{f['insurer']}: {f['product']}"  # product names alone do not say whose policy it is
+        if (man.get(f["policy_id"], {}).get("status") or "") == "withdrawn":
+            name += " (no longer sold)"
         cells = []
         for k in keys:
             frows = [r for r in f["rows"] if r["attribute"] == k]

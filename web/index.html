@@ -133,6 +133,41 @@
             border-radius: 12px; padding: 9px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
   .browse:hover { background: var(--brand); color: #fff; border-style: solid; }
 
+  .opt small.diff { white-space: normal; overflow: visible; color: var(--ink2); }
+  .opts.which { grid-template-columns: 1fr; }
+  .opt.stopped { opacity: .75; border-style: dashed; }
+  .tag-stop { display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 700; color: var(--stop); background: var(--stop-bg); padding: 1px 6px; border-radius: 6px; vertical-align: 1px; }
+  .notice { display: flex; gap: 8px; align-items: flex-start; background: var(--stop-bg); color: var(--stop); border-radius: 12px; padding: 9px 12px;
+            margin: 2px 0 10px; font-size: 13px; font-weight: 500; white-space: normal; }
+  .notice svg { flex: none; margin-top: 2px; }
+  .lbl { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 2px 0 4px; }
+  .cards .lbl { margin: 4px 0 0; }
+
+  /* customer fit and sales kit */
+  .fit { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; white-space: normal; }
+  .fc { background: var(--surface2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  .fc.best { border-color: rgba(61,90,254,.35); box-shadow: var(--ring); }
+  .fc .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .fc .pos { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--brand-ink); }
+  .fc .nm { font-weight: 700; font-size: 15px; margin-top: 2px; }
+  .fc .ins { color: var(--muted); font-size: 12.5px; }
+  .fc ul { margin: 8px 0 0; padding: 0; list-style: none; font-size: 13px; }
+  .fc li { padding: 3px 0 3px 20px; position: relative; color: var(--ink2); }
+  .fc li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 9px; height: 5px; border-left: 2px solid var(--ok); border-bottom: 2px solid var(--ok); transform: rotate(-45deg); }
+  .fc li.c::before { border: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); transform: none; top: 9px; left: 3px; }
+  .fc li.x::before { border: 0; width: 10px; height: 2px; background: var(--stop); transform: none; top: 11px; left: 2px; }
+  .fc .act button, .kit .copy { background: none; border: 0; color: var(--brand-ink); font-weight: 600; font-size: 12.5px; padding: 0; cursor: pointer; margin-top: 6px; }
+  .nofit { font-size: 12.5px; color: var(--muted); }
+  .nofit div { padding: 2px 0; }
+  details.kit { background: var(--surface2); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; white-space: normal; }
+  details.kit > summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--ink); }
+  .kit h4 { margin: 12px 0 4px; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+  .kit ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink2); }
+  .kit li { margin: 2px 0; }
+  .kit .wa { background: var(--surface); border: 1px solid var(--line); border-radius: 12px 12px 12px 4px; padding: 9px 11px; font-size: 13px; color: var(--ink2); }
+  .kit .dt { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; font-size: 13px; }
+  .kit .dt b { font-variant-numeric: tabular-nums; }
+
   /* clause cards */
   .cards { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; white-space: normal; }
   .cardc { background: var(--surface2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; position: relative; }
@@ -272,7 +307,7 @@
       <div class="starts">
         <button type="button" class="start" data-say="Hi"><b>Hi</b><span>Start the conversation</span></button>
         <button type="button" class="start" data-say="Namaste"><b>Namaste</b><span>Shuru karein, Hinglish mein</span></button>
-        <button type="button" class="start" data-fill="finder"><b>Best policy finder</b><span>Shortlist for a customer's needs</span></button>
+        <button type="button" class="start" data-fill="need"><b>Find a product</b><span>Tell me the customer's need</span></button>
         <button type="button" class="start" data-open="docs"><b>Browse documents</b><span id="heroDocs">All loaded policy wordings</span></button>
       </div>
     </section>
@@ -322,13 +357,15 @@ let currentPolicy = null, pendingQuestion = null, lastLang = null, POLICIES = []
 let VOICE = {enabled: false}, recorder = null, recTimer = null, voiceText = null, voiceInfo = null;
 const MAX_REC_MS = 25000;
 const SHOWN_IN_CHAT = 5;   // document buttons in a message; the rest are reached through the browser
+const NEED = "Mother is 50, has diabetes, wants room rent more than 10,000 a day. Which product fits?";
 const FINDER = "Which policy works best for a customer who wants no waiting period and a good claims record? Premium does not matter.";
 const SUGGEST = [
   "Diabetes ke liye waiting period kitna hai?",
   "What is the room rent limit?",
   "Kya ICU charges par bhi room rent ka cap lagta hai?",
   "Is maternity covered?",
-  "What is the premium for a 45 year old for 10 lakh?",
+  "Is robotic surgery covered?",
+  "What is the age limit?",
   "क्या इस पॉलिसी में पहले से मौजूद बीमारियों के लिए वेटिंग पीरियड है?",
   "Compare the diabetes waiting period across policies",
 ];
@@ -343,7 +380,7 @@ const BADGE = {
   choose_policy: ["b-warn", "Choose a policy document"],
   compared: ["b-ok", "From the policy fact table"],
   ranked: ["b-ok", "Shortlist from the policy fact table"],
-  not_stated: ["b-warn", "Not stated in the document"],
+  not_stated: ["b-warn", "Not written in this product"],
   refused: ["b-warn", "Outside the policy wording"],
   blocked: ["b-stop", "Draft blocked: a figure did not match the policy"],
   error: ["b-stop", "Error"],
@@ -386,7 +423,10 @@ function kindOf(name) { return /brochure/i.test(name) ? "brochure" : /prospectus
 function product(p) { return p.name.split(", ").slice(1).join(", ").replace(/\s*\((prospectus|brochure)[^)]*\)$/i, ""); }
 function optionButtons(opts) {
   if (!opts || !opts.length) return "";
-  return `<div class="opts">${opts.map(o => `<button class="opt" data-say="${esc(o.label)}" title="${esc(o.name)}">${avatar(o)}<span class="ot">${o.n}. ${esc(o.label)}<small>${esc(product(o))}</small></span></button>`).join("")}</div>`;
+  // look-alike products carry one line on how each differs; a stopped product is marked
+  const which = opts.some(o => o.differs);
+  return `<div class="opts${which ? " which" : ""}">${opts.map(o => `<button class="opt${o.status === "withdrawn" ? " stopped" : ""}" data-say="${esc(o.label)}" title="${esc(o.name)}">${avatar(o)}<span class="ot">${o.n}. ${esc(o.label)}${o.status === "withdrawn" ? `<span class="tag-stop">stopped</span>` : ""}${
+    o.differs ? `<small class="diff">${esc(o.differs)}</small>` : `<small>${esc(product(o))}</small>`}</span></button>`).join("")}</div>`;
 }
 function browseButton() {
   return `<div><button type="button" class="browse"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Browse all documents</button></div>`;
@@ -437,7 +477,7 @@ function started() { chat.classList.add("started"); }
 function wireHero() {
   document.querySelectorAll(".start").forEach(b => b.onclick = () => {
     if (b.dataset.say) ask(b.dataset.say);
-    else if (b.dataset.fill) setBox(FINDER);
+    else if (b.dataset.fill) setBox(NEED);
     else openDocs();
   });
 }
@@ -511,7 +551,8 @@ qEl.addEventListener("input", syncBar);
 
 async function init() {
   setupVoice();
-  $("#chips").innerHTML = `<button type="button" class="chip star" data-q="${esc(FINDER)}">Best policy finder</button>` +
+  $("#chips").innerHTML = `<button type="button" class="chip star" data-q="${esc(NEED)}">Find a product for a customer</button>` +
+    `<button type="button" class="chip star" data-q="${esc(FINDER)}">Best policy finder</button>` +
     SUGGEST.map(s => `<button type="button" class="chip" data-q="${esc(s)}">${esc(s)}</button>`).join("");
   document.querySelectorAll(".chip").forEach(c => c.onclick = () => c.classList.contains("star") ? setBox(c.dataset.q) : ask(c.dataset.q));
   $("#chips").style.display = "none";  // suggestions appear once a policy is chosen
@@ -543,15 +584,44 @@ async function pollStatus() {
   } catch (e) { st.textContent = "offline"; st.classList.remove("on"); setTimeout(pollStatus, 3000); }
 }
 
-function renderCards(cites, policyId, id) {
+function renderCards(cites, policyId, id, head = "") {
   if (!cites || !cites.length) return "";
-  return `<div class="cards">` + cites.map(c => `
+  return `<div class="cards">${head ? `<span class="lbl">${esc(head)}</span>` : ""}` + cites.map(c => `
     <div class="cardc" id="c${id}-${c.n}">
       <div class="hd"><span>[${c.n}] <b>${esc(c.section)}</b></span>
         <a href="/pdf/${esc(c.policy_id || policyId)}#page=${c.page}" target="_blank">Page ${esc(c.printed_page)} &#8599;</a></div>
       <q>${esc(c.quote)}</q>
       ${c.text && c.text !== c.quote ? `<details><summary>Full clause</summary><div class="full">${esc(c.text)}</div></details>` : ""}
     </div>`).join("") + `</div>`;
+}
+function noticeBox(t) {
+  return t ? `<div class="notice">${ICON.stop}<span>${esc(t)}</span></div>` : "";
+}
+function renderFit(f, id) {
+  if (!f) return "";
+  const label = pid => (POLICIES.find(p => p.policy_id === pid) || {}).label;
+  const pos = f.mode === "product" ? ["Checked"] : ["Best", "Second best"];
+  const cards = (f.best || []).map((r, i) => `
+    <div class="fc${i === 0 && r.fits ? " best" : ""}">
+      <div class="top"><span class="pos">${esc(r.fits ? (pos[i] || "") : "Does not fit")}</span>${r.claims ? `<span class="ins" title="IRDAI incurred claims ratio, not a settlement ratio">${esc(r.claims)}</span>` : ""}</div>
+      <div class="nm">${esc(r.display || r.label)}</div><div class="ins">${esc(r.insurer)}</div>
+      <ul>${r.good.map(g => `<li>${esc(g)}</li>`).join("")}${r.cautions.map(c => `<li class="c">${esc(c)}</li>`).join("")}${r.fails.map(x => `<li class="x">${esc(x)}</li>`).join("")}</ul>
+      ${label(r.policy_id) ? `<div class="act"><button type="button" data-say="${esc(label(r.policy_id))}">Ask about this product &#8250;</button></div>` : ""}
+    </div>`).join("");
+  // the reasons the other products do not fit (or rank lower) fold away; one line per reason
+  const others = (f.whyNot || []).length
+    ? `<details class="how nofit"><summary>Why the other ${f.checked - (f.best || []).length} products are not shown</summary>${f.whyNot.map(l => `<div>${esc(l.replace(/^- /, ""))}</div>`).join("")}</details>` : "";
+  const k = f.kit;
+  const kit = k ? `
+    <details class="kit" open><summary>Help to close the sale</summary>
+      <h4>Say to the customer</h4><ul>${k.say.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <h4>WhatsApp message</h4><div class="wa" id="wa${id}">${esc(k.whatsapp)}</div>
+      <button type="button" class="copy" data-wa="wa${id}">Copy message</button>
+      ${k.dates.length ? `<h4>When the waiting ends (policy start ${esc(k.start)})</h4><div class="dt">${k.dates.map(d => `<span>${esc(d.what)}</span><b>${esc(d.date)}</b>`).join("")}</div>` : ""}
+      <h4>Papers to keep ready</h4><ul>${k.papers.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <h4>Do not promise</h4><ul>${k.dont.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    </details>` : "";
+  return `<div class="fit">${cards}${others}${kit}</div>`;
 }
 function renderTable(t) {
   if (!t) return "";
@@ -614,28 +684,46 @@ async function ask(text, held = false) {
         if (ev.type === "policy") { setPolicy(ev); policyId = ev.policy_id; chat.appendChild(bubble); scroll(); }
         if (ev.type === "meta") { meta = ev;
           if (ev.route === "single") bubble.innerHTML = TYPING("reading the policy clauses...");
-          if (ev.route === "recommend") bubble.innerHTML = TYPING("ranking the policies..."); }
+          if (ev.route === "recommend") bubble.innerHTML = TYPING("ranking the policies...");
+          if (ev.route === "fit") bubble.innerHTML = TYPING("checking every product against the customer..."); }
         if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = `<span class="btext">${withRefs(streamed, id)}</span>`; scroll(); }
         if (ev.type === "final") {
           if (voiced) ev._voice = voiced;
           const [cls, label] = ev.block_reason === "polarity" ? ["b-stop", "Draft blocked: it called an exclusion covered"]
-                                                              : (BADGE[ev.status] || BADGE.error);
+                             : ev.quick ? ["b-ok", "Quick answer from the fact table"]
+                             : ev.fit ? ["b-ok", ev.fit.mode === "product" ? "Product checked against the customer" : `Checked ${ev.fit.checked} products against the customer`]
+                             : (BADGE[ev.status] || BADGE.error);
+          // a clause answer: the plain words first, then the exact lines it rests on
+          const plain = ev.status === "answered" && !ev.quick && meta && meta.route === "single" && (ev.citations || []).length;
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
-          if (ev.table || ev.ranking || (ev.options || []).length) bubble.classList.add("wide");
+          if (ev.table || ev.ranking || ev.fit || (ev.options || []).length) bubble.classList.add("wide");
           const greeting = ev.greeting || ev.status === "greeting";
           // documents offered as cards are not repeated as a numbered list above them
-          const shownText = (ev.options || []).length
+          let shownText = (ev.options || []).length
             ? ev.answer.split("\n").filter(l => !/^\d+\.\s/.test(l)).join("\n").replace(/\n{3,}/g, "\n\n") : ev.answer;
-          bubble.innerHTML = (greeting ? "" : badge(cls, label)) + `<span class="btext">${withRefs(shownText, id)}</span>` +
-            renderRanking(ev.ranking) + renderTable(ev.table) +
-            (ev.ranking && ev.citations && ev.citations.length
-              ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted clauses</summary>${renderCards(ev.citations, policyId, id)}</details>`
-              : renderCards(ev.citations, policyId, id)) + optionButtons((ev.options || []).slice(0, SHOWN_IN_CHAT)) +
+          if (ev.fit) {  // best and second are the cards; the reasons for the rest fold away under them
+            const ls = ev.answer.split("\n");
+            ev.fit.whyNot = ls.filter(l => l.startsWith("- "));
+            shownText = ls.filter(l => !l.startsWith("- ") && !/^(Best|Second|Doosra|सबसे अच्छा|दूसरा):/.test(l)
+                                        && !/^(Why the others|Baaki kyun|बाकी क्यों)/.test(l)).join("\n");
+          }
+          bubble.innerHTML = (greeting ? "" : badge(cls, label)) + noticeBox(ev.notice) +
+            (plain ? `<span class="lbl">In simple words</span>` : "") + `<span class="btext">${withRefs(shownText, id)}</span>` +
+            renderFit(ev.fit, id) + renderRanking(ev.ranking) + renderTable(ev.table) +
+            ((ev.ranking || ev.fit) && ev.citations && ev.citations.length
+              ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted lines from the policies</summary>${renderCards(ev.citations, policyId, id)}</details>`
+              : renderCards(ev.citations, policyId, id, plain || ev.quick ? "Exact line from the policy" : "")) +
+            optionButtons((ev.options || []).slice(0, ev.which_product ? 8 : SHOWN_IN_CHAT)) +
             (ev.status === "choose_policy" && (ev.options || []).length > 2 ? browseButton() : "") +
             (["selected", "choose_policy", "greeting"].includes(ev.status) ? "" : howPanel(ev, meta)) +
             `<div class="meta">${now()} · ${secs}s</div>`;
           wireOptions(bubble);
-          bubble.querySelectorAll(".rk .act button").forEach(b => b.onclick = () => ask(b.dataset.say));
+          bubble.querySelectorAll(".rk .act button, .fc .act button").forEach(b => b.onclick = () => ask(b.dataset.say));
+          bubble.querySelectorAll(".copy").forEach(b => b.onclick = async () => {
+            const t = document.getElementById(b.dataset.wa).textContent;
+            try { await navigator.clipboard.writeText(t); b.textContent = "Copied"; } catch (e) { b.textContent = "Select the text to copy"; }
+            setTimeout(() => b.textContent = "Copy message", 1800);
+          });
           if (ev.lang) lastLang = ev.lang;
           // a question asked before any policy was chosen is answered once the agent picks one
           if (ev.status === "choose_policy" && ev.pending) pendingQuestion = question;

@@ -1,0 +1,357 @@
+{
+ "format": 2,
+ "policy_id": "niva_reassure",
+ "insurer": "Niva Bupa Health Insurance",
+ "product": "ReAssure (first version)",
+ "source": "niva_reassure.pdf, UIN NBHHLIP25037V032425",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 36 months of continuous coverage from the date of inception of the first Policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 22,
+     "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy",
+     "clause": "5.1 (Personal Accident Cover)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The extracts provide conflicting waiting period information: extract 2 states 36 months for specified diseases, extract 3 states 24 months for listed conditions, and extract 7 states 36 months for pre-existing diseases.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period for pre-existing diseases is 36 months of continuous coverage from the date of inception of the first Policy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 22,
+     "quote": "Expenses related to the treatment of a Pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy",
+     "clause": "Section 6.1"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The policy mentions co-payment in Section 7.4 d but does not specify the percentage or conditions for age, zone, non-network, or voluntary co-payment.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": false,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity expenses are covered under the policy, and they are subject to a 24-month waiting period from the inception of the first policy, with coverage commencing from the third policy year provided there is continuous insurance without any break.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 25,
+     "quote": "Maternity Expenses (Code-Excl18) a. Medical treatment expenses traceable to childbirth (including complicated deliveries and caesarean sections incurred during Hospitalization) except ectopic pregnancy; b. Expenses towards miscarriage (unless due to an Accident) and lawful medical termination of pregnancy during the Policy Period.",
+     "clause": "6.18. Maternity Expenses (Code-Excl18)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered, but the policy text does not specify an upper monetary limit for this coverage.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The policy provides a cumulative bonus of 50% of the Base Sum Insured per claim-free year, subject to a maximum of 100% of the Base Sum Insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "We will provide Booster Benefit in the form of Cumulative Bonus by increasing the Sum Insured applicable under the Policy by 50% of the Base Sum Insured of the immediately preceding Policy Year per claim free Policy Year subject to a maximum of 100% of the Base Sum Insured.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 50,
+    "max_percent": 100
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The provided extracts do not state the minimum and maximum entry age for an adult or children under the Niva Bupa Health Insurance ReAssure policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day Care Treatments are covered if they are advised as Medically Necessary Treatment and the Insured Person is admitted for more than 2 hours, or if they are for Angiography, Dialysis, Radiotherapy, or Chemotherapy for cancer.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "We will indemnify the Medical Expenses incurred on the Insured Person’s under any Day Care Treatment during the Policy Period following an Illness or Injury.",
+     "clause": "4.2. Day Care Treatment What is covered"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy covers pre-hospitalisation medical expenses for up to 60 days immediately preceding the insured person's admission for inpatient care or day care treatment or alternative treatments or modern treatments. The policy covers post-hospitalisation medical expenses for up to 180 days immediately following the insured person's discharge from hospital or day care treatment or alternative treatments or modern treatments.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "We will pay above mentioned Pre-hospitalization Medical Expenses only for period up to 60 days immediately preceding the Insured Person’s admission for Inpatient Care or Day Care Treatment or Alternative Treatments or Modern Treatments.",
+     "clause": "3.2 Specific Definitions"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 60,
+    "post_days": 180
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": "other",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is 60 continuous months of coverage, after which no policy and claim shall be contestable by the insurer on the grounds of non-disclosure or misrepresentation.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 33,
+     "quote": "The period of sixty continuous months is called as moratorium period.",
+     "clause": "8.9 Moratorium Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient mental illness treatment is not explicitly covered under the policy, as the definition of Inpatient Care only mentions treatment following an Illness or Injury, and alternative treatments are limited to Ayurveda, Unani, Siddha, and Homeopathy, with Yoga explicitly excluded.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "We will indemnify the Medical Expenses incurred for one or more of the following due to the Insured Person’s Hospitalization during the Policy Period following an Illness or Injury",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The base sum insured options range from 3,00,000 to 1,00,00,000 rupees.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. The model's quote was not found verbatim in the PDF, so the value needs reading by hand.",
+   "numbers": {
+    "min_rupees": 300000,
+    "max_rupees": 10000000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The ReAssure benefit provides unlimited reinstatement up to the base Sum Insured, applicable for both same and different illnesses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 37,
+     "quote": "Unlimited reinstatement up to base Sum Insured. (Applicable for both same & different illness)",
+     "clause": "Annexure I - Product Benefit Table"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "Modern treatments are covered up to the sum insured, but there is a sub-limit of Rs. 1 Lac on few robotic surgeries, which is excluded for robotic total radical prostatectomy, robotic cardiac surgeries, robotic partial nephrectomy, and robotic surgeries for malignancies.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 37,
+     "quote": "Covered up to Sum Insured with sub-limit of Rs. 1Lac on few robotic surgeries",
+     "clause": "Annexure I - Product Benefit Table"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": "Rs. 1 Lac"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Providers or Service Providers. We offer Cashless Everywhere, even in hospitals which are not part of our network.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 28,
+     "quote": "We offer Cashless Everywhere, even in hospitals which are not part of our network. For More details and process please visit our website: https://transactions.nivabupa.com/cashlessclaims/pages/intimation-claim.aspx",
+     "clause": "GIFT, ICSI"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

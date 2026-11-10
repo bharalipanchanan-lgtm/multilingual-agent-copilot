@@ -13,7 +13,8 @@ from typing import Iterator
 
 from answer import OUT_OF_SCOPE, ask_stream, detect_lang, route
 from policy_select import (FILLER, _norm, by_number, choose_message, greet_message, greeting_lang, greeting_only,
-                           mentioned, options, other_insurer, policies, selected_message, selection_only, strip_names)
+                           mentioned, one_family, options, other_insurer, policies, selected_message, selection_only,
+                           stopped_note, strip_names, which_product_message)
 
 # "Which policy document can I inspect?", "policy badlo", "switch policy": the agent wants the list,
 # not a comparison (COMPARE_RE also matches "which policy").
@@ -87,6 +88,21 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         yield final("choose_policy", choose_message(lang), options=options(), pending=False)
         return
 
+    from fit import fit_answer, is_need
+    if is_need(question) and r not in ("hospitals", "claim_status"):
+        # The agent describes the customer. Named one product: check only that product (product
+        # first). Otherwise check every product on sale and show the best two (need first).
+        one = found[0] if len(found) == 1 else None
+        yield {"type": "meta", "lang": lang, "route": "fit", "backend": "fact_table"}
+        out = fit_answer(question, lang, policy_id=one, only=found if one_family(found) else None)
+        if one and one != policy_id:
+            policy_id = one
+            p = known[one]
+            yield {"type": "policy", "policy_id": one, "name": p["name"], "insurer": p["insurer"], "product": p["product"]}
+        yield {"type": "final", **out, "lang": lang, "backend": "fact_table", "ms": int((time.time() - t0) * 1000),
+               "policy_id": policy_id, "notice": stopped_note(one, lang) if one else None}
+        return
+
     if r == "recommend":
         # a shortlist across every loaded policy; no policy needs to be chosen first
         from rank import rank_answer
@@ -102,6 +118,17 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         yield {"type": "final", **compare_answer(question, lang, only=only), "lang": lang, "backend": "fact_table",
                "ms": int((time.time() - t0) * 1000), "policy_id": policy_id}
         return
+
+    if len(found) > 1 and one_family(found):
+        # "HDFC" or "ReAssure" names several products of one insurer. Keep the one in use if it is
+        # among them; otherwise ask which exact product, with one line on how each differs.
+        if policy_id in found:
+            found = [policy_id]
+        else:
+            msg, opts = which_product_message(lang, found)
+            yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
+            yield final("choose_policy", msg, options=opts, pending=not selection_only(rest), which_product=True)
+            return
 
     if len(found) > 1:
         yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
@@ -125,7 +152,19 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         yield final("choose_policy", choose_message(lang), options=options(), pending=True)
         return
 
+    notice = stopped_note(policy_id, lang) if policy_id else None
+    if policy_id and r == "single":
+        # simple questions (room rent, waiting period, age limit, co-pay) come straight from the fact row
+        from quick import quick_answer
+        q = quick_answer(question, policy_id, lang)
+        if q:
+            yield {"type": "meta", "lang": lang, "route": "fact", "backend": "fact_table"}
+            yield {"type": "final", **q, "lang": lang, "backend": "fact_table", "ms": int((time.time() - t0) * 1000),
+                   "policy_id": policy_id, "notice": notice}
+            return
+
     for ev in ask_stream(strip_names(question), policy_id, gen):
         if ev.get("type") == "final":
             ev["policy_id"] = policy_id
+            ev["notice"] = notice
         yield ev

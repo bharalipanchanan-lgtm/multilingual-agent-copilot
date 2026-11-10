@@ -1,0 +1,357 @@
+{
+ "format": 2,
+ "policy_id": "digit_double_wallet",
+ "insurer": "Go Digit General Insurance",
+ "product": "Digit Health Insurance Policy (Double Wallet)",
+ "source": "digit_double_wallet.pdf, UIN GODHLIP25039V022425",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The specific waiting periods for diseases, cataract, and diabetes are not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period is 30 days from the first policy commencement date, excluding accident claims, unless the Insured Person has Continuous Coverage for more than twelve months.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 43,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident, provided the same are covered.",
+     "clause": "3. Initial Waiting Period- Code- Excl03"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "For the base plan, there is no restriction on room rent under Inpatient Hospitalisation, except for the BharatX plan which covers only a Single Private AC Room.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 65,
+     "quote": "No Restriction on Room Rent",
+     "clause": "I | Inpatient Hospitalizati on Cover"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "A 10% co-payment applies when the hospitalization address is in a Higher Zone Category and the policyholder fails to provide matching address proof. Co-payment also applies in Non-Preferred Provider Network Hospitals depending on the network type, with 15% for Standard, 20% for Silver, and 0% (company will not indemnify) for Gold.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 53,
+     "quote": "In the absence of Address proof provided which validates the pricing zone opted, and if the place of hospitalization belongs to Higher Zone Category – then Co-pay of 10% would be applicable on admissible claim amount.",
+     "clause": "II. SPECIFIC TERMS AND CLAUSES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {
+    "percent": 10,
+    "mandatory": false,
+    "condition": "only without address proof for the pricing zone"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity is covered with a waiting period of 9 months from the date of inception of the first policy with us, provided that the policy has been renewed continuously with us without break, with maternity as a benefit.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "This also has a waiting period. Waiting period of 9 months shall apply from the date of inception of the first policy with us, provided that the policy has been renewed continuously with us without break, with maternity as a benefit.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 9
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered when taken in a registered AYUSH Hospital, but the policy does not specify a monetary limit for this coverage.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "We cover your hospitalization expenses when you choose a registered AYUSH Hospital. We will pay the Medical Expenses for Your In-patient Treatment, taken under Ayurveda, Unani, Siddha or Homeopathy.",
+     "clause": "SECTION 1. HOSPITALIZATION COVER"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "Extract 1 states the maximum No Claim Bonus Benefit is 5 times (5%), while Extract 5 states it is 50% (5 No Claim Bonus Benefit points).",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 1,
+    "max_percent": 5
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The extracts state conflicting minimum ages for adults: Extract 1 states an adult must be 18 years or more to accompany a child, while Extract 2 states the insured person undergoing bariatric surgery must be minimum 18 years old. There is no clear maximum age stated for adults in the extracts.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": 18,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The backup Sum Insured, which is 100% of the Sum Insured amount, is provided to restore the sum insured after it is used up, provided that the backup is utilized if the cause of hospitalization is related or not related to an earlier hospitalization for which a claim was already availed during the same policy year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 21,
+     "quote": "The backup Sum Insured would be utilized if the cause of the Hospitalization is related or not related (as per plan opted) to or arising out of earlier Hospitalization, including its complications, for which a claim has already been availed during the same policy year for the same Insured Person.",
+     "clause": "SECTION 6. SUM INSURED BACK UP"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered under the policy if they are undertaken under General or Local Anaesthesia in a hospital or day care centre for less than 24 hours because of technological advancement, and they would have otherwise required hospitalization of more than 24 hours. Out-patient treatments and minor treatments such as stitches and plaster for fractures are not covered.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "We will pay the Medial Expenses Incurred for such Day Care Procedures",
+     "clause": "SECTION 1. HOSPITALIZATION COVER"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy mentions that pre-hospitalization and post-hospitalization expenses are covered for a period mentioned in the Policy Schedule, but the specific number of days is not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": null,
+    "post_days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The policy does not specify a limit for ICU charges.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": "other",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage after which no policy or claim shall be contestable by the insurer on grounds of non-disclosure or misrepresentation, except on grounds of established fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 50,
+     "quote": "This period of sixty continuous months is called as moratorium period.",
+     "clause": "CONDITION APPLICABLE DURING THE CONTRACT"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient hospitalization for psychiatric illness and disorders is covered, subject to a waiting period that starts from the date of inception of the first policy with continuous renewal.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 15,
+     "quote": "Hospitalisation related to mental illness is covered",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available only at our network hospitals, which are listed as Preferred Provider Networks (Standard, Silver, or Gold) depending on the plan option chosen.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 54,
+     "quote": "Cashless Facility can be availed from our network hospitals only. This is facilitated by our Service Provider / Third Party Administrator (TPA) and we would make a direct payment to the Network Hospital",
+     "clause": "23. Claims Notification and Procedure"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The base sum insured options for the Double Wallet Plan range from 1 lakh to 3 crores.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. The model's quote was not found verbatim in the PDF, so the value needs reading by hand.",
+   "numbers": {
+    "min_rupees": 100000,
+    "max_rupees": 30000000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "3 years for most plans, 1 year for some, as per the plan in the schedule",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 68,
+     "quote": "Pre-existing Waiting Period 3 years 3 years 3 years 3 years 1 year",
+     "clause": "plan table"
+    }
+   ],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {
+    "months": 36
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

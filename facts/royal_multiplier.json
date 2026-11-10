@@ -21,10 +21,13 @@
      "quote": "In 2 year & 3 year PED will be covered with 50% Co-payment up to"
     }
    ],
-   "note": "Source is a marketing brochure, not the policy wording; it says the brochure is not a contract. One plan with six sum insured options (5 to 25 lakh). Brochure pages 4 to 5 are a two-page spread, read from the table image.",
+   "note": "Source is a marketing brochure, not the policy wording; it says the brochure is not a contract. One plan with six sum insured options (5 to 25 lakh). Brochure pages 4 to 5 are a two-page spread, read from the table image. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months": 36
+   }
   },
   {
    "plan": "ALL",
@@ -42,10 +45,14 @@
      "quote": "12) Knee/Hip Joint replacement"
     }
    ],
-   "note": "Joint replacement waits 24 months here, unlike Oriental, United India and SBI.",
+   "note": "Joint replacement waits 24 months here, unlike Oriental, United India and SBI. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "months_max": 24,
+    "cataract_months": 24
+   }
   },
   {
    "plan": "ALL",
@@ -59,10 +66,13 @@
      "quote": "within 30 days from the first policy commencement date shall be excluded except claims arising due to an accident"
     }
    ],
-   "note": "The continuous coverage exception seen in other policies is not printed in the brochure.",
+   "note": "The continuous coverage exception seen in other policies is not printed in the brochure. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "days": 30
+   }
   },
   {
    "plan": "ALL",
@@ -88,10 +98,13 @@
      "quote": "No Room Rent Capping"
     }
    ],
-   "note": "Baseline inpatient cover is up to sum insured (page 8).",
+   "note": "Baseline inpatient cover is up to sum insured (page 8). Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "kind": "no_limit"
+   }
   },
   {
    "plan": "ALL",
@@ -130,10 +143,14 @@
      "quote": "5% 10% 15% 20%"
     }
    ],
-   "note": "Percent options read from the page 10 text; confirm the discount per percent in the full wording.",
+   "note": "Percent options read from the page 10 text; confirm the discount per percent in the full wording. Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
    "verified": false,
    "verified_by": null,
-   "verified_on": null
+   "verified_on": null,
+   "numbers": {
+    "percent": 0,
+    "mandatory": false
+   }
   },
   {
    "plan": "ALL",
@@ -299,6 +316,71 @@
    "needs_extra_care": true,
    "evidence": [],
    "note": "No mental illness wording found by search. Do not infer exclusion or cover.",
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "For adults, the minimum entry age is 18 years and the maximum entry age is 65 years. For children, the minimum entry age is between 91 days and 25 years.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Adult: Minimum entry age is 18 years and maximum entry age is 65 years.",
+     "clause": "Eligibility"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": 18,
+    "adult_max_years": 65
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The Flexi Reload Benefit reloads the sum insured up to 100% of base sum insured once in a policy year from the second claim onward, if the base sum insured and no claim bonus are insufficient.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "If the Base Sum Insured and No Claim Bonus (if any) is insufficient as a result of previous claims in that policy year, we will reload your sum insured, once in a policy year, up to 100% of base Sum Insured, from the nd 2 claim in the policy year.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The lowest sum insured option is ₹5 Lakhs and the highest is ₹25 Lakhs.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "5 Lakhs, 7.5 Lakhs, 10 Lakhs, 15 Lakhs, 20 Lakhs, 25 Lakhs",
+     "clause": "Sum Insured options"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "min_rupees": 500000,
+    "max_rupees": 2500000
+   },
    "verified": false,
    "verified_by": null,
    "verified_on": null

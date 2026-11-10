@@ -1,0 +1,356 @@
+{
+ "format": 2,
+ "policy_id": "tata_elder_care",
+ "insurer": "TATA AIG General Insurance",
+ "product": "Elder Care",
+ "source": "tata_elder_care.pdf, UIN TATHLIP23179V012223",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 24 months of continuous coverage after the date of inception of the first policy with the insurer.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us.",
+     "clause": "Section 3 – Exclusions, i. Standard Exclusions, 1. Exclusions with waiting periods, Pre-existing Diseases Waiting Period (Code- Excl 01)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The policy does not specify a waiting period for diabetes or cataract surgeries beyond what is mentioned in the general specified disease/procedure waiting period.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": null,
+    "cataract_months": null,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The extracts do not mention an initial waiting period from the first policy start date for general illness coverage.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "The policy does not explicitly state a room rent limit or room category covered for the base plan, nor does it clarify if it changes by sum insured or plan.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The policy has a mandatory co-payment of 20% on all claims under sections B1, B2, B3, B7, B8, B12, B15, and B16. The co-payment is mandatory and applies to the admissible claim amount of each and every claim.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "This policy is subject to a mandatory co-payment of 20% and You shall be liable to pay 20% of the admissible claim amount of each and every claim.",
+     "clause": "B19. Cost Sharing a. Mandatory Co-Payment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": true,
+    "condition": "applicable for all claim under section B1, B2, B3, B7, B8, B12, B15 and B16 of this policy"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity (childbirth) is covered under the policy, including complicated deliveries and caesarean sections incurred during hospitalization, except for ectopic pregnancy.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 23,
+     "quote": "Maternity (Code - Excl 18): a. Medical treatment expenses traceable to childbirth (including complicated deliveries and caesarean sections incurred during hospitalization) except ectopic pregnancy",
+     "clause": "AYUSH"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered under the AYUSH Benefit, subject to the room category/room rent limit specified in the Policy Schedule and associated medical expenses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "We will cover for Medical Expenses incurred for treatment as in-patient or Day Care Treatment in an AYUSH Hospital/ AYUSH day care centre, for a room category/ Room Rent limit, as specified in the Policy Schedule",
+     "clause": "B8. AYUSH Benefit"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "as specified in the Policy Schedule and applicability of Associated Medical Expenses"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The cumulative bonus is 10% per claim-free policy year, and the maximum accrued cumulative bonus cannot exceed 100% of the Sum Insured in any policy year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 14,
+     "quote": "10% cumulative bonus will be applied on the Sum Insured for next policy year under the Policy after every claim free Policy Year",
+     "clause": "B13. Cumulative Bonus i."
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 10,
+    "max_percent": 100
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The extracts show conflicting sum insured options: Extract 1 shows Rs 5 Lacs as the lowest and Rs 25 Lacs as the highest, while Extract 2 shows Rs 5 Lacs as the lowest and Rs 25 Lacs as the highest, but with different premium amounts.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": 500000,
+    "max_rupees": 2500000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The provided extracts do not contain any information regarding whether the sum insured is restored or reloaded after it is used up.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": false
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered if they are undertaken under General or Local Anesthesia in a hospital or day care centre in less than 24 hours, or if they would otherwise require hospitalization of more than 24 hours.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 4,
+     "quote": "Day care treatment means medical treatment, and/or surgical procedure which is: i. undertaken under General or Local Anesthesia in a hospital/day care centre in less than 24 hrs because of technological advancement, and ii. which would have otherwise required hospitalization of more than 24 hours.",
+     "clause": "13. Day Care Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The policy covers pre-hospitalization expenses for up to 30 days before hospital admission under B2, and post-hospitalization expenses for up to 60 days after discharge under B3. However, the AYUSH benefit under B8 extends these limits to 90 days for both pre and post hospitalization expenses.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "B2. Pre-Hospitalization expenses We will cover for expenses for Pre-Hospitalization consultations, investigations and medicines incurred upto 30 days before the date of admission to the hospital.",
+     "clause": "B2. Pre-Hospitalization expenses"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 30,
+    "post_days": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The policy extracts do not mention any specific limit or coverage for ICU charges.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is five continuous years of coverage in a health insurance policy after which no policy and claim can be contested by the insurer on grounds of non-disclosure or misrepresentation, except on grounds of established fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 28,
+     "quote": "After completion of five continuous years of coverage (including portability and migration) in health insurance policy, no policy and claim shall be contestable by the insurer on grounds of non-disclosure, misrepresentation, except on grounds of established fraud.",
+     "clause": "12. Moratorium Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "Inpatient treatment for disease, illness, or injury requiring hospital admission is covered under the policy, which would include inpatient mental illness treatment.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 9,
+     "quote": "We will cover for expenses for hospitalization due to disease/illness/Injury during the policy period that requires an Insured Person’s admission in a hospital as an inpatient.",
+     "clause": "B1. In-Patient Treatment"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Hospitals for both planned and emergency hospitalisations. For planned treatment, notice must be given at least 48 hours before, while for emergency hospitalisation, notice must be given within 24 hours after treatment.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 32,
+     "quote": "Cashless Service is only available at Network Hospitals.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy has specific sub-limits for cataract surgery per eye per insured person, but it does not mention any sub-limits for modern treatments like robotic surgery.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "The expenses payable during the entire policy year for following surgical procedures, either as Day Care or In-patient is limited to the amount mentioned in the table below: a. Cataract (per eye per insured person)",
+     "clause": "AYUSH"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "cataract": "per eye per insured person",
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

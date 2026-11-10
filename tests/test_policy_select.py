@@ -103,7 +103,7 @@ def test_compare_needs_no_policy_and_can_be_narrowed():
     assert fin["status"] == "compared"
     assert {r["policy_id"] for r in fin["table"]["rows"]} == {"sbi_retail_health", "oriental_sampoorna"}
     _, fin = turn("Compare the diabetes waiting period across policies")
-    assert len(fin["table"]["rows"]) == 5
+    assert len(fin["table"]["rows"]) >= 5  # every policy with fact rows
 
 
 def test_question_with_policy_name_is_not_selection_only():

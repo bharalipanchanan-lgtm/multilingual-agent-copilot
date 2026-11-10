@@ -1,0 +1,371 @@
+{
+ "format": 2,
+ "policy_id": "bajaj_hcs_vital",
+ "insurer": "Bajaj General Insurance",
+ "product": "Health Care Supreme (Vital)",
+ "source": "bajaj_hcs_vital.pdf, UIN BAJHLIP23210V042223",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "The waiting period for pre-existing diseases is 24 months of continuous coverage after the date of inception of the first Health Care Supreme Policy with Bajaj General Insurance.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Health Care Supreme Policy with us.",
+     "clause": "section I. Waiting Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest waiting period for specified diseases or procedures is 24 months, which also applies to cataract treatment.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "A waiting period of 24 months from the first Health Care Supreme Policy inception date will be applicable to the medical and surgical treatment of illness surgical procedures mentioned below",
+     "clause": "I. Waiting Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 24,
+    "cataract_months": 24,
+    "diabetes_months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "The initial waiting period is 30 days from the first Policy commencement date for any illness, except for accident claims, unless the insured has Continuous Coverage for more than twelve months.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 12,
+     "quote": "Expenses related to the treatment of any illness within 30 days from the first Policy commencement date shall be excluded except claims arising due to an accident",
+     "clause": "I. Waiting Period"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "no_limit",
+    "percent_of_si": null,
+    "rupees_per_day": null,
+    "category": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": null,
+    "mandatory": null,
+    "condition": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity expenses are covered with a waiting period of 24 months from the date of issuance of the first policy with Bajaj General Insurance, provided the policy has been renewed continuously without break for 24 months. The coverage is limited to maximum 2 deliveries or terminations during the lifetime of the insured person.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "Waiting period of 24 months from the date of issuance of the first policy with us, provided that the policy has been renewed continuously with us without break for you & your spouse",
+     "clause": "PART I MEDICAL EXPENSES SECTION"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "AYUSH inpatient treatment is covered if the patient is hospitalized for at least 24 hours in a government hospital on the advice of a medical practitioner, and the collective liability for AYUSH hospitalization expenses will not exceed the hospitalization Sum Insured specified in the policy schedule.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "If You are Hospitalized for not less than 24 hrs, in an AYUSH Hospital on the advice of a Medical Practitioner/Doctor because of Illness or Accidental Bodily Injury sustained or contracted during the Policy Period then We will pay You In-patient Treatment- Medical Expenses for AYUSH treatment",
+     "clause": "PART I MEDICAL EXPENSES SECTION"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "limit": "the hospitalization Sum Insured as specified in the policy schedule"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "The cumulative bonus increases the limit of indemnity by 10% per annum for each claim-free year, with a maximum cumulative increase limited to 50% of the sum insured.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "We will increase the Limit of Indemnity by 10% per annum, but a. The maximum cumulative increase in the Limit of Indemnity will be limited to 5 years and/ or 50% of Sum Insured.",
+     "clause": "SECTION E) GENERAL TERMS AND CLAUSES - SPECIFIC TERMS ANDCLAUSES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 10,
+    "max_percent": 50
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "adult_min_years": null,
+    "adult_max_years": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "If the hospitalization sum insured is exhausted, 100% of it is reinstated for the policy period, but it can only be used for subsequent claims for different illnesses and is not available for the same illness in the current policy year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 7,
+     "quote": "then it is agreed that 100% of the hospitalization Sum Insured specified under Hospitalization expenses (Section C Part I-1) will be reinstated for the particular Policy period provided that i. The reinstated Sum Insured will be triggered only after the Hospitalization Sum Insured inclusive of the Cumulative Bonus (If applicable) has been completely exhausted during the policy period; ii. The reinstated Sum Insured can be used for claims made by the Insured Person in respect of the benefits stated in Hospitalization Expenses Section C Part I-1; iii. If the claimed amount is higher than the Balance Sum Insured inclusive of the Cumulative Bonus (If applicable) under the policy, then this benefit will not be triggered for such claims iv. The reinstated Sum Insured would be triggered only for subsequent claims made by the Insured Person and not arising out of any illness/disease (including its complications) for which a claim has been lodged in the current policy year under Hospitalization Expenses Section C Part I-1.",
+     "clause": "11. Sum Insured Reinstatement Benefit"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "The policy does not state specific sub-limits for cataract surgery or modern treatments such as robotic surgery.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day care treatments are covered under the policy as long as they comply with the standard definition of Day Care Centre and Day Care treatment, and the procedures require less than 24 hours of hospitalization.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 22,
+     "quote": "any other surgeries/procedures requiring less than 24 hours Hospitalization due to technological advances will also be covered under this policy provided such procedures comply with the standard definition of Day Care Centre and Day Care treatment mentioned in the definitions",
+     "clause": "Annexure I"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "Pre-hospitalization is covered for 60 days before hospitalization, and post-hospitalization is covered for 90 days after discharge.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 5,
+     "quote": "The Medical Expenses incurred during the 60 days immediately before you were hospitalized",
+     "clause": "PART I MEDICAL EXPENSES SECTION"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": 60,
+    "post_days": 90
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU charges limit is not explicitly stated as a separate cap in the provided extracts, but the maximum liability collectively for Hospitalization & ICU hospitalization would not exceed the Total Sum Insured as specified in the policy schedule.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 8,
+     "quote": "Our maximum liability collectively for Hospitalization & ICU hospitalization for Individual & Floater policies would not exceed the Total Sum Insured as specified in the policy schedule",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "rupees"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The moratorium period is sixty continuous months of coverage, after which no look back would be applied and claims are no longer contestable except for proven fraud.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "After completion of sixty continuous months of coverage (including portability and migration) no look back would be applied.",
+     "clause": "SECTION E) GENERAL TERMS AND CLAUSES - STANDARD GENERAL TERMS ANDCLAUSES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 60
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "In-patient Treatment for Mental Illness is covered up to Base Sum Insured, subject to Policy Terms, Conditions, coverages, Waiting Period and exclusions.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 18,
+     "quote": "In-patient Treatment for Mental Illness shall be covered up to Base Sum Insuredsubject to Policy Terms, Conditions, coverages,Waiting Period and exclusions.",
+     "clause": "SECTION E) GENERAL TERMS AND CLAUSES - SPECIFIC TERMS ANDCLAUSES"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Hospitals, and We offer Cashless Everywhere, even in hospitals which are not part of our network, subject to hospitals fulfilling IRDAI definition of Hospital facility.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "We offer Cashless Everywhere, even in hospitals which are not part of our network subject to hospitals fullfiing IRDAI definition of Hospital facility",
+     "clause": "A. Cashless Claims Procedure"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The sum insured options for the Health Care Supreme (Vital) plan range from a minimum of 500,000 INR to a maximum of 6,225,000 INR.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. The model's quote was not found verbatim in the PDF, so the value needs reading by hand.",
+   "numbers": {
+    "min_rupees": 500000,
+    "max_rupees": 6225000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

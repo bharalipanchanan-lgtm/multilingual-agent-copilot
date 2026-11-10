@@ -1,0 +1,356 @@
+{
+ "format": 2,
+ "policy_id": "care_senior",
+ "insurer": "Care Health Insurance",
+ "product": "Care Senior",
+ "source": "care_senior.pdf, UIN RHIHLIP21017V052021",
+ "rows": [
+  {
+   "plan": "ALL",
+   "attribute": "ped_waiting",
+   "value": "Pre-existing diseases are covered after 48 months, but this can be reduced to 24 months if the Optional Cover 'Reduction in PED Wait Period' is opted for.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "Pre-existing diseases: Covered after 48 months (Covered after 24 months on opting for Optional Cover 'Reduction in PED Wait Period')",
+     "clause": "Clause 4.1 (iii)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": 48
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "specific_disease_waiting",
+   "value": "The longest waiting period is 48 months for pre-existing diseases (24 months if opting for Optional Cover 'Reduction in PED Wait Period'). Specific waiting periods for specified diseases/treatments/surgeries are 24 months.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "Pre-existing diseases: Covered after 48 months (Covered after 24 months on opting for Optional Cover 'Reduction in PED Wait Period')",
+     "clause": "Clause 4.1 (iii) & Clause 3.13"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months_max": 48,
+    "cataract_months": 24,
+    "diabetes_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "initial_waiting",
+   "value": "There is a 30-day waiting period for all illnesses from the first policy start date, which does not apply on policy renewals or accident cases.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 1,
+     "quote": "30 Days' waiting period : 30 days for all illnesses (not applicable on policy renewals or accident cases)",
+     "clause": "Clause 4.1 (i)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "days": 30
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "room_rent",
+   "value": "For the base plan Care Senior, the Room Rent or Room Category is limited to 2% of the Sum Insured per day of hospitalization, with the eligible room category being Single Private Room or Single Private Room (upgradable to next level if Single Private Room is not available).",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "The Room Rent or Room Category available under this Policy is mentioned as follows: 2) Single Private Room If the Policy Schedule states ‘Single Private Room’ as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable by the Company is limited to",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "kind": "percent_si",
+    "percent_of_si": 2,
+    "rupees_per_day": null,
+    "category": "Single Private Room (upgradable to next level)"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "copay",
+   "value": "The co-payment details are conflicting: extract 2 states 20% co-payment for non-Annexure IV hospitals for Optional Cover 10 Personal Accident, while extract 3 and 6 state a 20% co-payment option for insured persons aged 61 or more. The exact co-payment percentage and when it applies is unclear due to conflicting information.",
+   "status": "unclear",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent": 20,
+    "mandatory": null,
+    "condition": "if treatment is availed in hospitals other than those listed in Annexure IV"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "maternity",
+   "value": "Maternity expenses are covered up to 24 months since inception for all insured persons aged 18 years or above under floater cover, but voluntary medical termination of pregnancy during the first 12 weeks from conception is not admissible.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "Maternity Expenses until 24 months since the (i) The In-patient Hospitalization is on the written inception of the first Policy with the company.",
+     "clause": "section -"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true,
+    "waiting_months": 24
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "ayush",
+   "value": "The provided extracts do not state whether AYUSH inpatient treatment is covered or specify any limit for such coverage.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null,
+    "limit": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "no_claim_bonus",
+   "value": "Under No Claims Bonus, there is a 10% increase in Sum Insured for every claim-free year, subject to a maximum of 50% of Sum Insured. Under Optional cover No Claims Bonus Super, there is a 50% increase in Sum Insured for every claim-free year, subject to a maximum of 100% of SI.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 3,
+     "quote": "Under No Claims Bonus : 10% increase in Sum Insured for every claim free year subject to a maximum of 50% of Sum Insured; Under Optional cover No Claims Bonus Super : 50% increase in Sum Insured (which is over & above the Sum Insured accrued under No Claims Bonus) for every claim free year subject to a maximum of 100% of SI",
+     "clause": "Clause 2.10 & Clause 3.4"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "percent_per_year": 10,
+    "max_percent": 50
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sum_insured_options",
+   "value": "The lowest sum insured option is Rs. 20 Lakhs and the highest sum insured option is Rs. 5,00,000.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 16,
+     "quote": "The Policy Schedule will specify the Optional Covers that are in force for the Insured Persons.",
+     "clause": null
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "min_rupees": 200000,
+    "max_rupees": 500000
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "restoration_reload",
+   "value": "The policy provides an Unlimited Automatic Recharge of the Sum Insured once per policy year after it is completely exhausted, and the recharge amount is available unlimited times during the Policy Year.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 19,
+     "quote": "and hence all the provisions stated under Clause 2.7, holds good for Clause 3.3 as well, except that the Recharge shall be available unlimited times during the Policy Year.",
+     "clause": "Clause 3.3"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person. Quote shortened to the words found verbatim in the PDF.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "sublimits",
+   "value": "Not stated in the document",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "cataract": null,
+    "modern_treatment": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "daycare",
+   "value": "Day Care Treatment is covered under the policy, involving a surgical procedure through Cashless or Reimbursement Facility, with the company indemnifying up to the Sum Insured specified in the Policy Schedule, provided that Day Care Treatment is listed as per the Annexure-I to Policy Terms & Conditions.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 10,
+     "quote": "Day Care Treatment is listed as per the Annexure-I to Policy Terms & Conditions and period of treatment of the Insured Person in the Hospital/Day Care Centre",
+     "clause": "2) Single Private Room (upgradable to next level)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "pre_post_hospitalisation",
+   "value": "The pre and post hospitalisation days covered are not stated in the provided extracts.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "pre_days": null,
+    "post_days": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "icu_limit",
+   "value": "The ICU charges limit is 2% of the Sum Insured per day, with a maximum of the eligible Room Category considered as Single Private Room if documented proof is not furnished.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 2,
+     "quote": "ICU Charges more than 2% of SI per day",
+     "clause": "Clause 2.1 (iii) (b)"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "kind": "percent_si"
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "mental_illness",
+   "value": "The extracts do not state whether inpatient mental illness treatment is covered under the Care Senior policy.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "covered": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "cashless",
+   "value": "Cashless treatment is available at Network Providers, and the Insured Person must check the updated list of Network Providers before submitting a pre-authorization request.",
+   "status": "stated",
+   "needs_extra_care": false,
+   "evidence": [
+    {
+     "page": 26,
+     "quote": "The Company extends Cashless Facility as a mode to indemnify the medical expenses incurred by the Insured Person at a Network Provider.",
+     "clause": "6.2 Claim settlement - Facilities"
+    }
+   ],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "available": true
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "moratorium",
+   "value": "The policy documents do not mention a moratorium period.",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Drafted by extract_facts.py (api:sarvam:sarvam-105b) on 2026-11-10; not verified by a person.",
+   "numbers": {
+    "months": null
+   },
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  },
+  {
+   "plan": "ALL",
+   "attribute": "entry_age",
+   "value": "The policy wording does not state the entry age (it is in the brochure or prospectus).",
+   "status": "not_stated",
+   "needs_extra_care": true,
+   "evidence": [],
+   "note": "Corrected in the 2026-11-10 review against the PDF; not yet verified by a person.",
+   "numbers": {},
+   "verified": false,
+   "verified_by": null,
+   "verified_on": null
+  }
+ ]
+}

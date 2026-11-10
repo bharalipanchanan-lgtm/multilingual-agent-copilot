@@ -212,7 +212,13 @@ def claims_reading(insurer: str) -> tuple[float, str, dict] | None:
 def candidates(facts=None) -> list[dict]:
     """One candidate per policy plan. Rows for a plan override the policy's ALL rows."""
     out = []
+    man = manifest()
     for f in facts if facts is not None else load_facts():
+        r = man.get(f["policy_id"], {})
+        prod = (r.get("product") or "").lower()
+        # never shortlist a product that is no longer sold, or a top-up that needs a base policy
+        if facts is None and ((r.get("status") or "active") == "withdrawn" or "top-up" in prod):
+            continue
         plans = sorted({r["plan"] for r in f["rows"] if r["plan"] != "ALL"}) or ["ALL"]
         for plan in plans:
             rows = {}
@@ -243,10 +249,12 @@ def score_candidate(c: dict, weights: dict, offsets: dict) -> dict:
                           "value": reading, "source": src["source"], "printed_page": src["printed_page"]})
             continue
         row = c["rows"].get(crit.attribute)
-        res = crit.read(row["value"]) if row and row["status"] != "not_stated" else None
+        # only a stated row with a checked quote can score; an unclear draft is a gap, not a value
+        res = crit.read(row["value"]) if row and row["status"] == "stated" and row["evidence"] else None
         if res is None:
             why = ("not in the fact table yet" if not row else "not stated in the document"
-                   if row["status"] == "not_stated" else "could not read a figure from: " + row["value"][:60])
+                   if row["status"] == "not_stated" else "unclear in the fact table" if row["status"] == "unclear"
+                   or not row["evidence"] else "could not read a figure from: " + row["value"][:60])
             missing.append(f"{crit.label}: {why}")
             parts.append({"criterion": key, "label": crit.label, "score": 0.0, "reading": why, "weight": w,
                           "value": row["value"] if row else None, "missing": True})
