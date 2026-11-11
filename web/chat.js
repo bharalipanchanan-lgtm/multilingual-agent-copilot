@@ -496,11 +496,14 @@ function send(raw) {
   qEl.style.height = "42px";
   add("me", esc(text));
 
-  S.lang = C.detectLang(text);
   const need = C.parseNeed(text);
   const intent = C.classify(text);
+  /* a short command ("Close the sale" chip) keeps the conversation's language */
+  if (!(intent?.kind === "close" && text.split(/\s+/).length <= 4)) S.lang = C.detectLang(text);
   const matches = C.matchProducts(text, S.products, S.mine);
-  const named = matches.length && need.signals < 2;
+  /* "Is maternity covered?" on a picked product asks about it; it does not switch to Care Joy */
+  const topicOnly = !!S.selected && C.onlyTopicMatch(text, S.products);
+  const named = matches.length && need.signals < 2 && !topicOnly;
 
   if (named) {
     const already = matches.length === 1 && matches[0].id === S.selected;

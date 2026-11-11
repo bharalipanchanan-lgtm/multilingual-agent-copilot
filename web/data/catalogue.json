@@ -2089,14 +2089,14 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested …"
+            "quote": "Claim form with NEFT details & cancelled cheque duly signed by Insured Person Original/Attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested …"
+            "quote": "details & cancelled cheque duly signed by Insured Person Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes Attested …"
           },
           {
             "key": "bills",
@@ -2110,14 +2110,14 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Original/Attested copies of Investigation Reports against Investigations done."
+            "quote": "Original/Attested copies of Investigation Reports against Investigations done."
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies …"
+            "quote": "Claim form with NEFT details & cancelled cheque duly signed by Insured Person Original/Attested copies …"
           }
         ],
         "papers": [
@@ -2126,14 +2126,14 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested …"
+            "quote": "Claim form with NEFT details & cancelled cheque duly signed by Insured Person Original/Attested …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": "details & cancelled cheque duly signed by Insured Person  Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes  Attested …"
+            "quote": "details & cancelled cheque duly signed by Insured Person Original/Attested copies of Discharge Summary / Discharge Certificate / Death Summary with Surgical & anesthetics notes Attested …"
           },
           {
             "key": "bills",
@@ -2147,14 +2147,14 @@
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Original/Attested copies of Investigation Reports against Investigations done."
+            "quote": "Original/Attested copies of Investigation Reports against Investigations done."
           },
           {
             "key": "bank",
             "phase": "claim",
             "pdf_page": 23,
             "printed_page": null,
-            "quote": " Claim form with NEFT details & cancelled cheque duly signed by Insured Person  Original/Attested copies …"
+            "quote": "Claim form with NEFT details & cancelled cheque duly signed by Insured Person Original/Attested copies …"
           }
         ],
         "initial_wait": {
@@ -3820,7 +3820,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " Original bills, all receipts and discharge certificate / card from the Hospital."
+            "quote": "Original bills, all receipts and discharge certificate / card from the Hospital."
           },
           {
             "key": "bills",
@@ -3834,7 +3834,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if …"
+            "quote": "MLC/FIR/Post Mortem Report,( if applicable) Disability certificate, Death certificate ( if …"
           }
         ],
         "papers": [
@@ -3850,7 +3850,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " Original bills, all receipts and discharge certificate / card from the Hospital."
+            "quote": "Original bills, all receipts and discharge certificate / card from the Hospital."
           },
           {
             "key": "bills",
@@ -3864,7 +3864,7 @@
             "phase": "claim",
             "pdf_page": 33,
             "printed_page": null,
-            "quote": " MLC/FIR/Post Mortem Report,( if applicable)  Disability certificate, Death certificate ( if …"
+            "quote": "MLC/FIR/Post Mortem Report,( if applicable) Disability certificate, Death certificate ( if …"
           }
         ],
         "initial_wait": {
@@ -4298,7 +4298,7 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "r claim form, duIly completed Ou11"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person."
           },
           {
             "key": "bills",
@@ -4314,7 +4314,7 @@
             "phase": "claim",
             "pdf_page": 21,
             "printed_page": null,
-            "quote": "r claim form, duIly completed Ou11"
+            "quote": "Our claim form, duly completed and signed for on behalf of the Insured Person."
           },
           {
             "key": "bills",
@@ -7087,35 +7087,35 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked …"
+            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form 2 Discharge Summary 3 Medical Records (Optional Documents may be asked …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
+            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form 2 Discharge Summary 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 …"
+            "quote": "Indoor case papers, OT notes, PAC notes etc.) 4 Original Hospital Main Bill 5 Original Hospital Bill Break-up 6 Original Pharmacy Bills 7 …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 …"
+            "quote": "and investigations done outside the hospital 8 Consultation Papers 9 Investigation Reports 10 Digital Images/CDs of the Investigation Procedures (if required) 11 …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply)"
+            "quote": "Original Hospital Main Bill 5 Original Hospital Bill Break-up 6 Original Pharmacy Bills 7 Prescriptions for the medicines purchased (except hospital supply)"
           },
           {
             "key": "kyc",
@@ -7131,35 +7131,35 @@
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked …"
+            "quote": "Claim Critical Illness/ Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form 2 Discharge Summary 3 Medical Records (Optional Documents may be asked …"
           },
           {
             "key": "discharge",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form √ √ √ √ 2 Discharge Summary √ × × √ 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
+            "quote": "Cancer Claim Daily Hospital Cash Claim 1 Duly Filled and Signed Claim Form 2 Discharge Summary 3 Medical Records (Optional Documents may be asked on need basis: Indoor case …"
           },
           {
             "key": "bills",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Indoor case papers, OT notes, PAC notes etc.) √ × √ × 4 Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 …"
+            "quote": "Indoor case papers, OT notes, PAC notes etc.) 4 Original Hospital Main Bill 5 Original Hospital Bill Break-up 6 Original Pharmacy Bills 7 …"
           },
           {
             "key": "reports",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "and investigations done outside the hospital √ √ × × 8 Consultation Papers √ √ √ × 9 Investigation Reports √ √ √ × 10 Digital Images/CDs of the Investigation Procedures (if required) √ √ × × 11 …"
+            "quote": "and investigations done outside the hospital 8 Consultation Papers 9 Investigation Reports 10 Digital Images/CDs of the Investigation Procedures (if required) 11 …"
           },
           {
             "key": "pharmacy",
             "phase": "claim",
             "pdf_page": 26,
             "printed_page": null,
-            "quote": "Original Hospital Main Bill √ × × × 5 Original Hospital Bill Break-up √ × × × 6 Original Pharmacy Bills √ √ × × 7 Prescriptions for the medicines purchased (except hospital supply)"
+            "quote": "Original Hospital Main Bill 5 Original Hospital Bill Break-up 6 Original Pharmacy Bills 7 Prescriptions for the medicines purchased (except hospital supply)"
           },
           {
             "key": "kyc",
@@ -7912,7 +7912,7 @@
           "section": "Section 3.1.1 Benefit 1, i) In-patient Care (Room Rent / Room Category)",
           "pdf_page": 11,
           "printed_page": 10,
-          "quote": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room C a t e g o r y i n c a s e o f Hospitalization of the Insured Person payable",
+          "quote": "The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable",
           "note": "The room limit depends on the plan or sum insured in the Policy Schedule.",
           "stated": true,
           "max_per_day": null,

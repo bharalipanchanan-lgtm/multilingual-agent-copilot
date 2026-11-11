@@ -161,6 +161,62 @@ def keyword_hits(query: str, policy_id: str, have: set[str], max_hits: int = 2) 
     return out
 
 
+# permanent exclusions only: waiting periods (Code-Excl01 to 03, "excluded until the expiry of 24 months")
+# are not exclusions in this sense, so cataract or diabetes questions are not answered as "excluded"
+EXCL_RE = re.compile(r"\bexclu(?!ded\s+until|sion\s+will\s+apply\s+until)|code\s*[-–]?\s*excl\s*(?:0?[4-9]|[1-9]\d)|"
+                     r"not (?:be )?(?:covered|payable)|shall not be liable", re.I)
+
+
+def is_exclusion_for(doc: str, meta: dict, word: str) -> bool:
+    """The word sits near exclusion language, or inside a clause filed under an exclusions part."""
+    if word.lower() not in doc.lower():
+        return False
+    where = f"{meta.get('part') or ''} {meta.get('section') or ''}"
+    if re.search(r"definition|^\s*def\b", where, re.I):  # a definition never excludes anything by itself
+        return False
+    # only the policy's own exclusions: a "not covered" line inside one benefit's sub-list
+    # ("Global cover ... vi. Oncological (Cancer) diseases") does not exclude cancer from the policy
+    in_excl_part = re.search(r"exclusion", where, re.I)
+    has_code = re.search(r"code\s*[-–]?\s*excl\s*(?:0?[4-9]|[1-9]\d)", doc, re.I)
+    if not (in_excl_part or has_code):
+        return False
+    # the exclusion language must be in the same sentence as the word, or the clause heading just before it
+    # ("Maternity: Code – Excl18: i. Medical treatment expenses ...") — a chapter title alone is not enough
+    sents = re.split(r"(?<=[.;])\s+(?=[A-Z(\divx])", doc)
+    for i, s in enumerate(sents):
+        if word.lower() in s.lower() and EXCL_RE.search(" ".join(sents[max(0, i - 1): i + 2])[:600]):
+            return True
+    # inside a numbered exclusion item: "Sterility and Infertility: Code – Excl17: ... ii. ... such as IVF"
+    code = re.compile(r"code\s*[-–]?\s*excl\s*(\d+)", re.I)
+    for m in re.finditer(re.escape(word), doc, re.I):
+        before = list(code.finditer(doc[max(0, m.start() - 600): m.start()]))
+        if before and int(before[-1].group(1)) >= 4:
+            return True
+    return False
+
+
+def exclusion_hits(words: list[str], policy_id: str, have: set[str], max_hits: int = 2) -> list[dict]:
+    """Exclusion clauses that name one of the question's topic words.
+
+    "Is maternity covered?" must see Code-Excl18 (maternity excluded) even when semantic search
+    ranks a brochure add-on page ("Parenthood: covers maternity ... post 2 years") higher."""
+    if not policy_id:
+        return []
+    _, col = _load()
+    out: list[dict] = []
+    for w in sorted(set(words), key=len, reverse=True)[:3]:
+        for form in {w, w.lower(), w.capitalize(), w.upper()}:
+            res = col.get(where={"policy_id": policy_id}, where_document={"$contains": form}, limit=12)
+            for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"]):
+                if cid in have or not is_exclusion_for(doc, meta, form):
+                    continue
+                have.add(cid)
+                out.append({"id": cid, "text": doc, "score": None, "keyword": w, "exclusion": True, **meta})
+                if len(out) >= max_hits:
+                    return out
+    return out
+
+
 def expand_sections(hits: list[dict], max_extra: int = 3) -> list[dict]:
     """Add the other chunks of each hit's clause, e.g. clause 4.3 whose list sits on the next page.
 

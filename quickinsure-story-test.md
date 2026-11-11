@@ -2,8 +2,10 @@
 
 Use this file to test the chatbot, with the 5 features followed strictly, using one tier-3 family story.
 
-Demo: QuickPolicy, simple.html, 49 policies, 44 active, 5 stopped.
-Test on localhost: run `./run_demo.sh`, open `http://localhost:8000/simple.html`
+Demo: QuickPolicy, simple.html, 48 policies, 43 active, 5 stopped.
+Test on localhost: run `./run_demo.sh` (Mac) or `.\run_demo.ps1` (Windows, Ollama qwen2.5:7b), open `http://localhost:8000/simple.html`
+
+Automatic run: open `http://localhost:8000/story-test.html#run`. It types every case below, plus agent-style variants (short English, Hinglish, Hindi, typos), into the real chat page and marks each pass or fail. The cases live in `web/story-cases.js`. When a new sentence fails in a demo, add it there.
 
 This file follows the 5 features strictly, as written. Test each feature exactly as below.
 
@@ -109,7 +111,11 @@ Expected:
 
 Test input: type "National Mediclaim"
 
-Expected: "STOPPED — National Insurance National Mediclaim Policy 2014 Edition, was stopped for new sales on 1 Apr 2024. Renewals only — do not sell it to a new customer." Replacement shown: "Sell the current product instead: TATA AIG MediCare Premier" with difference **"PED wait 24 months"** (no word "shortest" — ranking already owns the only shortest-wait claim).
+Expected: "STOPPED — National Insurance National Mediclaim Policy 2014 Edition, was stopped for new sales on 1 Apr 2024. Renewals only — do not sell it to a new customer." No replacement is shown, because no current National Insurance wording is loaded: "No current National Insurance wording is loaded yet. Do not sell this 2014 wording; check National Insurance's current health product list." A product from another company must never be shown as the replacement.
+
+Test input: type "Optima Secure Suraksha"
+
+Expected: STOPPED notice, and "Sell the current product instead: HDFC ERGO Optima Secure V08 · 2025-26 wording" (same company).
 
 ### End of the story
 
@@ -219,7 +225,11 @@ Expected:
 
 Test input: "National Mediclaim" likho
 
-Expected: STOPPED notice + replacement TATA AIG MediCare Premier with **"PED wait 24 months"** (bina "shortest" ke).
+Expected: STOPPED notice. Koi replacement nahi dikhega, kyunki National Insurance ka current wording load nahi hai. Doosri company ka product kabhi replacement nahi dikhna chahiye.
+
+Test input: "Optima Secure Suraksha" likho
+
+Expected: STOPPED notice + "Sell the current product instead: HDFC ERGO Optima Secure V08" (same company).
 
 ### Story ka end
 

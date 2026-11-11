@@ -14,6 +14,7 @@ ask_stream() yields events so the API can stream tokens:
   {"type": "meta", ...} {"type": "token", "text": ...} {"type": "final", ...}
 """
 import json
+import os
 import re
 import threading
 import time
@@ -44,14 +45,20 @@ def _cache_load() -> dict:
     return _CACHE
 
 
+# COPILOT_NO_CACHE=1: every answer comes live from the model (story tests, model comparisons)
+NO_CACHE = os.environ.get("COPILOT_NO_CACHE") == "1"
+
+
 def cached_final(question: str, policy_id: str, backend: str) -> dict | None:
+    if NO_CACHE:
+        return None
     with _CACHE_LOCK:
         hit = _cache_load().get(_cache_key(question, policy_id, backend))
     return dict(hit, cached=True) if hit else None
 
 
 def _cache_put(question: str, policy_id: str, backend: str, final: dict) -> None:
-    if final.get("status") not in ("answered", "not_stated", "blocked", "refused"):
+    if NO_CACHE or final.get("status") not in ("answered", "not_stated", "blocked", "refused"):
         return
     with _CACHE_LOCK:
         cache = _cache_load()
@@ -198,7 +205,7 @@ def build_prompt(question: str, clauses: list[dict], product: str, lang: str = "
         notes = list_notes(question, c["text"])
         text = c["text"] if len(c["text"]) <= CLAUSE_CHARS else c["text"][:CLAUSE_CHARS].rsplit(" ", 1)[0] + " ..."
         parts.append(f"[{i}] (page {c['printed_page']}, {tag})\n{text}" + ("\n" + "\n".join(notes) if notes else ""))
-    parts += ["", f"Question: {question}", f"Language: {LANG_LINE[lang]}", "Answer:"]
+    parts +=["", f"Question: {question}", f"Language: {LANG_LINE[lang]}", "Answer:"]
     return "\n".join(parts)
 
 
@@ -299,6 +306,65 @@ def _expand_query(question: str) -> str:
     return f"{question}\n{' '.join(extras)}"
 
 
+# "is X covered?" in English, Hinglish and Hindi
+COVER_Q = re.compile(r"\bcover(?:ed|s|age)?\b|\bpayable\b|\bpay for\b|\binclud|\bexclud|\bmilega\b|\bmilta\b|\bmilti\b|"
+                     r"कवर|शामिल", re.I)
+TOPIC_STOP = {"covered", "cover", "coverage", "policy", "insurance", "health", "there", "which", "what", "about",
+              "under", "does", "milega", "milta", "milti", "kitna", "kitni", "hoga", "plan", "treatment", "expenses",
+              "expense", "included", "charges", "charge", "amount", "limit", "costs", "bills", "hospital",
+              "hospitalization", "hospitalisation", "surgery", "surgeries", "room", "rent", "claim", "kharcha", "paisa",
+              # pre-existing conditions: answered by the PED waiting period, not by an exclusion that merely names
+              # them as a criterion ("bariatric surgery ... uncontrolled type 2 diabetes")
+              "diabetes", "diabetic", "sugar", "hypertension", "pressure", "thyroid", "asthma", "heart", "cardiac"}
+# Hindi / Hinglish topic words -> the English word the wording uses
+TOPIC_ALIAS = {"मातृत्व": "maternity", "प्रसव": "maternity", "डिलीवरी": "maternity", "delivery": "maternity",
+               "pregnancy": "maternity", "garbh": "maternity", "गर्भ": "maternity", "बांझपन": "infertility",
+               "मोतियाबिंद": "cataract", "motiyabind": "cataract", "dant": "dental", "दांत": "dental",
+               "मोटापा": "obesity", "motapa": "obesity", "शराब": "alcohol", "sharab": "alcohol"}
+# brochure / add-on text: cover that applies only if the customer buys the optional add-on
+ADDON_RE = re.compile(r"\badd[- ]?ons?\b|\boptional (?:cover|benefit|add)|\brider\b|on payment of (?:an )?(?:additional|extra) premium|"
+                      r"if opted|if (?:the )?(?:insured|policyholder|you) (?:has |have )?opted", re.I)
+
+
+def topic_words(question: str) -> list[str]:
+    ql = question.lower()
+    out = [TOPIC_ALIAS[k] for k in TOPIC_ALIAS if k in ql]
+    out += [w for w in re.findall(r"[A-Za-z]{5,}", question) if w.lower() not in TOPIC_STOP and w.lower() not in TOPIC_ALIAS]
+    out += re.findall(r"\b[A-Z]{3,5}\b", question)  # acronyms: IVF, OPD, HIV
+    return list(dict.fromkeys(out))
+
+
+ADDON_EXCL = {
+    "en": ("The base policy does not cover {topic}: it is listed under exclusions [{e}]. "
+           "It is available only with an optional add-on, which you must buy separately: “{q}” [{a}]."),
+    "hi": ("बेस पॉलिसी में {topic} कवर नहीं है: यह exclusions में लिखा है [{e}]। "
+           "यह सिर्फ वैकल्पिक ऐड-ऑन के साथ मिलता है, जो अलग से खरीदना होगा: “{q}” [{a}]।"),
+    "hinglish": ("Base policy mein {topic} cover nahi hai: yeh exclusions mein likha hai [{e}]. "
+                 "Yeh sirf optional add-on ke saath milta hai, jo alag se kharidna hoga: “{q}” [{a}]."),
+}
+
+
+def addon_vs_exclusion(question: str, clauses: list[dict]) -> tuple[str, int, int, str] | None:
+    """A coverage question where the base wording excludes the topic and an add-on covers it.
+    Small models read the add-on as base cover, so this case is answered from a fixed template."""
+    if not COVER_Q.search(question):
+        return None
+    for t in topic_words(question):
+        tl = t.lower()
+        e = next((i for i, c in enumerate(clauses, 1) if c.get("exclusion") and tl in c["text"].lower()), None)
+        a = next((i for i, c in enumerate(clauses, 1)
+                  if not c.get("exclusion") and ADDON_RE.search(c["text"]) and tl in c["text"].lower()), None)
+        if e is None:
+            continue
+        if a is None:
+            # an add-on line may name the topic without the word "add-on" in the same chunk (brochure tables)
+            a = next((i for i, c in enumerate(clauses, 1) if not c.get("exclusion") and tl in c["text"].lower()
+                      and re.search(r"\bcovers?\b", c["text"], re.I) and re.search(r"add[- ]?on", c.get("section", "") + c["text"], re.I)), None)
+        if a is not None:
+            return t, e, a, tl
+    return None
+
+
 def _retrieve(question: str, policy_id: str) -> list[dict]:
     from retrieve import expand_sections, hybrid, keyword_hits
     q = _expand_query(question)
@@ -311,6 +377,24 @@ def _retrieve(question: str, policy_id: str) -> list[dict]:
     if NEIGHBOURS:
         hits = expand_sections(hits, max_extra=2)
     return hits[:MAX_CLAUSES]
+
+
+def _addon_case(question: str, policy_id: str, clauses: list[dict]) -> list[dict] | None:
+    """For "is X covered?": the retrieved clauses plus any exclusion naming X, flagged.
+    Returned only when the template case applies (base excludes X and an add-on covers it);
+    otherwise None, and the model sees exactly the clauses it always saw."""
+    if not COVER_Q.search(question):
+        return None
+    from retrieve import exclusion_hits, is_exclusion_for
+    topics = topic_words(question)
+    if not topics:
+        return None
+    pool = [dict(c) for c in clauses]
+    for c in pool:
+        if any(is_exclusion_for(c["text"], c, t) for t in topics):
+            c["exclusion"] = True
+    pool += exclusion_hits(topics, policy_id, {c["id"] for c in pool})
+    return pool if addon_vs_exclusion(question, pool) else None
 
 
 def _extractive(question, lang, clauses, note=None) -> tuple[str, list[dict]]:
@@ -367,6 +451,16 @@ def _ask_stream(question: str, policy_id: str, gen: Generator) -> Iterator[dict]
                "backend": gen.name, "top_score": top, "ms": int((time.time() - t0) * 1000)}
         return
 
+    pool = _addon_case(question, policy_id, clauses)
+    if pool:
+        topic, e, a, tl = addon_vs_exclusion(question, pool)
+        aq = best_sentence(pool[a - 1]["text"], tl, question)
+        ans = ADDON_EXCL[lang].format(topic=topic, e=e, a=a, q=aq.strip(" .…"))
+        cards = [card(pool[i - 1], i, ans, question) for i in sorted({e, a})]
+        yield {"type": "final", "status": "answered", "answer": ans, "citations": cards, "lang": lang,
+               "backend": gen.name, "top_score": top, "rule": "addon_vs_exclusion", "ms": int((time.time() - t0) * 1000)}
+        return
+
     product = clauses[0].get("product", "")
     prompt = build_prompt(question, clauses, product, lang)
     buf, first_tok = "", None
@@ -381,7 +475,8 @@ def _ask_stream(question: str, policy_id: str, gen: Generator) -> Iterator[dict]
     common = {"lang": lang, "backend": gen.name, "top_score": top, "ms": ms, "first_token_ms": first_tok,
               "retrieval_ms": t_ret}
 
-    if answer.startswith("NOT_STATED") or not answer:
+    # the sentinel can also leak mid-answer ("AYUSH treatment is NOT_STATED in the provided clauses [1]")
+    if not answer or "NOT_STATED" in answer:
         # Small models sometimes refuse a named-disease waiting question even when the
         # general PED clause answers it. Recover with a grounded extractive reply.
         ql = question.lower()
@@ -425,8 +520,24 @@ def _ask_stream(question: str, policy_id: str, gen: Generator) -> Iterator[dict]
                "citations": cards, **common}
         return
 
+    answer, cited = addon_guard(answer, cited, clauses, lang)
     cards = [card(clauses[i - 1], i, answer, question) for i in cited]
     yield {"type": "final", "status": "answered", "answer": answer, "citations": cards, **common}
+
+
+ADDON_WORDS = re.compile(r"add[- ]?on|optional|ऐड[- ]?ऑन|वैकल्पिक", re.I)
+ADDON_NOTE = {
+    "en": "This cover comes only with the optional add-on, not the base policy [{n}].",
+    "hi": "यह कवर सिर्फ वैकल्पिक ऐड-ऑन के साथ है, बेस पॉलिसी में नहीं [{n}]।",
+    "hinglish": "Yeh cover sirf optional add-on ke saath hai, base policy mein nahi [{n}].",
+}
+def addon_guard(answer: str, cited: list[int], clauses: list[dict], lang: str) -> tuple[str, list[int]]:
+    """The model must not sell an add-on as base cover. When it cites an add-on clause without
+    saying so, one fixed sentence (with its citation) is added; the model's text is never removed."""
+    addon = [i for i in cited if ADDON_RE.search(clauses[i - 1]["text"])]
+    if addon and not ADDON_WORDS.search(answer):
+        answer = f"{answer} {ADDON_NOTE[lang].format(n=addon[0])}"
+    return answer, cited
 
 
 def ask(question: str, policy_id: str, gen: Generator | None = None) -> dict:

@@ -2,6 +2,7 @@
 """Page-aware text extraction for policy wordings.
 
     python3 ingest/extract.py [pdf_dir] [out_dir]
+    python3 ingest/extract.py --repair     # only re-read garbled pages of existing JSONs
 
 Writes one JSON per PDF to data/pages/, shaped:
 
@@ -84,15 +85,70 @@ def page_layout(pdf: pathlib.Path, n: int) -> str:
     return _run(pdf, n, "-layout")
 
 
+# Some wordings carry an invisible OCR layer (font "HiddenHorzOCR") over the real text.
+# pdftotext merges both, so a page reads "cla I, l1i ms where I I j I I tI". These are the
+# marks that layer leaves: lone letters, bars run together, a capital I inside a lower-case
+# word, letters and digits mixed.
+OCR_JUNK = re.compile(
+    r"[^aA&/*•\-–—\d\W]"
+    r"|[Il|]{2,}"
+    r"|\S*[a-z]I\S*"
+    r"|\S*[a-zA-Z]\d\S*"
+    r"|\S*\d(?!st|nd|rd|th)[a-zA-Z]\S*",
+    re.A,
+)
+_NOT_JUNK = re.compile(r"[ivxIVX]+|[A-Z]\d{1,3}|UIN\S*|[A-Z]{2,}\d\S*")
+
+
+def garbled(text: str, limit: float = 0.08) -> bool:
+    """True when more than `limit` of the words are OCR-overlay noise.
+    Clean wording stays under 0.06; broken pages run 0.10 to 0.60."""
+    toks = [t for t in text.split() if not re.fullmatch(r"[A-Za-z0-9]{1,3}[.)]", t)]  # list markers "F." "ii)"
+    toks = [t.strip(".,;:()'\"") for t in toks]
+    toks = [t for t in toks if t]
+    if len(toks) < 5:
+        return False
+    junk = sum(1 for t in toks if OCR_JUNK.fullmatch(t) and not _NOT_JUNK.fullmatch(t))
+    return junk / len(toks) > limit
+
+
+def clean_page_text(pdf: pathlib.Path, n: int) -> str:
+    """Page text from PyMuPDF without the invisible OCR layer."""
+    import pymupdf
+    with pymupdf.open(pdf) as d:
+        out = []
+        for b in d[n - 1].get_text("dict")["blocks"]:
+            for line in b.get("lines", []):
+                s = "".join(sp["text"] for sp in line["spans"] if "OCR" not in sp.get("font", ""))
+                if s.strip():
+                    out.append(s)
+        return "\n".join(out)
+
+
+def repair_page(pdf: pathlib.Path, page: dict) -> bool:
+    """Swap a garbled page's text for the clean re-read, if the re-read is clean."""
+    if not garbled(re.sub(r"\s+", " ", page["text"])):
+        return False
+    fixed = clean_page_text(pdf, page["page"])
+    if not fixed.strip() or garbled(re.sub(r"\s+", " ", fixed)):
+        return False
+    page["text"] = fixed
+    page["reread_without_ocr_layer"] = True
+    return True
+
+
 def extract(pdf: pathlib.Path, out_dir: pathlib.Path) -> dict:
     total = page_count(pdf)
     pages = []
     empty = 0
     for n in range(1, total + 1):
         txt = page_text(pdf, n)
+        page = {"page": n, "text": txt}
+        if repair_page(pdf, page):
+            txt = page["text"]
         if len(txt) < 40:
             empty += 1
-        pages.append({"page": n, "text": txt, "layout": page_layout(pdf, n)})
+        pages.append({**page, "text": txt, "layout": page_layout(pdf, n)})
 
     doc = {
         "source": pdf.name,
@@ -112,9 +168,26 @@ def extract(pdf: pathlib.Path, out_dir: pathlib.Path) -> dict:
     }
 
 
+def repair(pdf_dir: pathlib.Path, out_dir: pathlib.Path) -> int:
+    """Fix only the garbled pages of already-extracted JSONs; every other page stays as it was."""
+    for f in sorted(out_dir.glob("*.json")):
+        doc = json.loads(f.read_text(encoding="utf-8"))
+        pdf = pdf_dir / doc["source"]
+        if not pdf.exists():
+            continue
+        fixed = [p["page"] for p in doc["pages"] if repair_page(pdf, p)]
+        if fixed:
+            f.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"{doc['source']}: re-read pages {fixed} without the OCR layer")
+    return 0
+
+
 def main() -> int:
-    pdf_dir = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PDF_DIR
-    out_dir = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_OUT
+    args = [a for a in sys.argv[1:] if a != "--repair"]
+    pdf_dir = pathlib.Path(args[0]) if len(args) > 0 else DEFAULT_PDF_DIR
+    out_dir = pathlib.Path(args[1]) if len(args) > 1 else DEFAULT_OUT
+    if "--repair" in sys.argv:
+        return repair(pdf_dir, out_dir)
 
     pdfs = sorted(pdf_dir.glob("*.pdf"))
     if not pdfs:

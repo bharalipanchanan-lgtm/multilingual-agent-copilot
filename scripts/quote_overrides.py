@@ -15,6 +15,9 @@ from diag_quotes import CAT, PAGES, norm  # noqa: E402
 from fix_quotes import has_value  # noqa: E402
 
 OVERRIDES = {
+    # the PDF spaces letters apart ("Room C a t e g o r y i n c a s e o f"); same words, normal spacing
+    "care-health-care-heart.room_rent": dict(
+        quote="The Room Rent or Room Category available under this Policy is mentioned as follows: 1) Single Private Room If the Policy Schedule states 'Single Private Room' as eligible Room Category, it means the maximum eligible Room Category in case of Hospitalization of the Insured Person payable"),
     "star-family-health-optima.ayush": dict(
         quote="Ayurveda, Unani, Siddha and Homeopathy is payable up to the Sum Insured."),
     "star-family-health-optima.cataract": dict(
@@ -61,7 +64,7 @@ OVERRIDES = {
         quote="Cataract, Retinal detachment, Glaucoma Congenital Internal Diseases"),
     "tata-aig-health-supercharge.robotic_surgery": dict(
         quote="Robotic surgeries 125,000 500,000 0 0 0 Stem cell therapy",
-        section=None),
+        section="Table I: Mandatory Sub-Limits for Geo Plan, Robotic surgeries row"),
     "hdfc-ergo-energy-health.ayush": dict(
         quote="Treatments only: Medical expenses pertaining only to In-patient care AYUSH treatment are also covered under"),
     "hdfc-ergo-energy-health.diabetes_wait": dict(

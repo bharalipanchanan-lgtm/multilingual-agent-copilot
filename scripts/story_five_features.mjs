@@ -124,7 +124,8 @@ function label(a) {
 async function liveRobotic() {
   const body = JSON.stringify({ question: "Is robotic surgery covered?", policy_id: C.policyIdOf(optima) });
   const t0 = Date.now();
-  const resp = await fetch("http://127.0.0.1:8000/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body });
+  const base = process.env.COPILOT_URL || "http://127.0.0.1:8000";
+  const resp = await fetch(`${base}/api/ask`, { method: "POST", headers: { "Content-Type": "application/json" }, body });
   const text = await resp.text();
   const finals = [...text.matchAll(/^data: ({.*})$/gm)].map((m) => JSON.parse(m[1])).filter((e) => e.type === "final");
   const f = finals.at(-1) || {};

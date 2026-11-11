@@ -64,7 +64,15 @@ NOT_REQ = re.compile(r"\bnot (?:for|be|required|necessary)\b[^.]{0,30}$|\bportal
 QUOTE_FIX = {
     # p34: "a. Duly completed claim form, and surgeons, g. ..." — "and surgeons" is the next column
     ("star-family-health-optima", "claim_form"): "Duly completed claim form",
+    # p21: the text layer spaces letters apart ("du ly completed and s igned fo r on beha lf");
+    # same words, normal spacing (norm() ignores spaces, so the page check still applies)
+    ("tata-aig-medicare-plus", "claim_form"): "Our claim form, duly completed and signed for on behalf of the Insured Person.",
 }
+
+
+# garbled-text check and the clean re-read live with extraction, so data/pages already holds clean text
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from extract import garbled, repair_page  # noqa: E402
 
 
 def norm(s: str) -> str:
@@ -106,7 +114,9 @@ TAIL_JOINER = re.compile(r"[\s,;]+(?:and|or|the|of|to|in|for|with|by|from|as|at|
 
 
 def clean_end(q: str) -> str:
-    """Trim to a clean end. Only removes text, so the quote stays verbatim."""
+    """Trim to a clean end. Only removes text (and table tick marks), so the quote stays verbatim."""
+    q = re.sub(r"\s*[√×✓✗]\s*", " ", q)  # tick / cross cells and Symbol-font bullets from tables
+    q = re.sub(r"\s{2,}", " ", q)
     q = q.strip(" ,;•\u0007\t")
     for _ in range(3):
         before = q
@@ -167,7 +177,8 @@ def kit_for(doc_pages, offset):
                 if NOT_REQ.search(flat[max(0, m.start() - 60) : m.start()]):
                     continue
                 q = snippet(flat, m)
-                if len(norm(q)) < 12 or NOT_REQ.search(q):
+                # a quote may keep a letter-spaced word ("du ly completed"), never OCR noise ("duIly ... Ou11")
+                if len(norm(q)) < 12 or NOT_REQ.search(q) or garbled(q, 0.2):
                     continue
                 break
             else:
@@ -208,6 +219,12 @@ def main() -> int:
             continue
         f = PAGES / (d["source"][:-4] + ".json")
         doc = json.loads(f.read_text(encoding="utf-8"))
+        # pages whose text layer is broken by a hidden OCR overlay: re-read them without it
+        pdf = ROOT / "data" / "policies" / d["source"]
+        # (normally done by `extract.py --repair`; repeated here so a stale data/pages cannot leak noise)
+        for pg in doc["pages"]:
+            if pdf.exists() and repair_page(pdf, pg):
+                print(f"  {p['id']}: page {pg['page']} re-read without the OCR layer — run extract.py --repair")
         kit = kit_for(doc["pages"], d.get("page_offset"))
         for item in kit["papers"]:
             fix = QUOTE_FIX.get((p["id"], item["key"]))
@@ -216,6 +233,8 @@ def main() -> int:
         for item in kit["papers"] + ([kit["initial_wait"]] if kit["initial_wait"] else []):
             page = next(x["text"] for x in doc["pages"] if x["page"] == item["pdf_page"])
             assert norm(item["quote"]) in norm(page), (p["id"], item.get("key"), item["quote"][:80])
+            # never ship OCR noise as an "exact line"
+            assert not garbled(item["quote"], 0.2), (p["id"], item.get("key"), "garbled quote", item["quote"][:80])
         p["close_kit"] = kit
         print(
             f"{p['id']:<70} buy={len(kit['buy_papers']):>2} claim={len(kit['claim_papers']):>2} "

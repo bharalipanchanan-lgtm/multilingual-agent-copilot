@@ -88,7 +88,9 @@
     };
     for (const [rel, list] of Object.entries(RELATION)) if (has(t, list)) { need.relation = rel; break; }
     for (const [cond, list] of Object.entries(CONDITION)) if (has(t, list)) need.conditions.push(cond);
-    need.lowCost = has(t, LOW_COST);
+    /* also "the premium is also low", "premium should be less", "budget is limited", "pese bhi kam lage" */
+    need.lowCost = has(t, LOW_COST) ||
+      /\b(premium|price|cost)\b[^.?!]{0,25}\b(low|less|lower|kam|cheap|affordable)\b|\bbudget\b[^.?!]{0,15}\b(limited|tight|low|kam)\b|\b(pese|paise|paisa)\b[^.?!]{0,12}\bkam\b/.test(t);
 
     const nums = parseMoney(t);
     const ageCtx = /\b(age|umar|umr|saal|sal|years?|yrs?|yr|varsh|ki hai|ka hai|ke hai)\b|साल|वर्ष/;
@@ -443,6 +445,18 @@
       .map((r) => r.p);
   }
 
+  /* words that are a cover topic first and a product name second ("Care Joy (maternity)",
+     "Cancer Care Platinum", "Cardiac Care"). With a product already picked, a question that
+     names a product only through these words is a question about that product, not a switch. */
+  const TOPIC_WORDS = new Set(["maternity", "pregnancy", "cancer", "cardiac", "heart", "senior", "family", "floater",
+    "critical", "illness", "diabetes", "accident"]);
+  function onlyTopicMatch(query, products) {
+    const qt = words(query).filter((w) => w.length > 1 && !NAME_NOISE.has(w));
+    const vocab = new Set(products.flatMap((p) => words(`${p.insurer} ${p.name} ${p.variant || ""}`)));
+    const hits = qt.filter((w) => vocab.has(w));
+    return hits.length > 0 && hits.every((w) => TOPIC_WORDS.has(w));
+  }
+
   /* the one small difference written next to each look-alike */
   function difference(p) {
     if (p.status === "withdrawn") return `Stopped ${p.withdrawn_on ? fmtDate(p.withdrawn_on) : ""} — renewals only`.trim();
@@ -611,7 +625,7 @@
     const ped = w ? { value: w.months } : null;
     const end = w ? waitEndDate(w.months) : null;
     const room = p.facts?.room_rent;
-    const roomLine = room?.stated ? String(room.value) : (lang === "en" ? "as per the policy schedule" : "policy schedule ke hisaab se");
+    const roomLine = room?.stated ? String(room.value).replace(/\.+$/, "") :(lang === "en" ? "as per the policy schedule" : "policy schedule ke hisaab se");
     const who = need?.relation
       ? (lang === "en" ? WHO_EN : WHO_HI)[need.relation]
       : (lang === "en" ? "the customer" : "customer");
@@ -627,12 +641,22 @@
     const papers = buySrc.map(mapPaper);          /* sale / proposal — shown first */
     const claimPapers = claimSrc.map(mapPaper);   /* claim-time — separate list */
     const buyLine = papers.slice(0, 4).map((x) => x.text).join(", ");
+    /* knee pain already diagnosed is a pre-existing condition: same wait, never "covered now" */
+    const knee = conds.includes("knee / joint pain");
+    const kneeSay = !knee ? null : end
+      ? { en: `Knee pain is already there, so it counts as pre-existing — same wait, covered from ${end}. Knee or joint surgery is not covered before then.`,
+          hi: `घुटने का दर्द पहले से है, इसलिए यह pre-existing है — वही वेट, ${end} से कवर। उससे पहले घुटने या जॉइंट की सर्जरी कवर नहीं।`,
+          hinglish: `Ghutne ka dard pehle se hai, isliye yeh pre-existing hai — same wait, ${end} se cover. Usse pehle knee ya joint surgery cover nahi.` }
+      : { en: "Knee pain is already there, so it counts as pre-existing — its wait is not written in this wording; confirm before you promise anything.",
+          hi: "घुटने का दर्द पहले से है, इसलिए यह pre-existing है — इसकी वेटिंग इस वर्डिंग में नहीं लिखी; वादा करने से पहले कन्फ़र्म करें।",
+          hinglish: "Ghutne ka dard pehle se hai, isliye yeh pre-existing hai — iski waiting wording mein nahi likhi; promise se pehle confirm karo." };
 
     let say, wa;
     if (L === "en") {
       say = [
         `${fullName(p)} from ${p.insurer} covers new illnesses for ${who} once the policy starts.`,
         end ? `For ${condWord}, cover starts on ${end} — after ${ped.value} months of continuous cover.` : "The pre-existing wait is not written in this wording — confirm it before you decide.",
+        kneeSay?.en,
         `Hospital room: ${roomLine}.`,
         "The premium comes from the insurer after the health check — I will share the exact quote.",
       ];
@@ -649,6 +673,7 @@
       say = [
         `${p.insurer} का ${fullName(p)} पॉलिसी शुरू होते ही ${who} की नई बीमारी कवर करता है।`,
         end ? `${condWord} के लिए कवर ${end} से शुरू — ${ped.value} महीने continuous cover के बाद।` : "PED वेटिंग इस वर्डिंग में नहीं लिखी — कन्फ़र्म करके बताएँ।",
+        kneeSay?.hi,
         `रूम: ${roomLine}।`,
         "प्रीमियम हेल्थ चेक के बाद इंश्योरर से आएगा — मैं exact quote दूँगा/दूँगी।",
       ];
@@ -665,6 +690,7 @@
       say = [
         `${p.insurer} ka ${fullName(p)} policy start hote hi ${who} ki nayi bimari cover karta hai.`,
         end ? `${condWord} ke liye cover ${end} se start — ${ped.value} months continuous cover ke baad.` : "PED waiting is wording mein nahi likhi — confirm karke batao.",
+        kneeSay?.hinglish,
         `Room: ${roomLine}.`,
         "Premium health check ke baad insurer se aayega — main exact quote dunga/dungi.",
       ];
@@ -692,12 +718,12 @@
         : L === "hinglish" ? `${condWord}: wording ke hisaab se iska PED wait nahi hai — policy start hote hi cover.`
           : `For ${condWord}, the wording lifts the pre-existing wait — covered from the start.`;
     }
-    return { say, whatsapp: wa, waitEnd: end ? { date: end, months: w.months, cite: pageLabel(citePage(w.fact)) } : null, papers, claimPapers, dont, labels };
+    return { say: say.filter(Boolean), whatsapp: wa, waitEnd: end ? { date: end, months: w.months, cite: pageLabel(citePage(w.fact)) } : null, papers, claimPapers, dont, labels };
   }
 
   window.QPCore = {
     fullName, label, isUpload, policyIdOf, citePage, pageLabel, waitEndDate, fmtDate, fmtMonths,
     parseNeed, isNeed, needSummary, detectLang, needAnswer, assess, recommend, whyLine, conditionLines,
-    matchProducts, difference, differences, classify, simpleAnswer, hardFact, closeKit,
+    matchProducts, onlyTopicMatch, difference, differences, classify, simpleAnswer, hardFact, closeKit,
   };
 })();
