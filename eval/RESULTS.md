@@ -28,3 +28,28 @@ Reading the answers (human judgement, not automated):
 | q13 permanent exclusions | Weak: mixes Appendix II consumables with clause 4 exclusions. Keep out of the demo |
 
 Small model answers vary with wording. Treat these as demo readiness checks on 20 questions, not an accuracy claim.
+
+## Retrieval across six policies (eval_retrieval.py), 2026-11-10
+
+Added five health wordings: Star Family Health Optima, HDFC Optima Secure, Care Supreme,
+Niva ReAssure 2.0, TATA AIG MediCare Premier. 743 new chunks, 590+133 indexed, no scanned pages.
+
+32 answerable questions labelled so far (25 of 120 gold rows; the rest are blank and skipped).
+
+Recall@3: 97%. Recall@6: 97%. English 27 at 96%, Hinglish 4 at 100%, Hindi 1 at 100%.
+
+One miss: niva_reassure_2 q05 "What is the room rent limit?". Retrieval returned the Room Rent
+definition (p5) and the proportionate-deduction formula (p25, p26) but not the entitlement clause
+4.21 on p15, which is the one that says Single Private Room or Sharing Room. The gold label was
+left as it is rather than widened to the pages retrieval happened to return.
+
+Score ranges still overlap: lowest answerable 0.461, highest not-stated 0.642, medians 0.617 and
+0.545. Same conclusion as the 2026-11-05 run on one policy, now confirmed across six: a score
+threshold alone cannot gate refusals.
+
+Page offsets differ per insurer and are recorded in manifest.csv: Star +1, Care Supreme +1, the
+rest 0. Citing a PDF index where the footer prints a different number would send an agent to the
+wrong page mid-call.
+
+Caveat: 25 of 120 gold rows are labelled, so these numbers cover waiting periods, room rent, AYUSH
+and the two traps. They are a demo-readiness check, not an accuracy claim.

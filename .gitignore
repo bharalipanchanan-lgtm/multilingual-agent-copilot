@@ -23,5 +23,11 @@ build/
 # Generated artefacts
 data/dumps/
 data/chroma/
+data/audit.jsonl
+data/answer_cache.json
+data/answer_cache.tmp
+data/pages_fitz_backup/
+data/uploads/
 eval/reports/
 models/
+data/pages/

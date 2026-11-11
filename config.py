@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 # hf-xet transfers stalled on this network; plain HTTPS downloads work.
@@ -7,7 +8,15 @@ os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 ROOT = Path(__file__).parent
 POLICY_DIR = ROOT / "data" / "policies"
 MANIFEST = POLICY_DIR / "manifest.csv"
+UPLOAD_DIR = ROOT / "data" / "uploads"
+UPLOAD_REGISTRY = UPLOAD_DIR / "registry.json"
 CHROMA_DIR = ROOT / "data" / "chroma"
+# Soft cap so an agent upload stays inside the "under 10 seconds" pitch window
+UPLOAD_MAX_PAGES = int(os.environ.get("COPILOT_UPLOAD_MAX_PAGES") or 60)
+UPLOAD_MAX_MB = int(os.environ.get("COPILOT_UPLOAD_MAX_MB") or 25)
+# Cap embed load on CPU — long wordings still answer via hybrid search over these chunks
+UPLOAD_MAX_CHUNKS = int(os.environ.get("COPILOT_UPLOAD_MAX_CHUNKS") or 90)
+UPLOAD_EMBED_CHARS = int(os.environ.get("COPILOT_UPLOAD_EMBED_CHARS") or 480)
 GOLD_DIR = ROOT / "eval" / "gold"
 REPORT_DIR = ROOT / "eval" / "reports"
 QUESTIONS = ROOT / "eval" / "questions.yaml"
@@ -37,13 +46,16 @@ def device() -> str:
     return "cpu"
 
 # Generation (see generate.py). Local by default; Claude is optional and paid per token.
-GEN_BACKEND = "mlx"                                    # mlx | ollama | claude | extractive
+# mlx = Apple Silicon only. On Windows/Linux default to ollama (or extractive if Ollama is down).
+GEN_BACKEND = os.environ.get("COPILOT_BACKEND") or (
+    "mlx" if sys.platform == "darwin" else "ollama"
+)  # mlx | ollama | claude | extractive
 MLX_MODELS = [                                         # first fully downloaded one is used
     "mlx-community/Qwen2.5-7B-Instruct-4bit",           # about 4.3 GB, better Hindi and reasoning
     "mlx-community/Qwen2.5-3B-Instruct-4bit",           # about 1.8 GB, fallback
 ]
 MLX_MODEL = os.environ.get("COPILOT_MLX_MODEL") or None  # force one model
-OLLAMA_MODEL = "qwen2.5:7b"
+OLLAMA_MODEL = os.environ.get("COPILOT_OLLAMA_MODEL") or "qwen2.5:7b"
 OLLAMA_URL = "http://localhost:11434"
 CLAUDE_MODEL = "claude-opus-5-5"
 

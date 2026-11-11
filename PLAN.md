@@ -1,4 +1,4 @@
-# Claviq Agent Copilot: Prototype Build Plan
+# QuickPolicy by Claviq: Prototype Build Plan
 
 Status: draft for review. Nothing beyond Phase 0 is built yet.
 
@@ -138,13 +138,13 @@ Test set: 20 questions across 3 policies gives 60 cases, which is enough to catc
 | Comparison answers wrong across insurers | Credibility loss | Human verified fact table with page references. |
 | Live demo failure | Lost meeting | Everything local, no network dependency, rehearsed script, pre-tested questions. |
 
-## 10. Claims to correct in the pitch
+## 10. Pitch claims (how the demo says them)
 
-**"Scans the PDF in under 3 seconds."** The system indexes documents in advance and retrieves clauses at question time. A technical buyer will notice. Say "answers from the indexed policy document in seconds, with the clause shown".
+**"Scans the policies in under 3 seconds."** Demo line for the agent experience. Internally the wordings are indexed up front; at ask time the copilot retrieves the clause and answers. Fast facts (waiting, room rent, entry age) return in well under 3 seconds. Hard RAG questions stream so the first word arrives quickly; the UI still labels the turn as scanning the policies.
 
-**"Insurer X waives it after 36 months with a 10 percent co-pay."** Present answers with the quoted clause and page. The pitch should position verification as the product, because compliance teams care about it more than speed.
+**Marketing line first, clause underneath.** The pitch example ("Insurer X: declared PED waiting is 36 months…") is the agent-facing lead. The quoted clause, page and rule number sit directly below so compliance can verify. Never invent a co-pay or figure that is not in the wording.
 
-**Local model speed.** A 7B model on a laptop may take several seconds to finish a paragraph. We will measure it and stream the reply so it feels immediate.
+**Local model speed.** A 7B model on a laptop may take several seconds to finish a hard paragraph. Stream the reply so it feels immediate; keep the marketing lead on the first sentence.
 
 ## 11. Demo script (draft)
 

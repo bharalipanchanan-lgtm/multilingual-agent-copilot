@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story test</title>
+<style>
+  :root { --bg: #f7f7f5; --fg: #1d1d1b; --muted: #6b6b66; --ok: #1f7a3a; --bad: #b42318; --line: #e2e2dc; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #161615; --fg: #ececea; --muted: #a0a09a; --ok: #5cc27e; --bad: #f2867c; --line: #33332f; } }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--fg); font: 14px/1.45 system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sum { color: var(--muted); margin-bottom: 12px; }
+  button { font: inherit; padding: 6px 12px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+  td, th { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+  .ok { color: var(--ok); font-weight: 600; } .bad { color: var(--bad); font-weight: 600; }
+  .why { color: var(--muted); font-size: 12px; white-space: pre-wrap; }
+  iframe { width: 420px; height: 760px; border: 1px solid var(--line); margin-top: 12px; max-width: 100%; }
+</style>
+</head>
+<body>
+<h1>QuickInsure story test</h1>
+<div class="sum" id="sum">Runs every case in story-cases.js through the real chat page (simple.html). Needs the full server for wording-search questions.</div>
+<button id="run">Run all</button> <label><input id="only" placeholder="filter by name" style="font:inherit;padding:5px"></label>
+<table><thead><tr><th>F</th><th>Case</th><th>Result</th></tr></thead><tbody id="out"></tbody></table>
+<iframe id="app" title="chat under test"></iframe>
+<script src="story-cases.js"></script>
+<script>
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const frame = document.getElementById("app");
+const PROFILE_KEY = "claviq.myInsurers";
+
+async function load(mine) {
+  try { localStorage.setItem(PROFILE_KEY, JSON.stringify(mine || [])); } catch {}
+  await new Promise((r) => { frame.onload = r; frame.src = `simple.html?t=${Date.now()}`; });
+  const w = frame.contentWindow;
+  for (let i = 0; i < 100; i++) {
+    try { if (w.eval("S.products.length") > 0) return w; } catch {}
+    await sleep(100);
+  }
+  throw new Error("chat page did not load the catalogue");
+}
+
+/* wait until no "Reading the wording…" bubble is left and the chat stops changing */
+async function settle(w, timeout) {
+  const chat = w.document.querySelector("#chat");
+  const t0 = Date.now();
+  let last = "", stable = 0;
+  await sleep(250);
+  while (Date.now() - t0 < timeout) {
+    const busy = chat.querySelector(".typing");
+    const now = chat.innerText;
+    if (!busy && now === last) { if (++stable >= 3) return true; } else stable = 0;
+    last = now;
+    await sleep(200);
+  }
+  return false;
+}
+
+function newText(chat, from) {
+  return [...chat.children].slice(from)
+    .filter((e) => !/\bme\b/.test(e.className))   // skip the agent's own typed message
+    .map((e) => e.innerText).join("\n");
+}
+
+async function runCase(c, dates) {
+  const w = await load(c.mine);
+  const doc = w.document, chat = doc.querySelector("#chat");
+  const fails = [];
+  for (const [i, st] of c.steps.entries()) {
+    const from = chat.children.length;
+    if (st.say) {
+      doc.querySelector("#q").value = st.say;
+      doc.querySelector("#f").requestSubmit();
+    } else if (st.click) {
+      /* the first match in the newest message that has one (best card before second) */
+      const msgs = [...chat.children].reverse();
+      const host = msgs.find((m) => [...m.querySelectorAll("button")].some((b) => st.click.test(b.innerText.trim())));
+      const btn = host && [...host.querySelectorAll("button")].find((b) => st.click.test(b.innerText.trim()));
+      if (!btn) { fails.push(`step ${i + 1}: no button matching ${st.click}`); break; }
+      btn.click();
+    }
+    const done = await settle(w, c.wait || 15000);
+    if (!done) fails.push(`step ${i + 1}: still busy after ${(c.wait || 15000) / 1000}s`);
+    const text = newText(chat, from);
+    for (const e of st.expect || []) {
+      const rx = typeof e === "string" ? new RegExp(e.replace("{D36}", dates.d36).replace("{D24}", dates.d24)) : e;
+      if (!rx.test(text)) fails.push(`step ${i + 1} (${st.say || st.click}): missing ${rx}`);
+    }
+    for (const n of st.not || []) if (n.test(text)) fails.push(`step ${i + 1}: should not show ${n}`);
+    if (fails.length) { fails.push(`— got: ${text.slice(0, 600)}`); break; }
+  }
+  return fails;
+}
+
+async function runAll() {
+  const out = document.getElementById("out");
+  out.innerHTML = "";
+  const filter = document.getElementById("only").value.trim().toLowerCase();
+  const w = await load([]);
+  const C = w.QPCore;
+  const dates = { d36: C.waitEndDate(36), d24: C.waitEndDate(24) };
+  const results = [];
+  for (const c of STORY_CASES.filter((c) => !filter || c.name.toLowerCase().includes(filter))) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${c.f}</td><td>${c.name}</td><td>running…</td>`;
+    out.appendChild(tr);
+    let fails;
+    try { fails = await runCase(c, dates); } catch (e) { fails = [String(e)]; }
+    results.push({ f: c.f, name: c.name, ok: !fails.length, fails });
+    tr.lastChild.innerHTML = fails.length ? `<span class="bad">FAIL</span><div class="why"></div>` : `<span class="ok">pass</span>`;
+    if (fails.length) tr.lastChild.querySelector(".why").textContent = fails.join("\n");
+  }
+  const pass = results.filter((r) => r.ok).length;
+  document.getElementById("sum").textContent = `${pass} of ${results.length} cases pass.`;
+  window.__results = results;
+  return results;
+}
+document.getElementById("run").onclick = runAll;
+if (location.hash === "#run") runAll();
+</script>
+</body>
+</html>

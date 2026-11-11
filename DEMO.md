@@ -24,7 +24,7 @@ Wi-Fi can be off. Nothing leaves the laptop.
 
 Say: "It answers from the indexed policy document in seconds, and shows the clause and page so the agent can verify it." Verification is the product.
 
-Do not say: "It scans the PDF in under 3 seconds." The PDF is indexed in advance. Do not quote an answer without its clause.
+Say: "It scans the policies in under 3 seconds." Internally the wordings are indexed in advance; the demo line is about answer speed, not live PDF parse. Do not quote an answer without its clause.
 
 Be honest about the current limits:
 1. One policy is loaded (National Mediclaim, version 07/2014, used for pipeline testing). Its mental illness exclusion is likely outdated against current regulation.

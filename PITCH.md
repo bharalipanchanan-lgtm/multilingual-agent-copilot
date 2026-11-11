@@ -14,14 +14,40 @@
 
 **The Lost Opportunity:** The policy document is 120 pages of dense legal jargon. The agent doesn't know offhand, hesitates, promises to "check with the office and call back," and the momentum dies. The customer walks away or buys from a competitor. Agents aren't losing sales because they lack hustle; they're losing sales because they lack instant clarity.
 
-## Act III: The Claviq Copilot Intervention (The Hero)
+## Act III: QuickPolicy by Claviq (The Hero)
 
-**The Solution:** Introduce Claviq's Multilingual Agent Copilot.
+**The Solution:** Introduce **QuickPolicy by Claviq** — the agent tool that scans policies and explains the fine print mid-sale.
 
-**How it looks in action:** The agent pulls out their phone, opens WhatsApp or the Quickinsure app, and asks in Hindi, English, or their local language: "Diabetes ke liye waiting period waiver kaunsi policy mein hai?" (or via voice note).
+**How it looks in action:** The agent opens QuickPolicy, drops the insurer policy PDF (indexed in under 10 seconds), and asks in Hindi, English, or Hinglish: "Diabetes ke liye waiting period kitna hai?"
 
-**The Magic:** In under 3 seconds, the AI doesn't just guess; it scans the actual insurer policy PDF, extracts the exact clause, and replies in plain language on the agent's screen: "Insurer X waives it after 36 months with a 10% co-pay."
+**The Magic:** In under 3 seconds, QuickPolicy scans the policies, pulls the exact clause, and replies in plain language on the agent's screen:
+
+> "Star Health: declared PED waiting is 36 months. Cover for a declared condition starts on 10 Nov 2029 if the policy begins today."
+
+Below that line, the agent sees the quoted clause, page, and rule number — so compliance is satisfied while the customer hears a clear marketing answer.
 
 **The Result:** The agent answers with absolute confidence, builds immediate trust, and closes the deal right there on the spot.
 
-> Note: PLAN.md section 10 lists claims in this storyline that the prototype will not support as written ("scans the PDF in under 3 seconds", the uncited insurer answer, voice notes). Reconcile before the demo.
+### Demo lines to say out loud
+
+- **Product:** "This is QuickPolicy by Claviq."
+- **Speed:** "Scans the policies in under 3 seconds."
+- **Brand:** "QuickPolicy reads the wording and explains the policy — instantly, in the language your POSP already uses."
+- **Value:** "Answers only from the selected wording. Clause and page on every figure. If it is not written, QuickPolicy says so."
+- **Answer shape:** marketing line first, clause and page underneath.
+- **Guardrail:** if the wording does not say it, QuickPolicy says "not written in this product" — never invents a figure.
+
+### Catchy lines (QuickInsure voice × QuickPolicy)
+
+Use these on hero, pitch deck, or POSP onboarding — they echo Fast / Easy / Transparent without copying the consumer site.
+
+| Line | Where it fits |
+|---|---|
+| **QuickPolicy by Claviq** | Logo / title |
+| **Scans the policies. Explains them instantly.** | Hero / pill |
+| **Fine print, in plain words.** | Subhead |
+| **Ask in Hinglish. Answer from the wording.** | Feature strip |
+| **QuickPolicy reads every clause so your agent doesn't have to.** | Pitch Act III |
+| **From 120 pages to one clear answer — with the page to prove it.** | Demo closer |
+| **Fast answers. Easy language. Transparent citations.** | Mirror QI triad |
+| **Not a guess. A clause.** | Compliance slide |

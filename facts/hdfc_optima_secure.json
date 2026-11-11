@@ -1,0 +1,22 @@
+{
+  "policy_id": "hdfc_optima_secure",
+  "insurer": "HDFC ERGO",
+  "product": "Optima Secure",
+  "version": "HDFHLIP24092V032324",
+  "verified": true,
+  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "attributes": {
+    "ped_waiting": {"value": "36 months of continuous coverage", "clause": "C.1.a (Code Excl01)", "page": 15, "printed_page": 15},
+    "specific_waiting": {"value": "24 months of continuous coverage (cataract, hernia, sinusitis, benign prostatic hypertrophy, etc.)", "clause": "C.1.b (Code Excl02)", "page": 15, "printed_page": 15},
+    "initial_waiting": {"value": "30 days from first policy commencement date (accidents excluded)", "clause": "C.1.c (Code Excl03)", "page": 16, "printed_page": 16},
+    "room_rent": {"value": "At Actuals across all plans (Annexure C Plan Chart)", "clause": "Annexure C 1.1", "page": 27, "printed_page": 27},
+    "copay": {"value": "No zonal co-payment if Tier 2 insured avails treatment in Tier 1", "clause": "D.2.7", "page": 22, "printed_page": 22},
+    "maternity": {"value": "Not covered (excluded under Code Excl18)", "clause": "C.1.r (Code Excl18)", "page": 17, "printed_page": 17},
+    "ayush": {"value": "Inpatient care under Ayurveda, Yoga & Naturopathy, Unani, Siddha and Homeopathy covered up to Policy Schedule sub-limit", "clause": "B.1.4", "page": 8, "printed_page": 8},
+    "daycare": {"value": "All Day Care Treatments covered up to Sum Insured", "clause": "B.1.1.iv", "page": 8, "printed_page": 8},
+    "pre_post": {"value": "60 days pre-hospitalisation and 180 days post-hospitalisation", "clause": "B.1.5, B.1.6", "page": 8, "printed_page": 8},
+    "ncb": {"value": "Plus Benefit increases cover by 50% after 1 year and 100% after 2 years irrespective of claims; Secure Benefit adds 100%–200% from day 1", "clause": "B.2.4, B.2.5", "page": 10, "printed_page": 10},
+    "renewal": {"value": "Lifelong renewability with 30-day Grace Period", "clause": "D.1.11", "page": 19, "printed_page": 19},
+    "sublimits": {"value": "No room rent or disease sub-limits on base hospitalization; Daily Cash for Shared Room ₹800–₹1,000/day", "clause": "Annexure C", "page": 27, "printed_page": 27}
+  }
+}

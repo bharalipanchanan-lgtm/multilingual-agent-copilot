@@ -1,208 +1,161 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claviq Agent Copilot</title>
-<style>
-  :root {
-    --header: #075e54; --header-text: #ffffff; --accent: #25d366; --bg: #ece5dd;
-    --me: #dcf8c6; --bot: #ffffff; --text: #111b21; --muted: #667781; --card: #f5f7f6;
-    --card-border: #d4dbd8; --ok: #1f8a4c; --warn: #b26a00; --stop: #b3261e; --chip: #ffffff;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Devanagari", sans-serif;
-         background: #d1d7db; color: var(--text); display: flex; justify-content: center; }
-  .app { width: 100%; max-width: 480px; height: 100vh; display: flex; flex-direction: column; background: var(--bg);
-         box-shadow: 0 0 24px rgba(0,0,0,.15); }
-  header { background: var(--header); color: var(--header-text); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); display: grid; place-items: center;
-            font-weight: 700; color: #073b33; flex: none; }
-  .title { flex: 1; min-width: 0; }
-  .title b { display: block; font-size: 16px; }
-  .title small { opacity: .85; font-size: 12px; }
-  select { margin-top: 4px; max-width: 100%; font-size: 13px; border-radius: 6px; border: 0; padding: 3px 6px; }
-  #chat { flex: 1; overflow-y: auto; padding: 12px 10px 4px; }
-  .msg { max-width: 88%; margin: 6px 0; padding: 8px 10px 6px; border-radius: 8px; line-height: 1.4; font-size: 15px;
-         box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; word-wrap: break-word; }
-  .me { background: var(--me); margin-left: auto; border-top-right-radius: 0; }
-  .bot { background: var(--bot); border-top-left-radius: 0; }
-  .meta { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: right; white-space: normal; }
-  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-bottom: 6px; white-space: normal; }
-  .b-ok { background: #e3f4ea; color: var(--ok); } .b-warn { background: #fff1db; color: var(--warn); }
-  .b-stop { background: #fde7e5; color: var(--stop); }
-  .cards { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
-  .cardc { background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--header);
-           border-radius: 6px; padding: 7px 9px; font-size: 13px; }
-  .cardc .hd { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
-  .cardc .hd b { color: var(--text); }
-  .cardc q { font-style: italic; }
-  .cardc a { color: var(--header); font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .cardc details { margin-top: 4px; } .cardc summary { cursor: pointer; color: var(--muted); font-size: 12px; }
-  .cardc .full { font-size: 12px; color: #333; margin-top: 4px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
-  table.cmp { border-collapse: collapse; font-size: 12px; margin-top: 6px; width: 100%; white-space: normal; }
-  table.cmp th, table.cmp td { border: 1px solid var(--card-border); padding: 4px 6px; text-align: left; vertical-align: top; }
-  table.cmp th { background: var(--card); }
-  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px; }
-  .chip { flex: none; background: var(--chip); border: 1px solid var(--card-border); border-radius: 16px; padding: 5px 10px;
-          font-size: 13px; cursor: pointer; }
-  form { display: flex; gap: 8px; padding: 8px 10px 12px; }
-  textarea { flex: 1; resize: none; border: 0; border-radius: 20px; padding: 10px 14px; font: inherit; font-size: 15px; height: 42px; }
-  button.send { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--header); color: #fff; font-size: 18px; cursor: pointer; }
-  button.send:disabled { opacity: .5; }
-  .typing { color: var(--muted); font-style: italic; }
-  .ref { display: inline-block; min-width: 18px; padding: 0 5px; margin: 0 1px; border-radius: 9px; background: #e1ece9;
-         color: var(--header); font-size: 11px; font-weight: 700; text-align: center; cursor: pointer; vertical-align: 1px; }
-  .cardc.hl { box-shadow: 0 0 0 2px var(--accent); }
-  details.how { margin-top: 6px; font-size: 12px; color: var(--muted); white-space: normal; }
-  details.how summary { cursor: pointer; }
-  details.how ul { margin: 4px 0 0 16px; padding: 0; }
-  .sys { text-align: center; margin: 8px auto; font-size: 12px; color: #54656f; background: #fff8c4; padding: 4px 10px;
-         border-radius: 6px; max-width: 92%; white-space: normal; }
-</style>
+<meta name="theme-color" content="#ffffff">
+<title>QuickPolicy by Claviq</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="avatar.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<div class="app">
-  <header>
-    <div class="avatar">C</div>
-    <div class="title">
-      <b>Claviq Agent Copilot</b>
-      <small id="status">connecting...</small><br>
-      <select id="policy" aria-label="Policy"></select>
+
+<a class="skip" href="#q">Skip to product search</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="QuickPolicy by Claviq, home">
+      <span class="brand__avatar" data-qpa="mark" data-qpa-track data-qpa-hop></span>
+      <span class="brand__text">
+        <span class="brand__word">Quick<span>Policy</span></span>
+        <span class="brand__tag">by Claviq</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" aria-current="page">Find product</a>
+      <a href="simple.html">Policy chat</a>
+      <a href="/?guide" data-guide-open>Guide</a>
+      <a href="/api/status" target="_blank" rel="noopener">System status</a>
+    </nav>
+
+    <div class="site-header__end">
+      <a class="helpline" href="tel:+917969030500">
+        <span class="helpline__text">
+          <span class="helpline__label">Happy to help you</span>
+          <span class="helpline__num">0796 9030500</span>
+        </span>
+        <span class="helpline__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+        </span>
+      </a>
+      <span class="agent-chip">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <span>Agent</span>
+      </span>
     </div>
-  </header>
-  <div id="chat">
-    <div class="sys">Answers come only from the selected policy wording, with the clause and page. If the policy does not say, the copilot says so.</div>
   </div>
-  <div class="chips" id="chips"></div>
-  <form id="f">
-    <textarea id="q" placeholder="Ask in English, Hindi or Hinglish" rows="1"></textarea>
-    <button class="send" id="send" type="submit" aria-label="Send">&#10148;</button>
-  </form>
-</div>
-<script>
-const $ = s => document.querySelector(s);
-const chat = $("#chat"), qEl = $("#q"), sendBtn = $("#send"), policySel = $("#policy");
-const SUGGEST = [
-  "Diabetes ke liye waiting period kitna hai?",
-  "What is the room rent limit?",
-  "Kya ICU charges par bhi room rent ka cap lagta hai?",
-  "Is maternity covered?",
-  "What is the premium for a 45 year old for 10 lakh?",
-  "क्या इस पॉलिसी में पहले से मौजूद बीमारियों के लिए वेटिंग पीरियड है?",
-  "Compare the diabetes waiting period across policies",
-];
-const BADGE = {
-  answered: ["b-ok", "Checked against the policy text"],
-  compared: ["b-ok", "From the policy fact table"],
-  not_stated: ["b-warn", "Not stated in the document"],
-  refused: ["b-warn", "Outside the policy wording"],
-  blocked: ["b-stop", "Draft blocked: a figure did not match the policy"],
-  error: ["b-stop", "Error"],
-};
+</header>
 
-function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
-function withRefs(text, id) {
-  return esc(text).replace(/\[(\d+)\]/g, (m, n) => `<span class="ref" data-b="${id}" data-n="${n}">${n}</span>`);
-}
-const LANGN = {en: "English", hi: "Hindi", hinglish: "Hinglish"};
-function howPanel(ev, meta) {
-  const items = [];
-  items.push(`Language detected: ${LANGN[ev.lang] || ev.lang || "?"}`);
-  if (meta && meta.route) items.push(`Route: ${({single: "single policy search", compare: "comparison fact table", premium: "out of scope (premium)", hospitals: "out of scope (hospital list)", claim_status: "out of scope (claim status)"})[meta.route] || meta.route}`);
-  if (ev.top_score != null) items.push(`Best clause match score: ${Number(ev.top_score).toFixed(2)}`);
-  if (ev.status === "answered" && ev.backend !== "extractive") items.push("Every figure in the answer was found in the cited clause text");
-  if (ev.status === "blocked") items.push(`Blocked figures not found in the policy: ${(ev.unsupported_numbers || []).join(", ")}`);
-  if (ev.retrieval_ms != null) items.push(`Retrieval ${ev.retrieval_ms} ms, first word ${ev.first_token_ms ?? "-"} ms, total ${ev.ms} ms`);
-  items.push(`Answered by: ${ev.backend || "-"} (runs on this laptop)`);
-  return `<details class="how"><summary>How this was checked</summary><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></details>`;
-}
-let BID = 0;
-function scroll() { chat.scrollTop = chat.scrollHeight; }
-function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; chat.appendChild(d); scroll(); return d; }
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner">
+    <h1 id="hero-title" class="hero__title">Find. Check. Close.</h1>
+    <p class="hero__pill">Scans the policies in under 3 seconds</p>
+    <p class="hero__line">QuickPolicy reads the wording and explains it in plain words — clause and page on every answer.</p>
+    <ol class="steps" aria-label="How it works">
+      <li><span class="step-badge"><b>1</b><i>3</i></span>Pick the exact product</li>
+      <li><span class="step-badge"><b>2</b><i>3</i></span>Ask in English, Hindi or Hinglish</li>
+      <li><span class="step-badge"><b>3</b><i>3</i></span>Close with the cited answer</li>
+    </ol>
+  </div>
+</section>
 
-async function init() {
-  try {
-    const pols = await (await fetch("/api/policies")).json();
-    policySel.innerHTML = pols.map(p => `<option value="${esc(p.policy_id)}">${esc(p.product)} (${esc(p.insurer)})</option>`).join("");
-  } catch (e) { policySel.innerHTML = "<option>no policies</option>"; }
-  $("#chips").innerHTML = SUGGEST.map(s => `<span class="chip">${esc(s)}</span>`).join("");
-  document.querySelectorAll(".chip").forEach(c => c.onclick = () => { qEl.value = c.textContent; ask(); });
-  pollStatus();
-}
-async function pollStatus() {
-  try {
-    const s = await (await fetch("/api/status")).json();
-    $("#status").textContent = s.error ? "model error: " + s.error : s.ready ? `online · ${s.backend}` : "warming up the models...";
-    if (!s.ready && !s.error) setTimeout(pollStatus, 2000);
-  } catch (e) { $("#status").textContent = "offline"; setTimeout(pollStatus, 3000); }
-}
+<main id="main">
+  <div class="notes">
+    <p class="fixture-note fixture-note--ok">
+      <b>Fine print, in plain words.</b>
+      <span>Answers only from the selected wording. Clause and page on every figure. If it is not written, QuickPolicy says so.</span>
+    </p>
+    <div id="catalogue-note"></div>
+  </div>
 
-function renderCards(cites, policyId, id) {
-  if (!cites || !cites.length) return "";
-  return `<div class="cards">` + cites.map(c => `
-    <div class="cardc" id="c${id}-${c.n}">
-      <div class="hd"><span>[${c.n}] <b>${esc(c.section)}</b></span>
-        <a href="/pdf/${esc(c.policy_id || policyId)}#page=${c.page}" target="_blank">Page ${esc(c.printed_page)} &#8599;</a></div>
-      <q>${esc(c.quote)}</q>
-      ${c.text && c.text !== c.quote ? `<details><summary>Full clause</summary><div class="full">${esc(c.text)}</div></details>` : ""}
-    </div>`).join("") + `</div>`;
-}
-function renderTable(t) {
-  if (!t) return "";
-  const head = `<tr><th>Policy</th>${t.attributes.map(a => `<th>${esc(a)}</th>`).join("")}</tr>`;
-  const rows = t.rows.map(r => `<tr><td>${esc(r.product)}${r.verified ? "" : " <small>(unverified)</small>"}</td>${
-    r.cells.map(c => `<td>${esc(c.value)}${c.printed_page ? ` <small>p${c.printed_page}</small>` : ""}</td>`).join("")}</tr>`).join("");
-  return `<table class="cmp">${head}${rows}</table>`;
-}
+  <section class="drop" aria-label="Add a policy PDF">
+    <label class="drop__bar" id="upload-zone" for="pdf-file">
+      <input id="pdf-file" type="file" accept="application/pdf,.pdf" hidden>
+      <span class="drop__icon" aria-hidden="true">
+        <svg class="drop__glyph" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6"/><path d="m9.5 13.5 2.5-2.5 2.5 2.5"/></svg>
+        <svg class="drop__done" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>
+      </span>
+      <span class="drop__text">
+        <b>Have the policy PDF?</b>
+        <span class="upload-status" id="upload-status" role="status" aria-live="polite">Drop it here — QuickPolicy reads it in seconds.</span>
+      </span>
+      <span class="drop__cta">Add PDF</span>
+      <i class="drop__progress" aria-hidden="true"></i>
+    </label>
+    <details class="drop__name">
+      <summary>Name it</summary>
+      <div class="drop__fields">
+        <input id="upload-insurer" type="text" placeholder="Insurer" aria-label="Insurer" autocomplete="organization">
+        <input id="upload-product" type="text" placeholder="Product name" aria-label="Product name" autocomplete="off">
+      </div>
+    </details>
+  </section>
 
-async function ask() {
-  const question = qEl.value.trim();
-  if (!question) return;
-  qEl.value = ""; sendBtn.disabled = true;
-  add("me", esc(question));
-  const bubble = add("bot", `<span class="typing">checking the policy...</span>`);
-  const policyId = policySel.value;
-  const t0 = performance.now();
-  const id = ++BID;
-  let streamed = "", meta = null;
-  try {
-    const resp = await fetch("/api/ask", { method: "POST", headers: {"Content-Type": "application/json"},
-                                         body: JSON.stringify({question, policy_id: policyId}) });
-    const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf = "";
-    while (true) {
-      const {value, done} = await reader.read(); if (done) break;
-      buf += dec.decode(value, {stream: true});
-      let i;
-      while ((i = buf.indexOf("\n\n")) >= 0) {
-        const line = buf.slice(0, i).replace(/^data: /, ""); buf = buf.slice(i + 2);
-        if (!line.trim()) continue;
-        const ev = JSON.parse(line);
-        if (ev.type === "meta") { meta = ev; if (ev.route === "single") bubble.innerHTML = `<span class="typing">reading the policy clauses...</span>`; }
-        if (ev.type === "token") { streamed += ev.text; bubble.innerHTML = withRefs(streamed, id); scroll(); }
-        if (ev.type === "final") {
-          const [cls, label] = BADGE[ev.status] || BADGE.error;
-          const secs = ((performance.now() - t0) / 1000).toFixed(1);
-          bubble.innerHTML = `<span class="badge ${cls}">${label}</span><br>${withRefs(ev.answer, id)}` +
-            renderTable(ev.table) + renderCards(ev.citations, policyId, id) + howPanel(ev, meta) +
-            `<div class="meta">${secs}s</div>`;
-          bubble.querySelectorAll(".ref").forEach(r => r.onclick = () => {
-            const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);
-            if (el) { el.scrollIntoView({behavior: "smooth", block: "center"}); el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1500); }
-          });
-          scroll();
-        }
-      }
-    }
-  } catch (e) {
-    bubble.innerHTML = `<span class="badge b-stop">Error</span><br>${esc(e.message)}`;
-  }
-  sendBtn.disabled = false; qEl.focus();
-}
-$("#f").onsubmit = e => { e.preventDefault(); ask(); };
-qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
-init();
-</script>
+  <section class="search panel" aria-labelledby="search-title">
+    <div class="panel__head">
+      <h2 id="search-title" class="panel__title">Which product exactly?</h2>
+      <p class="panel__sub">Names repeat across tiers and years. Pick one before anything is answered — catalogue or your upload.</p>
+    </div>
+    <div class="panel__body">
+      <label class="sr-only" for="q">Search by product name, insurer, or what the customer needs</label>
+      <div class="search__field">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="e.g. optima restore, or: mother 50, diabetes, room rent 10000">
+      </div>
+      <p class="search__hint">Type a product name, or describe the customer's need in plain words.</p>
+
+      <div class="filters" id="filters" role="group" aria-label="Limit to my insurers"></div>
+    </div>
+  </section>
+
+  <div id="pinned-slot" aria-live="polite"></div>
+
+  <section id="results-section">
+    <h2 id="results-head" class="section-title">Matches</h2>
+    <p class="count" id="count"></p>
+    <ul class="results" id="results"></ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__word brand__word--light">Quick<span>Policy</span></span>
+      <p>by Claviq. Answers only from the insurer’s own wording — clause and page on every figure. Silent when the policy is silent.</p>
+    </div>
+    <div class="site-footer__col">
+      <h3>Tools</h3>
+      <a href="/">Find product</a>
+      <a href="simple.html">Policy chat</a>
+      <a href="/api/policies" target="_blank" rel="noopener">Indexed wordings</a>
+    </div>
+    <div class="site-footer__col">
+      <h3>Support</h3>
+      <a href="tel:+917969030500">0796 9030500</a>
+      <a href="https://quickinsure.co.in/" target="_blank" rel="noopener">quickinsure.co.in</a>
+    </div>
+  </div>
+  <p class="site-footer__legal">For use by licensed agents. Not a policy document — the insurer's wording and schedule always prevail.</p>
+</footer>
+
+<a class="fab fab--avatar" href="simple.html" aria-label="Open policy chat">
+  <span data-qpa="mark" data-qpa-track data-qpa-hop></span>
+  <span class="fab__ping" aria-hidden="true"></span>
+</a>
+
+<script src="agent-core.js?v=15"></script>
+<script src="app.js?v=15"></script>
+<script src="vendor/motion.js"></script>
+<script src="avatar.js"></script>
+<script src="guide.js"></script>
 </body>
 </html>

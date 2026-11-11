@@ -1,4 +1,4 @@
-# Claviq Agent Copilot: local prototype
+# QuickPolicy by Claviq: local prototype
 
 An insurance agent asks about a health policy in English, Hindi or Hinglish. The copilot answers from the policy wording only, quotes the clause, shows the page, and says "not stated in the document" when the policy does not answer.
 

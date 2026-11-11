@@ -1,0 +1,22 @@
+{
+  "policy_id": "star_family_health_optima",
+  "insurer": "Star Health",
+  "product": "Family Health Optima Insurance Plan",
+  "version": "SHAHLIP26046V092526",
+  "verified": true,
+  "verified_by": "ingest/extract.py + catalogue.test.mjs",
+  "attributes": {
+    "ped_waiting": {"value": "36 months of continuous coverage", "clause": "III.1 (Code Excl 01)", "page": 28, "printed_page": 27},
+    "specific_waiting": {"value": "24 months of continuous coverage (cataract, hernia, joint replacement and listed conditions)", "clause": "III.2 (Code Excl 02)", "page": 28, "printed_page": 27},
+    "initial_waiting": {"value": "30 days from first policy commencement date (accidents excluded)", "clause": "III.3 (Code Excl 03)", "page": 29, "printed_page": 28},
+    "room_rent": {"value": "Up to ₹2,000/day at 1–2L SI; ₹5,000/day at 3–4L SI; Single Standard A/C Room at ₹5L SI and above", "clause": "II.A", "page": 10, "printed_page": 9},
+    "copay": {"value": "20% co-payment for insured persons aged 61 years and above at entry or renewal", "clause": "II.A Co-payment", "page": 14, "printed_page": 13},
+    "maternity": {"value": "Excluded (Code Excl 18), except New Born Baby cover and assisted reproduction per schedule", "clause": "III.18 (Code Excl 18)", "page": 31, "printed_page": 30},
+    "ayush": {"value": "Inpatient treatment under Ayurveda, Unani, Siddha and Homeopathy in an AYUSH Hospital payable up to Sum Insured", "clause": "II.4", "page": 10, "printed_page": 9},
+    "daycare": {"value": "All day care procedures covered up to Sum Insured", "clause": "II.A", "page": 10, "printed_page": 9},
+    "pre_post": {"value": "60 days pre-hospitalisation and 90 days post-hospitalisation", "clause": "II.A", "page": 10, "printed_page": 9},
+    "ncb": {"value": "Cumulative Bonus 25% after first claim-free year, 10% per subsequent year up to 100% of Basic Sum Insured", "clause": "II.11", "page": 13, "printed_page": 12},
+    "renewal": {"value": "Lifelong renewability with 30-day Grace Period for annual mode", "clause": "IV.10", "page": 37, "printed_page": 36},
+    "sublimits": {"value": "Yes: Cataract (₹12,000 to ₹50,000 per eye by SI band) and Modern Treatments capped per table", "clause": "II.3, II.5", "page": 10, "printed_page": 9}
+  }
+}
