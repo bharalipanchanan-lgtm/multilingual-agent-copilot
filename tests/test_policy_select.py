@@ -7,7 +7,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from chat import converse  # noqa: E402
-from policy_select import by_number, mentioned, selection_only  # noqa: E402
+from policy_select import by_number, mentioned, one_family, selection_only  # noqa: E402
 
 
 def turn(text, current=None):
@@ -47,17 +47,29 @@ def test_number_picks_from_the_list():
     assert pol == by_number("2") and fin["status"] == "selected"
 
 
-def test_question_without_policy_asks_which_one():
+def test_question_without_policy_is_answered_from_the_nearest_document():
+    from policy_select import by_id
     pol, fin = turn("Room rent kitna hai?")
-    assert pol is None and fin["status"] == "choose_policy" and fin["pending"] is True
-    assert "kaunsa policy document" in fin["answer"].lower()
-    # no list of documents: the agent names one or browses (works for 300 as well as 5)
-    assert fin["options"] == [] and fin["actions"] == ["browse", "find"]
+    assert pol and fin["nearest"] is True and fin["policy_id"] == pol
+    assert by_id(pol)["status"] != "withdrawn" and pol != "national_mediclaim"
+    # it says where the answer came from, in the agent's language, and offers other documents
+    assert "koi policy chuni nahi gayi" in fin["notice"].lower()
+    assert 0 < len(fin["options"]) <= 2 and pol not in [o["policy_id"] for o in fin["options"]]
+    assert fin["actions"] == ["browse"]
 
 
-def test_greeting_like_text_asks_in_english():
-    _, fin = turn("What is the room rent limit?")
-    assert fin["status"] == "choose_policy" and fin["answer"].startswith("Which policy document")
+def test_nearest_alternatives_are_different_products_of_the_right_kind():
+    from policy_select import by_id
+    pol, fin = turn("What is the death benefit?")
+    ids = [pol] + [o["policy_id"] for o in fin["options"]]
+    assert all(by_id(i)["category"] == "term" for i in ids)
+    assert not any(one_family([a, b]) for a in ids for b in ids if a != b)
+
+
+@pytest.mark.parametrize("text", ["policy document", "kya hai", "hello there what"])
+def test_text_without_a_question_asks_which_document(text):
+    pol, fin = turn(text)
+    assert pol is None and fin["status"] == "choose_policy" and fin["actions"] == ["browse", "find"]
 
 
 def test_two_policies_outside_compare_asks_which():
@@ -222,4 +234,5 @@ def test_brand_with_one_document_of_the_kind_opens_it(text, pid):
 @pytest.mark.parametrize("text", ["star rating of hospital kya hai", "day care treatment covered?"])
 def test_short_brand_words_inside_a_sentence_select_nothing(text):
     pol, fin = turn(text)
-    assert pol is None and fin["options"] == []
+    # no product is chosen by the word "star" or "care": at most the nearest document answers, and says so
+    assert pol is None or fin.get("nearest") is True

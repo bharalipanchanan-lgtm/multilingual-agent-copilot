@@ -36,6 +36,41 @@ HINGLISH_SELECT = {"mujhe", "dekhna", "dekhni", "dikhao", "kholo", "chahiye", "c
 # what the page offers when the copilot asks which document: browse, or describe the customer
 ACTIONS = ["browse", "find"]
 
+# National Mediclaim is the 07/2014 wording, loaded to test the pipeline; it is never a default answer
+NEAREST_SKIP = {"national_mediclaim"}
+NEAREST_MIN = 0.45  # a question whose best clause anywhere scores below this gets the plain "which document?"
+NEAREST_NOTE = {
+    "en": "No policy was chosen, so I answered from {name}, the loaded document that matches this question most closely. "
+          "Your customer's policy may say something different: pick it below or browse the documents.",
+    "hinglish": "Koi policy chuni nahi gayi thi, isliye maine {name} se jawab diya, jo is sawaal se sabse zyada match karta hai. "
+                "Customer ki policy mein alag likha ho sakta hai: neeche se uski policy chuniye ya documents browse kijiye.",
+    "hi": "कोई पॉलिसी चुनी नहीं गई थी, इसलिए मैंने {name} से जवाब दिया, जो इस सवाल से सबसे ज़्यादा मिलता है। "
+          "ग्राहक की पॉलिसी में अलग लिखा हो सकता है: नीचे से उसकी पॉलिसी चुनिए या दस्तावेज़ देखिए।",
+}
+
+
+def nearest(question: str, k: int = 3) -> list[str]:
+    """The documents whose clauses match the question most closely, best first: products on sale only,
+    of the kind the question is about (health or term), one per product family, so the alternatives
+    are different products and not versions of the same one."""
+    from policy_select import by_id, category_in
+    from retrieve import search
+    cat = category_in(question)
+    best: dict[str, float] = {}
+    for h in search(question, None, 40):
+        best[h["policy_id"]] = max(best.get(h["policy_id"], 0.0), h["score"])
+    out: list[str] = []
+    for pid, sc in sorted(best.items(), key=lambda x: -x[1]):
+        p = by_id(pid) or {}
+        if sc < NEAREST_MIN or pid in NEAREST_SKIP or p.get("status") == "withdrawn" or (cat and p.get("category") != cat):
+            continue
+        if any(one_family([pid, o]) for o in out):
+            continue
+        out.append(pid)
+        if len(out) == k:
+            break
+    return out
+
 
 def chat_lang(text: str) -> str:
     lang = detect_lang(text)
@@ -153,12 +188,27 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
             yield final("selected", selected_message(policy_id, lang))
             return
 
+    near_opts = None
     if policy_id is None and r not in OUT_OF_SCOPE:
-        yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
-        yield final("choose_policy", choose_message(lang), options=[], actions=ACTIONS, pending=True)
-        return
+        # a question with no document chosen: answer from the closest document, say so, and offer the
+        # next closest ones; only when nothing matches well, ask which document
+        words = [w for w in re.findall(r"[\wऀ-ॿ]+", rest.lower()) if w not in FILLER and len(w) > 2]
+        near = nearest(strip_names(question)) if words else []
+        if not near:
+            yield {"type": "meta", "lang": lang, "route": "choose_policy", "backend": "policy_select"}
+            yield final("choose_policy", choose_message(lang), options=[], actions=ACTIONS, pending=True)
+            return
+        policy_id = near[0]
+        p = known[policy_id]
+        yield {"type": "policy", "policy_id": policy_id, "name": p["name"], "insurer": p["insurer"], "product": p["product"]}
+        rank = {pid: i for i, pid in enumerate(near)}
+        near_opts = sorted(({**o, "differs": ""} for o in options(near[1:])), key=lambda o: rank[o["policy_id"]]) if near[1:] else []
 
     notice = stopped_note(policy_id, lang) if policy_id else None
+    if near_opts is not None:
+        lbl = (known[policy_id].get("label") or known[policy_id]["name"])
+        notice = NEAREST_NOTE[lang].format(name=lbl) + (" " + notice if notice else "")
+    extra = {"nearest": True, "options": near_opts, "actions": ["browse"]} if near_opts is not None else {}
     if policy_id and r == "single":
         # simple questions (room rent, waiting period, age limit, co-pay) come straight from the fact row
         from quick import quick_answer
@@ -166,11 +216,12 @@ def converse(question: str, policy_id: str | None, gen, held: bool = False,
         if q:
             yield {"type": "meta", "lang": lang, "route": "fact", "backend": "fact_table"}
             yield {"type": "final", **q, "lang": lang, "backend": "fact_table", "ms": int((time.time() - t0) * 1000),
-                   "policy_id": policy_id, "notice": notice}
+                   "policy_id": policy_id, "notice": notice, **extra}
             return
 
     for ev in ask_stream(strip_names(question), policy_id, gen):
         if ev.get("type") == "final":
             ev["policy_id"] = policy_id
             ev["notice"] = notice
+            ev.update(extra)
         yield ev

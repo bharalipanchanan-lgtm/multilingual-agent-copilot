@@ -144,6 +144,7 @@
   .notice { display: flex; gap: 8px; align-items: flex-start; background: var(--stop-bg); color: var(--stop); border-radius: 12px; padding: 9px 12px;
             margin: 2px 0 10px; font-size: 13px; font-weight: 500; white-space: normal; }
   .notice svg { flex: none; margin-top: 2px; }
+  .notice.info { background: var(--brand-soft); color: var(--brand-ink); }
   .lbl { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 2px 0 4px; }
   .cards .lbl { margin: 4px 0 0; }
 
@@ -574,8 +575,8 @@ function renderCards(cites, policyId, id, head = "") {
       ${c.text && c.text !== c.quote ? `<details><summary>Full clause</summary><div class="full">${esc(c.text)}</div></details>` : ""}
     </div>`).join("") + `</div>`;
 }
-function noticeBox(t) {
-  return t ? `<div class="notice">${ICON.stop}<span>${esc(t)}</span></div>` : "";
+function noticeBox(t, info = false) {
+  return t ? `<div class="notice${info ? " info" : ""}">${info ? ICON.warn : ICON.stop}<span>${esc(t)}</span></div>` : "";
 }
 function renderFit(f, id) {
   if (!f) return "";
@@ -679,7 +680,7 @@ async function ask(text, held = false) {
           if (ev.table || ev.ranking || ev.fit || (ev.options || []).length) bubble.classList.add("wide");
           const greeting = ev.greeting || ev.status === "greeting";
           // documents offered as cards are not repeated as a numbered list above them
-          let shownText = (ev.options || []).length
+          let shownText = (ev.options || []).length && !ev.nearest
             ? ev.answer.split("\n").filter(l => !/^\d+\.\s/.test(l)).join("\n").replace(/\n{3,}/g, "\n\n") : ev.answer;
           if (ev.fit) {  // best and second are the cards; the reasons for the rest fold away under them
             const ls = ev.answer.split("\n");
@@ -687,12 +688,13 @@ async function ask(text, held = false) {
             shownText = ls.filter(l => !l.startsWith("- ") && !/^(Best|Second|Doosra|सबसे अच्छा|दूसरा):/.test(l)
                                         && !/^(Why the others|Baaki kyun|बाकी क्यों)/.test(l)).join("\n");
           }
-          bubble.innerHTML = (greeting ? "" : badge(cls, label)) + noticeBox(ev.notice) +
+          bubble.innerHTML = (greeting ? "" : badge(cls, label)) + noticeBox(ev.notice, ev.nearest && !/no longer sold/.test(ev.notice || "")) +
             (plain ? `<span class="lbl">In simple words</span>` : "") + `<span class="btext">${withRefs(shownText, id)}</span>` +
             renderFit(ev.fit, id) + renderRanking(ev.ranking) + renderTable(ev.table) +
             ((ev.ranking || ev.fit) && ev.citations && ev.citations.length
               ? `<details class="how"><summary>Sources: ${ev.citations.length} quoted lines from the policies</summary>${renderCards(ev.citations, policyId, id)}</details>`
               : renderCards(ev.citations, policyId, id, plain || ev.quick ? ((ev.citations || []).every(c => c.url) ? "Line from the product web page (not the policy)" : "Exact line from the policy") : "")) +
+            (ev.nearest && (ev.options || []).length ? `<span class="lbl">Ask the same question in another document</span>` : "") +
             optionButtons((ev.options || []).slice(0, ev.which_product ? 8 : SHOWN_IN_CHAT)) +
             actionButtons(ev.actions) +
             (["selected", "choose_policy", "greeting"].includes(ev.status) ? "" : howPanel(ev, meta)) +
@@ -707,6 +709,9 @@ async function ask(text, held = false) {
           if (ev.lang) lastLang = ev.lang;
           // a question asked before any policy was chosen is answered once the agent picks one
           if (ev.status === "choose_policy" && ev.pending) pendingQuestion = question;
+          // answered from the nearest document: tapping another document asks the same question there
+          else if (ev.nearest) pendingQuestion = question;
+          else if (ev.status !== "selected" && ev.status !== "choose_policy") pendingQuestion = null;
           if (ev.status === "selected" && pendingQuestion) { after = pendingQuestion; pendingQuestion = null; }
           bubble.querySelectorAll(".ref").forEach(r => r.onclick = () => {
             const el = document.getElementById(`c${r.dataset.b}-${r.dataset.n}`);

@@ -112,9 +112,13 @@ def main():
 
         def held_question():
             t = send("Diabetes ke liye waiting period kitna hai?")
-            check("kaunsa policy document chahiye" in t.lower(), "did not ask which policy")
-            check("Choose a policy document" in t, "badge missing")
-        step("Question before choosing is held, copilot asks which policy", held_question)
+            last = page.locator(".msg.bot").last
+            check("koi policy chuni nahi gayi" in t.lower(), "no note that it answered from the nearest document")
+            check(last.locator(".notice.info").count() == 1, "the nearest-document note is not in the calm style")
+            check(1 <= last.locator(".opt").count() <= 2, "no other documents offered for the same question")
+            check("national" not in page.inner_text("#cur").lower(), "answered from the 2014 test wording")
+            return page.inner_text("#cur")
+        step("Question before choosing: answered from the nearest document, says so, offers others", held_question)
 
         def choose_by_typing():
             send("National Mediclaim policy dekhna hai", expect_finals=2)
